@@ -11,7 +11,6 @@ import AVFoundation
 
 @available(iOS 8.0, *)
 var backgroundMusicPlayer = AVMIDIPlayer()
-var audioPlayer = AVAudioPlayer()
 
 func playBackgroundMusic(filename: String) {
     //Load the soundfont
