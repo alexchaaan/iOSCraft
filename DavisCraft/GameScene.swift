@@ -7,16 +7,43 @@
 //
 
 import SpriteKit
+import AVFoundation
+
+@available(iOS 8.0, *)
+var backgroundMusicPlayer = AVMIDIPlayer()
+var audioPlayer = AVAudioPlayer()
+
+func playBackgroundMusic(filename: String) {
+    //Load the soundfont
+    let soundFontURL = NSBundle.mainBundle().URLForResource("generalsoundfont.sf2",
+        withExtension: nil,
+        subdirectory: "snd")
+    
+    //Load the midi file
+    let url = NSBundle.mainBundle().URLForResource(filename,
+        withExtension: nil,
+        subdirectory: "snd/music")
+    guard let midiURL = url else {
+        print("Could not find file: \(filename)")
+        return
+    }
+    
+    do {
+        if #available(iOS 8.0, *) {
+            backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL: soundFontURL)
+            backgroundMusicPlayer.prepareToPlay()
+            backgroundMusicPlayer.play(nil)
+        } else {
+            print("I sure hope we don't support iOS 7.")
+            // Fallback on earlier versions
+        }
+    } catch let error as NSError {
+        print(error.description)
+    }
+}
 
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
-        
-        self.addChild(myLabel)
     }
     
 

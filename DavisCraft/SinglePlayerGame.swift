@@ -12,7 +12,15 @@ class SinglePlayerGame: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let sound = AVAudioPlayerPool.returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd("explode.wav", subdir: "misc")
+        sound?.prepareToPlay()
+        sound?.play()
+        
+        // Uncomment for multiple sounds
+//        let sound2 = AVAudioPlayerPool.returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd("annoyed1.wav", subdir: "archer")
+//        sound2?.prepareToPlay()
+//        sound2?.play()
+        
         // Do any additional setup after loading the view.
     }
 

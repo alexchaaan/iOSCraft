@@ -11,6 +11,12 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        playBackgroundMusic("menu.mid")
+     
+    }
+    
     override func shouldAutorotate() -> Bool {
         return true
     }
