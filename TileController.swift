@@ -10,7 +10,7 @@ import UIKit
 
 
 class Tile: UIViewController{
-     let tile = DrawTile(frame: CGRectMake(0, 0, 100, 100))
+     let tile = DrawTile(frame: CGRectMake(0, 0, 1000, 1000))
     
     override func viewDidLoad() {
         super.viewDidLoad()

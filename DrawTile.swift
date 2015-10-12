@@ -16,7 +16,6 @@ class DrawTile: UIView {
         //we can use CGPointMake to draw the images to specific location on map later
         let location = CGPointMake(0, 0)
         image?.drawAtPoint(location)
-        
     }
 
 }
