@@ -71,6 +71,19 @@
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdg-r7-QWd" userLabel="MultiTouch">
+                                <rect key="frame" x="175" y="302" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5Yr-hf-FZM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="MultiTouch" backgroundImage="tempButton.png">
+                                    <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="o3v-9i-amE" kind="show" id="fiU-cL-uU4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -203,6 +216,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7gf-MJ-Y1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="810" y="79"/>
+        </scene>
+        <!--MultiTouch-->
+        <scene sceneID="6Qg-mO-uPN">
+            <objects>
+                <viewController title="MultiTouch" id="o3v-9i-amE" customClass="MultiTouch" customModule="DavisCraft" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kcw-3g-0Hs"/>
+                        <viewControllerLayoutGuide type="bottom" id="O94-e8-DF1"/>
+                    </layoutGuides>
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PCV-vH-AXY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spaceship.png" translatesAutoresizingMaskIntoConstraints="NO" id="4vv-mf-VLg">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="aKe-HC-wkM" appends="YES" id="bqm-48-ieE"/>
+                                    <outletCollection property="gestureRecognizers" destination="4UT-kQ-Qcc" appends="YES" id="Pgc-hH-g2g"/>
+                                    <outletCollection property="gestureRecognizers" destination="ntv-1o-1Dg" appends="YES" id="T4H-Eb-H3I"/>
+                                </connections>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xz-d8-bPV">
+                                <rect key="frame" x="20" y="28" width="100" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Cancel" backgroundImage="tempButton.png">
+                                    <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="kdp-Il-N8D"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mFj-oH-pVU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dS-sr-0FV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aKe-HC-wkM"/>
+                <tapGestureRecognizer numberOfTouchesRequired="2" id="4UT-kQ-Qcc"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ntv-1o-1Dg">
+                    <connections>
+                        <action selector="handlePan:" destination="o3v-9i-amE" id="k7F-cb-z0G"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="81" y="875"/>
         </scene>
         <!--Options-->
         <scene sceneID="Hhq-wE-wky">
@@ -506,11 +567,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Spaceship.png" width="394" height="347"/>
         <image name="Texture.png" width="256" height="256"/>
         <image name="tempButton.png" width="518" height="350"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nyL-yf-pQz"/>
+        <segue reference="kdp-Il-N8D"/>
         <segue reference="fbY-CM-IuY"/>
     </inferredMetricsTieBreakers>
 </document>
