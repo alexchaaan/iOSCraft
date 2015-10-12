@@ -18,6 +18,9 @@
 		3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF91BC5F26F00DD4285 /* FontKingthings24.png */; settings = {ASSET_TAGS = (); }; };
 		3F6FFCFE1BC5F26F00DD4285 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFA1BC5F26F00DD4285 /* Splash.png */; settings = {ASSET_TAGS = (); }; };
 		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		4927C1831BCBBA0F000CD4C9 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4927C1821BCBBA0F000CD4C9 /* Farm.png */; settings = {ASSET_TAGS = (); }; };
+		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; settings = {ASSET_TAGS = (); }; };
+		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; settings = {ASSET_TAGS = (); }; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
 		CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBEF61B81BBF98C10043B54D /* GameScene.sks */; };
 		CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61BA1BBF98C10043B54D /* GameScene.swift */; };
@@ -47,6 +50,9 @@
 		3F6FFCF91BC5F26F00DD4285 /* FontKingthings24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings24.png; sourceTree = "<group>"; };
 		3F6FFCFA1BC5F26F00DD4285 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4927C1821BCBBA0F000CD4C9 /* Farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Farm.png; path = ../../Farm.png; sourceTree = "<group>"; };
+		4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawTile.swift; path = ../DrawTile.swift; sourceTree = "<group>"; };
+		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
 		CBEF61B11BBF98C10043B54D /* DavisCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavisCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEF61B51BBF98C10043B54D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBEF61B61BBF98C10043B54D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +107,9 @@
 		CBEF61B31BBF98C10043B54D /* DavisCraft */ = {
 			isa = PBXGroup;
 			children = (
+				4927C1821BCBBA0F000CD4C9 /* Farm.png */,
+				49E010801BCBB601008CB09E /* TileController.swift */,
+				4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */,
 				CBEF61B61BBF98C10043B54D /* AppDelegate.swift */,
 				CBEF61B81BBF98C10043B54D /* GameScene.sks */,
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
@@ -230,6 +239,7 @@
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
 				3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */,
 				CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */,
+				4927C1831BCBBA0F000CD4C9 /* Farm.png in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
 				3F6FFCFC1BC5F26F00DD4285 /* tempButton.png in Resources */,
 			);
@@ -252,6 +262,8 @@
 				3F6FFCF41BC5F22A00DD4285 /* GameViewController.swift in Sources */,
 				CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */,
 				3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */,
+				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
+				4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */,
 				3F6FFCEC1BC5F1F400DD4285 /* SinglePlayerGame.swift in Sources */,
 				3F6FFCF11BC5F20F00DD4285 /* SoundOptions.swift in Sources */,
 				CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */,
