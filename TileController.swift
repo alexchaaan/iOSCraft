@@ -10,7 +10,7 @@ import UIKit
 
 
 class Tile: UIViewController{
-     let tile = DrawTile(frame: CGRectMake(0, 0, 0, 0))
+     let tile = DrawTile(frame: CGRectMake(0, 0, 100, 100))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,7 @@ class Tile: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func Pressed(sender: AnyObject) {
-        tile.setNeedsDisplay()
-        
-    }
+    
 }
 
 
