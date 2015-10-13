@@ -18,6 +18,8 @@ class Tile: UIViewController{
         let screenWidth = self.view.frame.size.width
         let screenHeight = self.view.frame.size.height
         let tile = DrawTile(frame: CGRectMake(0, 0, screenWidth, screenHeight))
+        //add a Subview that is the size of the screen
+        //works for different devices
         view.addSubview(tile)
         
         

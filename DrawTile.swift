@@ -16,7 +16,9 @@ class DrawTile: UIView {
         let h = image!.size.height
         let w = image!.size.width
         let tile = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h/2, w, h/4))
-        //we can use CGPointMake to draw the images to specific location on map later
+        
+        //we can use CGPointMake to draw the images to specific location on our map
+        //So we can draw it in the middle or on the right or whereever we need
         let location = CGPointMake(100 , 100)
         //image?.drawAtPoint(location)
         UIImage(CGImage: tile!).drawAtPoint(location)
