@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -243,27 +243,38 @@
                                 <rect key="frame" x="180" y="236" width="240" height="128"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="4UT-kQ-Qcc" appends="YES" id="Pgc-hH-g2g"/>
                                     <outletCollection property="gestureRecognizers" destination="ntv-1o-1Dg" appends="YES" id="T4H-Eb-H3I"/>
                                 </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lAX-x1-l6z" appends="YES" id="T3b-RT-2UA"/>
+                            <outletCollection property="gestureRecognizers" destination="cDv-Ue-Wvu" appends="YES" id="N2D-KN-07e"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="mFj-oH-pVU"/>
+                    <connections>
+                        <outlet property="Spaceship" destination="4vv-mf-VLg" id="CyQ-18-9P9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dS-sr-0FV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTouchesRequired="2" id="4UT-kQ-Qcc">
-                    <connections>
-                        <action selector="handleTap:" destination="o3v-9i-amE" id="hsc-wO-dE2"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="ntv-1o-1Dg">
                     <connections>
                         <action selector="handlePan:" destination="o3v-9i-amE" id="k7F-cb-z0G"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="lAX-x1-l6z">
+                    <connections>
+                        <action selector="handleTap:" destination="o3v-9i-amE" id="N00-xo-PRM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTouchesRequired="2" id="cDv-Ue-Wvu">
+                    <connections>
+                        <action selector="handleTap:" destination="o3v-9i-amE" id="o6n-Jz-IJe"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="81" y="875"/>
         </scene>

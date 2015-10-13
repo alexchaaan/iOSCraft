@@ -17,7 +17,8 @@ class MultiTouch: UIViewController {
     var snapBehaviour : UISnapBehavior!
     var dynAnimator: UIDynamicAnimator!
 
-    @IBAction func handleTap(sender: UITapGestureRecognizer) {
+    @IBOutlet var Spaceship: UIImageView!
+    /*@IBAction func handleTap(sender: UITapGestureRecognizer) {
         
     
         let tapPoint: CGPoint = sender.locationInView(view)
@@ -27,11 +28,14 @@ class MultiTouch: UIViewController {
         
         snapBehaviour = UISnapBehavior(item: boxView, snapToPoint: tapPoint)
         dynAnimator.addBehavior(snapBehaviour)
+    }*/
+    
+    @IBAction func handleTap(recognizer:UITapGestureRecognizer) {
+        let location = recognizer.locationInView(self.view)
+        Spaceship.center = location
     }
     
-
-    
-/*    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
         if let view = recognizer.view {
             view.center = CGPoint(x:view.center.x + translation.x,
@@ -39,7 +43,7 @@ class MultiTouch: UIViewController {
         }
         recognizer.setTranslation(CGPointZero, inView: self.view)
     }
-*/
+
 
 
     override func viewDidLoad() {
