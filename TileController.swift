@@ -10,12 +10,17 @@ import UIKit
 
 
 class Tile: UIViewController{
-     let tile = DrawTile(frame: CGRectMake(0, 0, 1000, 1000))
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let screenWidth = self.view.frame.size.width
+        let screenHeight = self.view.frame.size.height
+        let tile = DrawTile(frame: CGRectMake(0, 0, screenWidth, screenHeight))
         view.addSubview(tile)
+        
+        
         
     }
 
