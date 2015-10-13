@@ -22,8 +22,6 @@ class Tile: UIViewController{
         //works for different devices
         view.addSubview(tile)
         
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

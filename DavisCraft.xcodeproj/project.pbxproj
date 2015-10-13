@@ -20,6 +20,7 @@
 		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		4927C1831BCBBA0F000CD4C9 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4927C1821BCBBA0F000CD4C9 /* Farm.png */; settings = {ASSET_TAGS = (); }; };
 		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; settings = {ASSET_TAGS = (); }; };
+		498B29A11BCCF7D60061A486 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498B29A01BCCF7D60061A486 /* Farm.dat */; settings = {ASSET_TAGS = (); }; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; settings = {ASSET_TAGS = (); }; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
 		CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBEF61B81BBF98C10043B54D /* GameScene.sks */; };
@@ -52,6 +53,7 @@
 		3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4927C1821BCBBA0F000CD4C9 /* Farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Farm.png; path = ../../Farm.png; sourceTree = "<group>"; };
 		4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawTile.swift; path = ../DrawTile.swift; sourceTree = "<group>"; };
+		498B29A01BCCF7D60061A486 /* Farm.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Farm.dat; path = ../../160/bin/data/Farm.dat; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
 		CBEF61B11BBF98C10043B54D /* DavisCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavisCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEF61B51BBF98C10043B54D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				4927C1821BCBBA0F000CD4C9 /* Farm.png */,
+				498B29A01BCCF7D60061A486 /* Farm.dat */,
 				49E010801BCBB601008CB09E /* TileController.swift */,
 				4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */,
 				CBEF61B61BBF98C10043B54D /* AppDelegate.swift */,
@@ -238,6 +241,7 @@
 				3F6FFCFB1BC5F26F00DD4285 /* Texture.png in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
 				3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */,
+				498B29A11BCCF7D60061A486 /* Farm.dat in Resources */,
 				CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */,
 				4927C1831BCBBA0F000CD4C9 /* Farm.png in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
