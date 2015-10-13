@@ -10,17 +10,28 @@ import UIKit
 import SpriteKit
 
 
-class MultiTouch: UIViewController,UITextFieldDelegate {
+class MultiTouch: UIViewController {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
     
-    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+    var boxView: UIView!
+    var snapBehaviour : UISnapBehavior!
+    var dynAnimator: UIDynamicAnimator!
+
+    @IBAction func handleTap(sender: UITapGestureRecognizer) {
+        
+    
+        let tapPoint: CGPoint = sender.locationInView(view)
+        if (snapBehaviour != nil) {
+            dynAnimator.removeBehavior(snapBehaviour)
+        }
+        
+        snapBehaviour = UISnapBehavior(item: boxView, snapToPoint: tapPoint)
+        dynAnimator.addBehavior(snapBehaviour)
+    }
+    
+
+    
+/*    @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
         if let view = recognizer.view {
             view.center = CGPoint(x:view.center.x + translation.x,
@@ -28,5 +39,35 @@ class MultiTouch: UIViewController,UITextFieldDelegate {
         }
         recognizer.setTranslation(CGPointZero, inView: self.view)
     }
+*/
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+  
+    /* override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        let theTouch = touches.anyObject() as UITouch
+        var startPoint = theTouch.locationInView(self.view)
+    
+    }
+    
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+        let theTouch = touches.anyObject() as UITouch
+        
+        var touchLocation = theTouch.locationInView(self.view)
+
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        let theTouch = touches.anyObject() as UITouch
+        
+        var endPoint = theTouch.locationInView(self.view)
+
+    }
+*/
+    
+    
 
 }
