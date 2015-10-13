@@ -15,7 +15,11 @@ class DrawTile: UIView {
         let image = UIImage(named: "Farm.png")
         let h = image!.size.height
         let w = image!.size.width
-        let tile = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h/2, w, h/4))
+        //number of tiles that we can get from the .dat file later
+        let numberOfTiles = 4;
+        //index is the number of the specific tile we want
+        let index = 2
+        let tile = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles))), w, h/CGFloat(numberOfTiles)))
         
         //we can use CGPointMake to draw the images to specific location on our map
         //So we can draw it in the middle or on the right or whereever we need
