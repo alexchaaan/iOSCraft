@@ -22,6 +22,10 @@
 		BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0E08881BCB6B990067D19B /* Spaceship.png */; settings = {ASSET_TAGS = (); }; };
 		4CB585FE1BC8ABC6009CAC58 /* snd in Resources */ = {isa = PBXBuildFile; fileRef = 4CB585FD1BC8ABC6009CAC58 /* snd */; settings = {ASSET_TAGS = (); }; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; settings = {ASSET_TAGS = (); }; };
+		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; settings = {ASSET_TAGS = (); }; };
+		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; settings = {ASSET_TAGS = (); }; };
+		CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AC1BCE3E6000B94658 /* Farm.dat */; settings = {ASSET_TAGS = (); }; };
+		CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AE1BCE3E8200B94658 /* Farm.png */; settings = {ASSET_TAGS = (); }; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
 		CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBEF61B81BBF98C10043B54D /* GameScene.sks */; };
 		CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61BA1BBF98C10043B54D /* GameScene.swift */; };
@@ -55,6 +59,10 @@
 		BC0E08881BCB6B990067D19B /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Images.xcassets/Spaceship.imageset/Spaceship.png; sourceTree = "<group>"; };
 		4CB585FD1BC8ABC6009CAC58 /* snd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snd; sourceTree = "<group>"; };
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
+		4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawTile.swift; path = ../DrawTile.swift; sourceTree = "<group>"; };
+		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
+		CB2C15AC1BCE3E6000B94658 /* Farm.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Farm.dat; sourceTree = "<group>"; };
+		CB2C15AE1BCE3E8200B94658 /* Farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Farm.png; sourceTree = "<group>"; };
 		CBEF61B11BBF98C10043B54D /* DavisCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavisCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEF61B51BBF98C10043B54D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBEF61B61BBF98C10043B54D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB2C15AB1BCE3E3300B94658 /* Spritesheets */ = {
+			isa = PBXGroup;
+			children = (
+				CB2C15AE1BCE3E8200B94658 /* Farm.png */,
+				CB2C15AC1BCE3E6000B94658 /* Farm.dat */,
+			);
+			name = Spritesheets;
+			sourceTree = "<group>";
+		};
 		CBEF61A81BBF98C10043B54D = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +126,8 @@
 		CBEF61B31BBF98C10043B54D /* DavisCraft */ = {
 			isa = PBXGroup;
 			children = (
+				49E010801BCBB601008CB09E /* TileController.swift */,
+				4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */,
 				CBEF61B61BBF98C10043B54D /* AppDelegate.swift */,
 				CBEF61B81BBF98C10043B54D /* GameScene.sks */,
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
@@ -132,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				4CB585FD1BC8ABC6009CAC58 /* snd */,
+				CB2C15AB1BCE3E3300B94658 /* Spritesheets */,
 				CBEF61B51BBF98C10043B54D /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -240,10 +260,12 @@
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
 				BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */,
 				3F6FFCFE1BC5F26F00DD4285 /* Splash.png in Resources */,
+				CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */,
 				3F6FFCFB1BC5F26F00DD4285 /* Texture.png in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
 				3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */,
 				CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */,
+				CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
 				3F6FFCFC1BC5F26F00DD4285 /* tempButton.png in Resources */,
 			);
@@ -268,6 +290,8 @@
 				CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */,
 				4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */,
 				3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */,
+				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
+				4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */,
 				3F6FFCEC1BC5F1F400DD4285 /* SinglePlayerGame.swift in Sources */,
 				3F6FFCF11BC5F20F00DD4285 /* SoundOptions.swift in Sources */,
 				CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */,
