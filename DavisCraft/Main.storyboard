@@ -229,15 +229,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spaceship.png" translatesAutoresizingMaskIntoConstraints="NO" id="4vv-mf-VLg">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="aKe-HC-wkM" appends="YES" id="bqm-48-ieE"/>
-                                    <outletCollection property="gestureRecognizers" destination="4UT-kQ-Qcc" appends="YES" id="Pgc-hH-g2g"/>
-                                    <outletCollection property="gestureRecognizers" destination="ntv-1o-1Dg" appends="YES" id="T4H-Eb-H3I"/>
-                                </connections>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xz-d8-bPV">
                                 <rect key="frame" x="20" y="28" width="100" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -248,20 +239,42 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="kdp-Il-N8D"/>
                                 </connections>
                             </button>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spaceship.png" translatesAutoresizingMaskIntoConstraints="NO" id="4vv-mf-VLg">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ntv-1o-1Dg" appends="YES" id="T4H-Eb-H3I"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lAX-x1-l6z" appends="YES" id="T3b-RT-2UA"/>
+                            <outletCollection property="gestureRecognizers" destination="cDv-Ue-Wvu" appends="YES" id="N2D-KN-07e"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="mFj-oH-pVU"/>
+                    <connections>
+                        <outlet property="Spaceship" destination="4vv-mf-VLg" id="CyQ-18-9P9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1dS-sr-0FV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="aKe-HC-wkM"/>
-                <tapGestureRecognizer numberOfTouchesRequired="2" id="4UT-kQ-Qcc"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="ntv-1o-1Dg">
                     <connections>
                         <action selector="handlePan:" destination="o3v-9i-amE" id="k7F-cb-z0G"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="lAX-x1-l6z">
+                    <connections>
+                        <action selector="handleTap:" destination="o3v-9i-amE" id="N00-xo-PRM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer numberOfTouchesRequired="2" id="cDv-Ue-Wvu">
+                    <connections>
+                        <action selector="handleTap:" destination="o3v-9i-amE" id="o6n-Jz-IJe"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="81" y="875"/>
         </scene>
@@ -572,7 +585,7 @@
         <image name="tempButton.png" width="518" height="350"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kdp-Il-N8D"/>
         <segue reference="fbY-CM-IuY"/>
+        <segue reference="kdp-Il-N8D"/>
     </inferredMetricsTieBreakers>
 </document>
