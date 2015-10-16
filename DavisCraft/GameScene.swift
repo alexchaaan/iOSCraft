@@ -31,21 +31,15 @@ func playBackgroundMusic(filename: String) {
     
     
     do {
-        if #available(iOS 8.0, *) {
-            let completion:AVMIDIPlayerCompletionHandler =
-            {
-                //backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL: soundFontURL)
-                backgroundMusicPlayer.prepareToPlay()
-                backgroundMusicPlayer.play(nil)
-            }
-            
-            backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL: soundFontURL)
-            backgroundMusicPlayer.prepareToPlay()
-            backgroundMusicPlayer.play(nil)
-        } else {
-            print("I sure hope we don't support iOS 7.")
-            // Fallback on earlier versions
+        let completion:AVMIDIPlayerCompletionHandler =
+        {
+                playBackgroundMusic("lose.mid")
         }
+            
+        backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL:soundFontURL)
+        backgroundMusicPlayer.prepareToPlay()
+        backgroundMusicPlayer.play(completion)
+
     } catch let error as NSError {
         print(error.description)
     }
