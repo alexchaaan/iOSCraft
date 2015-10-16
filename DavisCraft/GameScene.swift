@@ -27,8 +27,18 @@ func playBackgroundMusic(filename: String) {
         return
     }
     
+
+    
+    
     do {
         if #available(iOS 8.0, *) {
+            let completion:AVMIDIPlayerCompletionHandler =
+            {
+                //backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL: soundFontURL)
+                backgroundMusicPlayer.prepareToPlay()
+                backgroundMusicPlayer.play(nil)
+            }
+            
             backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL: soundFontURL)
             backgroundMusicPlayer.prepareToPlay()
             backgroundMusicPlayer.play(nil)
