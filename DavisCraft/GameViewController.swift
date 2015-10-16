@@ -13,7 +13,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        playBackgroundMusic("lose.mid")
+        playBackgroundMusic("menu.mid")
      
     }
     

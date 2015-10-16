@@ -33,7 +33,7 @@ func playBackgroundMusic(filename: String) {
     do {
         let completion:AVMIDIPlayerCompletionHandler =
         {
-                playBackgroundMusic("lose.mid")
+                playBackgroundMusic(filename)
         }
             
         backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL:soundFontURL)
