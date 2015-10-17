@@ -9,9 +9,9 @@
 import UIKit
 
 
-class Tile: UIViewController{
+class Tile: UIViewController {
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -34,7 +34,18 @@ class Tile: UIViewController{
         scrollView.contentSize = screen.bounds.size
         scrollView.backgroundColor = UIColor.blackColor()
         scrollView.addSubview(screen)
+        scrollView.decelerationRate = UIScrollViewDecelerationRateFast
+        //scrollView.userInteractionEnabled = false
         view.addSubview(scrollView)
+        
+        //Gesture Recognizers
+        let tapRec = UITapGestureRecognizer()
+        //let panRec = UIPanGestureRecognizer()
+        tapRec.addTarget(self, action: "tappedView:")
+        //panRec.addTarget(self, action: "panView:")
+        scrollView.addGestureRecognizer(tapRec)
+        
+        //scrollView.addGestureRecognizer(panRec)
         
     }
 
@@ -42,6 +53,21 @@ class Tile: UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func tappedView(recognizer:UITapGestureRecognizer) {
+        let sound = AVAudioPlayerPool.returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd("thunk.wav", subdir: "misc")
+        sound?.prepareToPlay()
+        sound?.play()
+    }
+    
+    /*func panView(recognizer:UIPanGestureRecognizer) {
+        let translation = recognizer.translationInView(self.view)
+        if let view = recognizer.view {
+            view.center = CGPoint(x:view.center.x + translation.x,
+                y:view.center.y + translation.y)
+        }
+        recognizer.setTranslation(CGPointZero, inView: self.view)
+    }*/
     
 }
 

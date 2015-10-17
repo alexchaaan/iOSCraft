@@ -31,9 +31,13 @@ class MultiTouch: UIViewController {
     }*/
     
     @IBAction func handleTap(recognizer:UITapGestureRecognizer) {
+        let sound = AVAudioPlayerPool.returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd("thunk.wav", subdir: "misc")
+        sound?.prepareToPlay()
+        sound?.play()
         let location = recognizer.locationInView(self.view)
         Spaceship.center = location
     }
+    
     
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translationInView(self.view)
