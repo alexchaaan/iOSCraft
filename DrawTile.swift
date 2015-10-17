@@ -30,7 +30,7 @@ class DrawTile: UIView {
         //number of tiles that we got from the .dat file
         let numberOfTiles = Int(contentArray[1]);
         //index is the number of the specific tile we want
-        let index = 2
+        let index = 4
         let tile = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
         
         //we can use CGPointMake to draw the images to specific location on our map
