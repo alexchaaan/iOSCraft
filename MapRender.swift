@@ -56,7 +56,7 @@ class MapRender: UIView {
         var tileDictionary = readTerrain()
         var x = 0
         var y = 0
-let location = CGPointMake(100 , 100)
+//let location = CGPointMake(100 , 100)
         let (map,height,width) = readMap()
         for var i = 3; i < (width + 3); i++ {
             for var j in map[i].characters{ //make sure to account for the extra 2 thing later
@@ -76,7 +76,7 @@ let location = CGPointMake(100 , 100)
             x += 32
             y = 0
         }
-        UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
+        //UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
     }
     
     
