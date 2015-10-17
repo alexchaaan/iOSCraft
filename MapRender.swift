@@ -58,15 +58,15 @@ class MapRender: UIView {
         var y = 0
 let location = CGPointMake(100 , 100)
         let (map,height,width) = readMap()
-        for var i = 3; i < (height + 3); i++ {
-            for var j = 0; j < (width + 2); j++ {
+        for var i = 3; i < (width + 3); i++ {
+            for var j in map[i].characters{ //make sure to account for the extra 2 thing later
                 let location = CGPointMake(CGFloat(x), CGFloat(y))
-                switch map[j] {
-                case "g":
+                switch j {
+                case "G":
                         UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
-                case "f":
+                case "F":
                         UIImage(CGImage: tileDictionary!["tree-a"]!).drawAtPoint(location)
-                case "r":
+                case "R":
                         UIImage(CGImage: tileDictionary!["rubble-a"]!).drawAtPoint(location)
                 default:
                         UIImage(CGImage: tileDictionary!["dirt-a"]!).drawAtPoint(location)
