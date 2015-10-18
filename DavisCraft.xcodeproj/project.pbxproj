@@ -18,12 +18,12 @@
 		3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF91BC5F26F00DD4285 /* FontKingthings24.png */; settings = {ASSET_TAGS = (); }; };
 		3F6FFCFE1BC5F26F00DD4285 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFA1BC5F26F00DD4285 /* Splash.png */; settings = {ASSET_TAGS = (); }; };
 		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; settings = {ASSET_TAGS = (); }; };
-		BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0E08881BCB6B990067D19B /* Spaceship.png */; settings = {ASSET_TAGS = (); }; };
-		4CB585FE1BC8ABC6009CAC58 /* snd in Resources */ = {isa = PBXBuildFile; fileRef = 4CB585FD1BC8ABC6009CAC58 /* snd */; settings = {ASSET_TAGS = (); }; };
-		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; settings = {ASSET_TAGS = (); }; };
 		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; settings = {ASSET_TAGS = (); }; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; settings = {ASSET_TAGS = (); }; };
+		4CB585FE1BC8ABC6009CAC58 /* snd in Resources */ = {isa = PBXBuildFile; fileRef = 4CB585FD1BC8ABC6009CAC58 /* snd */; settings = {ASSET_TAGS = (); }; };
+		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; settings = {ASSET_TAGS = (); }; };
+		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; settings = {ASSET_TAGS = (); }; };
+		BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0E08881BCB6B990067D19B /* Spaceship.png */; settings = {ASSET_TAGS = (); }; };
 		CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AC1BCE3E6000B94658 /* Farm.dat */; settings = {ASSET_TAGS = (); }; };
 		CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AE1BCE3E8200B94658 /* Farm.png */; settings = {ASSET_TAGS = (); }; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
@@ -55,12 +55,12 @@
 		3F6FFCF91BC5F26F00DD4285 /* FontKingthings24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings24.png; sourceTree = "<group>"; };
 		3F6FFCFA1BC5F26F00DD4285 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
-		BC0E08881BCB6B990067D19B /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Images.xcassets/Spaceship.imageset/Spaceship.png; sourceTree = "<group>"; };
-		4CB585FD1BC8ABC6009CAC58 /* snd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snd; sourceTree = "<group>"; };
-		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
 		4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawTile.swift; path = ../DrawTile.swift; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
+		4CB585FD1BC8ABC6009CAC58 /* snd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snd; sourceTree = "<group>"; };
+		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
+		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
+		BC0E08881BCB6B990067D19B /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Images.xcassets/Spaceship.imageset/Spaceship.png; sourceTree = "<group>"; };
 		CB2C15AC1BCE3E6000B94658 /* Farm.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Farm.dat; sourceTree = "<group>"; };
 		CB2C15AE1BCE3E8200B94658 /* Farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Farm.png; sourceTree = "<group>"; };
 		CBEF61B11BBF98C10043B54D /* DavisCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavisCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,7 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DavisCraft/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -417,7 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DavisCraft/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
