@@ -14,32 +14,23 @@ var backgroundMusicPlayer = AVMIDIPlayer()
 
 func playBackgroundMusic(filename: String) {
     //Load the soundfont
-    let soundFontURL = NSBundle.mainBundle().URLForResource("generalsoundfont.sf2",
-        withExtension: nil,
+    let soundFontURL = NSBundle.mainBundle().URLForResource("generalsoundfont",
+        withExtension: "sf2",
         subdirectory: "snd")
     
     //Load the midi file
     let url = NSBundle.mainBundle().URLForResource(filename,
         withExtension: nil,
         subdirectory: "snd/music")
-    guard let midiURL = url else {
+    guard let midiURL = url else {  
         print("Could not find file: \(filename)")
         return
     }
     
-
-    
-    
     do {
-        let completion:AVMIDIPlayerCompletionHandler =
-        {
-                playBackgroundMusic(filename)
-        }
-            
         backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL:soundFontURL)
         backgroundMusicPlayer.prepareToPlay()
-        backgroundMusicPlayer.play(completion)
-
+        backgroundMusicPlayer.play({playBackgroundMusic(filename)})
     } catch let error as NSError {
         print(error.description)
     }
@@ -47,8 +38,8 @@ func playBackgroundMusic(filename: String) {
 
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
+
     }
-    
 
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
