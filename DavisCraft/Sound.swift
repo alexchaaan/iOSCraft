@@ -9,8 +9,6 @@
 import Foundation
 import AVFoundation
 
-@available(iOS 8.0, *)
-
 class Sound {
     private static var backgroundMusicPlayer = AVMIDIPlayer()
     
@@ -36,5 +34,11 @@ class Sound {
         } catch let error as NSError {
             print(error.description)
         }
+    }
+    
+    static func playEffect(filename: String, subdirectory: String) {
+        let sound = AVAudioPlayerPool.returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd(filename, subdir: subdirectory)
+        sound?.prepareToPlay()
+        sound?.play()
     }
 }

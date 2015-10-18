@@ -19,7 +19,6 @@
 		4CB585FE1BC8ABC6009CAC58 /* snd in Resources */ = {isa = PBXBuildFile; fileRef = 4CB585FD1BC8ABC6009CAC58 /* snd */; settings = {ASSET_TAGS = (); }; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; settings = {ASSET_TAGS = (); }; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; settings = {ASSET_TAGS = (); }; };
-		BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0E08881BCB6B990067D19B /* Spaceship.png */; settings = {ASSET_TAGS = (); }; };
 		CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AC1BCE3E6000B94658 /* Farm.dat */; settings = {ASSET_TAGS = (); }; };
 		CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AE1BCE3E8200B94658 /* Farm.png */; settings = {ASSET_TAGS = (); }; };
 		CB534A181BD44B9600823469 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB534A171BD44B9600823469 /* Sound.swift */; settings = {ASSET_TAGS = (); }; };
@@ -53,7 +52,6 @@
 		4CB585FD1BC8ABC6009CAC58 /* snd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snd; sourceTree = "<group>"; };
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
 		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
-		BC0E08881BCB6B990067D19B /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Images.xcassets/Spaceship.imageset/Spaceship.png; sourceTree = "<group>"; };
 		CB2C15AC1BCE3E6000B94658 /* Farm.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Farm.dat; sourceTree = "<group>"; };
 		CB2C15AE1BCE3E8200B94658 /* Farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Farm.png; sourceTree = "<group>"; };
 		CB534A171BD44B9600823469 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -95,6 +93,45 @@
 			name = Spritesheets;
 			sourceTree = "<group>";
 		};
+		CB534A191BD457F700823469 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
+		CB534A1A1BD4585900823469 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */,
+				3F6FFCED1BC5F20F00DD4285 /* NetworkOptions.swift */,
+				3F6FFCEF1BC5F20F00DD4285 /* Options.swift */,
+				3F6FFCEB1BC5F1F400DD4285 /* SinglePlayerGame.swift */,
+				3F6FFCEE1BC5F20F00DD4285 /* SoundOptions.swift */,
+				49E010801BCBB601008CB09E /* TileController.swift */,
+				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		CB534A1B1BD4586200823469 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB534A171BD44B9600823469 /* Sound.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CB534A1C1BD4586900823469 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
+				4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		CBEF61A81BBF98C10043B54D = {
 			isa = PBXGroup;
 			children = (
@@ -116,24 +153,16 @@
 		CBEF61B31BBF98C10043B54D /* DavisCraft */ = {
 			isa = PBXGroup;
 			children = (
-				CBEF61B61BBF98C10043B54D /* AppDelegate.swift */,
-				4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */,
-				4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */,
 				CBEF61B81BBF98C10043B54D /* GameScene.sks */,
-				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
-				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
-				CBEF61C11BBF98C10043B54D /* Images.xcassets */,
 				3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */,
 				3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */,
-				BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */,
-				3F6FFCED1BC5F20F00DD4285 /* NetworkOptions.swift */,
-				3F6FFCEF1BC5F20F00DD4285 /* Options.swift */,
-				3F6FFCEB1BC5F1F400DD4285 /* SinglePlayerGame.swift */,
-				CB534A171BD44B9600823469 /* Sound.swift */,
-				3F6FFCEE1BC5F20F00DD4285 /* SoundOptions.swift */,
-				BC0E08881BCB6B990067D19B /* Spaceship.png */,
+				CBEF61B61BBF98C10043B54D /* AppDelegate.swift */,
+				CBEF61C11BBF98C10043B54D /* Images.xcassets */,
+				CB534A1A1BD4585900823469 /* Controllers */,
+				CB534A1B1BD4586200823469 /* Models */,
+				CB534A1C1BD4586900823469 /* Scenes */,
+				CB534A191BD457F700823469 /* Sound */,
 				CBEF61B41BBF98C10043B54D /* Supporting Files */,
-				49E010801BCBB601008CB09E /* TileController.swift */,
 			);
 			path = DavisCraft;
 			sourceTree = "<group>";
@@ -249,7 +278,6 @@
 			files = (
 				4CB585FE1BC8ABC6009CAC58 /* snd in Resources */,
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
-				BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */,
 				CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
 				CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */,

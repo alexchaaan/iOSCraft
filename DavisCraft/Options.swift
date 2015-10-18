@@ -20,10 +20,5 @@ class Options: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    @IBAction func didPressBack(sender: UIButton) {
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("GameViewController") as UIViewController?
-//        self.presentViewController(vc!, animated: true, completion: nil)
-//    }
 
 }
