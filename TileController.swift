@@ -9,9 +9,9 @@
 import UIKit
 
 
-class Tile: UIViewController {
+class Tile: UIViewController{
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,17 +27,17 @@ class Tile: UIViewController {
         //works for different devices
         
         let (_, height, width ) = MapRender().readMap()
-        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(width * 32), CGFloat(height * 32)))
+        //        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(width * 32), CGFloat(height * 32)))
         //view.addSubview(screen)
+        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(height * 32), CGFloat(width * 32)))
         var scrollView: UIScrollView!
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = screen.bounds.size
         scrollView.backgroundColor = UIColor.blackColor()
+        scrollView.scrollRectToVisible(CGRect(x: 2500, y: 1600, width: scrollView.frame.width, height: scrollView.frame.height), animated: true)
         scrollView.addSubview(screen)
-        scrollView.decelerationRate = UIScrollViewDecelerationRateFast
-        //scrollView.userInteractionEnabled = false
         view.addSubview(scrollView)
-        
+        //        scrollView.userInteractionEnabled = false //this disables the scrolling, but lets touches began work.
         //Gesture Recognizers
         let tapRec = UITapGestureRecognizer()
         //let panRec = UIPanGestureRecognizer()

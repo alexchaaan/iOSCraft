@@ -19,6 +19,10 @@
 		3F6FFCFE1BC5F26F00DD4285 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFA1BC5F26F00DD4285 /* Splash.png */; settings = {ASSET_TAGS = (); }; };
 		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; settings = {ASSET_TAGS = (); }; };
+		49321AE91BD7A99500485BDC /* GoldMine.dat in Resources */ = {isa = PBXBuildFile; fileRef = 49321AE81BD7A99500485BDC /* GoldMine.dat */; settings = {ASSET_TAGS = (); }; };
+		49321AEB1BD7A99F00485BDC /* Peasant.dat in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEA1BD7A99F00485BDC /* Peasant.dat */; settings = {ASSET_TAGS = (); }; };
+		49321AED1BD7A9A800485BDC /* GoldMine.png in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEC1BD7A9A800485BDC /* GoldMine.png */; settings = {ASSET_TAGS = (); }; };
+		49321AEF1BD7A9B500485BDC /* Peasant.png in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEE1BD7A9B500485BDC /* Peasant.png */; settings = {ASSET_TAGS = (); }; };
 		4985CB8D1BD1B7DF00056F3D /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4985CB8C1BD1B7DF00056F3D /* MapRender.swift */; settings = {ASSET_TAGS = (); }; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; settings = {ASSET_TAGS = (); }; };
 		4CB585FE1BC8ABC6009CAC58 /* snd in Resources */ = {isa = PBXBuildFile; fileRef = 4CB585FD1BC8ABC6009CAC58 /* snd */; settings = {ASSET_TAGS = (); }; };
@@ -60,6 +64,10 @@
 		3F6FFCFA1BC5F26F00DD4285 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawTile.swift; path = ../DrawTile.swift; sourceTree = "<group>"; };
+		49321AE81BD7A99500485BDC /* GoldMine.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoldMine.dat; sourceTree = "<group>"; };
+		49321AEA1BD7A99F00485BDC /* Peasant.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Peasant.dat; sourceTree = "<group>"; };
+		49321AEC1BD7A9A800485BDC /* GoldMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoldMine.png; sourceTree = "<group>"; };
+		49321AEE1BD7A9B500485BDC /* Peasant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Peasant.png; sourceTree = "<group>"; };
 		4985CB8C1BD1B7DF00056F3D /* MapRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapRender.swift; path = ../MapRender.swift; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
 		4CB585FD1BC8ABC6009CAC58 /* snd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snd; sourceTree = "<group>"; };
@@ -134,6 +142,10 @@
 		CBEF61B31BBF98C10043B54D /* DavisCraft */ = {
 			isa = PBXGroup;
 			children = (
+				49321AEE1BD7A9B500485BDC /* Peasant.png */,
+				49321AEC1BD7A9A800485BDC /* GoldMine.png */,
+				49321AEA1BD7A99F00485BDC /* Peasant.dat */,
+				49321AE81BD7A99500485BDC /* GoldMine.dat */,
 				BCFFF5C01BD2E51E0012EBD5 /* 2player.dat */,
 				BCFFF5C21BD2E54B0012EBD5 /* Terrain.png */,
 				BCFFF5C41BD2E55C0012EBD5 /* Terrain.dat */,
@@ -271,6 +283,8 @@
 			files = (
 				4CB585FE1BC8ABC6009CAC58 /* snd in Resources */,
 				BCFFF5C11BD2E51E0012EBD5 /* 2player.dat in Resources */,
+				49321AED1BD7A9A800485BDC /* GoldMine.png in Resources */,
+				49321AE91BD7A99500485BDC /* GoldMine.dat in Resources */,
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
 				BCFFF5C31BD2E54B0012EBD5 /* Terrain.png in Resources */,
 				BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */,
@@ -279,11 +293,13 @@
 				BCFFF5C51BD2E55C0012EBD5 /* Terrain.dat in Resources */,
 				3F6FFCFB1BC5F26F00DD4285 /* Texture.png in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
+				49321AEB1BD7A99F00485BDC /* Peasant.dat in Resources */,
 				3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */,
 				CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */,
 				CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
 				3F6FFCFC1BC5F26F00DD4285 /* tempButton.png in Resources */,
+				49321AEF1BD7A9B500485BDC /* Peasant.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

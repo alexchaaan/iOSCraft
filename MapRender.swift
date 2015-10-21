@@ -57,17 +57,17 @@ class MapRender: UIView {
         var x = 0
         var y = 0
 //let location = CGPointMake(100 , 100)
-        let (map,height,width) = readMap()
-        for var i = 3; i < (width + 3); i++ {
-            for var j in map[i].characters{ //make sure to account for the extra 2 thing later
-                let location = CGPointMake(CGFloat(x), CGFloat(y))
+        let (map,_,width) = readMap()
+        for i in 2 ..< (width + 2){
+            for j in map[i].characters{ //make sure to account for the extra 2 thing later
+                let location = CGPointMake(CGFloat(y), CGFloat(x))
                 switch j {
                 case "G":
                         UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
                 case "F":
                         UIImage(CGImage: tileDictionary!["tree-a"]!).drawAtPoint(location)
                 case "R":
-                        UIImage(CGImage: tileDictionary!["rubble-a"]!).drawAtPoint(location)
+                        UIImage(CGImage: tileDictionary!["rock-0"]!).drawAtPoint(location)
                 default:
                         UIImage(CGImage: tileDictionary!["dirt-a"]!).drawAtPoint(location)
                 }
@@ -76,9 +76,47 @@ class MapRender: UIView {
             x += 32
             y = 0
         }
+        for index in 73...76{
+            let item = map[index].componentsSeparatedByString(" ")
+            var placement = CGPointMake(CGFloat(2750 - Int(item[2])!), CGFloat(1800 - Int(item[3])!))
+            self.drawTower(placement,sprite: item[0])
+        }
         //UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
     }
     
     
-
+    func drawTower(var placement: CGPoint, sprite: String){ // Does print 2 dudes, just overlaps them.
+        let fileName = sprite
+        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "dat")
+        let content = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        let contentArray = content.componentsSeparatedByString("\n")
+        
+        var image = UIImage()
+        var index = 0
+        switch(sprite){
+        case "GoldMine":
+            image = UIImage(named: "GoldMine.png")!
+            index = 2
+        case "Peasant":
+            image = UIImage(named: "Peasant.png")!
+            index = 172
+            placement = CGPointMake(placement.x + 100, placement.y + 30)
+        case "TownHall":
+            image = UIImage(named: "TownHall.png")!
+            index = 4
+        default:
+            image = UIImage(named: "Texture.png")!
+            index = 1
+        }
+        let h = image.size.height
+        let w = image.size.width
+        
+        let numberOfTiles = Int(contentArray[1]);
+        
+        let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
+        
+        image = UIImage(CGImage: tile!)
+        image.drawAtPoint(placement)
+    }
+    
 }
