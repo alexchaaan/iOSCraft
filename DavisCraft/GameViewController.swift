@@ -11,10 +11,21 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    var scene : GameScene!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Sound.playBackgroundMusic("menu.mid")
-     
+        
+        // Configure the view.
+        let skView = self.view as! SKView
+        skView.multipleTouchEnabled = false
+        
+        /* Set the scale mode to scale to fit the window */
+        scene = GameScene(size: skView.bounds.size)
+        scene.scaleMode = .AspectFill
+        
+        skView.presentScene(scene)
     }
     
     override func shouldAutorotate() -> Bool {

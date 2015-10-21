@@ -22,8 +22,8 @@
 		CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AC1BCE3E6000B94658 /* Farm.dat */; settings = {ASSET_TAGS = (); }; };
 		CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AE1BCE3E8200B94658 /* Farm.png */; settings = {ASSET_TAGS = (); }; };
 		CB534A181BD44B9600823469 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB534A171BD44B9600823469 /* Sound.swift */; settings = {ASSET_TAGS = (); }; };
+		CB534A241BD7B11000823469 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CB534A231BD7B11000823469 /* GameScene.sks */; settings = {ASSET_TAGS = (); }; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
-		CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBEF61B81BBF98C10043B54D /* GameScene.sks */; };
 		CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61BA1BBF98C10043B54D /* GameScene.swift */; };
 		CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBEF61C11BBF98C10043B54D /* Images.xcassets */; };
 		CBEF61D11BBF98C20043B54D /* DavisCraftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61D01BBF98C20043B54D /* DavisCraftTests.swift */; };
@@ -55,10 +55,10 @@
 		CB2C15AC1BCE3E6000B94658 /* Farm.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Farm.dat; sourceTree = "<group>"; };
 		CB2C15AE1BCE3E8200B94658 /* Farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Farm.png; sourceTree = "<group>"; };
 		CB534A171BD44B9600823469 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		CB534A231BD7B11000823469 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CBEF61B11BBF98C10043B54D /* DavisCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavisCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBEF61B51BBF98C10043B54D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBEF61B61BBF98C10043B54D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CBEF61B81BBF98C10043B54D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CBEF61BA1BBF98C10043B54D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		CBEF61C11BBF98C10043B54D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CBEF61CA1BBF98C20043B54D /* DavisCraftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DavisCraftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +126,7 @@
 		CB534A1C1BD4586900823469 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CB534A231BD7B11000823469 /* GameScene.sks */,
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
 				4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */,
 			);
@@ -153,7 +154,6 @@
 		CBEF61B31BBF98C10043B54D /* DavisCraft */ = {
 			isa = PBXGroup;
 			children = (
-				CBEF61B81BBF98C10043B54D /* GameScene.sks */,
 				3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */,
 				3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */,
 				CBEF61B61BBF98C10043B54D /* AppDelegate.swift */,
@@ -280,7 +280,7 @@
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
 				CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
-				CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */,
+				CB534A241BD7B11000823469 /* GameScene.sks in Resources */,
 				CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
 			);

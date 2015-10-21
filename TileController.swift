@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SpriteKit
 
 class Tile: UIViewController{
     
@@ -21,7 +21,7 @@ class Tile: UIViewController{
         //add a Subview that is the size of the screen
         //works for different devices
         view.addSubview(tile)
-        
+
     }
 
     override func didReceiveMemoryWarning() {
