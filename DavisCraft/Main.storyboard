@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -414,7 +414,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FX Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIx-rN-Ore">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="FX Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIx-rN-Ore">
                                 <rect key="frame" x="132" y="264" width="82" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -424,7 +424,7 @@
                                     <rect key="frame" x="132" y="264" width="82" height="21"/>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="tempButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="VLN-5m-GR7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="tempButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="VLN-5m-GR7">
                                 <rect key="frame" x="222" y="260" width="283" height="29"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
@@ -434,7 +434,7 @@
                                     <rect key="frame" x="222" y="260" width="283" height="29"/>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="50" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="tempButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-fx-QiQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="50" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="tempButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-fx-QiQ">
                                 <rect key="frame" x="222" y="304" width="283" height="31"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
@@ -455,7 +455,7 @@
                                     <segue destination="9jg-Df-1QY" kind="show" id="Y5e-5O-Zwr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keX-5A-c7t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Music Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keX-5A-c7t">
                                 <rect key="frame" x="107" y="309" width="107" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>

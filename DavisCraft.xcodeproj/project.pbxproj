@@ -7,33 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F6FFCEC1BC5F1F400DD4285 /* SinglePlayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCEB1BC5F1F400DD4285 /* SinglePlayerGame.swift */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCED1BC5F20F00DD4285 /* NetworkOptions.swift */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCF11BC5F20F00DD4285 /* SoundOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCEE1BC5F20F00DD4285 /* SoundOptions.swift */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCF21BC5F20F00DD4285 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCEF1BC5F20F00DD4285 /* Options.swift */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCF41BC5F22A00DD4285 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCFB1BC5F26F00DD4285 /* Texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF71BC5F26F00DD4285 /* Texture.png */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCFC1BC5F26F00DD4285 /* tempButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF81BC5F26F00DD4285 /* tempButton.png */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF91BC5F26F00DD4285 /* FontKingthings24.png */; settings = {ASSET_TAGS = (); }; };
-		3F6FFCFE1BC5F26F00DD4285 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFA1BC5F26F00DD4285 /* Splash.png */; settings = {ASSET_TAGS = (); }; };
-		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; settings = {ASSET_TAGS = (); }; };
-		49321AE91BD7A99500485BDC /* GoldMine.dat in Resources */ = {isa = PBXBuildFile; fileRef = 49321AE81BD7A99500485BDC /* GoldMine.dat */; settings = {ASSET_TAGS = (); }; };
-		49321AEB1BD7A99F00485BDC /* Peasant.dat in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEA1BD7A99F00485BDC /* Peasant.dat */; settings = {ASSET_TAGS = (); }; };
-		49321AED1BD7A9A800485BDC /* GoldMine.png in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEC1BD7A9A800485BDC /* GoldMine.png */; settings = {ASSET_TAGS = (); }; };
-		49321AEF1BD7A9B500485BDC /* Peasant.png in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEE1BD7A9B500485BDC /* Peasant.png */; settings = {ASSET_TAGS = (); }; };
-		4985CB8D1BD1B7DF00056F3D /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4985CB8C1BD1B7DF00056F3D /* MapRender.swift */; settings = {ASSET_TAGS = (); }; };
-		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; settings = {ASSET_TAGS = (); }; };
-		4CB585FE1BC8ABC6009CAC58 /* snd in Resources */ = {isa = PBXBuildFile; fileRef = 4CB585FD1BC8ABC6009CAC58 /* snd */; settings = {ASSET_TAGS = (); }; };
-		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; settings = {ASSET_TAGS = (); }; };
-		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; settings = {ASSET_TAGS = (); }; };
-		BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0E08881BCB6B990067D19B /* Spaceship.png */; settings = {ASSET_TAGS = (); }; };
-		BCFFF5C11BD2E51E0012EBD5 /* 2player.dat in Resources */ = {isa = PBXBuildFile; fileRef = BCFFF5C01BD2E51E0012EBD5 /* 2player.dat */; settings = {ASSET_TAGS = (); }; };
-		BCFFF5C31BD2E54B0012EBD5 /* Terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = BCFFF5C21BD2E54B0012EBD5 /* Terrain.png */; settings = {ASSET_TAGS = (); }; };
-		BCFFF5C51BD2E55C0012EBD5 /* Terrain.dat in Resources */ = {isa = PBXBuildFile; fileRef = BCFFF5C41BD2E55C0012EBD5 /* Terrain.dat */; settings = {ASSET_TAGS = (); }; };
-		CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AC1BCE3E6000B94658 /* Farm.dat */; settings = {ASSET_TAGS = (); }; };
-		CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AE1BCE3E8200B94658 /* Farm.png */; settings = {ASSET_TAGS = (); }; };
+		3F6FFCEC1BC5F1F400DD4285 /* SinglePlayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCEB1BC5F1F400DD4285 /* SinglePlayerGame.swift */; };
+		3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCED1BC5F20F00DD4285 /* NetworkOptions.swift */; };
+		3F6FFCF11BC5F20F00DD4285 /* SoundOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCEE1BC5F20F00DD4285 /* SoundOptions.swift */; };
+		3F6FFCF21BC5F20F00DD4285 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCEF1BC5F20F00DD4285 /* Options.swift */; };
+		3F6FFCF41BC5F22A00DD4285 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */; };
+		3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */; };
+		3F6FFCFB1BC5F26F00DD4285 /* Texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF71BC5F26F00DD4285 /* Texture.png */; };
+		3F6FFCFC1BC5F26F00DD4285 /* tempButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF81BC5F26F00DD4285 /* tempButton.png */; };
+		3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF91BC5F26F00DD4285 /* FontKingthings24.png */; };
+		3F6FFCFE1BC5F26F00DD4285 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFA1BC5F26F00DD4285 /* Splash.png */; };
+		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; };
+		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; };
+		49321AE91BD7A99500485BDC /* GoldMine.dat in Resources */ = {isa = PBXBuildFile; fileRef = 49321AE81BD7A99500485BDC /* GoldMine.dat */; };
+		49321AEB1BD7A99F00485BDC /* Peasant.dat in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEA1BD7A99F00485BDC /* Peasant.dat */; };
+		49321AED1BD7A9A800485BDC /* GoldMine.png in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEC1BD7A9A800485BDC /* GoldMine.png */; };
+		49321AEF1BD7A9B500485BDC /* Peasant.png in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEE1BD7A9B500485BDC /* Peasant.png */; };
+		4985CB8D1BD1B7DF00056F3D /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4985CB8C1BD1B7DF00056F3D /* MapRender.swift */; };
+		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
+		4CB585FE1BC8ABC6009CAC58 /* snd in Resources */ = {isa = PBXBuildFile; fileRef = 4CB585FD1BC8ABC6009CAC58 /* snd */; };
+		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
+		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; };
+		BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0E08881BCB6B990067D19B /* Spaceship.png */; };
+		BCFFF5C11BD2E51E0012EBD5 /* 2player.map in Resources */ = {isa = PBXBuildFile; fileRef = BCFFF5C01BD2E51E0012EBD5 /* 2player.map */; };
+		BCFFF5C31BD2E54B0012EBD5 /* Terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = BCFFF5C21BD2E54B0012EBD5 /* Terrain.png */; };
+		BCFFF5C51BD2E55C0012EBD5 /* Terrain.dat in Resources */ = {isa = PBXBuildFile; fileRef = BCFFF5C41BD2E55C0012EBD5 /* Terrain.dat */; };
+		CB2C15AD1BCE3E6000B94658 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AC1BCE3E6000B94658 /* Farm.dat */; };
+		CB2C15AF1BCE3E8200B94658 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = CB2C15AE1BCE3E8200B94658 /* Farm.png */; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
 		CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CBEF61B81BBF98C10043B54D /* GameScene.sks */; };
 		CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61BA1BBF98C10043B54D /* GameScene.swift */; };
@@ -74,7 +74,7 @@
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
 		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
 		BC0E08881BCB6B990067D19B /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Spaceship.png; path = Images.xcassets/Spaceship.imageset/Spaceship.png; sourceTree = "<group>"; };
-		BCFFF5C01BD2E51E0012EBD5 /* 2player.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 2player.dat; path = 160/bin/data/map/2player.dat; sourceTree = "<group>"; };
+		BCFFF5C01BD2E51E0012EBD5 /* 2player.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; name = 2player.map; path = 160/bin/data/map/2player.map; sourceTree = "<group>"; };
 		BCFFF5C21BD2E54B0012EBD5 /* Terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Terrain.png; path = 160/bin/data/png/Terrain.png; sourceTree = "<group>"; };
 		BCFFF5C41BD2E55C0012EBD5 /* Terrain.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Terrain.dat; path = 160/bin/data/Terrain.dat; sourceTree = "<group>"; };
 		CB2C15AC1BCE3E6000B94658 /* Farm.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Farm.dat; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				49321AEC1BD7A9A800485BDC /* GoldMine.png */,
 				49321AEA1BD7A99F00485BDC /* Peasant.dat */,
 				49321AE81BD7A99500485BDC /* GoldMine.dat */,
-				BCFFF5C01BD2E51E0012EBD5 /* 2player.dat */,
+				BCFFF5C01BD2E51E0012EBD5 /* 2player.map */,
 				BCFFF5C21BD2E54B0012EBD5 /* Terrain.png */,
 				BCFFF5C41BD2E55C0012EBD5 /* Terrain.dat */,
 				4985CB8C1BD1B7DF00056F3D /* MapRender.swift */,
@@ -282,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CB585FE1BC8ABC6009CAC58 /* snd in Resources */,
-				BCFFF5C11BD2E51E0012EBD5 /* 2player.dat in Resources */,
+				BCFFF5C11BD2E51E0012EBD5 /* 2player.map in Resources */,
 				49321AED1BD7A9A800485BDC /* GoldMine.png in Resources */,
 				49321AE91BD7A99500485BDC /* GoldMine.dat in Resources */,
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,

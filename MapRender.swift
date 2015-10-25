@@ -38,40 +38,100 @@ class MapRender: UIView {
     func readMap() -> (Array<String>, Int, Int){
         //maybe havve button to give map filename
         let fileName = "2player"
-        let path = bundle.pathForResource(fileName, ofType: "dat")
-        let mapContent = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        //let path = bundle.pathForResource(fileName, ofType: "map")
+        let path = bundle.URLForResource(fileName, withExtension: "map")
+        let mapContent = try! String(contentsOfURL: path!, encoding: NSUTF8StringEncoding)
         let mapInfo = mapContent.componentsSeparatedByString("\n")
+        
         let mapName = mapInfo[0]
+        print(mapName)
+//        let line2 = mapInfo[2]
+//        print(line2)
         let mapDimension = mapInfo[1].componentsSeparatedByString(" ")
+        print(mapDimension)
         //2 was added because tiles need to look around themselves
         //without extra then edge tiles will go out of bounds when looking around
-        let mapHeight = Int(mapDimension[0])! + 2
-        let mapWidth = Int(mapDimension[1])! + 2
-        return (mapInfo, mapHeight, mapWidth)
+        let mapWidth = Int(mapDimension[0])!
+        print(mapWidth)
+        let mapHeight = Int(mapDimension[1])!
+        print(mapHeight)
+        //setTiles(mapInfo, width: mapWidth, height: mapHeight)
+        return (mapInfo, mapWidth, mapHeight)
         
         
     }
+    
+    //func setTiles(map: Array<String>, width: Int, height: Int){
+//        var curTile = String()
+//        var topLeftCorner = Int()
+//        var topRightCorner = Int()
+//        var bottomLeftCorner = Int()
+//        var bottomRightCorner = Int()
+//        var top = Int()
+//        var bottom = Int()
+//        var right = Int()
+//        var left = Int()
+//        for i in 3 ..< (height + 3){
+//            var jNum = 0
+//            for j in map[i].characters{
+//                if (jNum > 0 && jNum < map[i].lengthOfBytesUsingEncoding(NSUTF8StringEncoding)){
+//                    switch j {
+//                    case "G": curTile = "G"
+//                    case "F": curTile = "F"
+//                    case "R": curTile = "R"
+//                    case "D": curTile = "D"
+//                    case "W": curTile = "W"
+//                    case "w": curTile = "w"
+//                    case " ": curTile = " "
+//                    default: break
+//                    }
+//                    //top left corner
+//                    var yIndex = i - 1
+//                    var xIndex = jNum - 1
+//                    let str = map[yIndex]
+//                    
+//                }
+//                jNum++
+//            }
+//        }
+//    }
+    
     
     override func drawRect(rect: CGRect) {
         var tileDictionary = readTerrain()
         var x = 0
         var y = 0
+        var dummy = 0
 //let location = CGPointMake(100 , 100)
-        let (map,_,width) = readMap()
-        for i in 2 ..< (width + 2){
+        let (map,width,height) = readMap()
+        for i in 3 ..< (height + 3){
+            var jNum = 0
             for j in map[i].characters{ //make sure to account for the extra 2 thing later
-                let location = CGPointMake(CGFloat(y), CGFloat(x))
-                switch j {
-                case "G":
-                        UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
-                case "F":
-                        UIImage(CGImage: tileDictionary!["tree-a"]!).drawAtPoint(location)
-                case "R":
-                        UIImage(CGImage: tileDictionary!["rock-0"]!).drawAtPoint(location)
-                default:
-                        UIImage(CGImage: tileDictionary!["dirt-a"]!).drawAtPoint(location)
-                }
+                //let location = CGPointMake(CGFloat(y), CGFloat(x))
+                if(jNum > 0 && jNum < map[i].lengthOfBytesUsingEncoding(NSUTF8StringEncoding)){
+                    let location = CGPointMake(CGFloat(y), CGFloat(x))
+                    switch j {
+                    case "G":
+                            UIImage(CGImage: tileDictionary!["grass-0"]!).drawAtPoint(location)
+                    case "F":
+                            UIImage(CGImage: tileDictionary!["tree-a"]!).drawAtPoint(location)
+                    case "R":
+                            UIImage(CGImage: tileDictionary!["rock-0"]!).drawAtPoint(location)
+                    case "D":
+                            UIImage(CGImage: tileDictionary!["dirt-1"]!).drawAtPoint(location)
+                    case "W":
+                            UIImage(CGImage: tileDictionary!["wall-0"]!).drawAtPoint(location)
+                    case "w":
+                            UIImage(CGImage: tileDictionary!["wall-damaged-0"]!).drawAtPoint(location)
+                    case " ":
+                            UIImage(CGImage: tileDictionary!["water-0"]!).drawAtPoint(location)
+                    default:
+                            UIImage(CGImage: tileDictionary!["dirt-a"]!).drawAtPoint(location)
+                    }
+                //}
                 y += 32
+                }
+                jNum++
             }
             x += 32
             y = 0
