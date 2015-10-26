@@ -60,46 +60,34 @@ class MiniMapRender: UIView {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let step: CGFloat = 1.8
         let (map,_,width) = readMap()
+        var components: [CGFloat]
         for i in 2 ..< (width + 2){
             for j in map[i].characters{ //make sure to account for the extra 2 thing later
                 switch j {
-                    
                 case "G":
-                    let components: [CGFloat] = [0.3, 0.8, 0.3, 1.0]
-                    let color = CGColorCreate(colorSpace, components)
-                    CGContextSetStrokeColorWithColor(context, color)
-                    CGContextMoveToPoint(context, x, y)
-                    CGContextAddLineToPoint(context, x+step, y+step)
-                    CGContextStrokePath(context)
+                    components = [0.3, 0.8, 0.3, 1.0]
                 case "F":
-                    let components: [CGFloat] = [0.3, 0.3, 0.1, 1.0]
-                    let color = CGColorCreate(colorSpace, components)
-                    CGContextSetStrokeColorWithColor(context, color)
-                    CGContextMoveToPoint(context, x, y)
-                    CGContextAddLineToPoint(context, x+step, y+step)
-                    CGContextStrokePath(context)
+                    components = [0.3, 0.3, 0.1, 1.0]
                 case "R":
-                    let components: [CGFloat] = [0.6, 0.6, 0.6, 1.0]
-                    let color = CGColorCreate(colorSpace, components)
-                    CGContextSetStrokeColorWithColor(context, color)
-                    CGContextMoveToPoint(context, x, y)
-                    CGContextAddLineToPoint(context, x+step, y+step)
-                    CGContextStrokePath(context)
+                    components = [0.6, 0.6, 0.6, 1.0]
                 default:
-                    let components: [CGFloat] = [0.5, 0.5, 0.2, 1.0]
-                    let color = CGColorCreate(colorSpace, components)
-                    CGContextSetStrokeColorWithColor(context, color)
-                    CGContextMoveToPoint(context, x, y)
-                    CGContextAddLineToPoint(context, x+step, y+step)
-                    CGContextStrokePath(context)
-                    
+                    components = [0.5, 0.5, 0.2, 1.0]
                 }
-                y += step
+                drawLine(context, colorSpace: colorSpace, components: components, x: x, y: y, step: step)
+                x += step
             }
-            x += step
-            y = 0
+            y += step
+            x = 0
         }
         
+    }
+    
+    func drawLine(context: CGContext?, colorSpace: CGColorSpace?, components: [CGFloat], x: CGFloat, y: CGFloat, step: CGFloat) {
+        let color = CGColorCreate(colorSpace, components)
+        CGContextSetStrokeColorWithColor(context, color)
+        CGContextMoveToPoint(context, x, y)
+        CGContextAddLineToPoint(context, x+step, y+step)
+        CGContextStrokePath(context)
     }
     
 }
