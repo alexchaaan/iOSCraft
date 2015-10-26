@@ -21,7 +21,7 @@ class Tile: UIViewController{
         let tile = MapRender(frame: CGRectMake(0, 0, screenWidth, screenHeight))
         view.addSubview(tile)*/
         
-        
+        view.backgroundColor = UIColor.blackColor()
         
         //add a Subview that is the size of the screen
         //works for different devices
@@ -29,21 +29,32 @@ class Tile: UIViewController{
         let (_, height, width ) = MapRender().readMap()
         //        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(width * 32), CGFloat(height * 32)))
         //view.addSubview(screen)
-        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(height * 32), CGFloat(width * 32)))
-        var scrollView: UIScrollView!
-        scrollView = UIScrollView(frame: view.bounds)
-        scrollView.contentSize = screen.bounds.size
-        scrollView.backgroundColor = UIColor.blackColor()
-        scrollView.scrollRectToVisible(CGRect(x: 2500, y: 1600, width: scrollView.frame.width, height: scrollView.frame.height), animated: true)
-        scrollView.addSubview(screen)
-        view.addSubview(scrollView)
+        let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat(height * 32), CGFloat(width * 32)))
+        let miniMap = MiniMapRender(frame:CGRectMake(30, 20, view.bounds.size.width / 4 - 30, view.bounds.size.height - 20))
+        var battleField: UIScrollView!
+        
+        // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
+        battleField = UIScrollView(frame: CGRectMake(view.bounds.size.width / 4, 0, view.bounds.size.width * 3 / 4, view.bounds.size.height))
+        battleField.contentSize = theMap.bounds.size
+        battleField.backgroundColor = UIColor.blackColor()
+        battleField.scrollRectToVisible(CGRect(x: 2500, y: 1600, width: battleField.frame.width, height: battleField.frame.height), animated: true)
+        battleField.addSubview(theMap)
+        view.addSubview(battleField)
+        
+        var sidePanel: UIView!
+        
+        sidePanel = UIView(frame: CGRectMake(0, 0, view.bounds.size.width / 4, view.bounds.size.height))
+        sidePanel.backgroundColor = UIColor.blackColor()
+        //sidePanel.scrollRectToVisible(CGRect(x: 2500, y: 1600, width: sidePanel.frame.width, height: sidePanel.frame.height), animated: true)
+        sidePanel.addSubview(miniMap)
+        view.addSubview(sidePanel)
         //        scrollView.userInteractionEnabled = false //this disables the scrolling, but lets touches began work.
         //Gesture Recognizers
         let tapRec = UITapGestureRecognizer()
         //let panRec = UIPanGestureRecognizer()
         tapRec.addTarget(self, action: "tappedView:")
         //panRec.addTarget(self, action: "panView:")
-        scrollView.addGestureRecognizer(tapRec)
+        battleField.addGestureRecognizer(tapRec)
         
         //scrollView.addGestureRecognizer(panRec)
     }

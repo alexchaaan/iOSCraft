@@ -1,15 +1,15 @@
 //
-//  MapRender.swift
+//  MiniMapRender.swift
 //  DavisCraft
 //
-//  Created by Andrew Tran on 10/16/15.
+//  Created by Charles_Fox_W on 10/25/15.
 //  Copyright © 2015 UCDClassNitta. All rights reserved.
 //
 
 import UIKit
 
-class MapRender: UIView {
-//each map tile is 32x32
+class MiniMapRender: UIView {
+    //each map tile is 32x32
     let bundle = NSBundle.mainBundle()
     func readTerrain() -> Dictionary <String, CGImage>? {
         //read in the tiles for the map
@@ -19,7 +19,7 @@ class MapRender: UIView {
         let terrainDatContent = terrainDat.componentsSeparatedByString("\n")
         let terrainPngPath = terrainDatContent[0]
         let numberOfTerrainTiles = Int(terrainDatContent[1])
-        //iterate by number of tiles to store the pngs into some kind of ui or cg image structure    
+        //iterate by number of tiles to store the pngs into some kind of ui or cg image structure
         var terrainTileDictionary = [String: CGImage]()
         let image = UIImage(named: "Terrain.png")
         let h = image!.size.height
@@ -34,7 +34,7 @@ class MapRender: UIView {
         return terrainTileDictionary
         
     }
-
+    
     func readMap() -> (Array<String>, Int, Int){
         //maybe havve button to give map filename
         let fileName = "2player"
@@ -52,70 +52,54 @@ class MapRender: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        var tileDictionary = readTerrain()
-        var x = 0
-        var y = 0
-//let location = CGPointMake(100 , 100)
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        //let location = CGPointMake(100 , 100)
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetLineWidth(context, 1.5)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let step: CGFloat = 1.8
         let (map,_,width) = readMap()
         for i in 2 ..< (width + 2){
             for j in map[i].characters{ //make sure to account for the extra 2 thing later
-                let location = CGPointMake(CGFloat(y), CGFloat(x))
                 switch j {
+                    
                 case "G":
-                        UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
+                    let components: [CGFloat] = [0.3, 0.8, 0.3, 1.0]
+                    let color = CGColorCreate(colorSpace, components)
+                    CGContextSetStrokeColorWithColor(context, color)
+                    CGContextMoveToPoint(context, x, y)
+                    CGContextAddLineToPoint(context, x+step, y+step)
+                    CGContextStrokePath(context)
                 case "F":
-                        UIImage(CGImage: tileDictionary!["tree-a"]!).drawAtPoint(location)
+                    let components: [CGFloat] = [0.3, 0.3, 0.1, 1.0]
+                    let color = CGColorCreate(colorSpace, components)
+                    CGContextSetStrokeColorWithColor(context, color)
+                    CGContextMoveToPoint(context, x, y)
+                    CGContextAddLineToPoint(context, x+step, y+step)
+                    CGContextStrokePath(context)
                 case "R":
-                        UIImage(CGImage: tileDictionary!["rock-0"]!).drawAtPoint(location)
+                    let components: [CGFloat] = [0.6, 0.6, 0.6, 1.0]
+                    let color = CGColorCreate(colorSpace, components)
+                    CGContextSetStrokeColorWithColor(context, color)
+                    CGContextMoveToPoint(context, x, y)
+                    CGContextAddLineToPoint(context, x+step, y+step)
+                    CGContextStrokePath(context)
                 default:
-                        UIImage(CGImage: tileDictionary!["dirt-a"]!).drawAtPoint(location)
+                    let components: [CGFloat] = [0.5, 0.5, 0.2, 1.0]
+                    let color = CGColorCreate(colorSpace, components)
+                    CGContextSetStrokeColorWithColor(context, color)
+                    CGContextMoveToPoint(context, x, y)
+                    CGContextAddLineToPoint(context, x+step, y+step)
+                    CGContextStrokePath(context)
+                    
                 }
-                y += 32
+                y += step
             }
-            x += 32
+            x += step
             y = 0
         }
-        for index in 73...76{
-            let item = map[index].componentsSeparatedByString(" ")
-            var placement = CGPointMake(CGFloat(2750 - Int(item[2])!), CGFloat(1800 - Int(item[3])!))
-            self.drawTower(placement,sprite: item[0])
-        }
-        //UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
-    }
-    
-    
-    func drawTower(var placement: CGPoint, sprite: String){ // Does print 2 dudes, just overlaps them.
-        let fileName = sprite
-        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "dat")
-        let content = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
-        let contentArray = content.componentsSeparatedByString("\n")
         
-        var image = UIImage()
-        var index = 0
-        switch(sprite){
-        case "GoldMine":
-            image = UIImage(named: "GoldMine.png")!
-            index = 2
-        case "Peasant":
-            image = UIImage(named: "Peasant.png")!
-            index = 172
-            placement = CGPointMake(placement.x + 100, placement.y + 30)
-        case "TownHall":
-            image = UIImage(named: "TownHall.png")!
-            index = 4
-        default:
-            image = UIImage(named: "Texture.png")!
-            index = 1
-        }
-        let h = image.size.height
-        let w = image.size.width
-        
-        let numberOfTiles = Int(contentArray[1]);
-        
-        let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
-        
-        image = UIImage(CGImage: tile!)
-        image.drawAtPoint(placement)
     }
     
 }
