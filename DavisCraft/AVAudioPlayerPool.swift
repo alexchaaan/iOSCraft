@@ -13,13 +13,13 @@ private var playerPool : [AVAudioPlayer] = []
 
 //Creates a pool of Audioplayer objects, reuses ones that are not playing otherwise creates a new one.
 class AVAudioPlayerPool: NSObject {
-
+    
     // Given the URL of a sound file, either create or reuse an audio player
     class func returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd(filename: String, subdir: String) -> AVAudioPlayer? {
         
         let url = NSBundle.mainBundle().URLForResource(filename,
             withExtension: nil,
-            subdirectory: "snd/" + subdir)
+            subdirectory: "data/snd/" + subdir)
         guard let newURL = url else {
             print("Could not find file: \(filename)")
             return nil
@@ -35,13 +35,13 @@ class AVAudioPlayerPool: NSObject {
             return playerToUse
         }
         
-
+        
         // Didn't find one? Create a new one
         var newPlayer:AVAudioPlayer?
         do{
             try newPlayer = AVAudioPlayer(contentsOfURL: newURL)
             playerPool.append(newPlayer!)
-
+            
         }
         catch {
             // Couldn't create new audioplayer, return nil
