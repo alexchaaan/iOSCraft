@@ -19,6 +19,205 @@
 		3F6FFCFE1BC5F26F00DD4285 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFA1BC5F26F00DD4285 /* Splash.png */; };
 		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; };
 		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; };
+		498943351BDF7137001A9BD1 /* Archer.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942611BDF7137001A9BD1 /* Archer.dat */; };
+		498943361BDF7137001A9BD1 /* Arrow.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942621BDF7137001A9BD1 /* Arrow.dat */; };
+		498943371BDF7137001A9BD1 /* AssetNone.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942631BDF7137001A9BD1 /* AssetNone.dat */; };
+		498943381BDF7137001A9BD1 /* Barracks.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942641BDF7137001A9BD1 /* Barracks.dat */; };
+		498943391BDF7137001A9BD1 /* Blacksmith.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942651BDF7137001A9BD1 /* Blacksmith.dat */; };
+		4989433A1BDF7137001A9BD1 /* BuildingDeath.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942661BDF7137001A9BD1 /* BuildingDeath.dat */; };
+		4989433B1BDF7137001A9BD1 /* ButtonColors.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942671BDF7137001A9BD1 /* ButtonColors.dat */; };
+		4989433C1BDF7137001A9BD1 /* CannonTower.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942681BDF7137001A9BD1 /* CannonTower.dat */; };
+		4989433D1BDF7137001A9BD1 /* Castle.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942691BDF7137001A9BD1 /* Castle.dat */; };
+		4989433E1BDF7137001A9BD1 /* Corpse.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989426A1BDF7137001A9BD1 /* Corpse.dat */; };
+		4989433F1BDF7137001A9BD1 /* Cursors.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989426B1BDF7137001A9BD1 /* Cursors.dat */; };
+		498943401BDF7137001A9BD1 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989426C1BDF7137001A9BD1 /* Farm.dat */; };
+		498943411BDF7137001A9BD1 /* FireLarge.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989426D1BDF7137001A9BD1 /* FireLarge.dat */; };
+		498943421BDF7137001A9BD1 /* FireSmall.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989426E1BDF7137001A9BD1 /* FireSmall.dat */; };
+		498943431BDF7137001A9BD1 /* Fog.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989426F1BDF7137001A9BD1 /* Fog.dat */; };
+		498943441BDF7137001A9BD1 /* FontKingthings10.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942701BDF7137001A9BD1 /* FontKingthings10.dat */; };
+		498943451BDF7137001A9BD1 /* FontKingthings12.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942711BDF7137001A9BD1 /* FontKingthings12.dat */; };
+		498943461BDF7137001A9BD1 /* FontKingthings16.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942721BDF7137001A9BD1 /* FontKingthings16.dat */; };
+		498943471BDF7137001A9BD1 /* FontKingthings24.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942731BDF7137001A9BD1 /* FontKingthings24.dat */; };
+		498943481BDF7137001A9BD1 /* FontKingthings8.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942741BDF7137001A9BD1 /* FontKingthings8.dat */; };
+		498943491BDF7137001A9BD1 /* Footman.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942751BDF7137001A9BD1 /* Footman.dat */; };
+		4989434A1BDF7137001A9BD1 /* GoldMine.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942761BDF7137001A9BD1 /* GoldMine.dat */; };
+		4989434B1BDF7137001A9BD1 /* GuardTower.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942771BDF7137001A9BD1 /* GuardTower.dat */; };
+		4989434C1BDF7137001A9BD1 /* Icons.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942781BDF7137001A9BD1 /* Icons.dat */; };
+		4989434D1BDF7137001A9BD1 /* InnerBevel.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942791BDF7137001A9BD1 /* InnerBevel.dat */; };
+		4989434E1BDF7137001A9BD1 /* Keep.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989427A1BDF7137001A9BD1 /* Keep.dat */; };
+		4989434F1BDF7137001A9BD1 /* ListViewIcons.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989427B1BDF7137001A9BD1 /* ListViewIcons.dat */; };
+		498943501BDF7137001A9BD1 /* LumberMill.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989427C1BDF7137001A9BD1 /* LumberMill.dat */; };
+		498943511BDF7137001A9BD1 /* Marker.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942801BDF7137001A9BD1 /* Marker.dat */; };
+		498943521BDF7137001A9BD1 /* MiniBevel.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942811BDF7137001A9BD1 /* MiniBevel.dat */; };
+		498943531BDF7137001A9BD1 /* MiniIcons.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942821BDF7137001A9BD1 /* MiniIcons.dat */; };
+		498943541BDF7137001A9BD1 /* OuterBevel.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942831BDF7137001A9BD1 /* OuterBevel.dat */; };
+		498943551BDF7137001A9BD1 /* Peasant.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942841BDF7137001A9BD1 /* Peasant.dat */; };
+		498943561BDF7137001A9BD1 /* Archer.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942861BDF7137001A9BD1 /* Archer.png */; };
+		498943571BDF7137001A9BD1 /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942871BDF7137001A9BD1 /* Arrow.png */; };
+		498943581BDF7137001A9BD1 /* AssetNone.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942881BDF7137001A9BD1 /* AssetNone.png */; };
+		498943591BDF7137001A9BD1 /* Barracks.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942891BDF7137001A9BD1 /* Barracks.png */; };
+		4989435A1BDF7137001A9BD1 /* Blacksmith.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989428A1BDF7137001A9BD1 /* Blacksmith.png */; };
+		4989435B1BDF7137001A9BD1 /* BuildingDeath.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989428B1BDF7137001A9BD1 /* BuildingDeath.png */; };
+		4989435C1BDF7137001A9BD1 /* ButtonColors.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989428C1BDF7137001A9BD1 /* ButtonColors.png */; };
+		4989435D1BDF7137001A9BD1 /* CannonTower.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989428D1BDF7137001A9BD1 /* CannonTower.png */; };
+		4989435E1BDF7137001A9BD1 /* Castle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989428E1BDF7137001A9BD1 /* Castle.png */; };
+		4989435F1BDF7137001A9BD1 /* Colors.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989428F1BDF7137001A9BD1 /* Colors.png */; };
+		498943601BDF7137001A9BD1 /* Corpse.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942901BDF7137001A9BD1 /* Corpse.png */; };
+		498943611BDF7137001A9BD1 /* Cursors.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942911BDF7137001A9BD1 /* Cursors.png */; };
+		498943621BDF7137001A9BD1 /* Farm.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942921BDF7137001A9BD1 /* Farm.png */; };
+		498943631BDF7137001A9BD1 /* FireLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942931BDF7137001A9BD1 /* FireLarge.png */; };
+		498943641BDF7137001A9BD1 /* FireSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942941BDF7137001A9BD1 /* FireSmall.png */; };
+		498943651BDF7137001A9BD1 /* Fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942951BDF7137001A9BD1 /* Fog.png */; };
+		498943661BDF7137001A9BD1 /* FontKingthings10.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942961BDF7137001A9BD1 /* FontKingthings10.png */; };
+		498943671BDF7137001A9BD1 /* FontKingthings12.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942971BDF7137001A9BD1 /* FontKingthings12.png */; };
+		498943681BDF7137001A9BD1 /* FontKingthings12_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942981BDF7137001A9BD1 /* FontKingthings12_white.png */; };
+		498943691BDF7137001A9BD1 /* FontKingthings16.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942991BDF7137001A9BD1 /* FontKingthings16.png */; };
+		4989436A1BDF7137001A9BD1 /* FontKingthings16_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989429A1BDF7137001A9BD1 /* FontKingthings16_white.png */; };
+		4989436B1BDF7137001A9BD1 /* FontKingthings24.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989429B1BDF7137001A9BD1 /* FontKingthings24.png */; };
+		4989436C1BDF7137001A9BD1 /* FontKingthings8.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989429C1BDF7137001A9BD1 /* FontKingthings8.png */; };
+		4989436D1BDF7137001A9BD1 /* FontKingthings8_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989429D1BDF7137001A9BD1 /* FontKingthings8_white.png */; };
+		4989436E1BDF7137001A9BD1 /* Footman.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989429E1BDF7137001A9BD1 /* Footman.png */; };
+		4989436F1BDF7137001A9BD1 /* GoldMine.png in Resources */ = {isa = PBXBuildFile; fileRef = 4989429F1BDF7137001A9BD1 /* GoldMine.png */; };
+		498943701BDF7137001A9BD1 /* GuardTower.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A01BDF7137001A9BD1 /* GuardTower.png */; };
+		498943711BDF7137001A9BD1 /* Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A11BDF7137001A9BD1 /* Icons.png */; };
+		498943721BDF7137001A9BD1 /* InnerBevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A21BDF7137001A9BD1 /* InnerBevel.png */; };
+		498943731BDF7137001A9BD1 /* InnerBevel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A31BDF7137001A9BD1 /* InnerBevel2.png */; };
+		498943741BDF7137001A9BD1 /* Keep.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A41BDF7137001A9BD1 /* Keep.png */; };
+		498943751BDF7137001A9BD1 /* LargeBuildings.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A51BDF7137001A9BD1 /* LargeBuildings.png */; };
+		498943761BDF7137001A9BD1 /* ListViewIcons.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A61BDF7137001A9BD1 /* ListViewIcons.png */; };
+		498943771BDF7137001A9BD1 /* LumberMill.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A71BDF7137001A9BD1 /* LumberMill.png */; };
+		498943781BDF7137001A9BD1 /* Marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A81BDF7137001A9BD1 /* Marker.png */; };
+		498943791BDF7137001A9BD1 /* MediumBuildings.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942A91BDF7137001A9BD1 /* MediumBuildings.png */; };
+		4989437A1BDF7137001A9BD1 /* MiniBevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942AA1BDF7137001A9BD1 /* MiniBevel.png */; };
+		4989437B1BDF7137001A9BD1 /* MiniIcons.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942AB1BDF7137001A9BD1 /* MiniIcons.png */; };
+		4989437C1BDF7137001A9BD1 /* OuterBevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942AC1BDF7137001A9BD1 /* OuterBevel.png */; };
+		4989437D1BDF7137001A9BD1 /* OuterBevel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942AD1BDF7137001A9BD1 /* OuterBevel2.png */; };
+		4989437E1BDF7137001A9BD1 /* Peasant.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942AE1BDF7137001A9BD1 /* Peasant.png */; };
+		4989437F1BDF7137001A9BD1 /* Ranger.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942AF1BDF7137001A9BD1 /* Ranger.png */; };
+		498943801BDF7137001A9BD1 /* ScoutTower.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942B01BDF7137001A9BD1 /* ScoutTower.png */; };
+		498943811BDF7137001A9BD1 /* SmallBuildings.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942B11BDF7137001A9BD1 /* SmallBuildings.png */; };
+		498943821BDF7137001A9BD1 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942B21BDF7137001A9BD1 /* Splash.png */; };
+		498943831BDF7137001A9BD1 /* Terrain.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942B31BDF7137001A9BD1 /* Terrain.png */; };
+		498943841BDF7137001A9BD1 /* Terrain_backup.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942B41BDF7137001A9BD1 /* Terrain_backup.png */; };
+		498943851BDF7137001A9BD1 /* Texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942B51BDF7137001A9BD1 /* Texture.png */; };
+		498943861BDF7137001A9BD1 /* TownHall.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942B61BDF7137001A9BD1 /* TownHall.png */; };
+		498943871BDF7137001A9BD1 /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 498942B71BDF7137001A9BD1 /* Unknown.png */; };
+		498943881BDF7137001A9BD1 /* Ranger.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942B81BDF7137001A9BD1 /* Ranger.dat */; };
+		498943891BDF7137001A9BD1 /* Archer.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942BA1BDF7137001A9BD1 /* Archer.dat */; };
+		4989438A1BDF7137001A9BD1 /* Barracks.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942BB1BDF7137001A9BD1 /* Barracks.dat */; };
+		4989438B1BDF7137001A9BD1 /* Blacksmith.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942BC1BDF7137001A9BD1 /* Blacksmith.dat */; };
+		4989438C1BDF7137001A9BD1 /* CannonTower.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942BD1BDF7137001A9BD1 /* CannonTower.dat */; };
+		4989438D1BDF7137001A9BD1 /* Castle.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942BE1BDF7137001A9BD1 /* Castle.dat */; };
+		4989438E1BDF7137001A9BD1 /* Farm.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942BF1BDF7137001A9BD1 /* Farm.dat */; };
+		4989438F1BDF7137001A9BD1 /* Footman.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C01BDF7137001A9BD1 /* Footman.dat */; };
+		498943901BDF7137001A9BD1 /* GoldMine.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C11BDF7137001A9BD1 /* GoldMine.dat */; };
+		498943911BDF7137001A9BD1 /* GuardTower.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C21BDF7137001A9BD1 /* GuardTower.dat */; };
+		498943921BDF7137001A9BD1 /* Keep.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C31BDF7137001A9BD1 /* Keep.dat */; };
+		498943931BDF7137001A9BD1 /* LumberMill.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C41BDF7137001A9BD1 /* LumberMill.dat */; };
+		498943941BDF7137001A9BD1 /* Peasant.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C51BDF7137001A9BD1 /* Peasant.dat */; };
+		498943951BDF7137001A9BD1 /* Ranger.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C61BDF7137001A9BD1 /* Ranger.dat */; };
+		498943961BDF7137001A9BD1 /* ScoutTower.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C71BDF7137001A9BD1 /* ScoutTower.dat */; };
+		498943971BDF7137001A9BD1 /* TownHall.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C81BDF7137001A9BD1 /* TownHall.dat */; };
+		498943981BDF7137001A9BD1 /* ScoutTower.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498942C91BDF7137001A9BD1 /* ScoutTower.dat */; };
+		498943991BDF7137001A9BD1 /* acknowledge1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942CC1BDF7137001A9BD1 /* acknowledge1.wav */; };
+		4989439A1BDF7137001A9BD1 /* acknowledge2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942CD1BDF7137001A9BD1 /* acknowledge2.wav */; };
+		4989439B1BDF7137001A9BD1 /* acknowledge3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942CE1BDF7137001A9BD1 /* acknowledge3.wav */; };
+		4989439C1BDF7137001A9BD1 /* acknowledge4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942CF1BDF7137001A9BD1 /* acknowledge4.wav */; };
+		4989439D1BDF7137001A9BD1 /* annoyed1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D01BDF7137001A9BD1 /* annoyed1.wav */; };
+		4989439E1BDF7137001A9BD1 /* annoyed2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D11BDF7137001A9BD1 /* annoyed2.wav */; };
+		4989439F1BDF7137001A9BD1 /* annoyed3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D21BDF7137001A9BD1 /* annoyed3.wav */; };
+		498943A01BDF7137001A9BD1 /* ready.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D31BDF7137001A9BD1 /* ready.wav */; };
+		498943A11BDF7137001A9BD1 /* selected1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D41BDF7137001A9BD1 /* selected1.wav */; };
+		498943A21BDF7137001A9BD1 /* selected2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D51BDF7137001A9BD1 /* selected2.wav */; };
+		498943A31BDF7137001A9BD1 /* selected3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D61BDF7137001A9BD1 /* selected3.wav */; };
+		498943A41BDF7137001A9BD1 /* selected4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D71BDF7137001A9BD1 /* selected4.wav */; };
+		498943A51BDF7137001A9BD1 /* acknowledge1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942D91BDF7137001A9BD1 /* acknowledge1.wav */; };
+		498943A61BDF7137001A9BD1 /* acknowledge2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942DA1BDF7137001A9BD1 /* acknowledge2.wav */; };
+		498943A71BDF7137001A9BD1 /* acknowledge3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942DB1BDF7137001A9BD1 /* acknowledge3.wav */; };
+		498943A81BDF7137001A9BD1 /* acknowledge4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942DC1BDF7137001A9BD1 /* acknowledge4.wav */; };
+		498943A91BDF7137001A9BD1 /* annoyed1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942DD1BDF7137001A9BD1 /* annoyed1.wav */; };
+		498943AA1BDF7137001A9BD1 /* annoyed2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942DE1BDF7137001A9BD1 /* annoyed2.wav */; };
+		498943AB1BDF7137001A9BD1 /* annoyed3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942DF1BDF7137001A9BD1 /* annoyed3.wav */; };
+		498943AC1BDF7137001A9BD1 /* annoyed4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E01BDF7137001A9BD1 /* annoyed4.wav */; };
+		498943AD1BDF7137001A9BD1 /* annoyed5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E11BDF7137001A9BD1 /* annoyed5.wav */; };
+		498943AE1BDF7137001A9BD1 /* annoyed6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E21BDF7137001A9BD1 /* annoyed6.wav */; };
+		498943AF1BDF7137001A9BD1 /* annoyed7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E31BDF7137001A9BD1 /* annoyed7.wav */; };
+		498943B01BDF7137001A9BD1 /* building-help.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E41BDF7137001A9BD1 /* building-help.wav */; };
+		498943B11BDF7137001A9BD1 /* death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E51BDF7137001A9BD1 /* death.wav */; };
+		498943B21BDF7137001A9BD1 /* ready.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E61BDF7137001A9BD1 /* ready.wav */; };
+		498943B31BDF7137001A9BD1 /* selected1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E71BDF7137001A9BD1 /* selected1.wav */; };
+		498943B41BDF7137001A9BD1 /* selected2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E81BDF7137001A9BD1 /* selected2.wav */; };
+		498943B51BDF7137001A9BD1 /* selected3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942E91BDF7137001A9BD1 /* selected3.wav */; };
+		498943B61BDF7137001A9BD1 /* selected4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942EA1BDF7137001A9BD1 /* selected4.wav */; };
+		498943B71BDF7137001A9BD1 /* selected5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942EB1BDF7137001A9BD1 /* selected5.wav */; };
+		498943B81BDF7137001A9BD1 /* selected6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942EC1BDF7137001A9BD1 /* selected6.wav */; };
+		498943B91BDF7137001A9BD1 /* unit-help.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942ED1BDF7137001A9BD1 /* unit-help.wav */; };
+		498943BA1BDF7137001A9BD1 /* work-completed.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942EE1BDF7137001A9BD1 /* work-completed.wav */; };
+		498943BB1BDF7137001A9BD1 /* blacksmith.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942F01BDF7137001A9BD1 /* blacksmith.wav */; };
+		498943BC1BDF7137001A9BD1 /* farm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942F11BDF7137001A9BD1 /* farm.wav */; };
+		498943BD1BDF7137001A9BD1 /* gold-mine.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942F21BDF7137001A9BD1 /* gold-mine.wav */; };
+		498943BE1BDF7137001A9BD1 /* lumber-mill.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942F31BDF7137001A9BD1 /* lumber-mill.wav */; };
+		498943BF1BDF7137001A9BD1 /* generalsoundfont.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 498942F41BDF7137001A9BD1 /* generalsoundfont.sf2 */; };
+		498943C01BDF7137001A9BD1 /* bowfire.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942F61BDF7137001A9BD1 /* bowfire.wav */; };
+		498943C11BDF7137001A9BD1 /* bowhit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942F71BDF7137001A9BD1 /* bowhit.wav */; };
+		498943C21BDF7137001A9BD1 /* building-explode1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942F81BDF7137001A9BD1 /* building-explode1.wav */; };
+		498943C31BDF7137001A9BD1 /* building-explode2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942F91BDF7137001A9BD1 /* building-explode2.wav */; };
+		498943C41BDF7137001A9BD1 /* building-explode3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942FA1BDF7137001A9BD1 /* building-explode3.wav */; };
+		498943C51BDF7137001A9BD1 /* burning.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942FB1BDF7137001A9BD1 /* burning.wav */; };
+		498943C61BDF7137001A9BD1 /* construct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942FC1BDF7137001A9BD1 /* construct.wav */; };
+		498943C71BDF7137001A9BD1 /* explode.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942FD1BDF7137001A9BD1 /* explode.wav */; };
+		498943C81BDF7137001A9BD1 /* sword1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942FE1BDF7137001A9BD1 /* sword1.wav */; };
+		498943C91BDF7137001A9BD1 /* sword2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498942FF1BDF7137001A9BD1 /* sword2.wav */; };
+		498943CA1BDF7137001A9BD1 /* sword3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943001BDF7137001A9BD1 /* sword3.wav */; };
+		498943CB1BDF7137001A9BD1 /* thunk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943011BDF7137001A9BD1 /* thunk.wav */; };
+		498943CC1BDF7137001A9BD1 /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943021BDF7137001A9BD1 /* tick.wav */; };
+		498943CD1BDF7137001A9BD1 /* tock.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943031BDF7137001A9BD1 /* tock.wav */; };
+		498943CE1BDF7137001A9BD1 /* tree1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943041BDF7137001A9BD1 /* tree1.wav */; };
+		498943CF1BDF7137001A9BD1 /* tree2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943051BDF7137001A9BD1 /* tree2.wav */; };
+		498943D01BDF7137001A9BD1 /* tree3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943061BDF7137001A9BD1 /* tree3.wav */; };
+		498943D11BDF7137001A9BD1 /* tree4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943071BDF7137001A9BD1 /* tree4.wav */; };
+		498943D21BDF7137001A9BD1 /* game1.mid in Resources */ = {isa = PBXBuildFile; fileRef = 498943091BDF7137001A9BD1 /* game1.mid */; };
+		498943D31BDF7137001A9BD1 /* game2.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4989430A1BDF7137001A9BD1 /* game2.mid */; };
+		498943D41BDF7137001A9BD1 /* game3.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4989430B1BDF7137001A9BD1 /* game3.mid */; };
+		498943D51BDF7137001A9BD1 /* game4.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4989430C1BDF7137001A9BD1 /* game4.mid */; };
+		498943D61BDF7137001A9BD1 /* game5.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4989430D1BDF7137001A9BD1 /* game5.mid */; };
+		498943D71BDF7137001A9BD1 /* intro.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4989430E1BDF7137001A9BD1 /* intro.mid */; };
+		498943D81BDF7137001A9BD1 /* load.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4989430F1BDF7137001A9BD1 /* load.mid */; };
+		498943D91BDF7137001A9BD1 /* lose.mid in Resources */ = {isa = PBXBuildFile; fileRef = 498943101BDF7137001A9BD1 /* lose.mid */; };
+		498943DA1BDF7137001A9BD1 /* menu.mid in Resources */ = {isa = PBXBuildFile; fileRef = 498943111BDF7137001A9BD1 /* menu.mid */; };
+		498943DB1BDF7137001A9BD1 /* win.mid in Resources */ = {isa = PBXBuildFile; fileRef = 498943121BDF7137001A9BD1 /* win.mid */; };
+		498943DC1BDF7137001A9BD1 /* acknowledge1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943141BDF7137001A9BD1 /* acknowledge1.wav */; };
+		498943DD1BDF7137001A9BD1 /* acknowledge2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943151BDF7137001A9BD1 /* acknowledge2.wav */; };
+		498943DE1BDF7137001A9BD1 /* acknowledge3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943161BDF7137001A9BD1 /* acknowledge3.wav */; };
+		498943DF1BDF7137001A9BD1 /* acknowledge4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943171BDF7137001A9BD1 /* acknowledge4.wav */; };
+		498943E01BDF7137001A9BD1 /* annoyed1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943181BDF7137001A9BD1 /* annoyed1.wav */; };
+		498943E11BDF7137001A9BD1 /* annoyed2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943191BDF7137001A9BD1 /* annoyed2.wav */; };
+		498943E21BDF7137001A9BD1 /* annoyed3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4989431A1BDF7137001A9BD1 /* annoyed3.wav */; };
+		498943E31BDF7137001A9BD1 /* annoyed4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4989431B1BDF7137001A9BD1 /* annoyed4.wav */; };
+		498943E41BDF7137001A9BD1 /* annoyed5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4989431C1BDF7137001A9BD1 /* annoyed5.wav */; };
+		498943E51BDF7137001A9BD1 /* annoyed6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4989431D1BDF7137001A9BD1 /* annoyed6.wav */; };
+		498943E61BDF7137001A9BD1 /* annoyed7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4989431E1BDF7137001A9BD1 /* annoyed7.wav */; };
+		498943E71BDF7137001A9BD1 /* ready.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4989431F1BDF7137001A9BD1 /* ready.wav */; };
+		498943E81BDF7137001A9BD1 /* selected1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943201BDF7137001A9BD1 /* selected1.wav */; };
+		498943E91BDF7137001A9BD1 /* selected2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943211BDF7137001A9BD1 /* selected2.wav */; };
+		498943EA1BDF7137001A9BD1 /* selected3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943221BDF7137001A9BD1 /* selected3.wav */; };
+		498943EB1BDF7137001A9BD1 /* selected4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943231BDF7137001A9BD1 /* selected4.wav */; };
+		498943EC1BDF7137001A9BD1 /* work-completed.wav in Resources */ = {isa = PBXBuildFile; fileRef = 498943241BDF7137001A9BD1 /* work-completed.wav */; };
+		498943ED1BDF7137001A9BD1 /* SoundClips.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943251BDF7137001A9BD1 /* SoundClips.dat */; };
+		498943EE1BDF7137001A9BD1 /* Splash.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943261BDF7137001A9BD1 /* Splash.dat */; };
+		498943EF1BDF7137001A9BD1 /* Terrain.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943271BDF7137001A9BD1 /* Terrain.dat */; };
+		498943F01BDF7137001A9BD1 /* Texture.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943281BDF7137001A9BD1 /* Texture.dat */; };
+		498943F11BDF7137001A9BD1 /* TownHall.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943291BDF7137001A9BD1 /* TownHall.dat */; };
+		498943F21BDF7137001A9BD1 /* Armor2.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989432B1BDF7137001A9BD1 /* Armor2.dat */; };
+		498943F31BDF7137001A9BD1 /* Armor3.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989432C1BDF7137001A9BD1 /* Armor3.dat */; };
+		498943F41BDF7137001A9BD1 /* Arrow2.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989432D1BDF7137001A9BD1 /* Arrow2.dat */; };
+		498943F51BDF7137001A9BD1 /* Arrow3.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989432E1BDF7137001A9BD1 /* Arrow3.dat */; };
+		498943F61BDF7137001A9BD1 /* Longbow.dat in Resources */ = {isa = PBXBuildFile; fileRef = 4989432F1BDF7137001A9BD1 /* Longbow.dat */; };
+		498943F71BDF7137001A9BD1 /* Marksmanship.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943301BDF7137001A9BD1 /* Marksmanship.dat */; };
+		498943F81BDF7137001A9BD1 /* Ranger.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943311BDF7137001A9BD1 /* Ranger.dat */; };
+		498943F91BDF7137001A9BD1 /* Scouting.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943321BDF7137001A9BD1 /* Scouting.dat */; };
+		498943FA1BDF7137001A9BD1 /* Weapon2.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943331BDF7137001A9BD1 /* Weapon2.dat */; };
+		498943FB1BDF7137001A9BD1 /* Weapon3.dat in Resources */ = {isa = PBXBuildFile; fileRef = 498943341BDF7137001A9BD1 /* Weapon3.dat */; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
 		4C95B9A11BDF461900B3F9C2 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95B9A01BDF461900B3F9C2 /* FileManager.swift */; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
@@ -56,6 +255,207 @@
 		3F6FFCFA1BC5F26F00DD4285 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
 		3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawTile.swift; path = ../DrawTile.swift; sourceTree = "<group>"; };
+		498942611BDF7137001A9BD1 /* Archer.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Archer.dat; sourceTree = "<group>"; };
+		498942621BDF7137001A9BD1 /* Arrow.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Arrow.dat; sourceTree = "<group>"; };
+		498942631BDF7137001A9BD1 /* AssetNone.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AssetNone.dat; sourceTree = "<group>"; };
+		498942641BDF7137001A9BD1 /* Barracks.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Barracks.dat; sourceTree = "<group>"; };
+		498942651BDF7137001A9BD1 /* Blacksmith.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Blacksmith.dat; sourceTree = "<group>"; };
+		498942661BDF7137001A9BD1 /* BuildingDeath.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BuildingDeath.dat; sourceTree = "<group>"; };
+		498942671BDF7137001A9BD1 /* ButtonColors.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ButtonColors.dat; sourceTree = "<group>"; };
+		498942681BDF7137001A9BD1 /* CannonTower.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CannonTower.dat; sourceTree = "<group>"; };
+		498942691BDF7137001A9BD1 /* Castle.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Castle.dat; sourceTree = "<group>"; };
+		4989426A1BDF7137001A9BD1 /* Corpse.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Corpse.dat; sourceTree = "<group>"; };
+		4989426B1BDF7137001A9BD1 /* Cursors.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cursors.dat; sourceTree = "<group>"; };
+		4989426C1BDF7137001A9BD1 /* Farm.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Farm.dat; sourceTree = "<group>"; };
+		4989426D1BDF7137001A9BD1 /* FireLarge.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireLarge.dat; sourceTree = "<group>"; };
+		4989426E1BDF7137001A9BD1 /* FireSmall.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FireSmall.dat; sourceTree = "<group>"; };
+		4989426F1BDF7137001A9BD1 /* Fog.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fog.dat; sourceTree = "<group>"; };
+		498942701BDF7137001A9BD1 /* FontKingthings10.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FontKingthings10.dat; sourceTree = "<group>"; };
+		498942711BDF7137001A9BD1 /* FontKingthings12.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FontKingthings12.dat; sourceTree = "<group>"; };
+		498942721BDF7137001A9BD1 /* FontKingthings16.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FontKingthings16.dat; sourceTree = "<group>"; };
+		498942731BDF7137001A9BD1 /* FontKingthings24.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FontKingthings24.dat; sourceTree = "<group>"; };
+		498942741BDF7137001A9BD1 /* FontKingthings8.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FontKingthings8.dat; sourceTree = "<group>"; };
+		498942751BDF7137001A9BD1 /* Footman.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Footman.dat; sourceTree = "<group>"; };
+		498942761BDF7137001A9BD1 /* GoldMine.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoldMine.dat; sourceTree = "<group>"; };
+		498942771BDF7137001A9BD1 /* GuardTower.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GuardTower.dat; sourceTree = "<group>"; };
+		498942781BDF7137001A9BD1 /* Icons.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Icons.dat; sourceTree = "<group>"; };
+		498942791BDF7137001A9BD1 /* InnerBevel.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InnerBevel.dat; sourceTree = "<group>"; };
+		4989427A1BDF7137001A9BD1 /* Keep.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Keep.dat; sourceTree = "<group>"; };
+		4989427B1BDF7137001A9BD1 /* ListViewIcons.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ListViewIcons.dat; sourceTree = "<group>"; };
+		4989427C1BDF7137001A9BD1 /* LumberMill.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LumberMill.dat; sourceTree = "<group>"; };
+		4989427E1BDF7137001A9BD1 /* 2player.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = 2player.map; sourceTree = "<group>"; };
+		4989427F1BDF7137001A9BD1 /* 2playerdivide.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = 2playerdivide.map; sourceTree = "<group>"; };
+		498942801BDF7137001A9BD1 /* Marker.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Marker.dat; sourceTree = "<group>"; };
+		498942811BDF7137001A9BD1 /* MiniBevel.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniBevel.dat; sourceTree = "<group>"; };
+		498942821BDF7137001A9BD1 /* MiniIcons.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MiniIcons.dat; sourceTree = "<group>"; };
+		498942831BDF7137001A9BD1 /* OuterBevel.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OuterBevel.dat; sourceTree = "<group>"; };
+		498942841BDF7137001A9BD1 /* Peasant.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Peasant.dat; sourceTree = "<group>"; };
+		498942861BDF7137001A9BD1 /* Archer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Archer.png; sourceTree = "<group>"; };
+		498942871BDF7137001A9BD1 /* Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow.png; sourceTree = "<group>"; };
+		498942881BDF7137001A9BD1 /* AssetNone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AssetNone.png; sourceTree = "<group>"; };
+		498942891BDF7137001A9BD1 /* Barracks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Barracks.png; sourceTree = "<group>"; };
+		4989428A1BDF7137001A9BD1 /* Blacksmith.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blacksmith.png; sourceTree = "<group>"; };
+		4989428B1BDF7137001A9BD1 /* BuildingDeath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingDeath.png; sourceTree = "<group>"; };
+		4989428C1BDF7137001A9BD1 /* ButtonColors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonColors.png; sourceTree = "<group>"; };
+		4989428D1BDF7137001A9BD1 /* CannonTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CannonTower.png; sourceTree = "<group>"; };
+		4989428E1BDF7137001A9BD1 /* Castle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Castle.png; sourceTree = "<group>"; };
+		4989428F1BDF7137001A9BD1 /* Colors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Colors.png; sourceTree = "<group>"; };
+		498942901BDF7137001A9BD1 /* Corpse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Corpse.png; sourceTree = "<group>"; };
+		498942911BDF7137001A9BD1 /* Cursors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cursors.png; sourceTree = "<group>"; };
+		498942921BDF7137001A9BD1 /* Farm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Farm.png; sourceTree = "<group>"; };
+		498942931BDF7137001A9BD1 /* FireLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FireLarge.png; sourceTree = "<group>"; };
+		498942941BDF7137001A9BD1 /* FireSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FireSmall.png; sourceTree = "<group>"; };
+		498942951BDF7137001A9BD1 /* Fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fog.png; sourceTree = "<group>"; };
+		498942961BDF7137001A9BD1 /* FontKingthings10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings10.png; sourceTree = "<group>"; };
+		498942971BDF7137001A9BD1 /* FontKingthings12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings12.png; sourceTree = "<group>"; };
+		498942981BDF7137001A9BD1 /* FontKingthings12_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings12_white.png; sourceTree = "<group>"; };
+		498942991BDF7137001A9BD1 /* FontKingthings16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings16.png; sourceTree = "<group>"; };
+		4989429A1BDF7137001A9BD1 /* FontKingthings16_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings16_white.png; sourceTree = "<group>"; };
+		4989429B1BDF7137001A9BD1 /* FontKingthings24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings24.png; sourceTree = "<group>"; };
+		4989429C1BDF7137001A9BD1 /* FontKingthings8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings8.png; sourceTree = "<group>"; };
+		4989429D1BDF7137001A9BD1 /* FontKingthings8_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FontKingthings8_white.png; sourceTree = "<group>"; };
+		4989429E1BDF7137001A9BD1 /* Footman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Footman.png; sourceTree = "<group>"; };
+		4989429F1BDF7137001A9BD1 /* GoldMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoldMine.png; sourceTree = "<group>"; };
+		498942A01BDF7137001A9BD1 /* GuardTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GuardTower.png; sourceTree = "<group>"; };
+		498942A11BDF7137001A9BD1 /* Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icons.png; sourceTree = "<group>"; };
+		498942A21BDF7137001A9BD1 /* InnerBevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InnerBevel.png; sourceTree = "<group>"; };
+		498942A31BDF7137001A9BD1 /* InnerBevel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InnerBevel2.png; sourceTree = "<group>"; };
+		498942A41BDF7137001A9BD1 /* Keep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keep.png; sourceTree = "<group>"; };
+		498942A51BDF7137001A9BD1 /* LargeBuildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LargeBuildings.png; sourceTree = "<group>"; };
+		498942A61BDF7137001A9BD1 /* ListViewIcons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ListViewIcons.png; sourceTree = "<group>"; };
+		498942A71BDF7137001A9BD1 /* LumberMill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LumberMill.png; sourceTree = "<group>"; };
+		498942A81BDF7137001A9BD1 /* Marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marker.png; sourceTree = "<group>"; };
+		498942A91BDF7137001A9BD1 /* MediumBuildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MediumBuildings.png; sourceTree = "<group>"; };
+		498942AA1BDF7137001A9BD1 /* MiniBevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MiniBevel.png; sourceTree = "<group>"; };
+		498942AB1BDF7137001A9BD1 /* MiniIcons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MiniIcons.png; sourceTree = "<group>"; };
+		498942AC1BDF7137001A9BD1 /* OuterBevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OuterBevel.png; sourceTree = "<group>"; };
+		498942AD1BDF7137001A9BD1 /* OuterBevel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OuterBevel2.png; sourceTree = "<group>"; };
+		498942AE1BDF7137001A9BD1 /* Peasant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Peasant.png; sourceTree = "<group>"; };
+		498942AF1BDF7137001A9BD1 /* Ranger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ranger.png; sourceTree = "<group>"; };
+		498942B01BDF7137001A9BD1 /* ScoutTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScoutTower.png; sourceTree = "<group>"; };
+		498942B11BDF7137001A9BD1 /* SmallBuildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallBuildings.png; sourceTree = "<group>"; };
+		498942B21BDF7137001A9BD1 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Splash.png; sourceTree = "<group>"; };
+		498942B31BDF7137001A9BD1 /* Terrain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Terrain.png; sourceTree = "<group>"; };
+		498942B41BDF7137001A9BD1 /* Terrain_backup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Terrain_backup.png; sourceTree = "<group>"; };
+		498942B51BDF7137001A9BD1 /* Texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Texture.png; sourceTree = "<group>"; };
+		498942B61BDF7137001A9BD1 /* TownHall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TownHall.png; sourceTree = "<group>"; };
+		498942B71BDF7137001A9BD1 /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown.png; sourceTree = "<group>"; };
+		498942B81BDF7137001A9BD1 /* Ranger.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Ranger.dat; sourceTree = "<group>"; };
+		498942BA1BDF7137001A9BD1 /* Archer.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Archer.dat; sourceTree = "<group>"; };
+		498942BB1BDF7137001A9BD1 /* Barracks.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Barracks.dat; sourceTree = "<group>"; };
+		498942BC1BDF7137001A9BD1 /* Blacksmith.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Blacksmith.dat; sourceTree = "<group>"; };
+		498942BD1BDF7137001A9BD1 /* CannonTower.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CannonTower.dat; sourceTree = "<group>"; };
+		498942BE1BDF7137001A9BD1 /* Castle.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Castle.dat; sourceTree = "<group>"; };
+		498942BF1BDF7137001A9BD1 /* Farm.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Farm.dat; sourceTree = "<group>"; };
+		498942C01BDF7137001A9BD1 /* Footman.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Footman.dat; sourceTree = "<group>"; };
+		498942C11BDF7137001A9BD1 /* GoldMine.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoldMine.dat; sourceTree = "<group>"; };
+		498942C21BDF7137001A9BD1 /* GuardTower.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GuardTower.dat; sourceTree = "<group>"; };
+		498942C31BDF7137001A9BD1 /* Keep.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Keep.dat; sourceTree = "<group>"; };
+		498942C41BDF7137001A9BD1 /* LumberMill.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LumberMill.dat; sourceTree = "<group>"; };
+		498942C51BDF7137001A9BD1 /* Peasant.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Peasant.dat; sourceTree = "<group>"; };
+		498942C61BDF7137001A9BD1 /* Ranger.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Ranger.dat; sourceTree = "<group>"; };
+		498942C71BDF7137001A9BD1 /* ScoutTower.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ScoutTower.dat; sourceTree = "<group>"; };
+		498942C81BDF7137001A9BD1 /* TownHall.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TownHall.dat; sourceTree = "<group>"; };
+		498942C91BDF7137001A9BD1 /* ScoutTower.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ScoutTower.dat; sourceTree = "<group>"; };
+		498942CC1BDF7137001A9BD1 /* acknowledge1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge1.wav; sourceTree = "<group>"; };
+		498942CD1BDF7137001A9BD1 /* acknowledge2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge2.wav; sourceTree = "<group>"; };
+		498942CE1BDF7137001A9BD1 /* acknowledge3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge3.wav; sourceTree = "<group>"; };
+		498942CF1BDF7137001A9BD1 /* acknowledge4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge4.wav; sourceTree = "<group>"; };
+		498942D01BDF7137001A9BD1 /* annoyed1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed1.wav; sourceTree = "<group>"; };
+		498942D11BDF7137001A9BD1 /* annoyed2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed2.wav; sourceTree = "<group>"; };
+		498942D21BDF7137001A9BD1 /* annoyed3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed3.wav; sourceTree = "<group>"; };
+		498942D31BDF7137001A9BD1 /* ready.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ready.wav; sourceTree = "<group>"; };
+		498942D41BDF7137001A9BD1 /* selected1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected1.wav; sourceTree = "<group>"; };
+		498942D51BDF7137001A9BD1 /* selected2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected2.wav; sourceTree = "<group>"; };
+		498942D61BDF7137001A9BD1 /* selected3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected3.wav; sourceTree = "<group>"; };
+		498942D71BDF7137001A9BD1 /* selected4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected4.wav; sourceTree = "<group>"; };
+		498942D91BDF7137001A9BD1 /* acknowledge1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge1.wav; sourceTree = "<group>"; };
+		498942DA1BDF7137001A9BD1 /* acknowledge2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge2.wav; sourceTree = "<group>"; };
+		498942DB1BDF7137001A9BD1 /* acknowledge3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge3.wav; sourceTree = "<group>"; };
+		498942DC1BDF7137001A9BD1 /* acknowledge4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge4.wav; sourceTree = "<group>"; };
+		498942DD1BDF7137001A9BD1 /* annoyed1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed1.wav; sourceTree = "<group>"; };
+		498942DE1BDF7137001A9BD1 /* annoyed2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed2.wav; sourceTree = "<group>"; };
+		498942DF1BDF7137001A9BD1 /* annoyed3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed3.wav; sourceTree = "<group>"; };
+		498942E01BDF7137001A9BD1 /* annoyed4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed4.wav; sourceTree = "<group>"; };
+		498942E11BDF7137001A9BD1 /* annoyed5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed5.wav; sourceTree = "<group>"; };
+		498942E21BDF7137001A9BD1 /* annoyed6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed6.wav; sourceTree = "<group>"; };
+		498942E31BDF7137001A9BD1 /* annoyed7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed7.wav; sourceTree = "<group>"; };
+		498942E41BDF7137001A9BD1 /* building-help.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "building-help.wav"; sourceTree = "<group>"; };
+		498942E51BDF7137001A9BD1 /* death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = death.wav; sourceTree = "<group>"; };
+		498942E61BDF7137001A9BD1 /* ready.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ready.wav; sourceTree = "<group>"; };
+		498942E71BDF7137001A9BD1 /* selected1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected1.wav; sourceTree = "<group>"; };
+		498942E81BDF7137001A9BD1 /* selected2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected2.wav; sourceTree = "<group>"; };
+		498942E91BDF7137001A9BD1 /* selected3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected3.wav; sourceTree = "<group>"; };
+		498942EA1BDF7137001A9BD1 /* selected4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected4.wav; sourceTree = "<group>"; };
+		498942EB1BDF7137001A9BD1 /* selected5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected5.wav; sourceTree = "<group>"; };
+		498942EC1BDF7137001A9BD1 /* selected6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected6.wav; sourceTree = "<group>"; };
+		498942ED1BDF7137001A9BD1 /* unit-help.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "unit-help.wav"; sourceTree = "<group>"; };
+		498942EE1BDF7137001A9BD1 /* work-completed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "work-completed.wav"; sourceTree = "<group>"; };
+		498942F01BDF7137001A9BD1 /* blacksmith.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blacksmith.wav; sourceTree = "<group>"; };
+		498942F11BDF7137001A9BD1 /* farm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = farm.wav; sourceTree = "<group>"; };
+		498942F21BDF7137001A9BD1 /* gold-mine.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "gold-mine.wav"; sourceTree = "<group>"; };
+		498942F31BDF7137001A9BD1 /* lumber-mill.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "lumber-mill.wav"; sourceTree = "<group>"; };
+		498942F41BDF7137001A9BD1 /* generalsoundfont.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = generalsoundfont.sf2; sourceTree = "<group>"; };
+		498942F61BDF7137001A9BD1 /* bowfire.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bowfire.wav; sourceTree = "<group>"; };
+		498942F71BDF7137001A9BD1 /* bowhit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bowhit.wav; sourceTree = "<group>"; };
+		498942F81BDF7137001A9BD1 /* building-explode1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "building-explode1.wav"; sourceTree = "<group>"; };
+		498942F91BDF7137001A9BD1 /* building-explode2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "building-explode2.wav"; sourceTree = "<group>"; };
+		498942FA1BDF7137001A9BD1 /* building-explode3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "building-explode3.wav"; sourceTree = "<group>"; };
+		498942FB1BDF7137001A9BD1 /* burning.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burning.wav; sourceTree = "<group>"; };
+		498942FC1BDF7137001A9BD1 /* construct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = construct.wav; sourceTree = "<group>"; };
+		498942FD1BDF7137001A9BD1 /* explode.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explode.wav; sourceTree = "<group>"; };
+		498942FE1BDF7137001A9BD1 /* sword1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword1.wav; sourceTree = "<group>"; };
+		498942FF1BDF7137001A9BD1 /* sword2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword2.wav; sourceTree = "<group>"; };
+		498943001BDF7137001A9BD1 /* sword3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword3.wav; sourceTree = "<group>"; };
+		498943011BDF7137001A9BD1 /* thunk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = thunk.wav; sourceTree = "<group>"; };
+		498943021BDF7137001A9BD1 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
+		498943031BDF7137001A9BD1 /* tock.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tock.wav; sourceTree = "<group>"; };
+		498943041BDF7137001A9BD1 /* tree1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tree1.wav; sourceTree = "<group>"; };
+		498943051BDF7137001A9BD1 /* tree2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tree2.wav; sourceTree = "<group>"; };
+		498943061BDF7137001A9BD1 /* tree3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tree3.wav; sourceTree = "<group>"; };
+		498943071BDF7137001A9BD1 /* tree4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tree4.wav; sourceTree = "<group>"; };
+		498943091BDF7137001A9BD1 /* game1.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = game1.mid; sourceTree = "<group>"; };
+		4989430A1BDF7137001A9BD1 /* game2.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = game2.mid; sourceTree = "<group>"; };
+		4989430B1BDF7137001A9BD1 /* game3.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = game3.mid; sourceTree = "<group>"; };
+		4989430C1BDF7137001A9BD1 /* game4.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = game4.mid; sourceTree = "<group>"; };
+		4989430D1BDF7137001A9BD1 /* game5.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = game5.mid; sourceTree = "<group>"; };
+		4989430E1BDF7137001A9BD1 /* intro.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = intro.mid; sourceTree = "<group>"; };
+		4989430F1BDF7137001A9BD1 /* load.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = load.mid; sourceTree = "<group>"; };
+		498943101BDF7137001A9BD1 /* lose.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = lose.mid; sourceTree = "<group>"; };
+		498943111BDF7137001A9BD1 /* menu.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = menu.mid; sourceTree = "<group>"; };
+		498943121BDF7137001A9BD1 /* win.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = win.mid; sourceTree = "<group>"; };
+		498943141BDF7137001A9BD1 /* acknowledge1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge1.wav; sourceTree = "<group>"; };
+		498943151BDF7137001A9BD1 /* acknowledge2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge2.wav; sourceTree = "<group>"; };
+		498943161BDF7137001A9BD1 /* acknowledge3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge3.wav; sourceTree = "<group>"; };
+		498943171BDF7137001A9BD1 /* acknowledge4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = acknowledge4.wav; sourceTree = "<group>"; };
+		498943181BDF7137001A9BD1 /* annoyed1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed1.wav; sourceTree = "<group>"; };
+		498943191BDF7137001A9BD1 /* annoyed2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed2.wav; sourceTree = "<group>"; };
+		4989431A1BDF7137001A9BD1 /* annoyed3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed3.wav; sourceTree = "<group>"; };
+		4989431B1BDF7137001A9BD1 /* annoyed4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed4.wav; sourceTree = "<group>"; };
+		4989431C1BDF7137001A9BD1 /* annoyed5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed5.wav; sourceTree = "<group>"; };
+		4989431D1BDF7137001A9BD1 /* annoyed6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed6.wav; sourceTree = "<group>"; };
+		4989431E1BDF7137001A9BD1 /* annoyed7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = annoyed7.wav; sourceTree = "<group>"; };
+		4989431F1BDF7137001A9BD1 /* ready.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ready.wav; sourceTree = "<group>"; };
+		498943201BDF7137001A9BD1 /* selected1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected1.wav; sourceTree = "<group>"; };
+		498943211BDF7137001A9BD1 /* selected2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected2.wav; sourceTree = "<group>"; };
+		498943221BDF7137001A9BD1 /* selected3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected3.wav; sourceTree = "<group>"; };
+		498943231BDF7137001A9BD1 /* selected4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selected4.wav; sourceTree = "<group>"; };
+		498943241BDF7137001A9BD1 /* work-completed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "work-completed.wav"; sourceTree = "<group>"; };
+		498943251BDF7137001A9BD1 /* SoundClips.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SoundClips.dat; sourceTree = "<group>"; };
+		498943261BDF7137001A9BD1 /* Splash.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Splash.dat; sourceTree = "<group>"; };
+		498943271BDF7137001A9BD1 /* Terrain.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Terrain.dat; sourceTree = "<group>"; };
+		498943281BDF7137001A9BD1 /* Texture.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Texture.dat; sourceTree = "<group>"; };
+		498943291BDF7137001A9BD1 /* TownHall.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TownHall.dat; sourceTree = "<group>"; };
+		4989432B1BDF7137001A9BD1 /* Armor2.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Armor2.dat; sourceTree = "<group>"; };
+		4989432C1BDF7137001A9BD1 /* Armor3.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Armor3.dat; sourceTree = "<group>"; };
+		4989432D1BDF7137001A9BD1 /* Arrow2.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Arrow2.dat; sourceTree = "<group>"; };
+		4989432E1BDF7137001A9BD1 /* Arrow3.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Arrow3.dat; sourceTree = "<group>"; };
+		4989432F1BDF7137001A9BD1 /* Longbow.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Longbow.dat; sourceTree = "<group>"; };
+		498943301BDF7137001A9BD1 /* Marksmanship.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Marksmanship.dat; sourceTree = "<group>"; };
+		498943311BDF7137001A9BD1 /* Ranger.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Ranger.dat; sourceTree = "<group>"; };
+		498943321BDF7137001A9BD1 /* Scouting.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Scouting.dat; sourceTree = "<group>"; };
+		498943331BDF7137001A9BD1 /* Weapon2.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Weapon2.dat; sourceTree = "<group>"; };
+		498943341BDF7137001A9BD1 /* Weapon3.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Weapon3.dat; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
 		4C95B9A01BDF461900B3F9C2 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
@@ -92,6 +492,303 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		498942601BDF7137001A9BD1 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				498942611BDF7137001A9BD1 /* Archer.dat */,
+				498942621BDF7137001A9BD1 /* Arrow.dat */,
+				498942631BDF7137001A9BD1 /* AssetNone.dat */,
+				498942641BDF7137001A9BD1 /* Barracks.dat */,
+				498942651BDF7137001A9BD1 /* Blacksmith.dat */,
+				498942661BDF7137001A9BD1 /* BuildingDeath.dat */,
+				498942671BDF7137001A9BD1 /* ButtonColors.dat */,
+				498942681BDF7137001A9BD1 /* CannonTower.dat */,
+				498942691BDF7137001A9BD1 /* Castle.dat */,
+				4989426A1BDF7137001A9BD1 /* Corpse.dat */,
+				4989426B1BDF7137001A9BD1 /* Cursors.dat */,
+				4989426C1BDF7137001A9BD1 /* Farm.dat */,
+				4989426D1BDF7137001A9BD1 /* FireLarge.dat */,
+				4989426E1BDF7137001A9BD1 /* FireSmall.dat */,
+				4989426F1BDF7137001A9BD1 /* Fog.dat */,
+				498942701BDF7137001A9BD1 /* FontKingthings10.dat */,
+				498942711BDF7137001A9BD1 /* FontKingthings12.dat */,
+				498942721BDF7137001A9BD1 /* FontKingthings16.dat */,
+				498942731BDF7137001A9BD1 /* FontKingthings24.dat */,
+				498942741BDF7137001A9BD1 /* FontKingthings8.dat */,
+				498942751BDF7137001A9BD1 /* Footman.dat */,
+				498942761BDF7137001A9BD1 /* GoldMine.dat */,
+				498942771BDF7137001A9BD1 /* GuardTower.dat */,
+				498942781BDF7137001A9BD1 /* Icons.dat */,
+				498942791BDF7137001A9BD1 /* InnerBevel.dat */,
+				4989427A1BDF7137001A9BD1 /* Keep.dat */,
+				4989427B1BDF7137001A9BD1 /* ListViewIcons.dat */,
+				4989427C1BDF7137001A9BD1 /* LumberMill.dat */,
+				4989427D1BDF7137001A9BD1 /* map */,
+				498942801BDF7137001A9BD1 /* Marker.dat */,
+				498942811BDF7137001A9BD1 /* MiniBevel.dat */,
+				498942821BDF7137001A9BD1 /* MiniIcons.dat */,
+				498942831BDF7137001A9BD1 /* OuterBevel.dat */,
+				498942841BDF7137001A9BD1 /* Peasant.dat */,
+				498942851BDF7137001A9BD1 /* png */,
+				498942B81BDF7137001A9BD1 /* Ranger.dat */,
+				498942B91BDF7137001A9BD1 /* res */,
+				498942C91BDF7137001A9BD1 /* ScoutTower.dat */,
+				498942CA1BDF7137001A9BD1 /* snd */,
+				498943251BDF7137001A9BD1 /* SoundClips.dat */,
+				498943261BDF7137001A9BD1 /* Splash.dat */,
+				498943271BDF7137001A9BD1 /* Terrain.dat */,
+				498943281BDF7137001A9BD1 /* Texture.dat */,
+				498943291BDF7137001A9BD1 /* TownHall.dat */,
+				4989432A1BDF7137001A9BD1 /* upg */,
+			);
+			name = data;
+			path = ../data;
+			sourceTree = "<group>";
+		};
+		4989427D1BDF7137001A9BD1 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				4989427E1BDF7137001A9BD1 /* 2player.map */,
+				4989427F1BDF7137001A9BD1 /* 2playerdivide.map */,
+			);
+			path = map;
+			sourceTree = "<group>";
+		};
+		498942851BDF7137001A9BD1 /* png */ = {
+			isa = PBXGroup;
+			children = (
+				498942861BDF7137001A9BD1 /* Archer.png */,
+				498942871BDF7137001A9BD1 /* Arrow.png */,
+				498942881BDF7137001A9BD1 /* AssetNone.png */,
+				498942891BDF7137001A9BD1 /* Barracks.png */,
+				4989428A1BDF7137001A9BD1 /* Blacksmith.png */,
+				4989428B1BDF7137001A9BD1 /* BuildingDeath.png */,
+				4989428C1BDF7137001A9BD1 /* ButtonColors.png */,
+				4989428D1BDF7137001A9BD1 /* CannonTower.png */,
+				4989428E1BDF7137001A9BD1 /* Castle.png */,
+				4989428F1BDF7137001A9BD1 /* Colors.png */,
+				498942901BDF7137001A9BD1 /* Corpse.png */,
+				498942911BDF7137001A9BD1 /* Cursors.png */,
+				498942921BDF7137001A9BD1 /* Farm.png */,
+				498942931BDF7137001A9BD1 /* FireLarge.png */,
+				498942941BDF7137001A9BD1 /* FireSmall.png */,
+				498942951BDF7137001A9BD1 /* Fog.png */,
+				498942961BDF7137001A9BD1 /* FontKingthings10.png */,
+				498942971BDF7137001A9BD1 /* FontKingthings12.png */,
+				498942981BDF7137001A9BD1 /* FontKingthings12_white.png */,
+				498942991BDF7137001A9BD1 /* FontKingthings16.png */,
+				4989429A1BDF7137001A9BD1 /* FontKingthings16_white.png */,
+				4989429B1BDF7137001A9BD1 /* FontKingthings24.png */,
+				4989429C1BDF7137001A9BD1 /* FontKingthings8.png */,
+				4989429D1BDF7137001A9BD1 /* FontKingthings8_white.png */,
+				4989429E1BDF7137001A9BD1 /* Footman.png */,
+				4989429F1BDF7137001A9BD1 /* GoldMine.png */,
+				498942A01BDF7137001A9BD1 /* GuardTower.png */,
+				498942A11BDF7137001A9BD1 /* Icons.png */,
+				498942A21BDF7137001A9BD1 /* InnerBevel.png */,
+				498942A31BDF7137001A9BD1 /* InnerBevel2.png */,
+				498942A41BDF7137001A9BD1 /* Keep.png */,
+				498942A51BDF7137001A9BD1 /* LargeBuildings.png */,
+				498942A61BDF7137001A9BD1 /* ListViewIcons.png */,
+				498942A71BDF7137001A9BD1 /* LumberMill.png */,
+				498942A81BDF7137001A9BD1 /* Marker.png */,
+				498942A91BDF7137001A9BD1 /* MediumBuildings.png */,
+				498942AA1BDF7137001A9BD1 /* MiniBevel.png */,
+				498942AB1BDF7137001A9BD1 /* MiniIcons.png */,
+				498942AC1BDF7137001A9BD1 /* OuterBevel.png */,
+				498942AD1BDF7137001A9BD1 /* OuterBevel2.png */,
+				498942AE1BDF7137001A9BD1 /* Peasant.png */,
+				498942AF1BDF7137001A9BD1 /* Ranger.png */,
+				498942B01BDF7137001A9BD1 /* ScoutTower.png */,
+				498942B11BDF7137001A9BD1 /* SmallBuildings.png */,
+				498942B21BDF7137001A9BD1 /* Splash.png */,
+				498942B31BDF7137001A9BD1 /* Terrain.png */,
+				498942B41BDF7137001A9BD1 /* Terrain_backup.png */,
+				498942B51BDF7137001A9BD1 /* Texture.png */,
+				498942B61BDF7137001A9BD1 /* TownHall.png */,
+				498942B71BDF7137001A9BD1 /* Unknown.png */,
+			);
+			path = png;
+			sourceTree = "<group>";
+		};
+		498942B91BDF7137001A9BD1 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				498942BA1BDF7137001A9BD1 /* Archer.dat */,
+				498942BB1BDF7137001A9BD1 /* Barracks.dat */,
+				498942BC1BDF7137001A9BD1 /* Blacksmith.dat */,
+				498942BD1BDF7137001A9BD1 /* CannonTower.dat */,
+				498942BE1BDF7137001A9BD1 /* Castle.dat */,
+				498942BF1BDF7137001A9BD1 /* Farm.dat */,
+				498942C01BDF7137001A9BD1 /* Footman.dat */,
+				498942C11BDF7137001A9BD1 /* GoldMine.dat */,
+				498942C21BDF7137001A9BD1 /* GuardTower.dat */,
+				498942C31BDF7137001A9BD1 /* Keep.dat */,
+				498942C41BDF7137001A9BD1 /* LumberMill.dat */,
+				498942C51BDF7137001A9BD1 /* Peasant.dat */,
+				498942C61BDF7137001A9BD1 /* Ranger.dat */,
+				498942C71BDF7137001A9BD1 /* ScoutTower.dat */,
+				498942C81BDF7137001A9BD1 /* TownHall.dat */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		498942CA1BDF7137001A9BD1 /* snd */ = {
+			isa = PBXGroup;
+			children = (
+				498942CB1BDF7137001A9BD1 /* archer */,
+				498942D81BDF7137001A9BD1 /* basic */,
+				498942EF1BDF7137001A9BD1 /* buildings */,
+				498942F41BDF7137001A9BD1 /* generalsoundfont.sf2 */,
+				498942F51BDF7137001A9BD1 /* misc */,
+				498943081BDF7137001A9BD1 /* music */,
+				498943131BDF7137001A9BD1 /* peasant */,
+			);
+			path = snd;
+			sourceTree = "<group>";
+		};
+		498942CB1BDF7137001A9BD1 /* archer */ = {
+			isa = PBXGroup;
+			children = (
+				498942CC1BDF7137001A9BD1 /* acknowledge1.wav */,
+				498942CD1BDF7137001A9BD1 /* acknowledge2.wav */,
+				498942CE1BDF7137001A9BD1 /* acknowledge3.wav */,
+				498942CF1BDF7137001A9BD1 /* acknowledge4.wav */,
+				498942D01BDF7137001A9BD1 /* annoyed1.wav */,
+				498942D11BDF7137001A9BD1 /* annoyed2.wav */,
+				498942D21BDF7137001A9BD1 /* annoyed3.wav */,
+				498942D31BDF7137001A9BD1 /* ready.wav */,
+				498942D41BDF7137001A9BD1 /* selected1.wav */,
+				498942D51BDF7137001A9BD1 /* selected2.wav */,
+				498942D61BDF7137001A9BD1 /* selected3.wav */,
+				498942D71BDF7137001A9BD1 /* selected4.wav */,
+			);
+			path = archer;
+			sourceTree = "<group>";
+		};
+		498942D81BDF7137001A9BD1 /* basic */ = {
+			isa = PBXGroup;
+			children = (
+				498942D91BDF7137001A9BD1 /* acknowledge1.wav */,
+				498942DA1BDF7137001A9BD1 /* acknowledge2.wav */,
+				498942DB1BDF7137001A9BD1 /* acknowledge3.wav */,
+				498942DC1BDF7137001A9BD1 /* acknowledge4.wav */,
+				498942DD1BDF7137001A9BD1 /* annoyed1.wav */,
+				498942DE1BDF7137001A9BD1 /* annoyed2.wav */,
+				498942DF1BDF7137001A9BD1 /* annoyed3.wav */,
+				498942E01BDF7137001A9BD1 /* annoyed4.wav */,
+				498942E11BDF7137001A9BD1 /* annoyed5.wav */,
+				498942E21BDF7137001A9BD1 /* annoyed6.wav */,
+				498942E31BDF7137001A9BD1 /* annoyed7.wav */,
+				498942E41BDF7137001A9BD1 /* building-help.wav */,
+				498942E51BDF7137001A9BD1 /* death.wav */,
+				498942E61BDF7137001A9BD1 /* ready.wav */,
+				498942E71BDF7137001A9BD1 /* selected1.wav */,
+				498942E81BDF7137001A9BD1 /* selected2.wav */,
+				498942E91BDF7137001A9BD1 /* selected3.wav */,
+				498942EA1BDF7137001A9BD1 /* selected4.wav */,
+				498942EB1BDF7137001A9BD1 /* selected5.wav */,
+				498942EC1BDF7137001A9BD1 /* selected6.wav */,
+				498942ED1BDF7137001A9BD1 /* unit-help.wav */,
+				498942EE1BDF7137001A9BD1 /* work-completed.wav */,
+			);
+			path = basic;
+			sourceTree = "<group>";
+		};
+		498942EF1BDF7137001A9BD1 /* buildings */ = {
+			isa = PBXGroup;
+			children = (
+				498942F01BDF7137001A9BD1 /* blacksmith.wav */,
+				498942F11BDF7137001A9BD1 /* farm.wav */,
+				498942F21BDF7137001A9BD1 /* gold-mine.wav */,
+				498942F31BDF7137001A9BD1 /* lumber-mill.wav */,
+			);
+			path = buildings;
+			sourceTree = "<group>";
+		};
+		498942F51BDF7137001A9BD1 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				498942F61BDF7137001A9BD1 /* bowfire.wav */,
+				498942F71BDF7137001A9BD1 /* bowhit.wav */,
+				498942F81BDF7137001A9BD1 /* building-explode1.wav */,
+				498942F91BDF7137001A9BD1 /* building-explode2.wav */,
+				498942FA1BDF7137001A9BD1 /* building-explode3.wav */,
+				498942FB1BDF7137001A9BD1 /* burning.wav */,
+				498942FC1BDF7137001A9BD1 /* construct.wav */,
+				498942FD1BDF7137001A9BD1 /* explode.wav */,
+				498942FE1BDF7137001A9BD1 /* sword1.wav */,
+				498942FF1BDF7137001A9BD1 /* sword2.wav */,
+				498943001BDF7137001A9BD1 /* sword3.wav */,
+				498943011BDF7137001A9BD1 /* thunk.wav */,
+				498943021BDF7137001A9BD1 /* tick.wav */,
+				498943031BDF7137001A9BD1 /* tock.wav */,
+				498943041BDF7137001A9BD1 /* tree1.wav */,
+				498943051BDF7137001A9BD1 /* tree2.wav */,
+				498943061BDF7137001A9BD1 /* tree3.wav */,
+				498943071BDF7137001A9BD1 /* tree4.wav */,
+			);
+			path = misc;
+			sourceTree = "<group>";
+		};
+		498943081BDF7137001A9BD1 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				498943091BDF7137001A9BD1 /* game1.mid */,
+				4989430A1BDF7137001A9BD1 /* game2.mid */,
+				4989430B1BDF7137001A9BD1 /* game3.mid */,
+				4989430C1BDF7137001A9BD1 /* game4.mid */,
+				4989430D1BDF7137001A9BD1 /* game5.mid */,
+				4989430E1BDF7137001A9BD1 /* intro.mid */,
+				4989430F1BDF7137001A9BD1 /* load.mid */,
+				498943101BDF7137001A9BD1 /* lose.mid */,
+				498943111BDF7137001A9BD1 /* menu.mid */,
+				498943121BDF7137001A9BD1 /* win.mid */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
+		498943131BDF7137001A9BD1 /* peasant */ = {
+			isa = PBXGroup;
+			children = (
+				498943141BDF7137001A9BD1 /* acknowledge1.wav */,
+				498943151BDF7137001A9BD1 /* acknowledge2.wav */,
+				498943161BDF7137001A9BD1 /* acknowledge3.wav */,
+				498943171BDF7137001A9BD1 /* acknowledge4.wav */,
+				498943181BDF7137001A9BD1 /* annoyed1.wav */,
+				498943191BDF7137001A9BD1 /* annoyed2.wav */,
+				4989431A1BDF7137001A9BD1 /* annoyed3.wav */,
+				4989431B1BDF7137001A9BD1 /* annoyed4.wav */,
+				4989431C1BDF7137001A9BD1 /* annoyed5.wav */,
+				4989431D1BDF7137001A9BD1 /* annoyed6.wav */,
+				4989431E1BDF7137001A9BD1 /* annoyed7.wav */,
+				4989431F1BDF7137001A9BD1 /* ready.wav */,
+				498943201BDF7137001A9BD1 /* selected1.wav */,
+				498943211BDF7137001A9BD1 /* selected2.wav */,
+				498943221BDF7137001A9BD1 /* selected3.wav */,
+				498943231BDF7137001A9BD1 /* selected4.wav */,
+				498943241BDF7137001A9BD1 /* work-completed.wav */,
+			);
+			path = peasant;
+			sourceTree = "<group>";
+		};
+		4989432A1BDF7137001A9BD1 /* upg */ = {
+			isa = PBXGroup;
+			children = (
+				4989432B1BDF7137001A9BD1 /* Armor2.dat */,
+				4989432C1BDF7137001A9BD1 /* Armor3.dat */,
+				4989432D1BDF7137001A9BD1 /* Arrow2.dat */,
+				4989432E1BDF7137001A9BD1 /* Arrow3.dat */,
+				4989432F1BDF7137001A9BD1 /* Longbow.dat */,
+				498943301BDF7137001A9BD1 /* Marksmanship.dat */,
+				498943311BDF7137001A9BD1 /* Ranger.dat */,
+				498943321BDF7137001A9BD1 /* Scouting.dat */,
+				498943331BDF7137001A9BD1 /* Weapon2.dat */,
+				498943341BDF7137001A9BD1 /* Weapon3.dat */,
+			);
+			path = upg;
+			sourceTree = "<group>";
+		};
 		CBEF61A81BBF98C10043B54D = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +841,7 @@
 		CBEF61B41BBF98C10043B54D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				498942601BDF7137001A9BD1 /* data */,
 				CBEF61B51BBF98C10043B54D /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -249,15 +947,214 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4989436E1BDF7137001A9BD1 /* Footman.png in Resources */,
+				4989435E1BDF7137001A9BD1 /* Castle.png in Resources */,
+				498943891BDF7137001A9BD1 /* Archer.dat in Resources */,
+				498943F61BDF7137001A9BD1 /* Longbow.dat in Resources */,
+				4989436F1BDF7137001A9BD1 /* GoldMine.png in Resources */,
+				4989436D1BDF7137001A9BD1 /* FontKingthings8_white.png in Resources */,
+				498943D71BDF7137001A9BD1 /* intro.mid in Resources */,
+				498943EB1BDF7137001A9BD1 /* selected4.wav in Resources */,
+				498943DE1BDF7137001A9BD1 /* acknowledge3.wav in Resources */,
+				498943611BDF7137001A9BD1 /* Cursors.png in Resources */,
+				498943CC1BDF7137001A9BD1 /* tick.wav in Resources */,
+				498943621BDF7137001A9BD1 /* Farm.png in Resources */,
+				498943A81BDF7137001A9BD1 /* acknowledge4.wav in Resources */,
+				498943371BDF7137001A9BD1 /* AssetNone.dat in Resources */,
+				4989433D1BDF7137001A9BD1 /* Castle.dat in Resources */,
+				498943351BDF7137001A9BD1 /* Archer.dat in Resources */,
+				498943701BDF7137001A9BD1 /* GuardTower.png in Resources */,
+				498943A51BDF7137001A9BD1 /* acknowledge1.wav in Resources */,
+				498943AC1BDF7137001A9BD1 /* annoyed4.wav in Resources */,
+				498943901BDF7137001A9BD1 /* GoldMine.dat in Resources */,
+				498943411BDF7137001A9BD1 /* FireLarge.dat in Resources */,
+				498943551BDF7137001A9BD1 /* Peasant.dat in Resources */,
+				4989438E1BDF7137001A9BD1 /* Farm.dat in Resources */,
+				498943C51BDF7137001A9BD1 /* burning.wav in Resources */,
+				498943491BDF7137001A9BD1 /* Footman.dat in Resources */,
+				498943AD1BDF7137001A9BD1 /* annoyed5.wav in Resources */,
+				498943C61BDF7137001A9BD1 /* construct.wav in Resources */,
+				498943D11BDF7137001A9BD1 /* tree4.wav in Resources */,
+				4989439A1BDF7137001A9BD1 /* acknowledge2.wav in Resources */,
+				498943631BDF7137001A9BD1 /* FireLarge.png in Resources */,
+				498943801BDF7137001A9BD1 /* ScoutTower.png in Resources */,
+				498943931BDF7137001A9BD1 /* LumberMill.dat in Resources */,
+				4989433F1BDF7137001A9BD1 /* Cursors.dat in Resources */,
+				498943671BDF7137001A9BD1 /* FontKingthings12.png in Resources */,
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
+				498943BF1BDF7137001A9BD1 /* generalsoundfont.sf2 in Resources */,
+				4989435C1BDF7137001A9BD1 /* ButtonColors.png in Resources */,
+				4989435B1BDF7137001A9BD1 /* BuildingDeath.png in Resources */,
+				4989434D1BDF7137001A9BD1 /* InnerBevel.dat in Resources */,
+				498943C31BDF7137001A9BD1 /* building-explode2.wav in Resources */,
+				498943D01BDF7137001A9BD1 /* tree3.wav in Resources */,
+				498943D41BDF7137001A9BD1 /* game3.mid in Resources */,
+				498943851BDF7137001A9BD1 /* Texture.png in Resources */,
+				498943D81BDF7137001A9BD1 /* load.mid in Resources */,
 				BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */,
+				4989434A1BDF7137001A9BD1 /* GoldMine.dat in Resources */,
 				3F6FFCFE1BC5F26F00DD4285 /* Splash.png in Resources */,
+				498943581BDF7137001A9BD1 /* AssetNone.png in Resources */,
+				498943661BDF7137001A9BD1 /* FontKingthings10.png in Resources */,
+				498943DC1BDF7137001A9BD1 /* acknowledge1.wav in Resources */,
+				4989433B1BDF7137001A9BD1 /* ButtonColors.dat in Resources */,
+				498943F91BDF7137001A9BD1 /* Scouting.dat in Resources */,
+				498943981BDF7137001A9BD1 /* ScoutTower.dat in Resources */,
+				498943911BDF7137001A9BD1 /* GuardTower.dat in Resources */,
+				498943831BDF7137001A9BD1 /* Terrain.png in Resources */,
+				498943DF1BDF7137001A9BD1 /* acknowledge4.wav in Resources */,
+				498943C71BDF7137001A9BD1 /* explode.wav in Resources */,
+				498943A61BDF7137001A9BD1 /* acknowledge2.wav in Resources */,
+				498943961BDF7137001A9BD1 /* ScoutTower.dat in Resources */,
+				498943861BDF7137001A9BD1 /* TownHall.png in Resources */,
+				498943EA1BDF7137001A9BD1 /* selected3.wav in Resources */,
+				498943B71BDF7137001A9BD1 /* selected5.wav in Resources */,
+				498943AB1BDF7137001A9BD1 /* annoyed3.wav in Resources */,
+				498943CD1BDF7137001A9BD1 /* tock.wav in Resources */,
+				498943D61BDF7137001A9BD1 /* game5.mid in Resources */,
+				498943461BDF7137001A9BD1 /* FontKingthings16.dat in Resources */,
+				498943531BDF7137001A9BD1 /* MiniIcons.dat in Resources */,
+				4989438F1BDF7137001A9BD1 /* Footman.dat in Resources */,
+				498943571BDF7137001A9BD1 /* Arrow.png in Resources */,
+				498943C41BDF7137001A9BD1 /* building-explode3.wav in Resources */,
+				498943BD1BDF7137001A9BD1 /* gold-mine.wav in Resources */,
+				498943691BDF7137001A9BD1 /* FontKingthings16.png in Resources */,
+				498943CF1BDF7137001A9BD1 /* tree2.wav in Resources */,
+				4989438D1BDF7137001A9BD1 /* Castle.dat in Resources */,
+				4989436B1BDF7137001A9BD1 /* FontKingthings24.png in Resources */,
+				498943A71BDF7137001A9BD1 /* acknowledge3.wav in Resources */,
+				498943F41BDF7137001A9BD1 /* Arrow2.dat in Resources */,
+				498943501BDF7137001A9BD1 /* LumberMill.dat in Resources */,
+				498943421BDF7137001A9BD1 /* FireSmall.dat in Resources */,
+				498943381BDF7137001A9BD1 /* Barracks.dat in Resources */,
+				498943361BDF7137001A9BD1 /* Arrow.dat in Resources */,
+				498943DD1BDF7137001A9BD1 /* acknowledge2.wav in Resources */,
+				498943B01BDF7137001A9BD1 /* building-help.wav in Resources */,
+				498943521BDF7137001A9BD1 /* MiniBevel.dat in Resources */,
+				498943A41BDF7137001A9BD1 /* selected4.wav in Resources */,
+				498943BC1BDF7137001A9BD1 /* farm.wav in Resources */,
+				4989437F1BDF7137001A9BD1 /* Ranger.png in Resources */,
+				4989439B1BDF7137001A9BD1 /* acknowledge3.wav in Resources */,
+				4989436A1BDF7137001A9BD1 /* FontKingthings16_white.png in Resources */,
+				498943541BDF7137001A9BD1 /* OuterBevel.dat in Resources */,
+				498943B11BDF7137001A9BD1 /* death.wav in Resources */,
+				498943731BDF7137001A9BD1 /* InnerBevel2.png in Resources */,
+				498943401BDF7137001A9BD1 /* Farm.dat in Resources */,
+				498943761BDF7137001A9BD1 /* ListViewIcons.png in Resources */,
+				498943F71BDF7137001A9BD1 /* Marksmanship.dat in Resources */,
+				498943C81BDF7137001A9BD1 /* sword1.wav in Resources */,
+				498943AA1BDF7137001A9BD1 /* annoyed2.wav in Resources */,
+				4989439F1BDF7137001A9BD1 /* annoyed3.wav in Resources */,
+				4989437B1BDF7137001A9BD1 /* MiniIcons.png in Resources */,
+				498943921BDF7137001A9BD1 /* Keep.dat in Resources */,
+				498943E11BDF7137001A9BD1 /* annoyed2.wav in Resources */,
+				498943CE1BDF7137001A9BD1 /* tree1.wav in Resources */,
+				498943F51BDF7137001A9BD1 /* Arrow3.dat in Resources */,
+				4989435F1BDF7137001A9BD1 /* Colors.png in Resources */,
+				498943481BDF7137001A9BD1 /* FontKingthings8.dat in Resources */,
+				498943471BDF7137001A9BD1 /* FontKingthings24.dat in Resources */,
+				4989436C1BDF7137001A9BD1 /* FontKingthings8.png in Resources */,
+				498943F01BDF7137001A9BD1 /* Texture.dat in Resources */,
+				498943BE1BDF7137001A9BD1 /* lumber-mill.wav in Resources */,
+				498943B51BDF7137001A9BD1 /* selected3.wav in Resources */,
+				4989435D1BDF7137001A9BD1 /* CannonTower.png in Resources */,
+				498943951BDF7137001A9BD1 /* Ranger.dat in Resources */,
+				498943C91BDF7137001A9BD1 /* sword2.wav in Resources */,
 				3F6FFCFB1BC5F26F00DD4285 /* Texture.png in Resources */,
+				498943C21BDF7137001A9BD1 /* building-explode1.wav in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
+				498943B91BDF7137001A9BD1 /* unit-help.wav in Resources */,
+				4989438A1BDF7137001A9BD1 /* Barracks.dat in Resources */,
+				4989437D1BDF7137001A9BD1 /* OuterBevel2.png in Resources */,
+				498943991BDF7137001A9BD1 /* acknowledge1.wav in Resources */,
+				498943B21BDF7137001A9BD1 /* ready.wav in Resources */,
+				4989438C1BDF7137001A9BD1 /* CannonTower.dat in Resources */,
+				498943CA1BDF7137001A9BD1 /* sword3.wav in Resources */,
 				3F6FFCFD1BC5F26F00DD4285 /* FontKingthings24.png in Resources */,
+				498943D91BDF7137001A9BD1 /* lose.mid in Resources */,
+				498943B61BDF7137001A9BD1 /* selected4.wav in Resources */,
+				498943E61BDF7137001A9BD1 /* annoyed7.wav in Resources */,
+				498943D51BDF7137001A9BD1 /* game4.mid in Resources */,
+				4989434C1BDF7137001A9BD1 /* Icons.dat in Resources */,
+				498943D31BDF7137001A9BD1 /* game2.mid in Resources */,
+				4989437C1BDF7137001A9BD1 /* OuterBevel.png in Resources */,
+				498943B81BDF7137001A9BD1 /* selected6.wav in Resources */,
+				498943781BDF7137001A9BD1 /* Marker.png in Resources */,
+				498943EF1BDF7137001A9BD1 /* Terrain.dat in Resources */,
+				498943E21BDF7137001A9BD1 /* annoyed3.wav in Resources */,
+				498943AF1BDF7137001A9BD1 /* annoyed7.wav in Resources */,
 				CBEF61B91BBF98C10043B54D /* GameScene.sks in Resources */,
+				498943391BDF7137001A9BD1 /* Blacksmith.dat in Resources */,
+				498943641BDF7137001A9BD1 /* FireSmall.png in Resources */,
+				498943E41BDF7137001A9BD1 /* annoyed5.wav in Resources */,
+				498943561BDF7137001A9BD1 /* Archer.png in Resources */,
+				498943F11BDF7137001A9BD1 /* TownHall.dat in Resources */,
+				498943431BDF7137001A9BD1 /* Fog.dat in Resources */,
+				498943DB1BDF7137001A9BD1 /* win.mid in Resources */,
+				498943F81BDF7137001A9BD1 /* Ranger.dat in Resources */,
+				498943E91BDF7137001A9BD1 /* selected2.wav in Resources */,
+				498943A21BDF7137001A9BD1 /* selected2.wav in Resources */,
+				498943DA1BDF7137001A9BD1 /* menu.mid in Resources */,
+				498943511BDF7137001A9BD1 /* Marker.dat in Resources */,
+				498943D21BDF7137001A9BD1 /* game1.mid in Resources */,
+				498943E71BDF7137001A9BD1 /* ready.wav in Resources */,
+				498943441BDF7137001A9BD1 /* FontKingthings10.dat in Resources */,
+				498943ED1BDF7137001A9BD1 /* SoundClips.dat in Resources */,
+				4989434B1BDF7137001A9BD1 /* GuardTower.dat in Resources */,
+				498943771BDF7137001A9BD1 /* LumberMill.png in Resources */,
+				498943AE1BDF7137001A9BD1 /* annoyed6.wav in Resources */,
+				498943BA1BDF7137001A9BD1 /* work-completed.wav in Resources */,
+				498943A91BDF7137001A9BD1 /* annoyed1.wav in Resources */,
+				498943EC1BDF7137001A9BD1 /* work-completed.wav in Resources */,
+				4989437E1BDF7137001A9BD1 /* Peasant.png in Resources */,
+				498943791BDF7137001A9BD1 /* MediumBuildings.png in Resources */,
+				498943EE1BDF7137001A9BD1 /* Splash.dat in Resources */,
+				498943881BDF7137001A9BD1 /* Ranger.dat in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
+				498943A11BDF7137001A9BD1 /* selected1.wav in Resources */,
+				498943E51BDF7137001A9BD1 /* annoyed6.wav in Resources */,
+				498943601BDF7137001A9BD1 /* Corpse.png in Resources */,
+				498943711BDF7137001A9BD1 /* Icons.png in Resources */,
+				498943591BDF7137001A9BD1 /* Barracks.png in Resources */,
+				498943FA1BDF7137001A9BD1 /* Weapon2.dat in Resources */,
+				4989439C1BDF7137001A9BD1 /* acknowledge4.wav in Resources */,
+				498943871BDF7137001A9BD1 /* Unknown.png in Resources */,
+				4989433E1BDF7137001A9BD1 /* Corpse.dat in Resources */,
+				498943E01BDF7137001A9BD1 /* annoyed1.wav in Resources */,
+				4989439E1BDF7137001A9BD1 /* annoyed2.wav in Resources */,
+				4989437A1BDF7137001A9BD1 /* MiniBevel.png in Resources */,
+				498943941BDF7137001A9BD1 /* Peasant.dat in Resources */,
+				4989434E1BDF7137001A9BD1 /* Keep.dat in Resources */,
+				4989439D1BDF7137001A9BD1 /* annoyed1.wav in Resources */,
+				4989435A1BDF7137001A9BD1 /* Blacksmith.png in Resources */,
+				498943811BDF7137001A9BD1 /* SmallBuildings.png in Resources */,
+				498943F21BDF7137001A9BD1 /* Armor2.dat in Resources */,
+				498943821BDF7137001A9BD1 /* Splash.png in Resources */,
+				4989434F1BDF7137001A9BD1 /* ListViewIcons.dat in Resources */,
+				498943841BDF7137001A9BD1 /* Terrain_backup.png in Resources */,
 				3F6FFCFC1BC5F26F00DD4285 /* tempButton.png in Resources */,
+				4989438B1BDF7137001A9BD1 /* Blacksmith.dat in Resources */,
+				498943CB1BDF7137001A9BD1 /* thunk.wav in Resources */,
+				498943681BDF7137001A9BD1 /* FontKingthings12_white.png in Resources */,
+				498943971BDF7137001A9BD1 /* TownHall.dat in Resources */,
+				498943A01BDF7137001A9BD1 /* ready.wav in Resources */,
+				498943651BDF7137001A9BD1 /* Fog.png in Resources */,
+				498943451BDF7137001A9BD1 /* FontKingthings12.dat in Resources */,
+				498943C11BDF7137001A9BD1 /* bowhit.wav in Resources */,
+				498943741BDF7137001A9BD1 /* Keep.png in Resources */,
+				498943C01BDF7137001A9BD1 /* bowfire.wav in Resources */,
+				498943F31BDF7137001A9BD1 /* Armor3.dat in Resources */,
+				4989433C1BDF7137001A9BD1 /* CannonTower.dat in Resources */,
+				498943E81BDF7137001A9BD1 /* selected1.wav in Resources */,
+				498943B31BDF7137001A9BD1 /* selected1.wav in Resources */,
+				498943751BDF7137001A9BD1 /* LargeBuildings.png in Resources */,
+				498943E31BDF7137001A9BD1 /* annoyed4.wav in Resources */,
+				498943B41BDF7137001A9BD1 /* selected2.wav in Resources */,
+				498943BB1BDF7137001A9BD1 /* blacksmith.wav in Resources */,
+				498943A31BDF7137001A9BD1 /* selected3.wav in Resources */,
+				4989433A1BDF7137001A9BD1 /* BuildingDeath.dat in Resources */,
+				498943721BDF7137001A9BD1 /* InnerBevel.png in Resources */,
+				498943FB1BDF7137001A9BD1 /* Weapon3.dat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
