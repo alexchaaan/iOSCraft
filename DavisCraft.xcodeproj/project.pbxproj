@@ -20,6 +20,7 @@
 		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; };
 		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
+		4C95B9A11BDF461900B3F9C2 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95B9A01BDF461900B3F9C2 /* FileManager.swift */; settings = {ASSET_TAGS = (); }; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
 		4CE872DD1BDF3C430029132E /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE872DC1BDF3C430029132E /* MapRenderer.swift */; settings = {ASSET_TAGS = (); }; };
 		4CE872DF1BDF3C530029132E /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE872DE1BDF3C530029132E /* MapRender.swift */; settings = {ASSET_TAGS = (); }; };
@@ -57,6 +58,7 @@
 		3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawTile.swift; path = ../DrawTile.swift; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
+		4C95B9A01BDF461900B3F9C2 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
 		4CE872DC1BDF3C430029132E /* MapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRenderer.swift; sourceTree = "<group>"; };
 		4CE872DE1BDF3C530029132E /* MapRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRender.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
 				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
 				4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */,
+				4C95B9A01BDF461900B3F9C2 /* FileManager.swift */,
 				3F6FFCEB1BC5F1F400DD4285 /* SinglePlayerGame.swift */,
 				BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */,
 				3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */,
@@ -279,6 +282,7 @@
 				3F6FFCF41BC5F22A00DD4285 /* GameViewController.swift in Sources */,
 				BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */,
 				CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */,
+				4C95B9A11BDF461900B3F9C2 /* FileManager.swift in Sources */,
 				4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */,
 				4CE872DD1BDF3C430029132E /* MapRenderer.swift in Sources */,
 				3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */,

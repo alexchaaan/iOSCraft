@@ -317,11 +317,9 @@ class MapRenderer {
     }
 
     func RetrieveFromDat(){
-        let fileName = "Terrain"
-        //make it grab from directory later
-        let terrainDatPath = NSBundle.mainBundle().URLForResource(fileName, withExtension: "dat", subdirectory: "data")
-        let terrainDat = try! String(contentsOfURL: terrainDatPath!, encoding: NSUTF8StringEncoding)
-        let terrainDatContent = terrainDat.componentsSeparatedByString("\n")
+        let fileName = "Terrain.dat"
+        let terrainDat = FileManager.returnDatFileContents(fileName)
+        let terrainDatContent = terrainDat!.componentsSeparatedByString("\n")
         //let terrainPngPath = terrainDatContent[0]
         let numberOfTerrainTiles = Int(terrainDatContent[1])
         for i in 2 ..< (numberOfTerrainTiles! + 2){
@@ -330,15 +328,12 @@ class MapRenderer {
             print (DMappingTiff[name])
             //print ("tiffany")
         }
-        
-        
     }
     
     func GrabMapContent(){
-        let fileName = "2player"
-        let path = NSBundle.mainBundle().URLForResource(fileName, withExtension: "map", subdirectory: "data/map")
-        let mapContent = try! String(contentsOfURL: path!, encoding: NSUTF8StringEncoding)
-        let mapInfo = mapContent.componentsSeparatedByString("\n")
+        let fileName = "2player.map"
+        let mapContent = FileManager.returnDatFileContents(fileName, subdirectory: "map")
+        let mapInfo = mapContent!.componentsSeparatedByString("\n")
         Map = mapInfo.filter{ (str: String) -> Bool in
             return str.characters.count > 20
         }

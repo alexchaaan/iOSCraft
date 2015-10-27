@@ -13,10 +13,9 @@ class MapRender: UIView {
     let bundle = NSBundle.mainBundle()
     func readTerrain() -> Dictionary <String, CGImage>? {
         //read in the tiles for the map
-        let fileName = "Terrain"
-        let terrainDatPath = bundle.URLForResource(fileName, withExtension: "dat", subdirectory: "data")
-        let terrainDat = try! String(contentsOfURL: terrainDatPath!, encoding: NSUTF8StringEncoding)
-        let terrainDatContent = terrainDat.componentsSeparatedByString("\n")
+        let fileName = "Terrain.dat"
+        let terrainDat = FileManager.returnDatFileContents(fileName)
+        let terrainDatContent = terrainDat!.componentsSeparatedByString("\n")
         let terrainPngPath = terrainDatContent[0]
         let numberOfTerrainTiles = Int(terrainDatContent[1])
         //iterate by number of tiles to store the pngs into some kind of ui or cg image structure    
@@ -37,11 +36,9 @@ class MapRender: UIView {
 
     func readMap() -> (Array<String>, Int, Int){
         //maybe havve button to give map filename
-        let fileName = "2player"
-        let path = bundle.URLForResource(fileName, withExtension: "map", subdirectory: "data/map")
-        let mapContent = try! String(contentsOfURL: path!, encoding: NSUTF8StringEncoding)
-        let mapInfo = mapContent.componentsSeparatedByString("\n")
-        
+        let fileName = "2player.map"
+        let mapContent = FileManager.returnDatFileContents(fileName, subdirectory: "map")
+        let mapInfo = mapContent!.componentsSeparatedByString("\n")
         let mapName = mapInfo[0]
         print(mapName)
 //        let line2 = mapInfo[2]
@@ -153,10 +150,9 @@ class MapRender: UIView {
 //    }
     
     func drawTower(var placement: CGPoint, sprite: String){ // Does print 2 dudes, just overlaps them.
-        let fileName = sprite
-        let path = NSBundle.mainBundle().URLForResource(fileName, withExtension: "dat", subdirectory: "data")
-        let content = try! String(contentsOfURL: path!, encoding: NSUTF8StringEncoding)
-        let contentArray = content.componentsSeparatedByString("\n")
+        let fileName = sprite + ".dat"
+        let content = FileManager.returnDatFileContents(fileName)
+        let contentArray = content!.componentsSeparatedByString("\n")
         
         var image = UIImage()
         var index = 0

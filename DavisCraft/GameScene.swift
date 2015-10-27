@@ -9,33 +9,19 @@
 import SpriteKit
 import AVFoundation
 
-@available(iOS 8.0, *)
 var backgroundMusicPlayer = AVMIDIPlayer()
 
 func playBackgroundMusic(filename: String) {
     //Load the soundfont
-    let soundFontURL = NSBundle.mainBundle().URLForResource("generalsoundfont",
-        withExtension: "sf2",
-        subdirectory: "data/snd")
+    let soundFontURL = FileManager.returnURLForResource("generalsoundfont.sf2", subdirectory: "snd")
     
     //Load the midi file
-    let url = NSBundle.mainBundle().URLForResource(filename,
-        withExtension: "mid",
-        subdirectory: "data/snd/music")
-    guard let midiURL = url else {
-        print("Could not find file: \(filename)")
-        return
-    }
+    let midiURL = FileManager.returnURLForResource(filename, subdirectory: "snd/music")
     
     do {
-        if #available(iOS 8.0, *) {
-            backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL, soundBankURL: soundFontURL)
-            backgroundMusicPlayer.prepareToPlay()
-            backgroundMusicPlayer.play(nil)
-        } else {
-            print("I sure hope we don't support iOS 7.")
-            // Fallback on earlier versions
-        }
+        backgroundMusicPlayer = try AVMIDIPlayer(contentsOfURL: midiURL!, soundBankURL:soundFontURL!)
+        backgroundMusicPlayer.prepareToPlay()
+        backgroundMusicPlayer.play({playBackgroundMusic(filename)})
     } catch let error as NSError {
         print(error.description)
     }
