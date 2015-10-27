@@ -24,6 +24,7 @@
 		49321AED1BD7A9A800485BDC /* GoldMine.png in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEC1BD7A9A800485BDC /* GoldMine.png */; };
 		49321AEF1BD7A9B500485BDC /* Peasant.png in Resources */ = {isa = PBXBuildFile; fileRef = 49321AEE1BD7A9B500485BDC /* Peasant.png */; };
 		4985CB8D1BD1B7DF00056F3D /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4985CB8C1BD1B7DF00056F3D /* MapRender.swift */; };
+		49C6E5C21BDEDBE8008B6E8D /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C6E5C11BDEDBE8008B6E8D /* MapRenderer.swift */; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
 		4CB585FE1BC8ABC6009CAC58 /* snd in Resources */ = {isa = PBXBuildFile; fileRef = 4CB585FD1BC8ABC6009CAC58 /* snd */; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
@@ -69,6 +70,7 @@
 		49321AEC1BD7A9A800485BDC /* GoldMine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoldMine.png; sourceTree = "<group>"; };
 		49321AEE1BD7A9B500485BDC /* Peasant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Peasant.png; sourceTree = "<group>"; };
 		4985CB8C1BD1B7DF00056F3D /* MapRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapRender.swift; path = ../MapRender.swift; sourceTree = "<group>"; };
+		49C6E5C11BDEDBE8008B6E8D /* MapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRenderer.swift; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
 		4CB585FD1BC8ABC6009CAC58 /* snd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snd; sourceTree = "<group>"; };
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		CBEF61A81BBF98C10043B54D = {
 			isa = PBXGroup;
 			children = (
+				49C6E5C11BDEDBE8008B6E8D /* MapRenderer.swift */,
 				3F6FFCF71BC5F26F00DD4285 /* Texture.png */,
 				3F6FFCF81BC5F26F00DD4285 /* tempButton.png */,
 				3F6FFCF91BC5F26F00DD4285 /* FontKingthings24.png */,
@@ -321,6 +324,7 @@
 				BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */,
 				CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */,
 				4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */,
+				49C6E5C21BDEDBE8008B6E8D /* MapRenderer.swift in Sources */,
 				3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */,
 				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
 				4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */,

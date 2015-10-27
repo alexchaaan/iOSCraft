@@ -20,8 +20,12 @@ class Tile: UIViewController{
         let screenHeight = self.view.frame.size.height
         let tile = MapRender(frame: CGRectMake(0, 0, screenWidth, screenHeight))
         view.addSubview(tile)*/
-        
-        
+        let a = MapRenderer()
+        a.RetrieveFromDat()
+        a.VectorFiller(&a.DGrassIndices, prefix: "grass-")
+        for i in 0 ..< (a.DGrassIndices.count){
+           print (a.DGrassIndices[i])
+        }
         
         //add a Subview that is the size of the screen
         //works for different devices

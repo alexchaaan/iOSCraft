@@ -143,7 +143,15 @@ class MapRender: UIView {
         }
         //UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
     }
+   
     
+//    int CGraphicTileset::FindTile(const std::string &tilename) const{
+//    auto Iterator = DMapping.find(tilename);
+//    if(DMapping.end() != Iterator){
+//    return Iterator->second;
+//    }
+//    return -1;
+//    }
     
     func drawTower(var placement: CGPoint, sprite: String){ // Does print 2 dudes, just overlaps them.
         let fileName = sprite
