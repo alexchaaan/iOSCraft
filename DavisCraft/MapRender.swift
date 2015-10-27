@@ -110,9 +110,9 @@ class MapRender: UIView {
                     case "G":
                             UIImage(CGImage: tileDictionary!["grass-0"]!).drawAtPoint(location)
                     case "F":
-                            UIImage(CGImage: tileDictionary!["tree-a"]!).drawAtPoint(location)
+                            UIImage(CGImage: tileDictionary!["tree-27"]!).drawAtPoint(location)
                     case "R":
-                            UIImage(CGImage: tileDictionary!["rock-0"]!).drawAtPoint(location)
+                            UIImage(CGImage: tileDictionary!["rock-31"]!).drawAtPoint(location)
                     case "D":
                             UIImage(CGImage: tileDictionary!["dirt-1"]!).drawAtPoint(location)
                     case "W":

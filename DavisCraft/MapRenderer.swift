@@ -41,7 +41,8 @@ class MapRenderer {
         VectorFiller(&DWallIndices, prefix: "wall-")
         VectorFiller(&DWallDamagedIndices, prefix: "wall-damaged-")
         VectorFiller(&DRubbleIndices, prefix: "rubble-")
-
+        
+        tileMapping()
         
     }
     
@@ -338,4 +339,62 @@ class MapRenderer {
             return str.characters.count > 20
         }
     }
+    
+    func getIndex(xPos : Int, yPos : Int) -> Int {
+        
+        let tile = getChar(xPos, yPos: yPos)
+        var bitIndex : Int = 0
+        var bitMask : Int = 1
+        
+        // account for tree depending on two rows, not three
+        let startY : Int = tile == "F" ? 0 : -1
+        
+        for yOff in startY ... 1 {
+            for xOff in -1 ... 1 {
+                if yOff != 0 && xOff != 0 {
+                    let currentTile = getChar(xPos + xOff, yPos: yPos + 1 + yOff)
+                    
+                    
+                    if tile == currentTile {
+                        bitIndex |= bitMask
+                    }
+                    
+                    bitMask <<= 1
+                }
+                
+            }
+        }
+        
+        switch tile {
+        case "G":
+            return DGrassIndices[bitIndex]
+        case "F":
+            return DTreeIndices[bitIndex]
+        case "D":
+            return DDirtIndices[bitIndex]
+        case "W":
+            return DWallIndices[bitIndex]
+        case "w":
+            return DWallDamagedIndices[bitIndex]
+        case "R":
+            return DRockIndices[bitIndex]
+        case " ":
+            return DWaterIndices[bitIndex]
+        default:
+            break
+        }
+        
+        return -1
+    }
+ 
+    
+    func getChar(xPos: Int, yPos: Int) -> Character {
+        return Map[yPos][xPos] as Character
+    }
+
 }
+
+
+
+
+
