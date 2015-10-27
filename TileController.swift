@@ -30,7 +30,7 @@ class Tile: UIViewController{
         //        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(width * 32), CGFloat(height * 32)))
         //view.addSubview(screen)
         let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat(height * 32), CGFloat(width * 32)))
-        let miniMap = MiniMapRender(frame:CGRectMake(30, 20, view.bounds.size.width / 4 - 30, view.bounds.size.height - 20))
+        let miniMap = MiniMapRender(frame:CGRectMake(10, 20, view.bounds.size.width / 4 , view.bounds.size.height - 20))
         var battleField: UIScrollView!
         
         // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
