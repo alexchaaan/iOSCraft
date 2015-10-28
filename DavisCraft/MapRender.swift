@@ -102,7 +102,7 @@ class MapRender: UIView {
         for i in 3 ..< (height + 3){
             var mapLine = Array(map[i].characters)
             
-            for j in 1..<width{
+            for j in 1..<width + 1{
                     let location = CGPointMake(CGFloat(y), CGFloat(x))
                     switch mapLine[j] {
                     case "G":
@@ -112,7 +112,9 @@ class MapRender: UIView {
                             let type = tileNames[typeIndex]
                             UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case "R":
-                            UIImage(CGImage: tileDictionary!["rock-31"]!).drawAtPoint(location)
+                            let typeIndex = a.getTileType(j, y: i, curTile: "R")
+                            let type = tileNames[typeIndex]
+                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case "D":
                             UIImage(CGImage: tileDictionary!["dirt-1"]!).drawAtPoint(location)
                     case "W":
