@@ -11,7 +11,7 @@ import UIKit
 class MapRender: UIView {
 //each map tile is 32x32
     let bundle = NSBundle.mainBundle()
-    func readTerrain() -> Dictionary <String, CGImage>? {
+    func readTerrain() -> (Dictionary <String, CGImage>?, Array<String>) {
         //read in the tiles for the map
         let fileName = "Terrain.dat"
         let terrainDat = FileManager.returnDatFileContents(fileName)
@@ -30,7 +30,7 @@ class MapRender: UIView {
             terrainTileDictionary[terrainDatContent[counter]] = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTerrainTiles!))), w, h/CGFloat(numberOfTerrainTiles!)))
             counter++
         }
-        return terrainTileDictionary
+        return (terrainTileDictionary,terrainDatContent)
         
     }
 
@@ -94,7 +94,8 @@ class MapRender: UIView {
     
     
     override func drawRect(rect: CGRect) {
-        var tileDictionary = readTerrain()
+        let a = MapRenderer()
+        var (tileDictionary,tileNames ) = readTerrain()
         var x = 0
         var y = 0
         var dummy = 0
@@ -110,7 +111,9 @@ class MapRender: UIView {
                     case "G":
                             UIImage(CGImage: tileDictionary!["grass-0"]!).drawAtPoint(location)
                     case "F":
-                            UIImage(CGImage: tileDictionary!["tree-27"]!).drawAtPoint(location)
+                            let typeIndex = a.getTileType(i + 2, y: jNum, curTile: "F")
+                            let type = tileNames[typeIndex]
+                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case "R":
                             UIImage(CGImage: tileDictionary!["rock-31"]!).drawAtPoint(location)
                     case "D":
@@ -134,7 +137,7 @@ class MapRender: UIView {
         }
         for index in 73...76{
             let item = map[index].componentsSeparatedByString(" ")
-            var placement = CGPointMake(CGFloat(2750 - Int(item[2])!), CGFloat(1800 - Int(item[3])!))
+            let placement = CGPointMake(CGFloat(2750 - Int(item[2])!), CGFloat(1800 - Int(item[3])!))
             self.drawTower(placement,sprite: item[0])
         }
         //UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)

@@ -20,11 +20,11 @@
 		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; };
 		4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
-		4C6C5E161BDF613300045F32 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 4C6C5E151BDF613300045F32 /* data */; settings = {ASSET_TAGS = (); }; };
-		4C95B9A11BDF461900B3F9C2 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95B9A01BDF461900B3F9C2 /* FileManager.swift */; settings = {ASSET_TAGS = (); }; };
+		4C6C5E161BDF613300045F32 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 4C6C5E151BDF613300045F32 /* data */; };
+		4C95B9A11BDF461900B3F9C2 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95B9A01BDF461900B3F9C2 /* FileManager.swift */; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
-		4CE872DD1BDF3C430029132E /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE872DC1BDF3C430029132E /* MapRenderer.swift */; settings = {ASSET_TAGS = (); }; };
-		4CE872DF1BDF3C530029132E /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE872DE1BDF3C530029132E /* MapRender.swift */; settings = {ASSET_TAGS = (); }; };
+		4CE872DD1BDF3C430029132E /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE872DC1BDF3C430029132E /* MapRenderer.swift */; };
+		4CE872DF1BDF3C530029132E /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE872DE1BDF3C530029132E /* MapRender.swift */; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; };
 		BC0E08891BCB6B990067D19B /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0E08881BCB6B990067D19B /* Spaceship.png */; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
@@ -213,7 +213,7 @@
 		CBEF61A91BBF98C10043B54D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftMigration = 0700;
+				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = UCDClassNitta;

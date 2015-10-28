@@ -305,8 +305,8 @@ class MapRenderer {
     
     func VectorFiller(inout arrayFiller: [Int], prefix: String){
         for i in 0..<256{
-            var tileTypeStr = prefix + String(i)
-            var result = DMappingTiff[tileTypeStr]
+            let tileTypeStr = prefix + String(i)
+            let result = DMappingTiff[tileTypeStr]
             if result != nil{
                 //print("rahil")
                 arrayFiller.append(result!)
@@ -335,27 +335,77 @@ class MapRenderer {
         let fileName = "2player.map"
         let mapContent = FileManager.returnDatFileContents(fileName, subdirectory: "map")
         let mapInfo = mapContent!.componentsSeparatedByString("\n")
-        Map = mapInfo.filter{ (str: String) -> Bool in
-            return str.characters.count > 20
-        }
+        //Map = mapInfo.filter{ (str: String) -> Bool in
+        //    return str.characters.count > 20
+        //}
+        Map = mapInfo
     }
+    
+    func getTileType(x: Int, y: Int, curTile: String) ->Int{
+        if curTile == "F"{
+            var TreeIndex = 0, TreeMask = 0x1, UnknownMask = 0, DisplayIndex = -1;
+            for YOff in 0 ..< 2{
+                for XOff in -1 ..< 2 {
+                    var tempTile:String
+                    tempTile = Map[x + XOff]
+                    print(tempTile.endIndex)
+                    print("FCUKKD")
+                    print(y + YOff)
+                    let nextTile = tempTile.startIndex.advancedBy(y + YOff)
+                    if String(nextTile) == "F"{
+                        TreeIndex |= TreeMask
+                    }
+                    else if String(nextTile) == "asdf"{
+                    //fog shit
+                    }
+                    TreeMask <<= 1
+                }
+            }
+            if -1 == DTreeIndices[TreeIndex]{
+                //fog shit
+            }
+            else{
+                DisplayIndex = DTreeIndices[TreeIndex]
+            }
+            if(-1 != DisplayIndex){
+                return DisplayIndex
+            }
+        }
+       let dummy = 1
+        print(dummy)
+        return dummy
+    }
+    
+    
+    
+    
     
     func getIndex(xPos : Int, yPos : Int) -> Int {
         
-        let tile = getChar(xPos, yPos: yPos)
+        let tempTile:String = getChar(xPos, yPos: yPos)
+        
+        let tile = tempTile.startIndex.advancedBy(xPos)
         var bitIndex : Int = 0
         var bitMask : Int = 1
         
         // account for tree depending on two rows, not three
-        let startY : Int = tile == "F" ? 0 : -1
+        let startY : Int = String(tile) == "F" ? 0 : -1
         
         for yOff in startY ... 1 {
             for xOff in -1 ... 1 {
                 if yOff != 0 && xOff != 0 {
-                    let currentTile = getChar(xPos + xOff, yPos: yPos + 1 + yOff)
+                   // let ch:String = Map[1]
+                    
+//                    let text = "abc"
+//                    let index2 = ch.startIndex.advancedBy(xPos) //will call succ 2 times
+//                    let lastChar: Character = text[index2] //now we can index!
+                  //  let lastChar = text.characters[index2] //will do the same
+
+                    let temp:String = getChar(xPos + xOff, yPos: yPos + 1 + yOff)
+                    let currentTile = temp.startIndex.advancedBy(xPos + xOff)
                     
                     
-                    if tile == currentTile {
+                    if tile == currentTile{
                         bitIndex |= bitMask
                     }
                     
@@ -365,7 +415,7 @@ class MapRenderer {
             }
         }
         
-        switch tile {
+        switch String(tile) {
         case "G":
             return DGrassIndices[bitIndex]
         case "F":
@@ -388,8 +438,8 @@ class MapRenderer {
     }
  
     
-    func getChar(xPos: Int, yPos: Int) -> Character {
-        return Map[yPos][xPos] as Character
+    func getChar(xPos: Int, yPos: Int) -> String {
+        return Map[yPos]
     }
 
 }
