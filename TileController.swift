@@ -53,10 +53,10 @@ class Tile: UIViewController{
         //add a Subview that is the size of the screen
         //works for different devices
         
-        let (_, height, width ) = MapRender().readMap()
+        let (_, width, height ) = MapRender().readMap()
         //        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(width * 32), CGFloat(height * 32)))
         //view.addSubview(screen)
-        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat((height-2) * 32), CGFloat((width-2) * 32)))
+        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
         var scrollView: UIScrollView!
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = screen.bounds.size
