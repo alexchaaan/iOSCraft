@@ -345,8 +345,8 @@ class MapRenderer {
         if curTile == "F"{
             var TreeIndex = 0, TreeMask = 0x1, UnknownMask = 0, DisplayIndex = -1
             print(curTile)
-            for XOff in 0 ..< 2{
-                for YOff in -1 ..< 2 {
+            for YOff in 0 ..< 2{
+                for XOff in -1 ..< 2{
                     var mapLine = Array(Map[y + YOff].characters)
                     //print(tempTile.endIndex)
                     //print("FCUKKD")
@@ -375,8 +375,8 @@ class MapRenderer {
         else if curTile == " "{
             var WaterIndex = 0, WaterMask = 0x1, UnknownMask = 0, DisplayIndex = -1
             print(curTile)
-            for XOff in -1 ..< 2{
-                for YOff in -1 ..< 2 {
+            for YOff in -1 ..< 2{
+                for XOff in -1 ..< 2{
                     if YOff != 0 && XOff != 0 {
                         var mapLine = Array(Map[y + YOff].characters)
                         //print(tempTile.endIndex)
@@ -407,8 +407,8 @@ class MapRenderer {
         else if curTile == "G"{
             var OtherIndex = 0, OtherMask = 0x1, UnknownMask = 0, DisplayIndex = -1
             print(curTile)
-            for XOff in -1 ..< 2{
-                for YOff in -1 ..< 2 {
+            for YOff in -1 ..< 2{
+                for XOff in -1 ..< 2{
                     if YOff != 0 && XOff != 0{
                         var mapLine = Array(Map[y + YOff].characters)
                         //print(tempTile.endIndex)
@@ -443,44 +443,52 @@ class MapRenderer {
         }
         else if curTile == "R" {
             var RockIndex = 0, RockMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-            for XOff in -1 ..< 2{
-                for YOff in -1 ..< 2{
-                    if YOff != 0 && XOff != 0{
-                        var mapLine = Array(Map[y + YOff].characters)
-                        let nextTile = mapLine[x + XOff]
-                        if String(nextTile) == "R"{
-                            RockIndex |= RockMask
-                        }
-                        else if String(nextTile) == "asdf"{
-                            //fog shit
-                        }
-                        RockMask <<= 1;
+            print("CUR TILE" + curTile)
+            for YOff in -1 ..< 2{
+                for XOff in -1 ..< 2{
+                    if(XOff == 0 && YOff == 0)
+                    {
+                        //print("skip")
+                        continue
                     }
+                    //if YOff != 0 && XOff != 0{
+                    var mapLine = Array(Map[y + YOff].characters)
+                    let nextTile = mapLine[x + XOff]
+                    //print(nextTile)
+                    if String(nextTile) == "R"{
+                        RockIndex |= RockMask
+                    }
+                    else if String(nextTile) == "asdf"{
+                        //fog shit
+                    }
+                    RockMask <<= 1;
+                    //}
                 }
             }
-            if -1 == DTreeIndices[RockIndex]{
+            
+            print("ROCK INDEX" + String(RockIndex))
+            print("INDEX: " + String(DisplayIndex))
+            if -1 == DRockIndices[RockIndex]{
                 //fog shit
             }
             else{
-                DisplayIndex = DTreeIndices[RockIndex]
+                DisplayIndex = DRockIndices[RockIndex]
             }
             if(-1 != DisplayIndex){
                 print(DisplayIndex)
                 return DisplayIndex
             }
-
+            
             
         }
         
-       let dummy = 1
-        print(dummy)
-        return dummy
+        return -1
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     func getIndex(xPos : Int, yPos : Int) -> Int {
         
         let tempTile:String = getChar(xPos, yPos: yPos)

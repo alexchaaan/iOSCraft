@@ -113,8 +113,10 @@ class MapRender: UIView {
                             UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case "R":
                             let typeIndex = a.getTileType(j, y: i, curTile: "R")
-                            let type = tileNames[typeIndex]
-                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                            if(typeIndex != -1){
+                                let type = tileNames[typeIndex]
+                                UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                            }
                     case "D":
                             UIImage(CGImage: tileDictionary!["dirt-1"]!).drawAtPoint(location)
                     case "W":
