@@ -12,6 +12,7 @@ import SpriteKit
 class Tile: UIViewController{
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,16 +21,42 @@ class Tile: UIViewController{
         let screenHeight = self.view.frame.size.height
         let tile = MapRender(frame: CGRectMake(0, 0, screenWidth, screenHeight))
         view.addSubview(tile)*/
+    
+        
+        
+        //------------------------------maprendrertesting-----------------------
+
+        let a = MapRenderer()
+        a.RetrieveFromDat()
+        
+//        for i in 0 ..< (a.DTreeIndices.count){
+//           print (a.DTreeIndices[i])
+//        }
+        
+        
+        ////////////////
+        
+        
+//        print(a.DTreeIndices[0x0A])
+//        print(a.DTreeIndices[0x0B])
+//        print(a.DTreeIndices[0x23])
+//        print(a.DTreeIndices[0x2B])
+//        print(a.DTreeIndices[0x0E])
+//        print(a.DTreeIndices[0x22])
+//        print(a.DTreeIndices[0x26])
+        
+        ///////////////
+        //------------------------------maprendrertesting-----------------------
         
         
         
         //add a Subview that is the size of the screen
         //works for different devices
         
-        let (_, height, width ) = MapRender().readMap()
+        let (_, width, height ) = MapRender().readMap()
         //        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(width * 32), CGFloat(height * 32)))
         //view.addSubview(screen)
-        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat(height * 32), CGFloat(width * 32)))
+        let screen = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
         var scrollView: UIScrollView!
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = screen.bounds.size

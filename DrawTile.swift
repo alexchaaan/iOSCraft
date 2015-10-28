@@ -14,16 +14,16 @@ class DrawTile: UIView {
         //let context = UIGraphicsGetCurrentContext()
        
         //reads dat file
-        let fileName = "Farm"
-        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "dat")
-        let content = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+        let fileName = "Farm.dat"
+        let url = FileManager.returnURLForResource(fileName)
+        let content = try! String(contentsOfURL: url!, encoding: NSUTF8StringEncoding)
         
         //stores each line of dat file in an index of array
         let contentArray = content.componentsSeparatedByString("\n")
         //contentArray[0] holds the png image's path
         //contentArray[1] holds the amount of tiles in image
         
-        let image = UIImage(named: "Farm.png")
+        let image = UIImage(named: "data/png/Farm.png")
         let h = image!.size.height
         let w = image!.size.width
         
