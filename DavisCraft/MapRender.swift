@@ -99,47 +99,64 @@ class MapRender: UIView {
         var x = 0
         var y = 0
         let (map,width,height) = readMap()
-        for i in 3 ..< (height + 3){
+        for pass in 0...1{
+            for i in 3 ..< (height + 3){
             var mapLine = Array(map[i].characters)
-            
-            for j in 1..<width + 1{
-                    let location = CGPointMake(CGFloat(y), CGFloat(x))
-                    switch mapLine[j] {
-                    case "G":
-                            UIImage(CGImage: tileDictionary!["grass-0"]!).drawAtPoint(location)
-                    case "F":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "F")
-                            let type = tileNames[typeIndex]
-                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                    case "R":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "R")
-                            if(typeIndex != -1){
-                                let type = tileNames[typeIndex]
-                                UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                            }
-                    case "D":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "D")
-                            let type = tileNames[typeIndex]
-                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                    case "W":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "W")
-                            let type = tileNames[typeIndex]
-                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                    case "w":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "w")
-                            let type = tileNames[typeIndex]
-                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                    case " ":
-                            let typeIndex = a.getTileType(j, y: i, curTile: " ")
-                            let type = tileNames[typeIndex]
-                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                    default: break
-                            //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                    }
-                y += 32
+                for j in 1..<width + 1{
+                        let location = CGPointMake(CGFloat(y), CGFloat(x))
+                        switch mapLine[j] {
+                        case "G":
+                                UIImage(CGImage: tileDictionary!["grass-0"]!).drawAtPoint(location)
+                        case "F":
+                            let typeIndex = a.getTileType(j, y: i, curTile: "F", pass: pass)
+                                if(typeIndex != -1)
+                                {
+                                    let type = tileNames[typeIndex]
+                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                                }
+                        case "R":
+                                let typeIndex = a.getTileType(j, y: i, curTile: "R", pass: pass)
+                                if(typeIndex != -1)
+                                {
+                                    let type = tileNames[typeIndex]
+                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                                }
+                        case "D":
+                                let typeIndex = a.getTileType(j, y: i, curTile: "D", pass: pass)
+                                if(typeIndex != -1)
+                                {
+                                    let type = tileNames[typeIndex]
+                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                                }
+                        case "W":
+                                let typeIndex = a.getTileType(j, y: i, curTile: "W", pass: pass)
+                                if(typeIndex != -1)
+                                {
+                                    let type = tileNames[typeIndex]
+                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                                }
+                        case "w":
+                                let typeIndex = a.getTileType(j, y: i, curTile: "w", pass: pass)
+                                if(typeIndex != -1)
+                                {
+                                    let type = tileNames[typeIndex]
+                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                                }
+                        case " ":
+                                let typeIndex = a.getTileType(j, y: i, curTile: " ", pass: pass)
+                                if(typeIndex != -1)
+                                {
+                                    let type = tileNames[typeIndex]
+                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                                }
+                        default: break
+                                //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                        }
+                    y += 32
+                }
+                x += 32
+                y = 0
             }
-            x += 32
-            y = 0
         }
         for index in 73...76{
             let item = map[index].componentsSeparatedByString(" ")

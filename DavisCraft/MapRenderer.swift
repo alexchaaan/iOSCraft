@@ -341,202 +341,232 @@ class MapRenderer {
         Map = mapInfo
     }
     
-    func getTileType(x: Int, y: Int, curTile: String) ->Int{
-        if curTile == "F"{
-            var TreeIndex = 0, TreeMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-            print(curTile)
-            for YOff in 0 ..< 2{
-                for XOff in -1 ..< 2{
-                    var mapLine = Array(Map[y + YOff].characters)
-                    //print(tempTile.endIndex)
-                    //print("FCUKKD")
-                    //print(y + YOff)
-                    let nextTile = mapLine[x + XOff]
-                    if String(nextTile) == "F"{
-                        TreeIndex |= TreeMask
+    func getTileType(x: Int, y: Int, curTile: String, pass: Int) ->Int{
+        if (0 == pass)
+        {
+            if curTile == "F"{
+                var TreeIndex = 0, TreeMask = 0x1, UnknownMask = 0, DisplayIndex = -1
+                print(curTile)
+                for YOff in 0 ..< 2{
+                    for XOff in -1 ..< 2{
+                        var mapLine = Array(Map[y + YOff].characters)
+                        //print(tempTile.endIndex)
+                        //print("FCUKKD")
+                        //print(y + YOff)
+                        let nextTile = mapLine[x + XOff]
+                        if String(nextTile) == "F"{
+                            TreeIndex |= TreeMask
+                        }
+                        else if String(nextTile) == "asdf"{
+                        //fog shit
+                        }
+                        TreeMask <<= 1
                     }
-                    else if String(nextTile) == "asdf"{
+                }
+                if -1 == DTreeIndices[TreeIndex]{
                     //fog shit
-                    }
-                    TreeMask <<= 1
+                }
+                else{
+                    DisplayIndex = DTreeIndices[TreeIndex]
+                }
+                if(-1 != DisplayIndex){
+                    print(DisplayIndex)
+                    return DisplayIndex
                 }
             }
-            if -1 == DTreeIndices[TreeIndex]{
-                //fog shit
-            }
-            else{
-                DisplayIndex = DTreeIndices[TreeIndex]
-            }
-            if(-1 != DisplayIndex){
-                print(DisplayIndex)
-                return DisplayIndex
-            }
-        }
-        else if curTile == " "{
-            var WaterIndex = 0, WaterMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-            print(curTile)
-            for YOff in -1 ..< 2{
-                for XOff in -1 ..< 2{
-                    if(XOff == 0 && YOff == 0)
-                    {
-                        //print("skip")
-                        continue
+            else if curTile == " "{
+                var WaterIndex = 0, WaterMask = 0x1, UnknownMask = 0, DisplayIndex = -1
+                print(curTile)
+                for YOff in -1 ..< 2{
+                    for XOff in -1 ..< 2{
+                        if(XOff == 0 && YOff == 0)
+                        {
+                            //print("skip")
+                            continue
+                        }
+                        // if YOff != 0 && XOff != 0 {
+                            var mapLine = Array(Map[y + YOff].characters)
+                            //print(tempTile.endIndex)
+                            //print("FCUKKD")
+                            //print(y + YOff)
+                            let nextTile = mapLine[x + XOff]
+                            if String(nextTile) == " "{
+                                WaterIndex |= WaterMask
+                            }
+                            else if String(nextTile) == "asdf"{
+                                //fog shit
+                            }
+                            WaterMask <<= 1
+                        //}
                     }
-                    // if YOff != 0 && XOff != 0 {
-                        var mapLine = Array(Map[y + YOff].characters)
-                        //print(tempTile.endIndex)
-                        //print("FCUKKD")
-                        //print(y + YOff)
-                        let nextTile = mapLine[x + XOff]
-                        if String(nextTile) == " "{
-                            WaterIndex |= WaterMask
-                        }
-                        else if String(nextTile) == "asdf"{
-                            //fog shit
-                        }
-                        WaterMask <<= 1
-                    //}
+                }
+                if -1 == DWaterIndices[WaterIndex]{
+                    //fog shit
+                }
+                else{
+                    DisplayIndex = DWaterIndices[WaterIndex]
+                }
+                if(-1 != DisplayIndex){
+                    print(DisplayIndex)
+                    return DisplayIndex
                 }
             }
-            if -1 == DWaterIndices[WaterIndex]{
-                //fog shit
-            }
-            else{
-                DisplayIndex = DWaterIndices[WaterIndex]
-            }
-            if(-1 != DisplayIndex){
-                print(DisplayIndex)
-                return DisplayIndex
-            }
-        }
-        else if curTile == "G"{
-            var OtherIndex = 0, OtherMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-            print(curTile)
-            for YOff in -1 ..< 2{
-                for XOff in -1 ..< 2{
-                    if(XOff == 0 && YOff == 0)
-                    {
-                        //print("skip")
-                        continue
+            else if curTile == "G"{
+                var OtherIndex = 0, OtherMask = 0x1, UnknownMask = 0, DisplayIndex = -1
+                print(curTile)
+                for YOff in -1 ..< 2{
+                    for XOff in -1 ..< 2{
+                        if(XOff == 0 && YOff == 0)
+                        {
+                            //print("skip")
+                            continue
+                        }
+                        //if YOff != 0 && XOff != 0{
+                            var mapLine = Array(Map[y + YOff].characters)
+                            //print(tempTile.endIndex)
+                            //print("FCUKKD")
+                            //print(y + YOff)
+                            let nextTile = mapLine[x + XOff]
+                            if String(nextTile) == " " || String(nextTile) == "D" || String(nextTile) == "R"  {
+                                OtherIndex |= OtherMask
+                            }
+                            else if String(nextTile) == "asdf"{
+                                //fog shit
+                            }
+                            OtherMask <<= 1
+                        //}
                     }
-                    //if YOff != 0 && XOff != 0{
-                        var mapLine = Array(Map[y + YOff].characters)
-                        //print(tempTile.endIndex)
-                        //print("FCUKKD")
-                        //print(y + YOff)
-                        let nextTile = mapLine[x + XOff]
-                        if String(nextTile) == " " || String(nextTile) == "D" || String(nextTile) == "R"  {
-                            OtherIndex |= OtherMask
-                        }
-                        else if String(nextTile) == "asdf"{
-                            //fog shit
-                        }
-                        OtherMask <<= 1
-                    //}
                 }
-            }
-            if OtherIndex > 0 {
-                if -1 == DDirtIndices[OtherIndex] {
-                    // fog shit
+                if OtherIndex > 0 {
+                    if -1 == DDirtIndices[OtherIndex] {
+                        // fog shit
+                    }
+                    else {
+                        DisplayIndex = DDirtIndices[OtherIndex]
+                    }
+                    return DisplayIndex
                 }
                 else {
-                    DisplayIndex = DDirtIndices[OtherIndex]
-                }
-                return DisplayIndex
-            }
-            else {
-                return DGrassIndices[0x00]
-            }
-        }
-        else if curTile == "R" {
-            var RockIndex = 0, RockMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-            print("CUR TILE" + curTile)
-            for YOff in -1 ..< 2{
-                for XOff in -1 ..< 2{
-                    if(XOff == 0 && YOff == 0)
-                    {
-                        //print("skip")
-                        continue
-                    }
-                    //if YOff != 0 && XOff != 0{
-                    var mapLine = Array(Map[y + YOff].characters)
-                    let nextTile = mapLine[x + XOff]
-                    //print(nextTile)
-                    if String(nextTile) == "R"{
-                        RockIndex |= RockMask
-                    }
-                    else if String(nextTile) == "asdf"{
-                        //fog shit
-                    }
-                    RockMask <<= 1;
-                    //}
-                }
-            }
-            
-            print("ROCK INDEX" + String(RockIndex))
-            print("INDEX: " + String(DisplayIndex))
-            if -1 == DRockIndices[RockIndex]{
-                //fog shit
-            }
-            else{
-                DisplayIndex = DRockIndices[RockIndex]
-            }
-            if(-1 != DisplayIndex){
-                print(DisplayIndex)
-                return DisplayIndex
-            }
-            
-        }
-        else if curTile == "W" || curTile == "w"{
-            var WallIndex = 0, WallMask = 0x1, DisplayIndex = -1
-            var XOffsets: Array<Int> = [0, 1, 0, -1]
-            var YOffsets: Array<Int> = [-1, 0, 1, 0]
-            var nextTile: Character
-            nextTile =  "f"
-            for Index in 0 ..< XOffsets.capacity {
-                var mapLine = Array(Map[y + YOffsets[Index]].characters)
-                nextTile = mapLine[x + XOffsets[Index]]
-                if String(nextTile) == "W" || String(nextTile) == "w" || String(nextTile) == "r" {
-                    WallIndex |= WallMask
-                }
-                WallMask <<= 1
-            }
-            if String(nextTile) == "W" {
-                DisplayIndex = DWallIndices[WallIndex]
-            }
-            else{
-                DisplayIndex = DWallDamagedIndices[WallIndex]
-            }
-            if -1 != DisplayIndex{
-                return DisplayIndex
-            }
-        }
-        else{
-            var mapLine = Array(Map[y].characters)
-            let nextTile = mapLine[x]
-            switch String(nextTile) {
-                case "G":
                     return DGrassIndices[0x00]
-                case "D":
-                    return DDirtIndices[0xFF]
-                case "R":
-                    return DRockIndices[0x00]
-                case "F":
-                    return DTreeIndices[0x00]
-                case "Stump":
-                    return DTreeIndices[0x00]
-                case " ":
-                    return DWaterIndices[0x00]
-                case "W":
-                    return DWallIndices[0x00]
-                case "w":
-                    return DWallDamagedIndices[0x00]
-                case "r":
-                    return DWallIndices[0x00]
-            default: break
+                }
             }
+            else if curTile == "R" {
+                var RockIndex = 0, RockMask = 0x1, UnknownMask = 0, DisplayIndex = -1
+                print("CUR TILE" + curTile)
+                for YOff in -1 ..< 2{
+                    for XOff in -1 ..< 2{
+                        if(XOff == 0 && YOff == 0)
+                        {
+                            //print("skip")
+                            continue
+                        }
+                        //if YOff != 0 && XOff != 0{
+                        var mapLine = Array(Map[y + YOff].characters)
+                        let nextTile = mapLine[x + XOff]
+                        //print(nextTile)
+                        if String(nextTile) == "R"{
+                            RockIndex |= RockMask
+                        }
+                        else if String(nextTile) == "asdf"{
+                            //fog shit
+                        }
+                        RockMask <<= 1;
+                        //}
+                    }
+                }
+                
+                print("ROCK INDEX" + String(RockIndex))
+                print("INDEX: " + String(DisplayIndex))
+                if -1 == DRockIndices[RockIndex]{
+                    //fog shit
+                }
+                else{
+                    DisplayIndex = DRockIndices[RockIndex]
+                }
+                if(-1 != DisplayIndex){
+                    print(DisplayIndex)
+                    return DisplayIndex
+                }
+                
+            }
+            else if curTile == "W" || curTile == "w"{
+                var WallIndex = 0, WallMask = 0x1, DisplayIndex = -1
+                var XOffsets: Array<Int> = [0, 1, 0, -1]
+                var YOffsets: Array<Int> = [-1, 0, 1, 0]
+                var nextTile: Character
+                nextTile =  "f"
+                for Index in 0 ..< XOffsets.capacity {
+                    var mapLine = Array(Map[y + YOffsets[Index]].characters)
+                    nextTile = mapLine[x + XOffsets[Index]]
+                    if String(nextTile) == "W" || String(nextTile) == "w" || String(nextTile) == "r" {
+                        WallIndex |= WallMask
+                    }
+                    WallMask <<= 1
+                }
+                if String(nextTile) == "W" {
+                    DisplayIndex = DWallIndices[WallIndex]
+                }
+                else{
+                    DisplayIndex = DWallDamagedIndices[WallIndex]
+                }
+                if -1 != DisplayIndex{
+                    return DisplayIndex
+                }
+            }
+            else{
+                var mapLine = Array(Map[y].characters)
+                let nextTile = mapLine[x]
+                switch String(nextTile) {
+                    case "G":
+                        return DGrassIndices[0x00]
+                    case "D":
+                        return DDirtIndices[0xFF]
+                    case "R":
+                        return DRockIndices[0x00]
+                    case "F":
+                        return DTreeIndices[0x00]
+                    case "Stump":
+                        return DTreeIndices[0x00]
+                    case " ":
+                        return DWaterIndices[0x00]
+                    case "W":
+                        return DWallIndices[0x00]
+                    case "w":
+                        return DWallDamagedIndices[0x00]
+                    case "r":
+                        return DWallIndices[0x00]
+                default: break
+                }
+            }
+            return -1
         }
-        return -1
+        else
+        {
+            var mapLine = Array(Map[y + 1].characters)
+            if(curTile != "F" && mapLine[x] == "F")
+            {
+                print("HEREEE")
+                var TreeIndex = 0, TreeMask = 0x1
+                for YOff in 0 ..< 2{
+                    for XOff in -1 ..< 2{
+                        var mapLine = Array(Map[y + YOff].characters)
+                        //print(tempTile.endIndex)
+                        //print("FCUKKD")
+                        //print(y + YOff)
+                        let nextTile = mapLine[x + XOff]
+                        if String(nextTile) == "F"{
+                            TreeIndex |= TreeMask
+                        }
+                        else if String(nextTile) == "asdf"{
+                            //fog shit
+                        }
+                        TreeMask <<= 1
+                    }
+                }
+                return DTreeIndices[TreeIndex]
+            }
+            return -1
+        }
     }
 
 
