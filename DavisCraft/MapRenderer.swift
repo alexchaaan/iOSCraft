@@ -347,7 +347,6 @@ class MapRenderer {
             print(curTile)
             for XOff in 0 ..< 2{
                 for YOff in -1 ..< 2 {
-                    var tempTile:String
                     var mapLine = Array(Map[y + YOff].characters)
                     //print(tempTile.endIndex)
                     //print("FCUKKD")
@@ -379,7 +378,6 @@ class MapRenderer {
             for XOff in -1 ..< 2{
                 for YOff in -1 ..< 2 {
                     if YOff != 0 && XOff != 0 {
-                        var tempTile:String
                         var mapLine = Array(Map[y + YOff].characters)
                         //print(tempTile.endIndex)
                         //print("FCUKKD")
@@ -412,7 +410,6 @@ class MapRenderer {
             for XOff in -1 ..< 2{
                 for YOff in -1 ..< 2 {
                     if YOff != 0 && XOff != 0{
-                        var tempTile:String
                         var mapLine = Array(Map[y + YOff].characters)
                         //print(tempTile.endIndex)
                         //print("FCUKKD")
@@ -449,7 +446,6 @@ class MapRenderer {
             for XOff in -1 ..< 2{
                 for YOff in -1 ..< 2{
                     if YOff != 0 && XOff != 0{
-                        var tempTile:String
                         var mapLine = Array(Map[y + YOff].characters)
                         let nextTile = mapLine[x + XOff]
                         if String(nextTile) == "R"{
