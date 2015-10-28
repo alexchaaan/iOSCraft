@@ -118,15 +118,23 @@ class MapRender: UIView {
                                 UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                             }
                     case "D":
-                            UIImage(CGImage: tileDictionary!["dirt-1"]!).drawAtPoint(location)
+                            let typeIndex = a.getTileType(j, y: i, curTile: "D")
+                            let type = tileNames[typeIndex]
+                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case "W":
-                            UIImage(CGImage: tileDictionary!["wall-0"]!).drawAtPoint(location)
+                            let typeIndex = a.getTileType(j, y: i, curTile: "W")
+                            let type = tileNames[typeIndex]
+                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case "w":
-                            UIImage(CGImage: tileDictionary!["wall-damaged-0"]!).drawAtPoint(location)
+                            let typeIndex = a.getTileType(j, y: i, curTile: "w")
+                            let type = tileNames[typeIndex]
+                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case " ":
-                            UIImage(CGImage: tileDictionary!["water-0"]!).drawAtPoint(location)
-                    default:
-                            UIImage(CGImage: tileDictionary!["dirt-a"]!).drawAtPoint(location)
+                            let typeIndex = a.getTileType(j, y: i, curTile: " ")
+                            let type = tileNames[typeIndex]
+                            UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                    default: break
+                            //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     }
                 y += 32
             }

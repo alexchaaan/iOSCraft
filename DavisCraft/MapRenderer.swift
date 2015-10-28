@@ -377,7 +377,12 @@ class MapRenderer {
             print(curTile)
             for YOff in -1 ..< 2{
                 for XOff in -1 ..< 2{
-                    if YOff != 0 && XOff != 0 {
+                    if(XOff == 0 && YOff == 0)
+                    {
+                        //print("skip")
+                        continue
+                    }
+                    // if YOff != 0 && XOff != 0 {
                         var mapLine = Array(Map[y + YOff].characters)
                         //print(tempTile.endIndex)
                         //print("FCUKKD")
@@ -390,7 +395,7 @@ class MapRenderer {
                             //fog shit
                         }
                         WaterMask <<= 1
-                    }
+                    //}
                 }
             }
             if -1 == DWaterIndices[WaterIndex]{
@@ -409,7 +414,12 @@ class MapRenderer {
             print(curTile)
             for YOff in -1 ..< 2{
                 for XOff in -1 ..< 2{
-                    if YOff != 0 && XOff != 0{
+                    if(XOff == 0 && YOff == 0)
+                    {
+                        //print("skip")
+                        continue
+                    }
+                    //if YOff != 0 && XOff != 0{
                         var mapLine = Array(Map[y + YOff].characters)
                         //print(tempTile.endIndex)
                         //print("FCUKKD")
@@ -422,24 +432,21 @@ class MapRenderer {
                             //fog shit
                         }
                         OtherMask <<= 1
-                    }
+                    //}
                 }
-            }//fog i think V
-//            if OtherIndex {
-//                if -1 == DDirtIndices[OtherIndex]{
-//                    //fog shit
-//                }
-//            }
-//            if -1 == DIndices[WaterIndex]{
-//                //fog shit
-//            }
-//            else{
-//                DisplayIndex = DWaterIndices[WaterIndex]
-//            }
-//            if(-1 != DisplayIndex){
-//                print(DisplayIndex)
-//                return DisplayIndex
-//            }
+            }
+            if OtherIndex > 0 {
+                if -1 == DDirtIndices[OtherIndex] {
+                    // fog shit
+                }
+                else {
+                    DisplayIndex = DDirtIndices[OtherIndex]
+                }
+                return DisplayIndex
+            }
+            else {
+                return DGrassIndices[0x00]
+            }
         }
         else if curTile == "R" {
             var RockIndex = 0, RockMask = 0x1, UnknownMask = 0, DisplayIndex = -1
@@ -479,9 +486,56 @@ class MapRenderer {
                 return DisplayIndex
             }
             
-            
         }
-        
+        else if curTile == "W" || curTile == "w"{
+            var WallIndex = 0, WallMask = 0x1, DisplayIndex = -1
+            var XOffsets: Array<Int> = [0, 1, 0, -1]
+            var YOffsets: Array<Int> = [-1, 0, 1, 0]
+            var nextTile: Character
+            nextTile =  "f"
+            for Index in 0 ..< XOffsets.capacity {
+                var mapLine = Array(Map[y + YOffsets[Index]].characters)
+                nextTile = mapLine[x + XOffsets[Index]]
+                if String(nextTile) == "W" || String(nextTile) == "w" || String(nextTile) == "r" {
+                    WallIndex |= WallMask
+                }
+                WallMask <<= 1
+            }
+            if String(nextTile) == "W" {
+                DisplayIndex = DWallIndices[WallIndex]
+            }
+            else{
+                DisplayIndex = DWallDamagedIndices[WallIndex]
+            }
+            if -1 != DisplayIndex{
+                return DisplayIndex
+            }
+        }
+        else{
+            var mapLine = Array(Map[y].characters)
+            let nextTile = mapLine[x]
+            switch String(nextTile) {
+                case "G":
+                    return DGrassIndices[0x00]
+                case "D":
+                    return DDirtIndices[0xFF]
+                case "R":
+                    return DRockIndices[0x00]
+                case "F":
+                    return DTreeIndices[0x00]
+                case "Stump":
+                    return DTreeIndices[0x00]
+                case " ":
+                    return DWaterIndices[0x00]
+                case "W":
+                    return DWallIndices[0x00]
+                case "w":
+                    return DWallDamagedIndices[0x00]
+                case "r":
+                    return DWallIndices[0x00]
+            default: break
+            }
+        }
         return -1
     }
 
