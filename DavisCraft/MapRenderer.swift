@@ -346,7 +346,7 @@ class MapRenderer {
         {
             if curTile == "F"{
                 var TreeIndex = 0, TreeMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-                print(curTile)
+                //print(curTile)
                 for YOff in 0 ..< 2{
                     for XOff in -1 ..< 2{
                         var mapLine = Array(Map[y + YOff].characters)
@@ -370,13 +370,12 @@ class MapRenderer {
                     DisplayIndex = DTreeIndices[TreeIndex]
                 }
                 if(-1 != DisplayIndex){
-                    print(DisplayIndex)
                     return DisplayIndex
                 }
             }
             else if curTile == " "{
                 var WaterIndex = 0, WaterMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-                print(curTile)
+                //print(curTile)
                 for YOff in -1 ..< 2{
                     for XOff in -1 ..< 2{
                         if(XOff == 0 && YOff == 0)
@@ -407,13 +406,12 @@ class MapRenderer {
                     DisplayIndex = DWaterIndices[WaterIndex]
                 }
                 if(-1 != DisplayIndex){
-                    print(DisplayIndex)
                     return DisplayIndex
                 }
             }
             else if curTile == "G"{
                 var OtherIndex = 0, OtherMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-                print(curTile)
+                //print(curTile)
                 for YOff in -1 ..< 2{
                     for XOff in -1 ..< 2{
                         if(XOff == 0 && YOff == 0)
@@ -452,7 +450,7 @@ class MapRenderer {
             }
             else if curTile == "R" {
                 var RockIndex = 0, RockMask = 0x1, UnknownMask = 0, DisplayIndex = -1
-                print("CUR TILE" + curTile)
+                //print("CUR TILE" + curTile)
                 for YOff in -1 ..< 2{
                     for XOff in -1 ..< 2{
                         if(XOff == 0 && YOff == 0)
@@ -474,9 +472,6 @@ class MapRenderer {
                         //}
                     }
                 }
-                
-                print("ROCK INDEX" + String(RockIndex))
-                print("INDEX: " + String(DisplayIndex))
                 if -1 == DRockIndices[RockIndex]{
                     //fog shit
                 }
@@ -484,7 +479,6 @@ class MapRenderer {
                     DisplayIndex = DRockIndices[RockIndex]
                 }
                 if(-1 != DisplayIndex){
-                    print(DisplayIndex)
                     return DisplayIndex
                 }
                 
@@ -542,17 +536,16 @@ class MapRenderer {
         }
         else
         {
-            var mapLine = Array(Map[y + 1].characters)
-            if(curTile != "F" && mapLine[x] == "F")
+            var nextLine = Array(Map[y + 1].characters)
+            //print(curTile, String(nextLine[x]))
+            if(curTile != "F" && String(nextLine[x]) == "F")
             {
+                print(curTile, String(nextLine[x]))
                 print("HEREEE")
                 var TreeIndex = 0, TreeMask = 0x1
                 for YOff in 0 ..< 2{
                     for XOff in -1 ..< 2{
                         var mapLine = Array(Map[y + YOff].characters)
-                        //print(tempTile.endIndex)
-                        //print("FCUKKD")
-                        //print(y + YOff)
                         let nextTile = mapLine[x + XOff]
                         if String(nextTile) == "F"{
                             TreeIndex |= TreeMask
@@ -563,6 +556,7 @@ class MapRenderer {
                         TreeMask <<= 1
                     }
                 }
+                print(DTreeIndices[TreeIndex])
                 return DTreeIndices[TreeIndex]
             }
             return -1
