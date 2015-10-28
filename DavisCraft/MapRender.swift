@@ -98,20 +98,17 @@ class MapRender: UIView {
         var (tileDictionary,tileNames ) = readTerrain()
         var x = 0
         var y = 0
-        var dummy = 0
-//let location = CGPointMake(100 , 100)
         let (map,width,height) = readMap()
         for i in 3 ..< (height + 3){
-            var jNum = 0
-            for j in map[i].characters{ //make sure to account for the extra 2 thing later
-                //let location = CGPointMake(CGFloat(y), CGFloat(x))
-                if(jNum > 0 && jNum < map[i].lengthOfBytesUsingEncoding(NSUTF8StringEncoding)){
+            var mapLine = Array(map[i].characters)
+            
+            for j in 1..<width{
                     let location = CGPointMake(CGFloat(y), CGFloat(x))
-                    switch j {
+                    switch mapLine[j] {
                     case "G":
                             UIImage(CGImage: tileDictionary!["grass-0"]!).drawAtPoint(location)
                     case "F":
-                            let typeIndex = a.getTileType(i + 2, y: jNum, curTile: "F")
+                            let typeIndex = a.getTileType(i, y: j, curTile: "F")
                             let type = tileNames[typeIndex]
                             UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case "R":
@@ -127,10 +124,7 @@ class MapRender: UIView {
                     default:
                             UIImage(CGImage: tileDictionary!["dirt-a"]!).drawAtPoint(location)
                     }
-                //}
                 y += 32
-                }
-                jNum++
             }
             x += 32
             y = 0

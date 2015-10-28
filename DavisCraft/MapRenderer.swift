@@ -348,9 +348,9 @@ class MapRenderer {
                 for XOff in -1 ..< 2 {
                     var tempTile:String
                     tempTile = Map[x + XOff]
-                    print(tempTile.endIndex)
-                    print("FCUKKD")
-                    print(y + YOff)
+                    //print(tempTile.endIndex)
+                    //print("FCUKKD")
+                    //print(y + YOff)
                     let nextTile = tempTile.startIndex.advancedBy(y + YOff)
                     if String(nextTile) == "F"{
                         TreeIndex |= TreeMask
