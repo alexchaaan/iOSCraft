@@ -21,6 +21,7 @@
 		4C3F91B51BE1727C0075ECB3 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 4C3F91B41BE1727C0075ECB3 /* data */; settings = {ASSET_TAGS = (); }; };
 		4C3F91B71BE172BE0075ECB3 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B61BE172BE0075ECB3 /* FileManager.swift */; settings = {ASSET_TAGS = (); }; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; settings = {ASSET_TAGS = (); }; };
+		4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */; settings = {ASSET_TAGS = (); }; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; settings = {ASSET_TAGS = (); }; };
 		CB534A181BD44B9600823469 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB534A171BD44B9600823469 /* Sound.swift */; settings = {ASSET_TAGS = (); }; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 		4C3F91B41BE1727C0075ECB3 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		4C3F91B61BE172BE0075ECB3 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
+		4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapRender.swift; sourceTree = "<group>"; };
 		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
 		CB534A171BD44B9600823469 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		CB534A231BD7B11000823469 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				4C3F91B01BE172520075ECB3 /* MapRender.swift */,
 				4C3F91B21BE172570075ECB3 /* MapRenderer.swift */,
 				49E010801BCBB601008CB09E /* TileController.swift */,
+				4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */,
 				4927C1841BCBBB5F000CD4C9 /* DrawTile.swift */,
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
 				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
@@ -293,6 +296,7 @@
 				4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */,
 				3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */,
 				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
+				4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */,
 				4927C1851BCBBB5F000CD4C9 /* DrawTile.swift in Sources */,
 				CB534A181BD44B9600823469 /* Sound.swift in Sources */,
 				3F6FFCEC1BC5F1F400DD4285 /* SinglePlayerGame.swift in Sources */,
