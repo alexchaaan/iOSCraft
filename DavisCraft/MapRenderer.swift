@@ -344,14 +344,15 @@ class MapRenderer {
     func getTileType(x: Int, y: Int, curTile: String) ->Int{
         if curTile == "F"{
             var TreeIndex = 0, TreeMask = 0x1, UnknownMask = 0, DisplayIndex = -1;
-            for YOff in 0 ..< 2{
-                for XOff in -1 ..< 2 {
+            print(curTile)
+            for XOff in 0 ..< 2{
+                for YOff in -1 ..< 2 {
                     var tempTile:String
-                    tempTile = Map[x + XOff]
+                    var mapLine = Array(Map[y + YOff].characters)
                     //print(tempTile.endIndex)
                     //print("FCUKKD")
                     //print(y + YOff)
-                    let nextTile = tempTile.startIndex.advancedBy(y + YOff)
+                    let nextTile = mapLine[x + XOff]
                     if String(nextTile) == "F"{
                         TreeIndex |= TreeMask
                     }
@@ -368,6 +369,7 @@ class MapRenderer {
                 DisplayIndex = DTreeIndices[TreeIndex]
             }
             if(-1 != DisplayIndex){
+                print(DisplayIndex)
                 return DisplayIndex
             }
         }

@@ -108,7 +108,7 @@ class MapRender: UIView {
                     case "G":
                             UIImage(CGImage: tileDictionary!["grass-0"]!).drawAtPoint(location)
                     case "F":
-                            let typeIndex = a.getTileType(i, y: j, curTile: "F")
+                            let typeIndex = a.getTileType(j, y: i, curTile: "F")
                             let type = tileNames[typeIndex]
                             UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                     case "R":
