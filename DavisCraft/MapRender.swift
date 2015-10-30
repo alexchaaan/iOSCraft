@@ -9,14 +9,12 @@
 import UIKit
 
 class MapRender: UIView {
-//each map tile is 32x32
-    let bundle = NSBundle.mainBundle()
+    //each map tile is 32x32
     func readTerrain() -> (Dictionary <String, CGImage>?, Array<String>) {
         //read in the tiles for the map
         let fileName = "Terrain.dat"
         let terrainDat = FileManager.returnDatFileContents(fileName)
         let terrainDatContent = terrainDat!.componentsSeparatedByString("\n")
-        let terrainPngPath = terrainDatContent[0]
         let numberOfTerrainTiles = Int(terrainDatContent[1])
         //iterate by number of tiles to store the pngs into some kind of ui or cg image structure    
         var terrainTileDictionary = [String: CGImage]()
@@ -24,7 +22,6 @@ class MapRender: UIView {
         let h = image!.size.height
         let w = image!.size.width
         //need to loop backwards because of how the splitting of tile works. so start index as the number equal to numberOfTerrainTiles
-        //for index in Int(numberOfTerrainTiles!) ... 1 {
         var counter = 2
         for var index = Int(numberOfTerrainTiles!); index > 0; index-- {
             terrainTileDictionary[terrainDatContent[counter]] = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTerrainTiles!))), w, h/CGFloat(numberOfTerrainTiles!)))
@@ -35,63 +32,18 @@ class MapRender: UIView {
     }
 
     func readMap() -> (Array<String>, Int, Int){
-        //maybe havve button to give map filename
+        //have button to give map filename
         let fileName = "2player.map"
         let mapContent = FileManager.returnDatFileContents(fileName, subdirectory: "map")
         let mapInfo = mapContent!.componentsSeparatedByString("\n")
-        let mapName = mapInfo[0]
-        print(mapName)
-//        let line2 = mapInfo[2]
-//        print(line2)
+        //let mapName = mapInfo[0]
         let mapDimension = mapInfo[1].componentsSeparatedByString(" ")
-        print(mapDimension)
-        //2 was added because tiles need to look around themselves
-        //without extra then edge tiles will go out of bounds when looking around
         let mapWidth = Int(mapDimension[0])!
-        print(mapWidth)
         let mapHeight = Int(mapDimension[1])!
-        print(mapHeight)
-        //setTiles(mapInfo, width: mapWidth, height: mapHeight)
         return (mapInfo, mapWidth, mapHeight)
         
         
     }
-    
-    //func setTiles(map: Array<String>, width: Int, height: Int){
-//        var curTile = String()
-//        var topLeftCorner = Int()
-//        var topRightCorner = Int()
-//        var bottomLeftCorner = Int()
-//        var bottomRightCorner = Int()
-//        var top = Int()
-//        var bottom = Int()
-//        var right = Int()
-//        var left = Int()
-//        for i in 3 ..< (height + 3){
-//            var jNum = 0
-//            for j in map[i].characters{
-//                if (jNum > 0 && jNum < map[i].lengthOfBytesUsingEncoding(NSUTF8StringEncoding)){
-//                    switch j {
-//                    case "G": curTile = "G"
-//                    case "F": curTile = "F"
-//                    case "R": curTile = "R"
-//                    case "D": curTile = "D"
-//                    case "W": curTile = "W"
-//                    case "w": curTile = "w"
-//                    case " ": curTile = " "
-//                    default: break
-//                    }
-//                    //top left corner
-//                    var yIndex = i - 1
-//                    var xIndex = jNum - 1
-//                    let str = map[yIndex]
-//                    
-//                }
-//                jNum++
-//            }
-//        }
-//    }
-    
     
     override func drawRect(rect: CGRect) {
         let a = MapRenderer()
@@ -103,84 +55,43 @@ class MapRender: UIView {
             for i in 3 ..< (height + 3){
                 var mapLine = Array(map[i].characters)
                 for j in 1..<width + 1{
-                        let location = CGPointMake(CGFloat(y), CGFloat(x))
-                        switch mapLine[j] {
+                    let location = CGPointMake(CGFloat(x), CGFloat(y))
+                    var typeIndex = -1
+                    switch mapLine[j] {
                         case "G":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "G", pass: pass)
-                            if(typeIndex != -1)
-                            {
-                                let type = tileNames[typeIndex]
-                                UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                            }
+                            typeIndex = a.getTileType(j, y: i, curTile: "G", pass: pass)
                         case "F":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "F", pass: pass)
-                            if(typeIndex != -1)
-                            {
-                                let type = tileNames[typeIndex]
-                                UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                            }
+                            typeIndex = a.getTileType(j, y: i, curTile: "F", pass: pass)
                         case "R":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "R", pass: pass)
-                            if(typeIndex != -1)
-                            {
-                                let type = tileNames[typeIndex]
-                                UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                            }
+                            typeIndex = a.getTileType(j, y: i, curTile: "R", pass: pass)
                         case "D":
-                            let typeIndex = a.getTileType(j, y: i, curTile: "D", pass: pass)
-                            if(typeIndex != -1)
-                            {
-                                let type = tileNames[typeIndex]
-                                UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                            }
+                            typeIndex = a.getTileType(j, y: i, curTile: "D", pass: pass)
                         case "W":
-                                let typeIndex = a.getTileType(j, y: i, curTile: "W", pass: pass)
-                                if(typeIndex != -1)
-                                {
-                                    let type = tileNames[typeIndex]
-                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                                }
+                            typeIndex = a.getTileType(j, y: i, curTile: "W", pass: pass)
                         case "w":
-                                let typeIndex = a.getTileType(j, y: i, curTile: "w", pass: pass)
-                                if(typeIndex != -1)
-                                {
-                                    let type = tileNames[typeIndex]
-                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                                }
+                            typeIndex = a.getTileType(j, y: i, curTile: "w", pass: pass)
                         case " ":
-                                let typeIndex = a.getTileType(j, y: i, curTile: " ", pass: pass)
-                                if(typeIndex != -1)
-                                {
-                                    let type = tileNames[typeIndex]
-                                    UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                                }
-                        default: break
-                                //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
-                        }
-                    y += 32
+                            typeIndex = a.getTileType(j, y: i, curTile: " ", pass: pass)
+                        default:
+                            break
+                    }
+                    if(typeIndex != -1){
+                        let type = tileNames[typeIndex]
+                        UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                    }
+                    x += 32
                 }
-                x += 32
-                y = 0
+                y += 32
+                x = 0
             }
         }
         for index in 73...76{
             let item = map[index].componentsSeparatedByString(" ")
             let placement = CGPointMake(CGFloat(2750 - Int(item[2])!), CGFloat(1800 - Int(item[3])!))
             self.drawTower(placement,sprite: item[0])
-        }
-        //UIImage(CGImage: tileDictionary!["grass-a"]!).drawAtPoint(location)
-    }
+        }    }
    
-    
-//    int CGraphicTileset::FindTile(const std::string &tilename) const{
-//    auto Iterator = DMapping.find(tilename);
-//    if(DMapping.end() != Iterator){
-//    return Iterator->second;
-//    }
-//    return -1;
-//    }
-    
-    func drawTower(var placement: CGPoint, sprite: String){ // Does print 2 dudes, just overlaps them.
+    func drawTower(var placement: CGPoint, sprite: String){
         let fileName = sprite + ".dat"
         let content = FileManager.returnDatFileContents(fileName)
         let contentArray = content!.componentsSeparatedByString("\n")
