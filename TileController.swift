@@ -22,7 +22,7 @@ class Tile: UIViewController{
         view.backgroundColor = UIColor.blackColor()
         let (_, width, height ) = MapRender().readMap()
         let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
-        let miniMap = MiniMapRender(frame:CGRectMake(10, 20, view.bounds.size.width / 4 , view.bounds.size.height - 20))
+        let miniMap = MiniMapRender(frame:CGRectMake(4, 25, view.bounds.size.width / 4 - 7, view.bounds.size.height - 295))
         var battleField: UIScrollView!
         // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
         battleField = UIScrollView(frame: CGRectMake(view.bounds.size.width / 4, 0, view.bounds.size.width * 3 / 4, view.bounds.size.height))
@@ -36,7 +36,7 @@ class Tile: UIViewController{
         //SIDEPANEL
         var sidePanel: UIView!
         sidePanel = UIView(frame: CGRectMake(0, 0, view.bounds.size.width / 4, view.bounds.size.height))
-        sidePanel.backgroundColor = UIColor.blackColor()
+        sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         sidePanel.addSubview(miniMap)
         view.addSubview(sidePanel)
         

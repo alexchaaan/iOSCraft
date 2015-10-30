@@ -11,28 +11,6 @@ import UIKit
 class MiniMapRender: UIView {
     //each map tile is 32x32
     let bundle = NSBundle.mainBundle()
-    func readTerrain() -> Dictionary <String, CGImage>? {
-        //read in the tiles for the map
-        let fileName = "Terrain.dat"
-        let terrainDat = FileManager.returnDatFileContents(fileName)
-        let terrainDatContent = terrainDat!.componentsSeparatedByString("\n")
-        let terrainPngPath = terrainDatContent[0]
-        let numberOfTerrainTiles = Int(terrainDatContent[1])
-        //iterate by number of tiles to store the pngs into some kind of ui or cg image structure
-        var terrainTileDictionary = [String: CGImage]()
-        let image = UIImage(named: "Terrain.png")
-        let h = image!.size.height
-        let w = image!.size.width
-        //need to loop backwards because of how the splitting of tile works. so start index as the number equal to numberOfTerrainTiles
-        //for index in Int(numberOfTerrainTiles!) ... 1 {
-        var counter = 2
-        for var index = Int(numberOfTerrainTiles!); index > 0; index-- {
-            terrainTileDictionary[terrainDatContent[counter]] = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTerrainTiles!))), w, h/CGFloat(numberOfTerrainTiles!)))
-            counter++
-        }
-        return terrainTileDictionary
-        
-    }
     
     func readMap() -> (Array<String>, Int, Int){
         //maybe havve button to give map filename
