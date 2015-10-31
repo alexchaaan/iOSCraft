@@ -473,48 +473,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-lq-qe8" userLabel="Bottom">
+                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-lq-qe8" userLabel="Bottom">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="Iwe-hJ-hLE" userLabel="BLeft">
+                            <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="Iwe-hJ-hLE" userLabel="BLeft">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="x9F-RE-OEP" userLabel="Top">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="x9F-RE-OEP" userLabel="Top">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="if2-ed-9Gd" userLabel="Top">
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="if2-ed-9Gd" userLabel="Top">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="qOV-Lu-wuY" userLabel="BRight">
+                            <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="qOV-Lu-wuY" userLabel="BRight">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="EY0-jo-Uxp" userLabel="TLeft">
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="EY0-jo-Uxp" userLabel="TLeft">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="qM8-e9-dsv" userLabel="TRight">
+                            <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="qM8-e9-dsv" userLabel="TRight">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="Zrh-aQ-agp" userLabel="Left">
+                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="Zrh-aQ-agp" userLabel="Left">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="fJM-zD-ohs" userLabel="Right">
+                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="fJM-zD-ohs" userLabel="Right">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0v-e2-AUI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0v-e2-AUI">
                                 <rect key="frame" x="175" y="70" width="250" height="46"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="YHa-kC-cYE"/>
-                                    <constraint firstAttribute="height" constant="50" id="hsp-Li-9sX"/>
+                                    <constraint firstAttribute="height" constant="46" id="hsp-Li-9sX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Sound Options" backgroundImage="ButtonCool">
@@ -560,6 +560,7 @@
                             <constraint firstItem="fJM-zD-ohs" firstAttribute="top" secondItem="Uqb-lq-qe8" secondAttribute="top" id="3lJ-9l-42p"/>
                             <constraint firstItem="k2N-Ah-JWi" firstAttribute="trailing" secondItem="S0v-e2-AUI" secondAttribute="trailing" id="5XY-9r-JFa"/>
                             <constraint firstItem="Zrh-aQ-agp" firstAttribute="bottom" secondItem="Uqb-lq-qe8" secondAttribute="bottom" id="7X9-rW-0K9"/>
+                            <constraint firstItem="if2-ed-9Gd" firstAttribute="top" secondItem="vML-eS-FlW" secondAttribute="top" id="Bcf-fK-oXB"/>
                             <constraint firstItem="qOV-Lu-wuY" firstAttribute="leading" secondItem="Uqb-lq-qe8" secondAttribute="leading" id="CHv-uN-Dln"/>
                             <constraint firstItem="qOV-Lu-wuY" firstAttribute="top" secondItem="Uqb-lq-qe8" secondAttribute="top" id="FAf-vG-3EW"/>
                             <constraint firstItem="mhs-vZ-tn5" firstAttribute="centerX" secondItem="vML-eS-FlW" secondAttribute="centerX" id="IP3-1v-5eM"/>
@@ -573,23 +574,26 @@
                             <constraint firstItem="k2N-Ah-JWi" firstAttribute="trailing" secondItem="mhs-vZ-tn5" secondAttribute="trailing" id="Phd-Yi-wAl"/>
                             <constraint firstItem="Iwe-hJ-hLE" firstAttribute="bottom" secondItem="Uqb-lq-qe8" secondAttribute="bottom" id="PkA-cp-nWT"/>
                             <constraint firstItem="if2-ed-9Gd" firstAttribute="top" secondItem="Uqb-lq-qe8" secondAttribute="top" id="Pmz-Kj-TmX"/>
-                            <constraint firstItem="k2N-Ah-JWi" firstAttribute="top" secondItem="S0v-e2-AUI" secondAttribute="bottom" constant="8" symbolic="YES" id="RVZ-iy-4ZL"/>
+                            <constraint firstItem="k2N-Ah-JWi" firstAttribute="top" secondItem="S0v-e2-AUI" secondAttribute="bottom" constant="10" id="RVZ-iy-4ZL"/>
                             <constraint firstItem="if2-ed-9Gd" firstAttribute="leading" secondItem="Uqb-lq-qe8" secondAttribute="leading" id="TCh-9m-BU0"/>
                             <constraint firstItem="EY0-jo-Uxp" firstAttribute="leading" secondItem="Uqb-lq-qe8" secondAttribute="leading" id="U4g-ST-1Gc"/>
                             <constraint firstItem="qOV-Lu-wuY" firstAttribute="bottom" secondItem="Uqb-lq-qe8" secondAttribute="bottom" id="UB2-Ng-LpF"/>
                             <constraint firstItem="if2-ed-9Gd" firstAttribute="bottom" secondItem="Uqb-lq-qe8" secondAttribute="bottom" id="WxQ-sV-VJ7"/>
                             <constraint firstItem="x9F-RE-OEP" firstAttribute="trailing" secondItem="Uqb-lq-qe8" secondAttribute="trailing" id="XOo-w4-Xaw"/>
-                            <constraint firstItem="S0v-e2-AUI" firstAttribute="top" secondItem="K8B-yu-oYu" secondAttribute="bottom" constant="48" id="Zmm-lI-qdW"/>
+                            <constraint firstItem="S0v-e2-AUI" firstAttribute="top" secondItem="K8B-yu-oYu" secondAttribute="bottom" constant="50" id="Zmm-lI-qdW"/>
                             <constraint firstItem="qM8-e9-dsv" firstAttribute="bottom" secondItem="Uqb-lq-qe8" secondAttribute="bottom" id="bLA-0z-UpW"/>
                             <constraint firstItem="Iwe-hJ-hLE" firstAttribute="trailing" secondItem="Uqb-lq-qe8" secondAttribute="trailing" id="bhf-FX-Iul"/>
                             <constraint firstItem="EY0-jo-Uxp" firstAttribute="top" secondItem="Uqb-lq-qe8" secondAttribute="top" id="blb-Dm-EMT"/>
                             <constraint firstItem="fJM-zD-ohs" firstAttribute="leading" secondItem="Uqb-lq-qe8" secondAttribute="leading" id="dEJ-YZ-n73"/>
+                            <constraint firstItem="qOV-Lu-wuY" firstAttribute="bottom" secondItem="nhg-MZ-Nu8" secondAttribute="top" id="dUw-bb-8MH"/>
                             <constraint firstItem="qM8-e9-dsv" firstAttribute="leading" secondItem="Uqb-lq-qe8" secondAttribute="leading" id="fWg-iu-S4g"/>
                             <constraint firstItem="if2-ed-9Gd" firstAttribute="trailing" secondItem="Uqb-lq-qe8" secondAttribute="trailing" id="frW-KW-35T"/>
                             <constraint firstItem="EY0-jo-Uxp" firstAttribute="bottom" secondItem="Uqb-lq-qe8" secondAttribute="bottom" id="fs7-Dd-kwr"/>
                             <constraint firstItem="fJM-zD-ohs" firstAttribute="bottom" secondItem="Uqb-lq-qe8" secondAttribute="bottom" id="iBM-y0-4iP"/>
+                            <constraint firstItem="Zrh-aQ-agp" firstAttribute="centerX" secondItem="k2N-Ah-JWi" secondAttribute="centerX" id="iZR-T4-abj"/>
                             <constraint firstItem="mhs-vZ-tn5" firstAttribute="top" secondItem="k2N-Ah-JWi" secondAttribute="bottom" constant="8" symbolic="YES" id="ka0-vj-1Li"/>
                             <constraint firstItem="Iwe-hJ-hLE" firstAttribute="leading" secondItem="Uqb-lq-qe8" secondAttribute="leading" id="lta-3W-KtQ"/>
+                            <constraint firstItem="EY0-jo-Uxp" firstAttribute="leading" secondItem="vML-eS-FlW" secondAttribute="leading" id="mkW-WP-0RT"/>
                             <constraint firstItem="x9F-RE-OEP" firstAttribute="leading" secondItem="Uqb-lq-qe8" secondAttribute="leading" id="pAm-7h-gIg"/>
                             <constraint firstItem="x9F-RE-OEP" firstAttribute="top" secondItem="Uqb-lq-qe8" secondAttribute="top" id="pZm-ri-6fQ"/>
                             <constraint firstItem="x9F-RE-OEP" firstAttribute="bottom" secondItem="Uqb-lq-qe8" secondAttribute="bottom" id="sTR-Qu-hvM"/>
@@ -615,39 +619,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="K6f-RY-OKf" userLabel="Bottom">
+                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="K6f-RY-OKf" userLabel="Bottom">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="xeY-5v-GhH" userLabel="BLeft">
+                            <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="xeY-5v-GhH" userLabel="BLeft">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="AGt-F7-3Aq" userLabel="Top">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="AGt-F7-3Aq" userLabel="Top">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="hMx-wD-tLD" userLabel="Top">
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="hMx-wD-tLD" userLabel="Top">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="zvh-yN-JHM" userLabel="BRight">
+                            <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="zvh-yN-JHM" userLabel="BRight">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="XcC-xY-yEa" userLabel="TLeft">
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="XcC-xY-yEa" userLabel="TLeft">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="jTP-XJ-4OG" userLabel="TRight">
+                            <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="jTP-XJ-4OG" userLabel="TRight">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="o0s-GS-0NY" userLabel="Left">
+                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="o0s-GS-0NY" userLabel="Left">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="edH-jO-5ca" userLabel="Right">
+                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="edH-jO-5ca" userLabel="Right">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -693,7 +697,7 @@
                                     <rect key="frame" x="222" y="304" width="483" height="31"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcZ-K9-8lp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcZ-K9-8lp">
                                 <rect key="frame" x="480" y="530" width="100" height="50"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -736,6 +740,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xeY-5v-GhH" firstAttribute="leading" secondItem="aIA-Er-Igl" secondAttribute="leading" id="0n2-MP-Cxg"/>
                             <constraint firstItem="edH-jO-5ca" firstAttribute="trailing" secondItem="K6f-RY-OKf" secondAttribute="trailing" id="13Q-IN-YsC"/>
                             <constraint firstItem="6vu-fx-QiQ" firstAttribute="centerY" secondItem="keX-5A-c7t" secondAttribute="centerY" id="2Rh-b5-Seh"/>
                             <constraint firstItem="C4v-xk-ia3" firstAttribute="leading" secondItem="HcZ-K9-8lp" secondAttribute="leading" id="3Gt-Cp-Ql7"/>
@@ -745,6 +750,7 @@
                             <constraint firstItem="XcC-xY-yEa" firstAttribute="leading" secondItem="K6f-RY-OKf" secondAttribute="leading" id="696-16-n0Z"/>
                             <constraint firstItem="hMx-wD-tLD" firstAttribute="trailing" secondItem="K6f-RY-OKf" secondAttribute="trailing" id="7Cn-az-8Bl"/>
                             <constraint firstItem="XcC-xY-yEa" firstAttribute="trailing" secondItem="K6f-RY-OKf" secondAttribute="trailing" id="8tH-lu-slV"/>
+                            <constraint firstItem="XcC-xY-yEa" firstAttribute="bottom" secondItem="Eya-Bv-0Ey" secondAttribute="top" id="AKR-7u-tsQ"/>
                             <constraint firstItem="6vu-fx-QiQ" firstAttribute="top" secondItem="VLN-5m-GR7" secondAttribute="bottom" constant="15" id="Amq-Be-erM"/>
                             <constraint firstItem="hMx-wD-tLD" firstAttribute="leading" secondItem="K6f-RY-OKf" secondAttribute="leading" id="Bt9-aY-He8"/>
                             <constraint firstItem="HcZ-K9-8lp" firstAttribute="top" secondItem="C4v-xk-ia3" secondAttribute="bottom" constant="8" symbolic="YES" id="Epe-NE-VfD"/>
@@ -758,12 +764,14 @@
                             <constraint firstItem="6vu-fx-QiQ" firstAttribute="leading" secondItem="keX-5A-c7t" secondAttribute="trailing" constant="8" symbolic="YES" id="KdW-rz-677"/>
                             <constraint firstItem="AGt-F7-3Aq" firstAttribute="top" secondItem="K6f-RY-OKf" secondAttribute="top" id="Kk8-bD-KaS"/>
                             <constraint firstAttribute="bottom" secondItem="C4v-xk-ia3" secondAttribute="bottom" constant="78" id="LJj-mt-989"/>
-                            <constraint firstItem="Eya-Bv-0Ey" firstAttribute="top" secondItem="HcZ-K9-8lp" secondAttribute="bottom" constant="64" id="PEO-UC-hcf"/>
+                            <constraint firstItem="Eya-Bv-0Ey" firstAttribute="top" secondItem="HcZ-K9-8lp" secondAttribute="bottom" constant="20" id="PEO-UC-hcf"/>
                             <constraint firstItem="AGt-F7-3Aq" firstAttribute="leading" secondItem="K6f-RY-OKf" secondAttribute="leading" id="PNK-OE-nSm"/>
                             <constraint firstItem="jTP-XJ-4OG" firstAttribute="trailing" secondItem="K6f-RY-OKf" secondAttribute="trailing" id="QTu-N2-i19"/>
                             <constraint firstItem="zvh-yN-JHM" firstAttribute="top" secondItem="K6f-RY-OKf" secondAttribute="top" id="Rqw-Ay-me5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VLN-5m-GR7" secondAttribute="trailing" constant="75" id="SAV-zN-tQc"/>
                             <constraint firstItem="xeY-5v-GhH" firstAttribute="top" secondItem="K6f-RY-OKf" secondAttribute="top" id="SV3-kA-FaD"/>
+                            <constraint firstItem="o0s-GS-0NY" firstAttribute="top" secondItem="aIA-Er-Igl" secondAttribute="top" id="ShM-S6-yQN"/>
+                            <constraint firstAttribute="trailing" secondItem="edH-jO-5ca" secondAttribute="trailing" id="XTD-4O-YoU"/>
                             <constraint firstItem="C4v-xk-ia3" firstAttribute="trailing" secondItem="aIA-Er-Igl" secondAttribute="trailingMargin" id="ZGu-Dl-hxK"/>
                             <constraint firstItem="VLN-5m-GR7" firstAttribute="trailing" secondItem="6vu-fx-QiQ" secondAttribute="trailing" id="a57-L4-W6p"/>
                             <constraint firstItem="AGt-F7-3Aq" firstAttribute="bottom" secondItem="K6f-RY-OKf" secondAttribute="bottom" id="bMR-B7-avi"/>
@@ -810,39 +818,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="1wf-hg-tCI" userLabel="Bottom">
+                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="1wf-hg-tCI" userLabel="Bottom">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="IzG-Gh-CaI" userLabel="BLeft">
+                            <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="IzG-Gh-CaI" userLabel="BLeft">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="FQe-Ky-eB1" userLabel="Top">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="FQe-Ky-eB1" userLabel="Top">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-9N-qc8" userLabel="Top">
+                            <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="zk1-9N-qc8" userLabel="Top">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="axc-gJ-CXd" userLabel="BRight">
+                            <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="axc-gJ-CXd" userLabel="BRight">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="wcZ-PU-PAH" userLabel="TLeft">
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="wcZ-PU-PAH" userLabel="TLeft">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="rtt-JG-kbg" userLabel="TRight">
+                            <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="rtt-JG-kbg" userLabel="TRight">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-Uk-sXP" userLabel="Left">
+                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-Uk-sXP" userLabel="Left">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="e3Z-dH-NQ2" userLabel="Right">
+                            <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="e3Z-dH-NQ2" userLabel="Right">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -903,7 +911,7 @@
                                     <constraint firstAttribute="height" constant="50" id="hbG-GJ-Jpi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Cancel" backgroundImage="BB8A3308-3C15-4CD4-889E-704C24E8667C">
+                                <state key="normal" title="Cancel" backgroundImage="ButtonCool">
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -921,9 +929,12 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IzG-Gh-CaI" firstAttribute="bottom" secondItem="GKY-C4-GNg" secondAttribute="top" id="03m-eK-E7Q"/>
                             <constraint firstItem="wcZ-PU-PAH" firstAttribute="top" secondItem="1wf-hg-tCI" secondAttribute="top" id="2I1-e0-f0J"/>
+                            <constraint firstItem="rtt-JG-kbg" firstAttribute="leading" secondItem="As5-Ll-V6d" secondAttribute="leading" id="2mD-mu-kfk"/>
                             <constraint firstItem="zk1-9N-qc8" firstAttribute="top" secondItem="1wf-hg-tCI" secondAttribute="top" id="2mv-De-4nd"/>
                             <constraint firstItem="BNW-aG-PYc" firstAttribute="leading" secondItem="PBn-11-QE9" secondAttribute="leading" id="3Ho-VE-7o3"/>
+                            <constraint firstItem="zk1-9N-qc8" firstAttribute="top" secondItem="As5-Ll-V6d" secondAttribute="top" id="3uG-bO-tk0"/>
                             <constraint firstItem="zKr-e1-hzt" firstAttribute="leading" secondItem="PBn-11-QE9" secondAttribute="leading" id="5vN-2a-L3R"/>
                             <constraint firstItem="FQe-Ky-eB1" firstAttribute="top" secondItem="1wf-hg-tCI" secondAttribute="top" id="6Sr-F4-w2r"/>
                             <constraint firstItem="rtt-JG-kbg" firstAttribute="top" secondItem="1wf-hg-tCI" secondAttribute="top" id="6b8-3k-6Kd"/>
@@ -943,6 +954,7 @@
                             <constraint firstItem="FQe-Ky-eB1" firstAttribute="leading" secondItem="1wf-hg-tCI" secondAttribute="leading" id="PRO-uT-PLJ"/>
                             <constraint firstItem="zKr-e1-hzt" firstAttribute="top" secondItem="ycS-LA-tDY" secondAttribute="bottom" constant="187" id="Qy1-U9-VcO"/>
                             <constraint firstItem="IzG-Gh-CaI" firstAttribute="trailing" secondItem="1wf-hg-tCI" secondAttribute="trailing" id="S4K-L8-g0R"/>
+                            <constraint firstAttribute="trailing" secondItem="0Ce-Uk-sXP" secondAttribute="trailing" id="Saz-UM-XfQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zKr-e1-hzt" secondAttribute="trailing" constant="83" id="UZ2-Yu-ixX"/>
                             <constraint firstItem="8m8-if-OeD" firstAttribute="top" secondItem="hED-WU-Tdv" secondAttribute="bottom" constant="16" id="Uiu-D2-xlG"/>
                             <constraint firstItem="ymc-ld-AJT" firstAttribute="trailing" secondItem="hED-WU-Tdv" secondAttribute="trailing" id="WVY-8s-13k"/>
@@ -985,22 +997,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BB8A3308-3C15-4CD4-889E-704C24E8667C" width="518" height="350">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
-GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
-V05TQ29sb3KAAoAMEiTAAACAA4AKWns1MTgsIDM1MH3SFQoWGFpOUy5vYmplY3RzoReABIAJ0hUKGhii
-GxyABYAGgAkQBdMgCiEiIyRXTlMuYmFzZVtOUy5yZWxhdGl2ZYAAgAiAB18QfGZpbGU6Ly8vQXBwbGlj
-YXRpb25zL1hjb2RlLmFwcC9Db250ZW50cy9QbHVnSW5zL0lERUludGVyZmFjZUJ1aWxkZXJLaXQuaWRl
-cGx1Z2luL0NvbnRlbnRzL1Jlc291cmNlcy9JQk1pc3NpbmdJbWFnZUdseXBoLnRpZmbSJygpKlokY2xh
-c3NuYW1lWCRjbGFzc2VzVU5TVVJMoikrWE5TT2JqZWN00icoLS5XTlNBcnJheaItK9MwMQoyMzRXTlNX
-aGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAvSJyg2N1dOU0NvbG9yojYr0icoOTpXTlNJbWFnZaI5K18Q
-D05TS2V5ZWRBcmNoaXZlctE9PlRyb290gAEACAARABoAIwAtADIANwBFAEsAVgBdAGQAcQB4AIAAggCE
-AIkAiwCNAJgAnQCoAKoArACuALMAtgC4ALoAvAC+AMUAzQDZANsA3QDfAV4BYwFuAXcBfQGAAYkBjgGW
-AZkBoAGoAbUBugG8Ab4BwwHLAc4B0wHbAd4B8AHzAfgAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAAAAAA
-AAAB+g
-</mutableData>
-        </image>
         <image name="ButtonCool" width="195" height="46"/>
         <image name="ButtonCool.png" width="195" height="46"/>
         <image name="Splash" width="800" height="600"/>
@@ -1008,7 +1004,7 @@ AAAB+g
         <image name="tempButton" width="518" height="350"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PyQ-5M-0sM"/>
-        <segue reference="fbY-CM-IuY"/>
+        <segue reference="kdp-Il-N8D"/>
+        <segue reference="Y5e-5O-Zwr"/>
     </inferredMetricsTieBreakers>
 </document>
