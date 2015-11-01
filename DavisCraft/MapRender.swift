@@ -105,7 +105,7 @@ class MapRender: UIView {
         case "Peasant":
             image = UIImage(named: "data/png/Peasant.png")!
             index = 172
-            placement = CGPointMake(placement.x + 100, placement.y + 30)
+            //placement = CGPointMake(placement.x + 100, placement.y + 30)
         case "TownHall":
             image = UIImage(named: "data/png/TownHall.png")!
             index = 4

@@ -11,28 +11,11 @@ import UIKit
 class MiniMapRender: UIView {
     //each map tile is 32x32
     let bundle = NSBundle.mainBundle()
-    func readTerrain() -> Dictionary <String, CGImage>? {
-        //read in the tiles for the map
-        let fileName = "Terrain.dat"
-        let terrainDat = FileManager.returnDatFileContents(fileName)
-        let terrainDatContent = terrainDat!.componentsSeparatedByString("\n")
-        let terrainPngPath = terrainDatContent[0]
-        let numberOfTerrainTiles = Int(terrainDatContent[1])
-        //iterate by number of tiles to store the pngs into some kind of ui or cg image structure
-        var terrainTileDictionary = [String: CGImage]()
-        let image = UIImage(named: "Terrain.png")
-        let h = image!.size.height
-        let w = image!.size.width
-        //need to loop backwards because of how the splitting of tile works. so start index as the number equal to numberOfTerrainTiles
-        //for index in Int(numberOfTerrainTiles!) ... 1 {
-        var counter = 2
-        for var index = Int(numberOfTerrainTiles!); index > 0; index-- {
-            terrainTileDictionary[terrainDatContent[counter]] = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTerrainTiles!))), w, h/CGFloat(numberOfTerrainTiles!)))
-            counter++
-        }
-        return terrainTileDictionary
-        
-    }
+    var x: CGFloat = 0
+    var y: CGFloat = 0
+    var mapRatioX: CGFloat = 1.0
+    var mapRatioY: CGFloat = 1.0
+    var alreadyDrew: Bool = false
     
     func readMap() -> (Array<String>, Int, Int){
         //maybe havve button to give map filename
@@ -58,8 +41,6 @@ class MiniMapRender: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        var x: CGFloat = 0
-        var y: CGFloat = 0
         //let location = CGPointMake(100 , 100)
         let context = UIGraphicsGetCurrentContext()
         CGContextSetLineWidth(context, 1.5)
@@ -71,7 +52,7 @@ class MiniMapRender: UIView {
             for j in map[i].characters{ //make sure to account for the extra 2 thing later
                 switch j {
                 case "G":
-                    components = [0.3, 0.8, 0.3, 1.0]
+                    components = [0.3, 0.8, 0.3, 0.8]
                 case "F":
                     components = [0.3, 0.3, 0.1, 1.0]
                 case "R":
@@ -79,21 +60,82 @@ class MiniMapRender: UIView {
                 default:
                     components = [0.5, 0.5, 0.2, 1.0]
                 }
-                drawLine(context, colorSpace: colorSpace, components: components, x: x, y: y, step: step)
+                drawLine(context, colorSpace: colorSpace, components: components, the_x: x, the_y: y, step: step)
                 x += step
             }
             y += step
-            x = 0
+            if i != width + 1 {
+                x = 0
+            }
+        }
+        mapRatioX = CGFloat(3000) / (x - step)
+        mapRatioY = CGFloat(2000) / (y - step)
+        alreadyDrew = true
+        for index in 73...76{
+            let item = map[index].componentsSeparatedByString(" ")
+            components = [0.0, 1.0, 0.0, 1.0]   // Bright Green color Squares
+            drawSquare(context, colorSpace: colorSpace, components: components, sprite: item[0], the_x: CGFloat(2750 - Int(item[2])!) / mapRatioX, the_y: CGFloat(1800 - Int(item[3])!) / mapRatioY)
+            
         }
         
     }
     
-    func drawLine(context: CGContext?, colorSpace: CGColorSpace?, components: [CGFloat], x: CGFloat, y: CGFloat, step: CGFloat) {
+    func drawLine(context: CGContext?, colorSpace: CGColorSpace?, components: [CGFloat], the_x: CGFloat, the_y: CGFloat, step: CGFloat) {
         let color = CGColorCreate(colorSpace, components)
         CGContextSetStrokeColorWithColor(context, color)
-        CGContextMoveToPoint(context, x, y)
-        CGContextAddLineToPoint(context, x+step, y+step)
+        CGContextMoveToPoint(context, the_x, the_y)
+        CGContextAddLineToPoint(context, the_x+step, the_y+step)
         CGContextStrokePath(context)
     }
+    
+    /* Draw Sprites on the MiniMap */
+    func drawSquare(context: CGContext?, colorSpace: CGColorSpace?, components: [CGFloat], sprite: String, the_x: CGFloat, var the_y: CGFloat) {
+        var width: CGFloat = 0
+        var height: CGFloat = 0
+        let fileName = sprite + ".dat"
+        let content = FileManager.returnDatFileContents(fileName)
+        let contentArray = content!.componentsSeparatedByString("\n")
+        var image = UIImage()
+        var index = 0
+        switch(sprite) {
+            case "GoldMine":
+                image = UIImage(named: "data/png/GoldMine.png")!
+                index = 2
+                break
+            case "Peasant":
+                image = UIImage(named: "data/png/Peasant.png")!
+                index = 172
+                break
+            case "TownHall":
+                image = UIImage(named: "data/png/TownHall.png")!
+                index = 4
+                break
+            default:
+                image = UIImage(named: "data/png/Texture.png")!
+                index = 1
+                break
+        }
+        width = image.size.width
+        height = image.size.height
+        let numberOfTiles = Int(contentArray[1]);
+        the_y += (height - (CGFloat(index)*(height/CGFloat(numberOfTiles!)))) / mapRatioY
+        
+        CGContextSetLineWidth(context, height / CGFloat(numberOfTiles!) / mapRatioY)
+        let color = CGColorCreate(colorSpace, components)
+        CGContextSetStrokeColorWithColor(context, color)
+        CGContextMoveToPoint(context, the_x, the_y)
+        CGContextAddLineToPoint(context, the_x + width / mapRatioX, the_y)
+        CGContextStrokePath(context)
+    }
+    /*
+    func getDimensions() -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+        if alreadyDrew {
+            return (x, y, mapRatioX, mapRatioY)
+        }
+        else {
+            return (0, 0, mapRatioX, mapRatioY)
+        }
+    }
+    */
     
 }
