@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import SpriteKit
 
 class SinglePlayerGame: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+      super.viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func selectTouchUpInside(sender: AnyObject) {
+        performSegueWithIdentifier("select", sender: nil)
+        
     }
     
 }

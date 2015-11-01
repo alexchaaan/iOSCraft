@@ -17,11 +17,16 @@ class Tile: UIViewController{
         super.viewDidLoad()
 
         //MAP
-        let a = MapRenderer()
-        a.RetrieveFromDat()
+        //let a = MapRenderer()
+        //a.RetrieveFromDat()
         view.backgroundColor = UIColor.blackColor()
         let (_, width, height ) = MapRender().readMap()
-        let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
+        /*let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
+        
+        
+        
+        
+        
         let miniMap = MiniMapRender(frame:CGRectMake(4, 25, view.bounds.size.width / 4 - 7, view.bounds.size.height - 295))
         var battleField: UIScrollView!
         // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
@@ -32,7 +37,7 @@ class Tile: UIViewController{
         battleField.addSubview(theMap)
         view.addSubview(battleField)
         
-        
+
         //SIDEPANEL
         var sidePanel: UIView!
         sidePanel = UIView(frame: CGRectMake(0, 0, view.bounds.size.width / 4, view.bounds.size.height))
@@ -45,6 +50,7 @@ class Tile: UIViewController{
         let tapRec = UITapGestureRecognizer()
         tapRec.addTarget(self, action: "tappedView:")
         battleField.addGestureRecognizer(tapRec)
+*/
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SpriteKit
 
-class MapRender: UIView {
+class MapRender/*: UIView*/ {
     //each map tile is 32x32
     func readTerrain() -> (Dictionary <String, CGImage>?, Array<String>) {
         //read in the tiles for the map
@@ -45,7 +46,7 @@ class MapRender: UIView {
         
     }
     
-    override func drawRect(rect: CGRect) {
+    /*override*/ func drawRect(view: SKNode) {
         let a = MapRenderer()
         var (tileDictionary,tileNames ) = readTerrain()
         let (map,width,height) = readMap()
@@ -77,11 +78,15 @@ class MapRender: UIView {
                     }
                     if(typeIndex != -1){
                         let type = tileNames[typeIndex]
-                        UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                        let tile = SKSpriteNode(texture: SKTexture(CGImage: tileDictionary![type]!))
+                        tile.position = location
+                        tile.setScale(2)
+                        //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                        view.addChild(tile)
                     }
-                    x += 32
+                    x += 32 * 2
                 }
-                y += 32
+                y += 32 * 2
                 x = 0
             }
         }
@@ -92,6 +97,7 @@ class MapRender: UIView {
         }    }
    
     func drawTower(var placement: CGPoint, sprite: String){
+        var mapNode = SKNode()
         let fileName = sprite + ".dat"
         let content = FileManager.returnDatFileContents(fileName)
         let contentArray = content!.componentsSeparatedByString("\n")
@@ -119,9 +125,11 @@ class MapRender: UIView {
         let numberOfTiles = Int(contentArray[1]);
         
         let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
-        
-        image = UIImage(CGImage: tile!)
-        image.drawAtPoint(placement)
+        mapNode.position = placement
+        mapNode = SKSpriteNode(texture: SKTexture(CGImage: tile!))
+        //self.addChild(mapNode)
+        //image = UIImage(CGImage: tile!)
+        //image.drawAtPoint(placement)
     }
     
 }
