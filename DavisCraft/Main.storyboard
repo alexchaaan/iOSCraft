@@ -1004,7 +1004,7 @@
         <image name="tempButton" width="518" height="350"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PyQ-5M-0sM"/>
         <segue reference="fbY-CM-IuY"/>
+        <segue reference="nyL-yf-pQz"/>
     </inferredMetricsTieBreakers>
 </document>
