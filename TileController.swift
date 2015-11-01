@@ -26,7 +26,7 @@ class Tile: UIViewController{
         view.backgroundColor = UIColor.blackColor()
         let (_, width, height ) = MapRender().readMap()
         let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
-        let miniMap = MiniMapRender(frame:CGRectMake(1, fullHeight / 20, fullWidth / 4 , fullHeight / 3))
+        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 7, fullHeight / 3 - 25))
         var battleField: UIScrollView!
         // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
         battleField = UIScrollView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
@@ -42,7 +42,7 @@ class Tile: UIViewController{
         //SIDEPANEL
         var sidePanel: UIView!
         sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
-        sidePanel.backgroundColor = UIColor.blackColor()
+        sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         sidePanel.addSubview(miniMap)
         view.addSubview(sidePanel)
         
@@ -56,14 +56,14 @@ class Tile: UIViewController{
         //DESCRIPTIONPANEL by Javi
         var descPanel: UIView!
         descPanel = UIView(frame: CGRectMake(1, miniHeight + 12, miniWidth, miniHeight/1.1))
-        descPanel.backgroundColor = UIColor.redColor()
+        //descPanel.backgroundColor = UIColor.redColor()
         //sidePanel.addSubview(miniMap)
         view.addSubview(descPanel)
         
         //ACTIONPANEL by Javi
         var actPanel: UIView!
         actPanel = UIView(frame: CGRectMake(1, (miniHeight * 2) + 3, miniWidth, miniHeight/1.1))
-        actPanel.backgroundColor = UIColor.yellowColor()
+        //actPanel.backgroundColor = UIColor.yellowColor()
         //sidePanel.addSubview(miniMap)
         view.addSubview(actPanel)
         
