@@ -58,21 +58,29 @@ class MapRender/*: UIView*/ {
                 for j in 1..<width + 1{
                     let location = CGPointMake(CGFloat(x), CGFloat(y))
                     var typeIndex = -1
+                    var type = String()
                     switch mapLine[j] {
                         case "G":
                             typeIndex = a.getTileType(j, y: i, curTile: "G", pass: pass)
+                            type = "grass"
                         case "F":
                             typeIndex = a.getTileType(j, y: i, curTile: "F", pass: pass)
+                            type = "tree"
                         case "R":
                             typeIndex = a.getTileType(j, y: i, curTile: "R", pass: pass)
+                            type = "rock"
                         case "D":
                             typeIndex = a.getTileType(j, y: i, curTile: "D", pass: pass)
+                            type = "dirt"
                         case "W":
                             typeIndex = a.getTileType(j, y: i, curTile: "W", pass: pass)
+                            type = "wall"
                         case "w":
                             typeIndex = a.getTileType(j, y: i, curTile: "w", pass: pass)
+                            type = "wall-damaged"
                         case " ":
                             typeIndex = a.getTileType(j, y: i, curTile: " ", pass: pass)
+                            type = "water"
                         default:
                             break
                     }
@@ -80,44 +88,47 @@ class MapRender/*: UIView*/ {
                         let type = tileNames[typeIndex]
                         let tile = SKSpriteNode(texture: SKTexture(CGImage: tileDictionary![type]!))
                         tile.position = location
-                        tile.setScale(2)
+                        tile.yScale = -1
+                        tile.name = type
                         //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                         view.addChild(tile)
                     }
-                    x += 32 * 2
+                    x += 32
                 }
-                y += 32 * 2
+                y += 32
                 x = 0
             }
         }
-        for index in 73...76{
+        for index in 73..<map.endIndex - 2 {
             let item = map[index].componentsSeparatedByString(" ")
-            let placement = CGPointMake(CGFloat(2750 - Int(item[2])!), CGFloat(1800 - Int(item[3])!))
-            self.drawTower(placement,sprite: item[0])
+            let placement = CGPointMake(CGFloat(32 * Int(item[2])!), CGFloat(32 * Int(item[3])!))
+            self.drawAsset(placement,sprite: item[0],view: view)
         }    }
    
-    func drawTower(var placement: CGPoint, sprite: String){
-        var mapNode = SKNode()
+    func drawAsset(var placement: CGPoint, sprite: String, view: SKNode){
         let fileName = sprite + ".dat"
         let content = FileManager.returnDatFileContents(fileName)
         let contentArray = content!.componentsSeparatedByString("\n")
         
         var image = UIImage()
         var index = 0
+        var name = String()
         switch(sprite){
         case "GoldMine":
             image = UIImage(named: "data/png/GoldMine.png")!
             index = 2
+            name = "goldmine"
         case "Peasant":
             image = UIImage(named: "data/png/Peasant.png")!
             index = 172
+            name = "peasant"
             //placement = CGPointMake(placement.x + 100, placement.y + 30)
         case "TownHall":
             image = UIImage(named: "data/png/TownHall.png")!
             index = 4
+            name = "townhall"
         default:
-            image = UIImage(named: "data/png/Texture.png")!
-            index = 1
+            break
         }
         let h = image.size.height
         let w = image.size.width
@@ -125,8 +136,14 @@ class MapRender/*: UIView*/ {
         let numberOfTiles = Int(contentArray[1]);
         
         let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
-        mapNode.position = placement
-        mapNode = SKSpriteNode(texture: SKTexture(CGImage: tile!))
+        
+        let asset = SKSpriteNode(texture: SKTexture(CGImage: tile!))
+        asset.position = placement
+        asset.name = name
+        asset.yScale = -1
+        asset.zPosition = 1
+        view.addChild(asset)
+        
         //self.addChild(mapNode)
         //image = UIImage(CGImage: tile!)
         //image.drawAtPoint(placement)

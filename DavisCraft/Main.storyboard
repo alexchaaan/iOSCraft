@@ -354,7 +354,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="157D9743-1119-4682-8155-37761E688735" translatesAutoresizingMaskIntoConstraints="NO" id="oO7-8R-JU4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2E3A048E-9DB6-4665-BAB6-EFD0EA867405" translatesAutoresizingMaskIntoConstraints="NO" id="oO7-8R-JU4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -366,7 +366,7 @@
                                     <constraint firstAttribute="height" constant="50" id="hsp-Li-9sX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Sound Options" backgroundImage="7C6F57D3-3064-489B-8107-645754A69D9D">
+                                <state key="normal" title="Sound Options" backgroundImage="62943931-E271-4242-A82E-ABCF5A3CA9A8">
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -380,7 +380,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Vdl-Ij-VKU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Network Options" backgroundImage="7C6F57D3-3064-489B-8107-645754A69D9D">
+                                <state key="normal" title="Network Options" backgroundImage="62943931-E271-4242-A82E-ABCF5A3CA9A8">
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -394,7 +394,7 @@
                                     <constraint firstAttribute="height" constant="50" id="1gh-7z-xca"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Back" backgroundImage="7C6F57D3-3064-489B-8107-645754A69D9D">
+                                <state key="normal" title="Back" backgroundImage="62943931-E271-4242-A82E-ABCF5A3CA9A8">
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -432,11 +432,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="157D9743-1119-4682-8155-37761E688735" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-iG-9yy">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2E3A048E-9DB6-4665-BAB6-EFD0EA867405" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-iG-9yy">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="FX Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIx-rN-Ore">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FX Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIx-rN-Ore">
                                 <rect key="frame" x="132" y="264" width="82" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -449,7 +449,7 @@
                                     <rect key="frame" x="132" y="65" width="82" height="20.5"/>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="7C6F57D3-3064-489B-8107-645754A69D9D" translatesAutoresizingMaskIntoConstraints="NO" id="VLN-5m-GR7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="62943931-E271-4242-A82E-ABCF5A3CA9A8" translatesAutoresizingMaskIntoConstraints="NO" id="VLN-5m-GR7">
                                 <rect key="frame" x="222" y="260" width="283" height="29"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
@@ -462,7 +462,7 @@
                                     <rect key="frame" x="222" y="260" width="483" height="29"/>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="50" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="7C6F57D3-3064-489B-8107-645754A69D9D" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-fx-QiQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="50" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="62943931-E271-4242-A82E-ABCF5A3CA9A8" translatesAutoresizingMaskIntoConstraints="NO" id="6vu-fx-QiQ">
                                 <rect key="frame" x="222" y="304" width="283" height="31"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
@@ -482,14 +482,14 @@
                                 <rect key="frame" x="480" y="530" width="100" height="50"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Cancel" backgroundImage="7C6F57D3-3064-489B-8107-645754A69D9D">
+                                <state key="normal" title="Cancel" backgroundImage="62943931-E271-4242-A82E-ABCF5A3CA9A8">
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="9jg-Df-1QY" kind="show" id="Y5e-5O-Zwr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Music Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keX-5A-c7t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keX-5A-c7t">
                                 <rect key="frame" x="107" y="309" width="107" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -510,7 +510,7 @@
                                     <constraint firstAttribute="width" constant="100" id="H68-i6-kO8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="OK" backgroundImage="7C6F57D3-3064-489B-8107-645754A69D9D">
+                                <state key="normal" title="OK" backgroundImage="62943931-E271-4242-A82E-ABCF5A3CA9A8">
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -567,7 +567,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="157D9743-1119-4682-8155-37761E688735" translatesAutoresizingMaskIntoConstraints="NO" id="POi-fb-2FZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2E3A048E-9DB6-4665-BAB6-EFD0EA867405" translatesAutoresizingMaskIntoConstraints="NO" id="POi-fb-2FZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                             </imageView>
@@ -588,14 +588,14 @@
                                 <color key="textColor" red="0.99020200276243098" green="0.99020200276243098" blue="0.99020200276243098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="7C6F57D3-3064-489B-8107-645754A69D9D" translatesAutoresizingMaskIntoConstraints="NO" id="zKr-e1-hzt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="62943931-E271-4242-A82E-ABCF5A3CA9A8" translatesAutoresizingMaskIntoConstraints="NO" id="zKr-e1-hzt">
                                 <rect key="frame" x="237" y="207" width="260" height="30"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="0.94799280596795388" blue="0.12682637047641288" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="localhost" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="7C6F57D3-3064-489B-8107-645754A69D9D" translatesAutoresizingMaskIntoConstraints="NO" id="PBn-11-QE9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="localhost" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="62943931-E271-4242-A82E-ABCF5A3CA9A8" translatesAutoresizingMaskIntoConstraints="NO" id="PBn-11-QE9">
                                 <rect key="frame" x="237" y="245" width="260" height="29"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="0.94799280600000002" blue="0.12682637050000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -610,11 +610,11 @@
                                     <constraint firstAttribute="height" constant="50" id="VCj-Rw-2Fx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="OK" backgroundImage="7C6F57D3-3064-489B-8107-645754A69D9D">
+                                <state key="normal" title="OK" backgroundImage="62943931-E271-4242-A82E-ABCF5A3CA9A8">
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="55107" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="7C6F57D3-3064-489B-8107-645754A69D9D" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-aG-PYc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="55107" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" background="62943931-E271-4242-A82E-ABCF5A3CA9A8" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BNW-aG-PYc">
                                 <rect key="frame" x="237" y="281" width="260" height="31"/>
                                 <animations/>
                                 <color key="textColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
@@ -628,7 +628,7 @@
                                     <constraint firstAttribute="height" constant="50" id="hbG-GJ-Jpi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Cancel" backgroundImage="7C6F57D3-3064-489B-8107-645754A69D9D">
+                                <state key="normal" title="Cancel" backgroundImage="62943931-E271-4242-A82E-ABCF5A3CA9A8">
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -682,7 +682,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="157D9743-1119-4682-8155-37761E688735" width="256" height="256">
+        <image name="2E3A048E-9DB6-4665-BAB6-EFD0EA867405" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -698,7 +698,7 @@ AZkBoAGoAbUBugG8Ab4BwwHLAc4B0wHbAd4B8AHzAfgAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAAAAAA
 AAAB+g
 </mutableData>
         </image>
-        <image name="7C6F57D3-3064-489B-8107-645754A69D9D" width="518" height="350">
+        <image name="62943931-E271-4242-A82E-ABCF5A3CA9A8" width="518" height="350">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
