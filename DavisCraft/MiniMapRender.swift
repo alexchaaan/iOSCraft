@@ -127,7 +127,7 @@ class MiniMapRender: UIView {
         CGContextAddLineToPoint(context, the_x + width / mapRatioX, the_y)
         CGContextStrokePath(context)
     }
-    /*
+    
     func getDimensions() -> (CGFloat, CGFloat, CGFloat, CGFloat) {
         if alreadyDrew {
             return (x, y, mapRatioX, mapRatioY)
@@ -136,6 +136,13 @@ class MiniMapRender: UIView {
             return (0, 0, mapRatioX, mapRatioY)
         }
     }
-    */
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first! as UITouch
+        let location = touch.locationInView(self)
+        print("x = \(location.x), bound_W = \(self.frame.width)")
+        print("y = \(location.y), bound_H = \(self.frame.height)")
+    }
+    
     
 }

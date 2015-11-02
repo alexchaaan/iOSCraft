@@ -12,7 +12,6 @@ import SpriteKit
 class Tile: UIViewController{
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -82,6 +81,7 @@ class Tile: UIViewController{
         sound?.prepareToPlay()
         sound?.play()
     }
+    
     
 }
 
