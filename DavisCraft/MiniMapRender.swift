@@ -137,12 +137,5 @@ class MiniMapRender: UIView {
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let touch = touches.first! as UITouch
-        let location = touch.locationInView(self)
-        print("x = \(location.x), bound_W = \(self.frame.width)")
-        print("y = \(location.y), bound_H = \(self.frame.height)")
-    }
-    
     
 }
