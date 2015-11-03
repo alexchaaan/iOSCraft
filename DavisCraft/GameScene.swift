@@ -19,12 +19,22 @@ class GameScene: SKScene {
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
+//use contact to do the trees and stuff
+    struct PhysicsCategory {
+        static let None : UInt32 = 0
+        static let Peasant : UInt32 = 1
+        static let Terrain : UInt32 = 2
+    }
     
     override func didMoveToView(view: SKView) {
         addChild(map)
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
+//        map.scene?.physicsWorld.gravity = CGVectorMake(0, 0)
+//        let sceneBody = SKPhysicsBody(edgeLoopFromRect: map.frame)
+//        sceneBody.friction = 0
+//        map.scene?.physicsBody = sceneBody
         
 //        view.bounds.size.width = CGFloat(width * 32)
 //        view.bounds.size.height = CGFloat(height * 32)

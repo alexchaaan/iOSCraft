@@ -95,6 +95,13 @@ class MapRender/*: UIView*/ {
                         tile.position = location
                         //tile.yScale = -1
                         tile.name = typeName
+                        if tile.name == "rock" || tile.name == "tree" || tile.name == "wall" || tile.name == "wall-damaged" {
+                            tile.physicsBody = SKPhysicsBody(rectangleOfSize: tile.size)
+                            tile.physicsBody?.dynamic = false
+                            tile.physicsBody?.resting = false
+                            tile.physicsBody?.restitution = 0
+                            
+                        }
                         //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                         view.addChild(tile)
                     }
@@ -147,6 +154,12 @@ class MapRender/*: UIView*/ {
         asset.name = name
         //asset.yScale = -1
         asset.zPosition = 1
+        if asset.name == "peasant"{
+            asset.physicsBody = SKPhysicsBody(rectangleOfSize: asset.size)
+            asset.physicsBody?.dynamic = false
+            asset.physicsBody?.resting = false
+            asset.physicsBody?.restitution = 0
+        }
         view.addChild(asset)
         
         //self.addChild(mapNode)
