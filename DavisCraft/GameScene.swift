@@ -115,17 +115,14 @@ class GameScene: SKScene {
         let viewTouchLocation = recognizer.locationInView((self.view))
         let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
         let touchedNode = self.nodeAtPoint(sceneTouchLocation)
-        if(touchedNode.name == nil) {
+        if(touchedNode.name != nil) {
             if(selected != nil) {
                 if(selected.name == "peasant") {
 //                    if selected.name != "peasant"{
 //                        moveSprite(selected.position)
 //                    }
-                    moveSprite(recognizer.locationInView(self.view))
+                    moveSprite(self.convertPoint(sceneTouchLocation, toNode: map))
                     selected = nil
-                }
-                else if selected.name == "grass" {
-                    print("**************TESTING: TOUCHED GRASS**************")
                 }
             }
             else {
@@ -145,7 +142,7 @@ class GameScene: SKScene {
     
     func moveSprite(touched: CGPoint) {
         sprite = selected as? SKSpriteNode
-        let location = self.convertPointFromView(touched)
+        let location = touched
         let distance                = sqrt(pow((location.x - sprite!.position.x), 2.0) + pow((location.y - sprite!.position.y), 2.0))    // Formula to keep the speed consistent.
         let moveDuration            = 0.005*distance
         let floatDuration           = NSTimeInterval(moveDuration)
