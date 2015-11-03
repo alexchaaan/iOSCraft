@@ -21,6 +21,7 @@
 		4C3F91B71BE172BE0075ECB3 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B61BE172BE0075ECB3 /* FileManager.swift */; settings = {ASSET_TAGS = (); }; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; settings = {ASSET_TAGS = (); }; };
 		4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */; settings = {ASSET_TAGS = (); }; };
+		97E3E0531BE57F7900BF4DB2 /* ButtonCool.png in Resources */ = {isa = PBXBuildFile; fileRef = 97E3E0521BE57F7900BF4DB2 /* ButtonCool.png */; settings = {ASSET_TAGS = (); }; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; settings = {ASSET_TAGS = (); }; };
 		CB534A181BD44B9600823469 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB534A171BD44B9600823469 /* Sound.swift */; settings = {ASSET_TAGS = (); }; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 		4C3F91B61BE172BE0075ECB3 /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
 		4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapRender.swift; sourceTree = "<group>"; };
+		97E3E0521BE57F7900BF4DB2 /* ButtonCool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonCool.png; sourceTree = "<group>"; };
 		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
 		CB534A171BD44B9600823469 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		CB534A231BD7B11000823469 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */,
 				CBEF61B61BBF98C10043B54D /* AppDelegate.swift */,
 				CBEF61C11BBF98C10043B54D /* Images.xcassets */,
+				97E3E0521BE57F7900BF4DB2 /* ButtonCool.png */,
 				CB534A1A1BD4585900823469 /* Controllers */,
 				CB534A1B1BD4586200823469 /* Models */,
 				CB534A1C1BD4586900823469 /* Scenes */,
@@ -265,6 +268,7 @@
 			files = (
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
 				4C3F91B51BE1727C0075ECB3 /* data in Resources */,
+				97E3E0531BE57F7900BF4DB2 /* ButtonCool.png in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
 			);
