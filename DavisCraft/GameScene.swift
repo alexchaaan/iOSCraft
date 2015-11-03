@@ -48,7 +48,13 @@ class GameScene: SKScene {
         let newTouchPosition = touches.first!.locationInNode(self)
         let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
         let mapCameraPositionInScene = convertPoint(map.camera.position, toNode: self)
-        map.camera.position = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
+        let cameraPos = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
+        if cameraPos.x < 2032 && cameraPos.x > -19 && cameraPos.y < 1536{
+            map.camera.position = cameraPos
+        }
+        
+        
+       // map.camera.position = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
         lastTouchPosition = newTouchPosition
 //        anchorPoint = CGPointZero
 //        map.camera.position = CGPointMake(min(max(mapCameraPositionInScene.x - touchOffsetVector.x, 0), CGFloat(width) * TILE_WIDTH - frame.size.width),
