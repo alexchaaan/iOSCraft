@@ -17,13 +17,13 @@ class GameScene: SKScene {
     var sprite : SKSpriteNode!
     var selected : SKNode!
     var peasantImages : [SKTexture] = []
-//    var width = Int()
-//    var height = Int()
+    var width = Int()
+    var height = Int()
     
     override func didMoveToView(view: SKView) {
         addChild(map)
         let mapRender = MapRender()
-//        (_, width, height ) = mapRender.readMap()
+        (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
         
 //        view.bounds.size.width = CGFloat(width * 32)
@@ -49,7 +49,9 @@ class GameScene: SKScene {
         let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
         let mapCameraPositionInScene = convertPoint(map.camera.position, toNode: self)
         let cameraPos = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
-        if cameraPos.x < 2032 && cameraPos.x > -19 && cameraPos.y < 1536{
+        let rightBound = convertPoint(CGPointMake(CGFloat(width * 32), CGFloat(0)), toNode: self)
+        let leftBound = convertPoint(CGPointZero, toNode: self)
+        if cameraPos.x < rightBound.x && cameraPos.x > leftBound.x {
             map.camera.position = cameraPos
         }
         
