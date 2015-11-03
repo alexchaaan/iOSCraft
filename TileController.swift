@@ -13,6 +13,11 @@ class Tile: UIViewController{
     
     var battleField: UIScrollView!
     var miniMap: MiniMapRender!
+    var miniMapFrame: CGRect!
+    var sidePanel: UIView!
+    
+    var battleFieldWidth: CGFloat!
+    var battleFieldHeight: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,27 +28,31 @@ class Tile: UIViewController{
         let fullWidth = view.bounds.size.width
         let fullHeight = view.bounds.size.height
         
+        
+        print("fullwidth = \(fullWidth), fullheight = \(fullHeight)")
+        
         a.RetrieveFromDat()
         view.backgroundColor = UIColor.blackColor()
         let (_, width, height ) = MapRender().readMap()
         let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
-        miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 7, fullHeight / 3 - 25))
         
         // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
         battleField = UIScrollView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
+        battleFieldWidth = battleField.frame.width
+        battleFieldHeight = battleField.frame.height
         battleField.contentSize = theMap.bounds.size
         battleField.backgroundColor = UIColor.blackColor()
-        battleField.scrollRectToVisible(CGRect(x: 2500, y: 1600, width: battleField.frame.width, height: battleField.frame.height), animated: true)
+        battleField.scrollRectToVisible(CGRect(x: 2500, y: 1600, width: battleFieldWidth, height: battleFieldHeight), animated: true)
         battleField.addSubview(theMap)
         view.addSubview(battleField)
         
-        //let miniHeight = miniMap.bounds.size.height
-        //let miniWidth = miniMap.bounds.size.width
-        
         //SIDEPANEL
-        var sidePanel: UIView!
         sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
         sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
+        //Add MiniMap
+        miniMapFrame = CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 6, fullHeight / 3 - 22)
+        miniMap = MiniMapRender(frame: miniMapFrame, x_min: 2500, y_min: 1600, width: battleFieldWidth, height: battleFieldHeight)
+        //miniMap.drawViewport(2500, y_min: 1600, width: battleField.frame.width, height: battleField.frame.height)
         sidePanel.addSubview(miniMap)
         view.addSubview(sidePanel)
         
@@ -53,23 +62,6 @@ class Tile: UIViewController{
         menuPanel.backgroundColor = UIColor.blueColor()
         //sidePanel.addSubview(miniMap)
         view.addSubview(menuPanel)
-        
-        /*
-        //DESCRIPTIONPANEL by Javi
-        var descPanel: UIView!
-        descPanel = UIView(frame: CGRectMake(1, miniHeight + 12, miniWidth, miniHeight/1.1))
-        //descPanel.backgroundColor = UIColor.redColor()
-        //sidePanel.addSubview(miniMap)
-        view.addSubview(descPanel)
-        
-        //ACTIONPANEL by Javi
-        var actPanel: UIView!
-        actPanel = UIView(frame: CGRectMake(1, (miniHeight * 2) + 3, miniWidth, miniHeight/1.1))
-        //actPanel.backgroundColor = UIColor.yellowColor()
-        //sidePanel.addSubview(miniMap)
-        view.addSubview(actPanel)
-        
-        */
         
         //GESTURES
         let tapRec = UITapGestureRecognizer()
@@ -91,10 +83,8 @@ class Tile: UIViewController{
         let touch = touches.first! as UITouch
         let location = touch.locationInView(miniMap)
         if location.x >= 0 && location.y >= 0 && location.x <= miniMap.frame.width && location.y <= miniMap.frame.height {
-            print("x = \(location.x), bound_W = \(miniMap.frame.width)")
-            print("y = \(location.y), bound_H = \(miniMap.frame.height)")
             let (_, _, ratioX, ratioY) = miniMap.getDimensions()
-            battleField.scrollRectToVisible(CGRect(x: location.x * ratioX, y: location.y * ratioY, width: battleField.frame.width, height: battleField.frame.height), animated: true)
+            battleField.scrollRectToVisible(CGRect(x: location.x * ratioX, y: location.y * ratioY, width: battleFieldWidth, height: battleFieldHeight), animated: true)
         }
     }
     
@@ -102,10 +92,11 @@ class Tile: UIViewController{
         let touch = touches.first! as UITouch
         let location = touch.locationInView(miniMap)
         if location.x >= 0 && location.y >= 0 && location.x <= miniMap.frame.width && location.y <= miniMap.frame.height {
-            print("x = \(location.x), bound_W = \(miniMap.frame.width)")
-            print("y = \(location.y), bound_H = \(miniMap.frame.height)")
             let (_, _, ratioX, ratioY) = miniMap.getDimensions()
-            battleField.scrollRectToVisible(CGRect(x: location.x * ratioX, y: location.y * ratioY, width: battleField.frame.width, height: battleField.frame.height), animated: true)
+            battleField.scrollRectToVisible(CGRect(x: location.x * ratioX, y: location.y * ratioY, width: battleFieldWidth, height: battleFieldHeight), animated: true)
+            miniMap.removeFromSuperview()
+            miniMap = MiniMapRender(frame: miniMapFrame, x_min: location.x * ratioX - battleFieldWidth / 2, y_min: location.y * ratioY - battleFieldHeight / 2, width: battleFieldWidth, height: battleFieldHeight)
+            sidePanel.addSubview(miniMap)
         }
     }
     
