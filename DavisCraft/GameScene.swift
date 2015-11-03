@@ -51,7 +51,9 @@ class GameScene: SKScene {
         let cameraPos = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
         let rightBound = convertPoint(CGPointMake(CGFloat(width * 32), CGFloat(0)), toNode: self)
         let leftBound = convertPoint(CGPointZero, toNode: self)
-        if cameraPos.x < rightBound.x && cameraPos.x > leftBound.x {
+        //let topBound = convertPoint(CGPointMake(CGFloat(height * 32), CGFloat(0)), toNode: self)
+        let topBound = convertPoint(CGPointZero, toNode: self)
+        if cameraPos.x < rightBound.x && cameraPos.x > leftBound.x{
             map.camera.position = cameraPos
         }
         
