@@ -58,44 +58,46 @@ class MapRender/*: UIView*/ {
                 for j in 1..<width + 1{
                     let location = CGPointMake(CGFloat(x), CGFloat(y))
                     var typeIndex = -1
-                    var type = String()
+                    var typeName = String()
                     switch mapLine[j] {
                         case "G":
                             typeIndex = a.getTileType(j, y: i, curTile: "G", pass: pass)
-                            type = "grass"
+                            typeName = "grass"
                         case "F":
                             typeIndex = a.getTileType(j, y: i, curTile: "F", pass: pass)
-                            type = "tree"
+                            typeName = "tree"
                         case "R":
                             typeIndex = a.getTileType(j, y: i, curTile: "R", pass: pass)
-                            type = "rock"
+                            typeName = "rock"
                         case "D":
                             typeIndex = a.getTileType(j, y: i, curTile: "D", pass: pass)
-                            type = "dirt"
+                            typeName = "dirt"
                         case "W":
                             typeIndex = a.getTileType(j, y: i, curTile: "W", pass: pass)
-                            type = "wall"
+                            typeName = "wall"
                         case "w":
                             typeIndex = a.getTileType(j, y: i, curTile: "w", pass: pass)
-                            type = "wall-damaged"
+                            typeName = "wall-damaged"
                         case " ":
                             typeIndex = a.getTileType(j, y: i, curTile: " ", pass: pass)
-                            type = "water"
+                            typeName = "water"
                         default:
+                            typeName = "error"
                             break
                     }
                     if(typeIndex != -1){
                         let type = tileNames[typeIndex]
                         let tile = SKSpriteNode(texture: SKTexture(CGImage: tileDictionary![type]!))
+                        //tile.anchorPoint = CGPointMake(0.5, 0.5);
                         tile.position = location
-                        tile.yScale = -1
-                        tile.name = type
+                        //tile.yScale = -1
+                        tile.name = typeName
                         //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                         view.addChild(tile)
                     }
                     x += 32
                 }
-                y += 32
+                y -= 32
                 x = 0
             }
         }

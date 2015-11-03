@@ -12,7 +12,7 @@ let TILE_WIDTH = CGFloat(32)
 let TILE_HEIGHT = CGFloat(32)
 
 class GameScene: SKScene {
-    let map = Map()
+    let map = Map() //SKNode
     var lastTouchPosition = CGPointZero
     var sprite : SKSpriteNode!
     var selected : SKNode!
@@ -25,7 +25,7 @@ class GameScene: SKScene {
         let mapRender = MapRender()
 //        (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
-        map.yScale = -1
+        
 //        view.bounds.size.width = CGFloat(width * 32)
 //        view.bounds.size.height = CGFloat(height * 32)
 //        print(view.bounds.size)
@@ -46,7 +46,7 @@ class GameScene: SKScene {
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         let newTouchPosition = touches.first!.locationInNode(self)
-        let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) * -1 )
+        let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
         let mapCameraPositionInScene = convertPoint(map.camera.position, toNode: self)
         map.camera.position = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
         lastTouchPosition = newTouchPosition
