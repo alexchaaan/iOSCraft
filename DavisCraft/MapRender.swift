@@ -88,6 +88,9 @@ class MapRender/*: UIView*/ {
                     if(typeIndex != -1){
                         let type = tileNames[typeIndex]
                         let tile = SKSpriteNode(texture: SKTexture(CGImage: tileDictionary![type]!))
+                        if 1 == pass {
+                            tile.zPosition = 1
+                        }
                         //tile.anchorPoint = CGPointMake(0.5, 0.5);
                         tile.position = location
                         //tile.yScale = -1
@@ -103,7 +106,7 @@ class MapRender/*: UIView*/ {
         }
         for index in 73..<map.endIndex - 2 {
             let item = map[index].componentsSeparatedByString(" ")
-            let placement = CGPointMake(CGFloat(32 * Int(item[2])!), CGFloat(32 * Int(item[3])!))
+            let placement = CGPointMake(CGFloat(32 * Int(item[2])!), CGFloat(-32 * Int(item[3])!))
             self.drawAsset(placement,sprite: item[0],view: view)
         }    }
    
@@ -142,7 +145,7 @@ class MapRender/*: UIView*/ {
         let asset = SKSpriteNode(texture: SKTexture(CGImage: tile!))
         asset.position = placement
         asset.name = name
-        asset.yScale = -1
+        //asset.yScale = -1
         asset.zPosition = 1
         view.addChild(asset)
         

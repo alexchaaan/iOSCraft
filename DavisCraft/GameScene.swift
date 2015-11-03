@@ -228,7 +228,7 @@ class GameScene: SKScene {
         let peasant = SKSpriteNode(texture: SKTexture(CGImage: tile!))
         peasant.position = CGPointMake(800, 900)
         peasant.name = "peasant"
-        peasant.yScale = -1
+        //peasant.yScale = -1
         peasant.zPosition = 1
         map.addChild(peasant)
         
