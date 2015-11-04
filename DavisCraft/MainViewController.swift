@@ -11,8 +11,6 @@ import SpriteKit
 
 class MainViewController: UIViewController {
     
-    var scene : GameScene!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let scene = GameScene(fileNamed:"GameScene") {

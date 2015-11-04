@@ -15,7 +15,6 @@ class GameScene: SKScene {
     var didSelect: Bool?
     let map = Map() //SKNode
     var lastTouchPosition = CGPointZero
-    var sprite : SKSpriteNode!
     var selected : SKNode!
     var peasantImages : [SKTexture] = []
     var width = Int()
@@ -23,6 +22,8 @@ class GameScene: SKScene {
     let tile = Tile()
     let townHall = TownHall()
     var timer: NSTimer?
+    var goldValue: Int = 10000
+    var lumberValue: Int = 10000
     
 //use contact to do the trees and stuff
     struct PhysicsCategory {
@@ -160,7 +161,7 @@ class GameScene: SKScene {
                         self.gatherGold(touchedNode.position)
                     }
                     else{
-                        moveSprite(self.convertPoint(sceneTouchLocation, toNode: map))
+                        moveSprite(self.selected, touched: self.convertPoint(sceneTouchLocation, toNode: map))
                     }
                     selected = nil
                 }
@@ -186,56 +187,61 @@ class GameScene: SKScene {
     
     func gatherGold(goldMineLocation: CGPoint){
         print("gathering gold")
-//        while selected != "peasant"{
-            moveSprite(goldMineLocation)
-            moveSprite(townHall.location!)
-//        }
+        let selectedRef = self.selected
+        let moveToGoldMine = SKAction.runBlock { () -> Void in
+            self.moveSprite(selectedRef, touched: goldMineLocation)
+        }
+        let delay = SKAction.waitForDuration(2)
+
+        let moveToTownHall = SKAction.runBlock { () -> Void in
+            self.moveSprite(selectedRef, touched: self.townHall.location!)
+        }
+        selected.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, delay, moveToTownHall])))
     }
     
     
-    func moveSprite(touched: CGPoint) {
-        sprite = selected as? SKSpriteNode
+    func moveSprite(selectedSprite: SKNode, touched: CGPoint) {
         let location = touched
-        let distance                = sqrt(pow((location.x - sprite!.position.x), 2.0) + pow((location.y - sprite!.position.y), 2.0))    // Formula to keep the speed consistent.
+        let distance                = sqrt(pow((location.x - selectedSprite.position.x), 2.0) + pow((location.y - selectedSprite.position.y), 2.0))    // Formula to keep the speed consistent.
         let moveDuration            = 0.005*distance
         let floatDuration           = NSTimeInterval(moveDuration)
         
         var index = 0
         
-        let angle = getAngle(sprite!.position, endingPoint: location)
+        let angle = getAngle(selectedSprite.position, endingPoint: location)
         
         if((22.5 < angle) && (angle <= 67.5)) {
 //            print(angle)
-            self.setDirection(167)
+            self.setDirection(selectedSprite, index: 167)
         }
         if((67.5 < angle) && (angle <= 112.5)) {    // up
-            self.setDirection(172)
+            self.setDirection(selectedSprite, index: 172)
         }
         if((112.5 < angle) && (angle <= 157.5)) {
 //            print(angle)
-            self.setDirection(137)
+            self.setDirection(selectedSprite, index: 137)
         }
         if((157.5 < angle) && (angle <= 202.5)) {   //left
-            self.setDirection(142)
+            self.setDirection(selectedSprite, index: 142)
         }
         if((202.5 < angle) && (angle <= 247.5)) {
-            self.setDirection(147)
+            self.setDirection(selectedSprite, index: 147)
         }
         if((247.5 < angle) && (angle <= 292.5)) {   //down
-            self.setDirection(152)
+            self.setDirection(selectedSprite, index: 152)
         }
         if((292.5 < angle) && (angle <= 337.5)) {
-            self.setDirection(157)
+            self.setDirection(selectedSprite, index: 157)
         }
         if((337.5 < angle) || (angle <= 22.5)) {    //right
-            self.setDirection(162)
+            self.setDirection(selectedSprite, index: 162)
         }
         let moveAction = SKAction.moveTo(location, duration: floatDuration)
         let walkingAnimation = SKAction.animateWithTextures(peasantImages, timePerFrame: 0.05, resize: false, restore: true)
         let repeatedWalk = SKAction.repeatActionForever(walkingAnimation)
-        self.sprite.runAction(repeatedWalk, withKey: "animation")
-        self.sprite.runAction(moveAction, completion: { self.sprite.removeActionForKey("animation")})
-        print(selected.name)
+        selectedSprite.runAction(repeatedWalk, withKey: "animation")
+        selectedSprite.runAction(moveAction, completion: { selectedSprite.removeActionForKey("animation")})
+        print(selectedSprite.name)
 //        if .name == "goldmine"{
 //            print("gathering golddfsafa")
 //        }
@@ -244,9 +250,10 @@ class GameScene: SKScene {
     
     
     
-    func setDirection(index: Int){
+    func setDirection(selectedSprite: SKNode, index: Int){
         peasantImages.removeAll()
-        sprite!.texture = self.texture(index)
+        let sprite = selectedSprite as! SKSpriteNode
+        sprite.texture = self.texture(index)
         self.setPeasantImages(index - 1, endIndex: index - 5)
     }
     
