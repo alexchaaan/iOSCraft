@@ -24,7 +24,8 @@ class GameScene: SKScene {
     var timer: NSTimer?
     var goldValue: Int = 10000
     var lumberValue: Int = 10000
-    
+    var mining = false
+    var lightOn = false
 //use contact to do the trees and stuff
     struct PhysicsCategory {
         static let None : UInt32 = 0
@@ -133,7 +134,7 @@ class GameScene: SKScene {
         return texture
     }
     func doubleTap(recognizer:UITapGestureRecognizer) {
-        self.createPeasant()
+//        self.createPeasant()
 
             if didSelect == false{
                 self.view!.addSubview(tile)
@@ -189,14 +190,19 @@ class GameScene: SKScene {
         print("gathering gold")
         let selectedRef = self.selected
         let moveToGoldMine = SKAction.runBlock { () -> Void in
+            self.lightOn = true
             self.moveSprite(selectedRef, touched: goldMineLocation)
         }
-        let delay = SKAction.waitForDuration(2)
-
-        let moveToTownHall = SKAction.runBlock { () -> Void in
-            self.moveSprite(selectedRef, touched: self.townHall.location!)
+        let mineLit = SKAction.runBlock { () -> Void in
+            self.lightUpMine(goldMineLocation)
         }
-        selected.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, delay, moveToTownHall])))
+        let delay = SKAction.waitForDuration(5)
+        let moveToTownHall = SKAction.runBlock { () -> Void in
+            self.mining = true
+            self.moveSprite(selectedRef, touched: self.townHall.location!)
+            self.mining = false
+        }
+        selected.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, mineLit, delay, moveToTownHall])))
     }
     
     
@@ -209,33 +215,64 @@ class GameScene: SKScene {
         var index = 0
         
         let angle = getAngle(selectedSprite.position, endingPoint: location)
-        
-        if((22.5 < angle) && (angle <= 67.5)) {
-//            print(angle)
-            self.setDirection(selectedSprite, index: 167)
+//        print("jfasljdf")
+//        print(angle)
+//        print("fsdf")
+        if mining == false {
+            if((22.5 < angle) && (angle <= 67.5)) {
+    //            print(angle)
+                self.setDirection(selectedSprite, index: 167)
+            }
+            if((67.5 < angle) && (angle <= 112.5)) {    // up
+                self.setDirection(selectedSprite, index: 172)
+            }
+            if((112.5 < angle) && (angle <= 157.5)) {
+    //            print(angle)
+                self.setDirection(selectedSprite, index: 137)
+            }
+            if((157.5 < angle) && (angle <= 202.5)) {   //left
+                self.setDirection(selectedSprite, index: 142)
+            }
+            if((202.5 < angle) && (angle <= 247.5)) {
+                self.setDirection(selectedSprite, index: 147)
+            }
+            if((247.5 < angle) && (angle <= 292.5)) {   //down
+                self.setDirection(selectedSprite, index: 152)
+            }
+            if((292.5 < angle) && (angle <= 337.5)) {
+                self.setDirection(selectedSprite, index: 157)
+            }
+            if((337.5 < angle) || (angle <= 22.5)) {    //right
+                self.setDirection(selectedSprite, index: 162)
+            }
         }
-        if((67.5 < angle) && (angle <= 112.5)) {    // up
-            self.setDirection(selectedSprite, index: 172)
+        else if mining == true{
+            if((22.5 < angle) && (angle <= 67.5)) {
+                self.setDirection(selectedSprite, index: 87)
+            }
+            if((67.5 < angle) && (angle <= 112.5)) {    // up
+                self.setDirection(selectedSprite, index: 92)
+            }
+            if((112.5 < angle) && (angle <= 157.5)) {
+                self.setDirection(selectedSprite, index: 57)
+            }
+            if((157.5 < angle) && (angle <= 202.5)) {   //left
+                self.setDirection(selectedSprite, index: 62)
+            }
+            if((202.5 < angle) && (angle <= 247.5)) {
+                self.setDirection(selectedSprite, index: 67)
+            }
+            if((247.5 < angle) && (angle <= 292.5)) {   //down
+                self.setDirection(selectedSprite, index: 152)
+            }
+            if((292.5 < angle) && (angle <= 337.5)) {
+                self.setDirection(selectedSprite, index: 72)
+            }
+            if((337.5 < angle) || (angle <= 22.5)) {    //right
+                self.setDirection(selectedSprite, index: 82)
+            }
         }
-        if((112.5 < angle) && (angle <= 157.5)) {
-//            print(angle)
-            self.setDirection(selectedSprite, index: 137)
-        }
-        if((157.5 < angle) && (angle <= 202.5)) {   //left
-            self.setDirection(selectedSprite, index: 142)
-        }
-        if((202.5 < angle) && (angle <= 247.5)) {
-            self.setDirection(selectedSprite, index: 147)
-        }
-        if((247.5 < angle) && (angle <= 292.5)) {   //down
-            self.setDirection(selectedSprite, index: 152)
-        }
-        if((292.5 < angle) && (angle <= 337.5)) {
-            self.setDirection(selectedSprite, index: 157)
-        }
-        if((337.5 < angle) || (angle <= 22.5)) {    //right
-            self.setDirection(selectedSprite, index: 162)
-        }
+        print (mining)
         let moveAction = SKAction.moveTo(location, duration: floatDuration)
         let walkingAnimation = SKAction.animateWithTextures(peasantImages, timePerFrame: 0.05, resize: false, restore: true)
         let repeatedWalk = SKAction.repeatActionForever(walkingAnimation)
@@ -268,7 +305,32 @@ class GameScene: SKScene {
     
     
     
-    
+    func lightUpMine(location: CGPoint){
+        let content = FileManager.returnDatFileContents("GoldMine.dat")
+        let contentArray = content!.componentsSeparatedByString("\n")
+        
+        var image = UIImage()
+        var index = 1
+        
+        image = UIImage(named: "data/png/Goldmine.png")!
+        
+        let h = image.size.height
+        let w = image.size.width
+        
+        let numberOfTiles = Int(contentArray[1]);
+        
+        let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
+        
+        let activeGoldmine = SKSpriteNode(texture: SKTexture(CGImage: tile!))
+        //        peasant.position = convertPoint(CGPointMake(64, 64), fromNode: map)
+        activeGoldmine.position = location
+        activeGoldmine.name = "activeGoldmine"
+        //peasant.yScale = -1
+        activeGoldmine.zPosition = 2
+        //        timer!.fire()
+        map.addChild(activeGoldmine)
+
+    }
     func createPeasant() {
         let content = FileManager.returnDatFileContents("Peasant.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
@@ -294,7 +356,7 @@ class GameScene: SKScene {
 //        timer!.fire()
         map.addChild(peasant)
         print("created a new peasant")
-        self.view?.bringSubviewToFront((self.view)!)
+//        self.view?.bringSubviewToFront((self.view)!)
     }
 
     
