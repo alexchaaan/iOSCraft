@@ -95,15 +95,19 @@ class MapRender/*: UIView*/ {
                         tile.position = location
                         //tile.yScale = -1
                         tile.name = typeName
-                        if tile.name == "rock" || tile.name == "tree" || tile.name == "wall" || tile.name == "wall-damaged" {
+                            if tile.name == "rock" || tile.name == "tree" || tile.name == "wall" || tile.name == "wall-damaged" {
                             tile.physicsBody = SKPhysicsBody(rectangleOfSize: tile.size)
                             tile.physicsBody?.dynamic = false
                             tile.physicsBody?.resting = false
                             tile.physicsBody?.restitution = 0
-                            
+                            tile.physicsBody?.density = 100
+                            tile.physicsBody?.mass = 100
+                            tile.physicsBody?.collisionBitMask = 10
+                            tile.physicsBody?.contactTestBitMask = 5
+                            tile.physicsBody?.usesPreciseCollisionDetection = true
                         }
-                        //UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
                         view.addChild(tile)
+                        
                     }
                     x += 32
                 }
@@ -159,6 +163,11 @@ class MapRender/*: UIView*/ {
             asset.physicsBody?.dynamic = false
             asset.physicsBody?.resting = false
             asset.physicsBody?.restitution = 0
+            asset.physicsBody?.mass = 1
+            asset.physicsBody?.density = 1
+            asset.physicsBody?.collisionBitMask = 10
+            asset.physicsBody?.contactTestBitMask = 5
+            asset.physicsBody?.usesPreciseCollisionDetection = true
         }
         view.addChild(asset)
         

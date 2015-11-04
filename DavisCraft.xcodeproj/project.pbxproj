@@ -18,6 +18,8 @@
 		49B279641BE6C9B5003898D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B279631BE6C9B5003898D1 /* MainViewController.swift */; };
 		49B279661BE6D0AA003898D1 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B279651BE6D0AA003898D1 /* Map.swift */; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
+		49E028BC1BE9895D0058B4B9 /* IconRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BB1BE9895D0058B4B9 /* IconRender.swift */; };
+		49E028BE1BE994520058B4B9 /* Towers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BD1BE994520058B4B9 /* Towers.swift */; };
 		4C3F91B11BE172520075ECB3 /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B01BE172520075ECB3 /* MapRender.swift */; };
 		4C3F91B31BE172570075ECB3 /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B21BE172570075ECB3 /* MapRenderer.swift */; };
 		4C3F91B51BE1727C0075ECB3 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 4C3F91B41BE1727C0075ECB3 /* data */; };
@@ -53,6 +55,8 @@
 		49B279631BE6C9B5003898D1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		49B279651BE6D0AA003898D1 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
+		49E028BB1BE9895D0058B4B9 /* IconRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconRender.swift; sourceTree = "<group>"; };
+		49E028BD1BE994520058B4B9 /* Towers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Towers.swift; path = ../Towers.swift; sourceTree = "<group>"; };
 		4C3F91B01BE172520075ECB3 /* MapRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRender.swift; sourceTree = "<group>"; };
 		4C3F91B21BE172570075ECB3 /* MapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRenderer.swift; sourceTree = "<group>"; };
 		4C3F91B41BE1727C0075ECB3 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
@@ -138,11 +142,13 @@
 		CBEF61B31BBF98C10043B54D /* DavisCraft */ = {
 			isa = PBXGroup;
 			children = (
+				49E028BD1BE994520058B4B9 /* Towers.swift */,
 				3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */,
 				4C3F91B01BE172520075ECB3 /* MapRender.swift */,
 				4C3F91B21BE172570075ECB3 /* MapRenderer.swift */,
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
 				49E010801BCBB601008CB09E /* TileController.swift */,
+				49E028BB1BE9895D0058B4B9 /* IconRender.swift */,
 				49B279651BE6D0AA003898D1 /* Map.swift */,
 				4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */,
 				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
@@ -300,10 +306,12 @@
 				CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */,
 				4C3F91B31BE172570075ECB3 /* MapRenderer.swift in Sources */,
 				4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */,
+				49E028BC1BE9895D0058B4B9 /* IconRender.swift in Sources */,
 				49B279641BE6C9B5003898D1 /* MainViewController.swift in Sources */,
 				3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */,
 				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
 				4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */,
+				49E028BE1BE994520058B4B9 /* Towers.swift in Sources */,
 				CB534A181BD44B9600823469 /* Sound.swift in Sources */,
 				3F6FFCEC1BC5F1F400DD4285 /* SinglePlayerGame.swift in Sources */,
 				3F6FFCF11BC5F20F00DD4285 /* SoundOptions.swift in Sources */,
