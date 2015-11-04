@@ -13,9 +13,25 @@ class MiniMapRender: UIView {
     let bundle = NSBundle.mainBundle()
     var x: CGFloat = 0
     var y: CGFloat = 0
+    var vpStartX: CGFloat = 0
+    var vpStartY: CGFloat = 0
+    var vpWidth: CGFloat = 0
+    var vpHeight: CGFloat = 0
     var mapRatioX: CGFloat = 1.0
     var mapRatioY: CGFloat = 1.0
     var alreadyDrew: Bool = false
+    
+    init(frame: CGRect, x_min: CGFloat, y_min: CGFloat, width: CGFloat, height: CGFloat) {
+        vpStartX = x_min
+        vpStartY = y_min
+        vpWidth = width
+        vpHeight = height
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     func readMap() -> (Array<String>, Int, Int){
         //maybe havve button to give map filename
@@ -41,11 +57,15 @@ class MiniMapRender: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        //let location = CGPointMake(100 , 100)
-        let context = UIGraphicsGetCurrentContext()
-        CGContextSetLineWidth(context, 1.5)
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        self.drawMiniMap()
+        self.drawViewport()
+    }
+    
+    func drawMiniMap() {
         let step: CGFloat = 1.8
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetLineWidth(context, step)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
         let (map,_,width) = readMap()
         var components: [CGFloat]
         for i in 2 ..< (width + 2){
@@ -60,7 +80,7 @@ class MiniMapRender: UIView {
                 default:
                     components = [0.5, 0.5, 0.2, 1.0]
                 }
-                drawLine(context, colorSpace: colorSpace, components: components, the_x: x, the_y: y, step: step)
+                drawLine(context, colorSpace: colorSpace, components: components, begin_x: x, begin_y: y, end_x: x + step, end_y: y + step)
                 x += step
             }
             y += step
@@ -80,11 +100,11 @@ class MiniMapRender: UIView {
         
     }
     
-    func drawLine(context: CGContext?, colorSpace: CGColorSpace?, components: [CGFloat], the_x: CGFloat, the_y: CGFloat, step: CGFloat) {
+    func drawLine(context: CGContext?, colorSpace: CGColorSpace?, components: [CGFloat], begin_x: CGFloat, begin_y: CGFloat, end_x: CGFloat, end_y: CGFloat) {
         let color = CGColorCreate(colorSpace, components)
         CGContextSetStrokeColorWithColor(context, color)
-        CGContextMoveToPoint(context, the_x, the_y)
-        CGContextAddLineToPoint(context, the_x+step, the_y+step)
+        CGContextMoveToPoint(context, begin_x, begin_y)
+        CGContextAddLineToPoint(context, end_x, end_y)
         CGContextStrokePath(context)
     }
     
@@ -127,7 +147,23 @@ class MiniMapRender: UIView {
         CGContextAddLineToPoint(context, the_x + width / mapRatioX, the_y)
         CGContextStrokePath(context)
     }
-    /*
+    
+    func drawViewport() {
+        let x_max: CGFloat = (vpStartX + vpWidth) / mapRatioX
+        let y_max: CGFloat = (vpStartY + vpHeight) / mapRatioY
+        let x_min: CGFloat = vpStartX / mapRatioX
+        let y_min: CGFloat = vpStartY / mapRatioY
+        let context = UIGraphicsGetCurrentContext()
+        CGContextSetLineWidth(context, 1.0)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let components: [CGFloat] = [1.0, 1.0, 1.0, 0.8]
+        drawLine(context, colorSpace: colorSpace, components: components, begin_x: x_min, begin_y: y_min, end_x: x_max, end_y: y_min)
+        drawLine(context, colorSpace: colorSpace, components: components, begin_x: x_max, begin_y: y_min, end_x: x_max, end_y: y_max)
+        drawLine(context, colorSpace: colorSpace, components: components, begin_x: x_max, begin_y: y_max, end_x: x_min, end_y: y_max)
+        drawLine(context, colorSpace: colorSpace, components: components, begin_x: x_min, begin_y: y_max, end_x: x_min, end_y: y_min)
+    }
+    
+    
     func getDimensions() -> (CGFloat, CGFloat, CGFloat, CGFloat) {
         if alreadyDrew {
             return (x, y, mapRatioX, mapRatioY)
@@ -136,6 +172,6 @@ class MiniMapRender: UIView {
             return (0, 0, mapRatioX, mapRatioY)
         }
     }
-    */
+    
     
 }
