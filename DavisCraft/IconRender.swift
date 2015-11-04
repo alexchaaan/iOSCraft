@@ -9,6 +9,9 @@
 import UIKit
 
 class IconsRender: UIView {
+    var woodLabel = UILabel()
+    var label = UILabel()
+    var goldLabel = UILabel()
     //each map tile is 32x32
     let bundle = NSBundle.mainBundle()
     func readIcons() -> (Dictionary <String, CGImage>?, Array<String>) {
@@ -22,7 +25,7 @@ class IconsRender: UIView {
         let image = UIImage(named: "data/png/Icons.png")
         let h = image!.size.height
         let w = image!.size.width
-       // let h: CGFloat = 64
+        // let h: CGFloat = 64
         //let w: CGFloat = 64
         
         var counter = 2
@@ -43,17 +46,17 @@ class IconsRender: UIView {
         let numberOfmIcons = Int(mIconsDatContent[1])
         var mIconsDictionary = [String: CGImage]()
         let image = UIImage(named: "data/png/MiniIcons.png")
-//        let image = UIImage(
+        //        let image = UIImage(
         let h = image!.size.height
         let w = image!.size.width
-//        let h: CGFloat = 64
-//        let w: CGFloat = 64
+        //        let h: CGFloat = 64
+        //        let w: CGFloat = 64
         
         var counter = 2
         for var index = Int(numberOfmIcons!); index > 0; index-- {
-//            mIconsDictionary[mIconsDatContent[counter]] = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfmIcons!))), w, h/CGFloat(numberOfmIcons!)))
+            //            mIconsDictionary[mIconsDatContent[counter]] = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfmIcons!))), w, h/CGFloat(numberOfmIcons!)))
             print(CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfmIcons!))), w, h/CGFloat(numberOfmIcons!)))
-)
+            )
             mIconsDictionary[mIconsDatContent[counter]] = CGImageCreateWithImageInRect(image?.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfmIcons!))), w, h/CGFloat(numberOfmIcons!)))
             counter++
         }
@@ -70,8 +73,28 @@ class IconsRender: UIView {
         self.addSubview(imageView)
     }
     
+    func drawWoodLabel(xDir: CGFloat, yDir: CGFloat, width: CGFloat, height: CGFloat, text: String, size: CGFloat){
+        self.woodLabel = UILabel(frame: CGRectMake(xDir, yDir, width, height))
+        //label.center = CGPointMake(160, 284);
+        woodLabel.textAlignment = NSTextAlignment.Center
+        woodLabel.text = text
+        woodLabel.font = UIFont.systemFontOfSize(size)
+        woodLabel.textColor = UIColor.whiteColor()
+        self.addSubview(woodLabel)
+    }
+    
+    func drawGoldLabel(xDir: CGFloat, yDir: CGFloat, width: CGFloat, height: CGFloat, text: String, size: CGFloat){
+        self.goldLabel = UILabel(frame: CGRectMake(xDir, yDir, width, height))
+        //label.center = CGPointMake(160, 284);
+        goldLabel.textAlignment = NSTextAlignment.Center
+        goldLabel.text = text
+        goldLabel.font = UIFont.systemFontOfSize(size)
+        goldLabel.textColor = UIColor.whiteColor()
+        self.addSubview(goldLabel)
+    }
+    
     func drawLabel(xDir: CGFloat, yDir: CGFloat, width: CGFloat, height: CGFloat, text: String, size: CGFloat){
-        var label = UILabel(frame: CGRectMake(xDir, yDir, width, height))
+        self.label = UILabel(frame: CGRectMake(xDir, yDir, width, height))
         //label.center = CGPointMake(160, 284);
         label.textAlignment = NSTextAlignment.Center
         label.text = text
@@ -81,7 +104,7 @@ class IconsRender: UIView {
     }
     
     func drawMIcon(icon: Int, xDir: CGFloat, yDir: CGFloat) {
-//        let a = IconsRender()
+        //        let a = IconsRender()
         var (iDictionary, iNames) = readMiniIcons()
         let image = UIImage(CGImage: iDictionary![iNames[icon]]!)
         let imageView = UIImageView(image: image)
@@ -106,10 +129,10 @@ class IconsRender: UIView {
         buildSimple.frame = CGRect(x: 13, y: 25 + size, width: size, height: size)
         humanWeapon1.frame = CGRect(x: 18 + size, y: 25 + size, width: size, height: size)
         humanArmor1.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
-       // let button = UIButton(frame: CGRect(x: 15, y: 15, width: 30, height: 30))
+        // let button = UIButton(frame: CGRect(x: 15, y: 15, width: 30, height: 30))
         //        button.imageView!.image = humanMove.image
         //        self.addSubview(button)
-
+        
         self.addSubview(humanMove)
         self.addSubview(repair)
         self.addSubview(mine)
@@ -117,7 +140,7 @@ class IconsRender: UIView {
         self.addSubview(humanWeapon1)
         self.addSubview(humanArmor1)
     }
-
-
+    
+    
 }
 

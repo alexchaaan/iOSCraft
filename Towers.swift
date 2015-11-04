@@ -10,13 +10,16 @@ import Foundation
 import SpriteKit
 
 class TownHall: SKSpriteNode {
-    var location: CGPoint?
+    //var location: CGPoint?
     var peasantsCreated: Int?
     var peasantLimit: Int?
+    var node: SKSpriteNode!
     
     func constructor(){
         peasantsCreated = 0
         peasantLimit = 5
+        node = SKSpriteNode()
+        
     }
     
     func createTower(map: SKNode) {
@@ -35,14 +38,15 @@ class TownHall: SKSpriteNode {
         
         let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
         
-        let tower = SKSpriteNode(texture: SKTexture(CGImage: tile!))
+        self.node = SKSpriteNode(texture: SKTexture(CGImage: tile!))
+        
         //let location = CGPointMake(CGFloat(90 * 32), CGFloat(40 * 32))
-        tower.position = /*location*/convertPoint(CGPointMake(2800, -1800), toNode: map)
-        tower.name = "townhall"
-        location = tower.position
+        self.node.position = /*location*/convertPoint(CGPointMake(2800, -1800), toNode: map)
+        self.node.name = "townhall"
+        //location = tower.position
         //peasant.yScale = -1
-        tower.zPosition = 1
-        map.addChild(tower)
+        self.node.zPosition = 1
+        //map.addChild(self)
 
     }
 }

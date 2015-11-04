@@ -20,11 +20,12 @@ class GameScene: SKScene {
     var width = Int()
     var height = Int()
     let tile = Tile()
-    let townHall = TownHall()
+    var townHall = TownHall()
     var timer: NSTimer?
     var goldValue: Int = 10000
     var lumberValue: Int = 10000
     var mining = false
+    var cutting = false
     var lightOn = false
 //use contact to do the trees and stuff
     struct PhysicsCategory {
@@ -41,6 +42,7 @@ class GameScene: SKScene {
         tile.viewDidLoad()
         townHall.constructor()
         townHall.createTower(map)
+        map.addChild(townHall.node)
 //        map.scene?.physicsWorld.gravity = CGVectorMake(0, 0)
 //        let sceneBody = SKPhysicsBody(edgeLoopFromRect: map.frame)
 //        sceneBody.friction = 0
@@ -159,10 +161,13 @@ class GameScene: SKScene {
 //                    }
                     if touchedNode.name == "goldmine"{
 //                        selected = touchedNode
-                        self.gatherGold(touchedNode.position)
+                        self.gatherGold(touchedNode as! SKSpriteNode)
+                    }
+                    else if touchedNode.name == "tree"{
+                        self.gatherLumber(touchedNode as! SKSpriteNode)
                     }
                     else{
-                        moveSprite(self.selected, touched: self.convertPoint(sceneTouchLocation, toNode: map))
+                        moveSprite(self.selected, touchedSprite: touchedNode as! SKSpriteNode)
                     }
                     selected = nil
                 }
@@ -182,42 +187,65 @@ class GameScene: SKScene {
             selected = touchedNode
             createPeasant()
         }
-//        print(touchedNode.name)
+        print(touchedNode.name)
     }
     
     
-    func gatherGold(goldMineLocation: CGPoint){
+    func gatherGold(goldMine: SKSpriteNode){
         print("gathering gold")
         let selectedRef = self.selected
         let moveToGoldMine = SKAction.runBlock { () -> Void in
-            self.lightOn = true
-            self.moveSprite(selectedRef, touched: goldMineLocation)
+            //self.lightOn = true
+            self.moveSprite(selectedRef, touchedSprite: goldMine)
         }
         let mineLit = SKAction.runBlock { () -> Void in
-            self.lightUpMine(goldMineLocation)
+            self.lightUpMine(goldMine, light: true)
+        }
+        let delay = SKAction.waitForDuration(5)
+        let mineUnlit = SKAction.runBlock { () -> Void in
+            self.lightUpMine(goldMine, light: false)
+        }
+        let moveToTownHall = SKAction.runBlock { () -> Void in
+            self.mining = true
+            self.moveSprite(selectedRef, touchedSprite: self.townHall.node!)
+            self.goldValue  += 100
+            self.tile.menuPanel.goldLabel.text = "\(self.goldValue)"
+            self.mining = false
+        }
+        selected.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, mineLit, delay, mineUnlit, moveToTownHall, delay])))
+    }
+    
+    func gatherLumber(lumber: SKSpriteNode){
+        print("gathering lumber")
+        let selectedRef = self.selected
+        let moveToTree = SKAction.runBlock { () -> Void in
+            //self.lightOn = true
+            self.moveSprite(selectedRef, touchedSprite: lumber)
         }
         let delay = SKAction.waitForDuration(5)
         let moveToTownHall = SKAction.runBlock { () -> Void in
-            self.mining = true
-            self.moveSprite(selectedRef, touched: self.townHall.location!)
-            self.mining = false
+            self.cutting = true
+            self.cutTree(lumber)
+            self.moveSprite(selectedRef, touchedSprite: self.townHall.node!)
+            self.lumberValue  += 100
+            self.tile.menuPanel.woodLabel.text = "\(self.lumberValue)"
+            self.cutting = false
         }
-        selected.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, mineLit, delay, moveToTownHall])))
+        selected.runAction((SKAction.sequence([moveToTree, delay, moveToTownHall])))
     }
     
     
-    func moveSprite(selectedSprite: SKNode, touched: CGPoint) {
-        let location = touched
+    func moveSprite(selectedSprite: SKNode, touchedSprite: SKSpriteNode) {
+        let location = touchedSprite.position
+        print(touchedSprite.name, location)
+        
         let distance                = sqrt(pow((location.x - selectedSprite.position.x), 2.0) + pow((location.y - selectedSprite.position.y), 2.0))    // Formula to keep the speed consistent.
         let moveDuration            = 0.005*distance
         let floatDuration           = NSTimeInterval(moveDuration)
         
-        var index = 0
+        //var index = 0
         
         let angle = getAngle(selectedSprite.position, endingPoint: location)
-//        print("jfasljdf")
-//        print(angle)
-//        print("fsdf")
         if mining == false {
             if((22.5 < angle) && (angle <= 67.5)) {
     //            print(angle)
@@ -305,12 +333,22 @@ class GameScene: SKScene {
     
     
     
-    func lightUpMine(location: CGPoint){
+    func lightUpMine(mine: SKSpriteNode, light: Bool){
         let content = FileManager.returnDatFileContents("GoldMine.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
         
         var image = UIImage()
-        var index = 1
+        var index = -1
+        
+        if(true == light){
+            mine.name = "activeGoldMine"
+            index = 1
+        }
+        else{
+            mine.name = "goldmine"
+            index = 2
+        }
+        print(index)
         
         image = UIImage(named: "data/png/Goldmine.png")!
         
@@ -320,16 +358,50 @@ class GameScene: SKScene {
         let numberOfTiles = Int(contentArray[1]);
         
         let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
+        print(tile)
+        //let activeGoldmine = SKSpriteNode(texture: SKTexture(CGImage: tile!))
         
-        let activeGoldmine = SKSpriteNode(texture: SKTexture(CGImage: tile!))
+        mine.texture = SKTexture(CGImage: tile!)
+        
         //        peasant.position = convertPoint(CGPointMake(64, 64), fromNode: map)
-        activeGoldmine.position = location
-        activeGoldmine.name = "activeGoldmine"
+        //activeGoldmine.position = location
+        //activeGoldmine.name = "activeGoldmine"
         //peasant.yScale = -1
-        activeGoldmine.zPosition = 2
+        //activeGoldmine.zPosition = 2
         //        timer!.fire()
-        map.addChild(activeGoldmine)
+        //map.addChild(activeGoldmine)
+        
+    }
+    
+    func cutTree(tree: SKSpriteNode){
+        let content = FileManager.returnDatFileContents("Terrain.dat")
+        let contentArray = content!.componentsSeparatedByString("\n")
 
+        
+        var image = UIImage()
+        var index = 170
+        
+        
+        image = UIImage(named: "data/png/Terrain.png")!
+        let h = image.size.height
+        let w = image.size.width
+        
+        let numberOfTiles = Int(contentArray[1]);
+        
+        let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
+        //print(tile)
+        //let activeGoldmine = SKSpriteNode(texture: SKTexture(CGImage: tile!))
+        
+        tree.texture = SKTexture(CGImage: tile!)
+        
+        //        peasant.position = convertPoint(CGPointMake(64, 64), fromNode: map)
+        //activeGoldmine.position = location
+        //activeGoldmine.name = "activeGoldmine"
+        //peasant.yScale = -1
+        //activeGoldmine.zPosition = 2
+        //        timer!.fire()
+        //map.addChild(activeGoldmine)
+        
     }
     func createPeasant() {
         let content = FileManager.returnDatFileContents("Peasant.dat")
@@ -349,7 +421,7 @@ class GameScene: SKScene {
         
         let peasant = SKSpriteNode(texture: SKTexture(CGImage: tile!))
 //        peasant.position = convertPoint(CGPointMake(64, 64), fromNode: map)
-        peasant.position = CGPointMake(townHall.location!.x, townHall.location!.y + 75)
+        peasant.position = CGPointMake(townHall.position.x, townHall.position.y + 75)
         peasant.name = "peasant"
         //peasant.yScale = -1
         peasant.zPosition = 1

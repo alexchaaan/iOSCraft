@@ -9,13 +9,17 @@
 import UIKit
 import SpriteKit
 
+var goldValue: Int = 10000
+var lumberValue: Int = 10000
+
 class Tile: UIView{
     
     var selected: Bool?
     let actionPanel = IconsRender()
+    var menuPanel = IconsRender()
     
     /*override func*/func viewDidLoad() {
-//        super.viewDidLoad()
+        //        super.viewDidLoad()
         
         //MAP
         let a = MapRenderer()
@@ -29,14 +33,14 @@ class Tile: UIView{
         //let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
         //let theMap = GameScene().map
         let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 7, fullHeight / 3 - 25))
-//        var battleField: UIScrollView!
-//        // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
-//        battleField = UIScrollView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
-//        battleField.contentSize = theMap.bounds.size
-//        battleField.backgroundColor = UIColor.clearColor()
-//        battleField.scrollRectToVisible(CGRect(x: 2500, y: 1600, width: battleField.frame.width, height: battleField.frame.height), animated: true)
-//        battleField.addSubview(theMap)
-//        view.addSubview(battleField)
+        //        var battleField: UIScrollView!
+        //        // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
+        //        battleField = UIScrollView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
+        //        battleField.contentSize = theMap.bounds.size
+        //        battleField.backgroundColor = UIColor.clearColor()
+        //        battleField.scrollRectToVisible(CGRect(x: 2500, y: 1600, width: battleField.frame.width, height: battleField.frame.height), animated: true)
+        //        battleField.addSubview(theMap)
+        //        view.addSubview(battleField)
         
         let miniHeight = miniMap.bounds.size.height
         let miniWidth = miniMap.bounds.size.width
@@ -49,17 +53,17 @@ class Tile: UIView{
         sidePanel.addSubview(miniMap)
         self.addSubview(sidePanel)
         
-        var goldValue: Int = 10000
-        var lumberValue: Int = 10000
+        //        var goldValue: Int = 10000
+        //        var lumberValue: Int = 10000
         
         //MENUPANEL by Javi
-        let menuPanel = IconsRender()
+        //        let menuPanel = IconsRender()
         menuPanel.frame = CGRectMake(0, 0, fullWidth, fullHeight / 20)
         menuPanel.drawMIcon(2, xDir: 180 , yDir: 2)
         menuPanel.drawMIcon(3, xDir: 330, yDir: 2)
         menuPanel.drawMIcon(4, xDir: 480, yDir: 2)
-        menuPanel.drawLabel(183, yDir: 5, width: 50, height: 10, text: "\(goldValue)", size: 8)
-        menuPanel.drawLabel(333, yDir: 5, width: 50, height: 10, text: "\(lumberValue)", size: 8)
+        menuPanel.drawGoldLabel(183, yDir: 5, width: 50, height: 10, text: "\(goldValue)", size: 8)
+        menuPanel.drawWoodLabel(333, yDir: 5, width: 50, height: 10, text: "\(lumberValue)", size: 8)
         let menuB = UIImageView(image: UIImage(named: "MenuButton.png"))
         // let  buttonImg = UIImageView(image: UIImage(named: "MenuButton.png"))
         // let menuB = UIButton(frame: CGRect(x: sidePanel.bounds.size.width / 4 - 2, y: 1, width: buttonImg.bounds.size.width, height: buttonImg.bounds.size.height))
@@ -128,20 +132,20 @@ class Tile: UIView{
     
     
     
-//    func tappedView(recognizer:UITapGestureRecognizer) {
-//        let sound = AVAudioPlayerPool.returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd("thunk.wav", subdir: "misc")
-//        sound?.prepareToPlay()
-//        sound?.play()
-//        if selected == false{
-//            self.addSubview(actionPanel)
-//            self.selected = true
-//        }
-//        else{
-//            actionPanel.removeFromSuperview()
-//            self.selected = false
-//        }
-//        
-//    }
+    //    func tappedView(recognizer:UITapGestureRecognizer) {
+    //        let sound = AVAudioPlayerPool.returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd("thunk.wav", subdir: "misc")
+    //        sound?.prepareToPlay()
+    //        sound?.play()
+    //        if selected == false{
+    //            self.addSubview(actionPanel)
+    //            self.selected = true
+    //        }
+    //        else{
+    //            actionPanel.removeFromSuperview()
+    //            self.selected = false
+    //        }
+    //        
+    //    }
     
     
 }
