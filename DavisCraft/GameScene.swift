@@ -421,10 +421,10 @@ class GameScene: SKScene {
         
         let peasant = SKSpriteNode(texture: SKTexture(CGImage: tile!))
 //        peasant.position = convertPoint(CGPointMake(64, 64), fromNode: map)
-        peasant.position = CGPointMake(townHall.position.x, townHall.position.y + 75)
+        peasant.position = townHall.node.position
         peasant.name = "peasant"
         //peasant.yScale = -1
-        peasant.zPosition = 1
+        peasant.zPosition = 3
 //        timer!.fire()
         map.addChild(peasant)
         print("created a new peasant")
