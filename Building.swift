@@ -48,7 +48,7 @@ class Building: SKSpriteNode {
         self.piercingDamage     = Int(propertiesContent[14])
         self.attackRange        = Int(propertiesContent[15])
         self.capabilityCount    = Int(propertiesContent[16])
-        self.zPosition = 1
+        self.zPosition = 3
     }
     
     required init?(coder aDecoder: NSCoder) {

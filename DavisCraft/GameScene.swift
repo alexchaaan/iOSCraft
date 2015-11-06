@@ -1,3 +1,4 @@
+
 //
 //  GameScene.swift
 //  DavisCraft
@@ -16,6 +17,7 @@ class GameScene: SKScene {
     let map = Map() //SKNode
     var lastTouchPosition = CGPointZero
     var selected : SKNode!
+    var previouslySelected: SKNode!
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
@@ -160,42 +162,74 @@ class GameScene: SKScene {
     func tappedView(recognizer:UITapGestureRecognizer) {
         let viewTouchLocation = recognizer.locationInView((self.view))
         let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
-        let touchedNode = self.nodeAtPoint(sceneTouchLocation)
-        if(touchedNode.name != nil) {
+        var touchedNode = self.nodeAtPoint(sceneTouchLocation)
+        if(touchedNode is SKShapeNode){
+            touchedNode = touchedNode.parent!
+        }
+        //print(touchedNode)
+        var command = false
+        if(!(touchedNode is Unit) && !(touchedNode is Building)) {
+            print(touchedNode.name)
             if(selected != nil) {
-                if(selected.name == "peasant") {
-//                    if selected.name != "peasant"{
-//                        moveSprite(selected.position)
-//                    }
+                if(selected is Peasant) {
                     if touchedNode.name == "goldmine"{
-//                        selected = touchedNode
                         self.gatherGold(touchedNode as! SKSpriteNode)
                     }
-                    else if touchedNode.name == "tree"{
+                    else if(touchedNode is TileTree){
                         self.gatherLumber(touchedNode as! SKSpriteNode)
                     }
                     else{
                         moveSprite(self.selected, touchedSprite: touchedNode as! SKSpriteNode)
+                        Sound.playEffect("acknowledge1.wav", subdirectory: "peasant")
                     }
-                    selected = nil
+                    command = true
                 }
-
             }
-            else {
+        }
+        
+        if(command == false){
+            print("assigned selected")
+            previouslySelected = selected
+            selected = touchedNode
+            
+            if(selected != previouslySelected && selected is Unit){
+                print("1")
+                if(previouslySelected != nil){
+                    previouslySelected.removeAllChildren()
+                }
+                if(selected != previouslySelected && selected is Peasant){
+                    Sound.playEffect("selected1.wav", subdirectory: "peasant")
+                }
+            }
+            else if(selected != previouslySelected && selected is Tile){
+                print("2")
+                if(previouslySelected != nil){
+                    previouslySelected.removeAllChildren()
+                }
                 selected = nil
             }
+            else if(selected.name == "townhall"){
+                print("3")
+                if(previouslySelected != nil){
+                    previouslySelected.removeAllChildren()
+                }
+                createPeasant()
+            }
         }
-        if(touchedNode.name == "peasant") {
-            let sound = AVAudioPlayerPool.returnAVAudioPlayerWithFilenameAndSubdirectoryWithinSnd("thunk.wav", subdir: "misc")
-            sound?.prepareToPlay()
-            sound?.play()
-            selected = touchedNode
+        
+
+
+        if(!(touchedNode is Tile)){
+            let nodeSize = (touchedNode as! SKSpriteNode).size
+            let highlight = SKShapeNode(rect: CGRectMake(-nodeSize.width/2, -nodeSize.height/2, nodeSize.width, nodeSize.height))
+            highlight.lineWidth = 1.0
+            highlight.userInteractionEnabled = false
+            highlight.fillColor = SKColor.clearColor()
+            highlight.strokeColor = SKColor.greenColor()
+            touchedNode.addChild(highlight)
+            highlight.zPosition = 1
         }
-        else if touchedNode.name == "townhall"{
-            selected = touchedNode
-            createPeasant()
-        }
-//        print(touchedNode.name)
+        
     }
     
     
