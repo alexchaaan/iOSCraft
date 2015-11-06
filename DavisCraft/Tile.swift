@@ -14,6 +14,7 @@ class Tile: SKSpriteNode {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.zPosition = 0
+        self.anchorPoint = CGPointMake(0,1)
         
     }
     
