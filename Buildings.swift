@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class Building: SKSpriteNode {
-    var health: Float?
+    var HP: Int?
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         print("building init")
@@ -36,7 +36,7 @@ class townHall: Building{
         self.name = "townhall"
         self.peasantsCreated = 0
         self.peasantLimit = 0
-        self.health = 100.0
+        self.HP = 100
     }
 
     required init?(coder aDecoder: NSCoder) {

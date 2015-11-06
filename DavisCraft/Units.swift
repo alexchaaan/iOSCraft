@@ -10,7 +10,19 @@ import Foundation
 import SpriteKit
 
 class Unit: SKSpriteNode{
-    var health: Float?
+    var visualRange: Int?
+    var HP: Int?
+    var MP: Int?
+    var buildTime: Int?
+    var goldCost: Int?
+    var lumberCost: Int?
+    var armor: Int?
+    var basicDamage: Int?
+    var piercingDamage: Int?
+    var baseEffectiveDamage: Int?
+    var maxEffectiveDamage: Int?
+    var attackRange: Int?
+    var moveSpeed: Int?
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -36,7 +48,19 @@ class Peasant: Unit {
         self.name = "peasant"
         self.isCuttingTree = false
         self.isMining = false
-        self.health = 100.0
+        self.visualRange = 4
+        self.HP = 30
+        self.MP = 0
+        self.buildTime = 45
+        self.goldCost = 400
+        self.lumberCost = 0
+        self.armor = 0
+        self.basicDamage = 3
+        self.piercingDamage = 2
+        self.baseEffectiveDamage = 1
+        self.maxEffectiveDamage = 5
+        self.attackRange = 1
+        self.moveSpeed = 10
     }
     
     required init?(coder aDecoder: NSCoder) {
