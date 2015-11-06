@@ -1,5 +1,5 @@
 //
-//  TownHall.swift
+//  GoldMine.swift
 //  DavisCraft
 //
 //  Created by Michael Figueroa on 11/5/15.
@@ -9,13 +9,13 @@
 import Foundation
 import SpriteKit
 
-class TownHall: Building{
+class GoldMine: Building{
     var peasantsCreated: Int?
     var peasantLimit: Int?
     
     init(location: CGPoint) {
-        let townHallTexture = TownHall.texture()
-        super.init(texture: townHallTexture, color: SKColor.clearColor(), size: townHallTexture.size(), properties: "TownHall.dat", location: location)
+        let goldMineTexture = GoldMine.texture()
+        super.init(texture: goldMineTexture, color: SKColor.clearColor(), size: goldMineTexture.size(), properties: "GoldMine.dat", location: location)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,9 +23,9 @@ class TownHall: Building{
     }
     
     private static func texture() -> SKTexture {
-        let content = FileManager.returnDatFileContents("TownHall.dat")
+        let content = FileManager.returnDatFileContents("GoldMine.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
-        let image = UIImage(named: "data/png/TownHall.png")!
+        let image = UIImage(named: "data/png/GoldMine.png")!
         let index = 2
         let h = image.size.height
         let w = image.size.width

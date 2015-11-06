@@ -99,7 +99,7 @@ class MapRender/*: UIView*/ {
                         tile.texture = SKTexture(CGImage: tileDictionary![type]!)
                         tile.size = (tile.texture?.size())!
                         if 1 == pass {
-                            tile.zPosition = 1
+                            tile.zPosition = 5
                         }
                         view.addChild(tile)
                         
@@ -116,59 +116,22 @@ class MapRender/*: UIView*/ {
             self.drawAsset(placement,sprite: item[0],view: view)
         }    }
    
-    func drawAsset(var placement: CGPoint, sprite: String, view: SKNode){
-        let fileName = sprite + ".dat"
-        let content = FileManager.returnDatFileContents(fileName)
-        let contentArray = content!.componentsSeparatedByString("\n")
-        
-        var image = UIImage()
-        var index = 0
-        var name = String()
+    func drawAsset(placement: CGPoint, sprite: String, view: SKNode){
+
         switch(sprite){
         case "GoldMine":
-            image = UIImage(named: "data/png/GoldMine.png")!
-            index = 2
-            name = "goldmine"
+            let goldmine = GoldMine(location: placement)
+            view.addChild(goldmine)
         case "Peasant":
-            image = UIImage(named: "data/png/Peasant.png")!
-            index = 172
-            name = "peasant"
-            //placement = CGPointMake(placement.x + 100, placement.y + 30)
+            let peasant = Peasant(location: placement)
+            view.addChild(peasant)
         case "TownHall":
-            image = UIImage(named: "data/png/TownHall.png")!
-            index = 4
-            name = "townhall"
+            let townhall = TownHall(location: placement)
+            view.addChild(townhall)
         default:
             break
         }
-        let h = image.size.height
-        let w = image.size.width
-        
-        let numberOfTiles = Int(contentArray[1]);
-        
-        let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
-        
-        let asset = SKSpriteNode(texture: SKTexture(CGImage: tile!))
-        asset.position = placement
-        asset.name = name
-        //asset.yScale = -1
-        asset.zPosition = 1
-        if asset.name == "peasant"{
-            asset.physicsBody = SKPhysicsBody(rectangleOfSize: asset.size)
-            asset.physicsBody?.dynamic = false
-            asset.physicsBody?.resting = false
-            asset.physicsBody?.restitution = 0
-            asset.physicsBody?.mass = 1
-            asset.physicsBody?.density = 1
-            asset.physicsBody?.collisionBitMask = 10
-            asset.physicsBody?.contactTestBitMask = 5
-            asset.physicsBody?.usesPreciseCollisionDetection = true
-        }
-        view.addChild(asset)
-        
-        //self.addChild(mapNode)
-        //image = UIImage(CGImage: tile!)
-        //image.drawAtPoint(placement)
+
     }
     
 }

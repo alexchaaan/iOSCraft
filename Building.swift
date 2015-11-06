@@ -27,10 +27,12 @@ class Building: SKSpriteNode {
     var attackRange: Int?
     var capabilityCount: Int?
     
-    init(texture: SKTexture?, color: UIColor, size: CGSize, properties: String) {
+    init(texture: SKTexture?, color: UIColor, size: CGSize, properties: String, location: CGPoint) {
         super.init(texture: texture, color: color, size: size)
         let properties          = FileManager.returnDatFileContents(properties, subdirectory: "res")
         let propertiesContent   = properties!.componentsSeparatedByString("\n")
+        self.position           = CGPointMake(location.x + (texture?.size().width)!/2, location.y + (texture?.size().height)!/2)
+        //self.anchorPoint        = CGPointMake(0,1)
         self.name               = propertiesContent[0].lowercaseString
         self.HP                 = Int(propertiesContent[1])
         self.armor              = Int(propertiesContent[2])
@@ -48,7 +50,7 @@ class Building: SKSpriteNode {
         self.piercingDamage     = Int(propertiesContent[14])
         self.attackRange        = Int(propertiesContent[15])
         self.capabilityCount    = Int(propertiesContent[16])
-        self.zPosition = 3
+        self.zPosition = 2
     }
     
     required init?(coder aDecoder: NSCoder) {

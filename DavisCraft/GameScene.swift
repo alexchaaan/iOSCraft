@@ -172,10 +172,12 @@ class GameScene: SKScene {
             print(touchedNode.name)
             if(selected != nil) {
                 if(selected is Peasant) {
-                    if touchedNode.name == "goldmine"{
+                    if(touchedNode is GoldMine){
+                        print("GATHER GOLD")
                         self.gatherGold(touchedNode as! SKSpriteNode)
                     }
                     else if(touchedNode is TileTree){
+                        print("GATHER WOOD")
                         self.gatherLumber(touchedNode as! SKSpriteNode)
                     }
                     else{
@@ -208,7 +210,7 @@ class GameScene: SKScene {
                 }
                 selected = nil
             }
-            else if(selected.name == "townhall"){
+            else if(selected is TownHall){
                 print("3")
                 if(previouslySelected != nil){
                     previouslySelected.removeAllChildren()
@@ -366,8 +368,8 @@ class GameScene: SKScene {
     
     func getAngle(startingPoint: CGPoint, endingPoint: CGPoint)-> Double{
         //        - (CGFloat) pointPairToBearingDegrees:(CGPoint)startingPoint secondPoint:(CGPoint) endingPoint
-        var originPoint = CGPointMake(endingPoint.x - startingPoint.x, endingPoint.y - startingPoint.y) // get origin point to origin by subtracting end from start
-        var bearingRadians = atan2(Double(originPoint.y), Double(originPoint.x)) // get bearing in radians
+        let originPoint = CGPointMake(endingPoint.x - startingPoint.x, endingPoint.y - startingPoint.y) // get origin point to origin by subtracting end from start
+        let bearingRadians = atan2(Double(originPoint.y), Double(originPoint.x)) // get bearing in radians
         var bearingDegrees = bearingRadians * (180.0 / M_PI) // convert to degrees
         bearingDegrees = (bearingDegrees > 0.0 ? bearingDegrees : (360.0 + bearingDegrees)) // correct discontinuity
         return bearingDegrees
@@ -378,7 +380,6 @@ class GameScene: SKScene {
     func lightUpMine(mine: SKSpriteNode, light: Bool){
         let content = FileManager.returnDatFileContents("GoldMine.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
-        
         var image = UIImage()
         var index = -1
         
@@ -421,7 +422,7 @@ class GameScene: SKScene {
 
         
         var image = UIImage()
-        var index = 170
+        let index = 170
         
         
         image = UIImage(named: "data/png/Terrain.png")!
