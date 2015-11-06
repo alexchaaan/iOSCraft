@@ -20,13 +20,14 @@ class GameScene: SKScene {
     var width = Int()
     var height = Int()
     let tile = Tile()
-    var townHall = TownHall()
+    var townHall1 = townHall(location: CGPointMake(2800, -1800))
     var timer: NSTimer?
     var goldValue: Int = 10000
     var lumberValue: Int = 10000
     var mining = false
     var cutting = false
     var lightOn = false
+    
 //use contact to do the trees and stuff
     struct PhysicsCategory {
         static let None : UInt32 = 0
@@ -40,9 +41,7 @@ class GameScene: SKScene {
         (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
         tile.viewDidLoad()
-        townHall.constructor()
-        townHall.createTower(map)
-        map.addChild(townHall.node)
+        map.addChild(townHall1)
 //        map.scene?.physicsWorld.gravity = CGVectorMake(0, 0)
 //        let sceneBody = SKPhysicsBody(edgeLoopFromRect: map.frame)
 //        sceneBody.friction = 0
@@ -194,25 +193,25 @@ class GameScene: SKScene {
     func gatherGold(goldMine: SKSpriteNode){
         print("gathering gold")
         let selectedRef = self.selected
-        let moveToGoldMine = SKAction.runBlock { () -> Void in
+        let moveToGoldMine = SKAction.runBlock {
             //self.lightOn = true
             self.moveSprite(selectedRef, touchedSprite: goldMine)
         }
-        let mineLit = SKAction.runBlock { () -> Void in
+        let mineLit = SKAction.runBlock {
             self.lightUpMine(goldMine, light: true)
         }
         let delay = SKAction.waitForDuration(5)
         let mineUnlit = SKAction.runBlock { () -> Void in
             self.lightUpMine(goldMine, light: false)
         }
-        let moveToTownHall = SKAction.runBlock { () -> Void in
+        let moveToTownHall = SKAction.runBlock {
             self.mining = true
-            self.moveSprite(selectedRef, touchedSprite: self.townHall.node!)
+            self.moveSprite(selectedRef, touchedSprite: self.townHall1)
             self.goldValue  += 100
             self.tile.menuPanel.goldLabel.text = "\(self.goldValue)"
             self.mining = false
         }
-        selected.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, mineLit, delay, mineUnlit, moveToTownHall, delay])))
+        selectedRef.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, mineLit, delay, mineUnlit, moveToTownHall, delay])))
     }
     
     func gatherLumber(lumber: SKSpriteNode){
@@ -226,7 +225,7 @@ class GameScene: SKScene {
         let moveToTownHall = SKAction.runBlock { () -> Void in
             self.cutting = true
             self.cutTree(lumber)
-            self.moveSprite(selectedRef, touchedSprite: self.townHall.node!)
+            self.moveSprite(selectedRef, touchedSprite: self.townHall1)
             self.lumberValue  += 100
             self.tile.menuPanel.woodLabel.text = "\(self.lumberValue)"
             self.cutting = false
@@ -421,7 +420,7 @@ class GameScene: SKScene {
         
         let peasant = SKSpriteNode(texture: SKTexture(CGImage: tile!))
 //        peasant.position = convertPoint(CGPointMake(64, 64), fromNode: map)
-        peasant.position = townHall.node.position
+        peasant.position = townHall1.position
         peasant.name = "peasant"
         //peasant.yScale = -1
         peasant.zPosition = 3

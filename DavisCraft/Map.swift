@@ -14,6 +14,7 @@ class Map: SKNode {
     
     override init() {
         super.init()
+        
         addChild(camera)
     }
     
