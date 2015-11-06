@@ -55,7 +55,9 @@ class GameScene: SKScene {
 //        view.bounds.size.height = CGFloat(height * 32)
 //        print(view.bounds.size)
         let tapRec = UITapGestureRecognizer()
+        tapRec.numberOfTapsRequired = 1
         tapRec.addTarget(self, action: "tappedView:")
+        
         self.view!.addGestureRecognizer(tapRec)
         let doubleTouchRec = UITapGestureRecognizer()
         doubleTouchRec.numberOfTouchesRequired = 2
@@ -65,6 +67,7 @@ class GameScene: SKScene {
         doubleTapRec.numberOfTapsRequired = 2
         doubleTapRec.addTarget(self, action: "doubleTap:")
         self.view!.addGestureRecognizer(doubleTapRec)
+        tapRec.requireGestureRecognizerToFail(doubleTapRec)
 
 //        print("townhall in map", convertPoint(townHall1.position, toNode:map))
         constrainCameraPosition(convertPoint(townHall1.position, toNode:map))
@@ -168,21 +171,9 @@ class GameScene: SKScene {
         let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
         var touchedNode = self.nodeAtPoint(sceneTouchLocation)
         
-        createPeasant()
+        print("DOUBLE")
         
-    }
-    
-    func tappedView(recognizer:UITapGestureRecognizer) {
-        let viewTouchLocation = recognizer.locationInView((self.view))
-        let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
-        var touchedNode = self.nodeAtPoint(sceneTouchLocation)
-        if(touchedNode is SKShapeNode){
-            touchedNode = touchedNode.parent!
-        }
-        //print(touchedNode)
-        var command = false
-        if(!(touchedNode is Unit) && !(touchedNode is Building)) {
-            print(touchedNode.name)
+        if(!(touchedNode is Unit)) {
             if(selected != nil) {
                 if(selected is Peasant) {
                     if(touchedNode is GoldMine){
@@ -197,40 +188,55 @@ class GameScene: SKScene {
                         moveSprite(self.selected, touchedSprite: touchedNode as! SKSpriteNode)
                         Sound.playEffect("acknowledge1.wav", subdirectory: "peasant")
                     }
-                    command = true
                 }
+            }
+        }
+    }
+    
+    func tappedView(recognizer:UITapGestureRecognizer) {
+        let viewTouchLocation = recognizer.locationInView((self.view))
+        let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
+        var touchedNode = self.nodeAtPoint(sceneTouchLocation)
+        if(touchedNode is SKShapeNode){
+            touchedNode = touchedNode.parent!
+        }
+        print("SINGLE")
+        
+        print("assigned selected")
+        previouslySelected = selected
+        selected = touchedNode
+        
+        if(selected != previouslySelected && selected is Unit){
+            print("1")
+            if(previouslySelected != nil){
+                previouslySelected.removeAllChildren()
+            }
+            if(selected != previouslySelected && selected is Peasant){
+                Sound.playEffect("selected1.wav", subdirectory: "peasant")
+            }
+        }
+        else if(selected != previouslySelected && selected is Tile){
+            print("2")
+            if(previouslySelected != nil){
+                previouslySelected.removeAllChildren()
+            }
+            selected = nil
+        }
+        else if(selected != previouslySelected && selected is Building){
+            print("4")
+            if(previouslySelected != nil){
+                previouslySelected.removeAllChildren()
             }
         }
         
-        if(command == false){
-            print("assigned selected")
-            previouslySelected = selected
-            selected = touchedNode
-            
-            if(selected != previouslySelected && selected is Unit){
-                print("1")
-                if(previouslySelected != nil){
-                    previouslySelected.removeAllChildren()
-                }
-                if(selected != previouslySelected && selected is Peasant){
-                    Sound.playEffect("selected1.wav", subdirectory: "peasant")
-                }
+        else if(selected is TownHall){
+            print("3")
+            if(previouslySelected != nil){
+                previouslySelected.removeAllChildren()
             }
-            else if(selected != previouslySelected && selected is Tile){
-                print("2")
-                if(previouslySelected != nil){
-                    previouslySelected.removeAllChildren()
-                }
-                selected = nil
-            }
-            else if(selected is TownHall){
-                print("3")
-                if(previouslySelected != nil){
-                    previouslySelected.removeAllChildren()
-                }
-                createPeasant()
-            }
+            createPeasant()
         }
+    
         
 
 
