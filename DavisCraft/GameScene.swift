@@ -57,8 +57,12 @@ class GameScene: SKScene {
         let tapRec = UITapGestureRecognizer()
         tapRec.addTarget(self, action: "tappedView:")
         self.view!.addGestureRecognizer(tapRec)
+        let doubleTouchRec = UITapGestureRecognizer()
+        doubleTouchRec.numberOfTouchesRequired = 2
+        doubleTouchRec.addTarget(self, action: "doubleTouch:")
+        self.view!.addGestureRecognizer(doubleTouchRec)
         let doubleTapRec = UITapGestureRecognizer()
-        doubleTapRec.numberOfTouchesRequired = 2
+        doubleTapRec.numberOfTapsRequired = 2
         doubleTapRec.addTarget(self, action: "doubleTap:")
         self.view!.addGestureRecognizer(doubleTapRec)
 
@@ -145,7 +149,7 @@ class GameScene: SKScene {
         
         return texture
     }
-    func doubleTap(recognizer:UITapGestureRecognizer) {
+    func doubleTouch(recognizer:UITapGestureRecognizer) {
 //        self.createPeasant()
 
             if didSelect == false{
@@ -157,6 +161,15 @@ class GameScene: SKScene {
                 self.didSelect = false
             }
 
+    }
+    
+    func doubleTap(recognizer:UITapGestureRecognizer) {
+        let viewTouchLocation = recognizer.locationInView((self.view))
+        let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
+        var touchedNode = self.nodeAtPoint(sceneTouchLocation)
+        
+        createPeasant()
+        
     }
     
     func tappedView(recognizer:UITapGestureRecognizer) {
