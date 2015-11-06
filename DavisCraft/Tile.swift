@@ -14,6 +14,7 @@ class Tile: SKSpriteNode {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.zPosition = 0
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

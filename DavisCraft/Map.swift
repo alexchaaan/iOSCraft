@@ -14,7 +14,6 @@ class Map: SKNode {
     
     override init() {
         super.init()
-        
         addChild(camera)
     }
     
@@ -23,7 +22,6 @@ class Map: SKNode {
     }
     
     func centerOnCamera() {
-        scene?.anchorPoint = CGPointMake(0,1)
         let cameraPositionInScene = scene!.convertPoint(camera.position, fromNode: self)
         position = CGPointMake(position.x - cameraPositionInScene.x, position.y - cameraPositionInScene.y)
         //print(position.x, 96 * TILE_WIDTH / 2)

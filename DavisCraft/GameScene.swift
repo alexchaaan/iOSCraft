@@ -36,7 +36,9 @@ class GameScene: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
+        anchorPoint = CGPointMake(0,1)
         addChild(map)
+
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
@@ -57,6 +59,10 @@ class GameScene: SKScene {
         doubleTapRec.numberOfTouchesRequired = 2
         doubleTapRec.addTarget(self, action: "doubleTap:")
         self.view!.addGestureRecognizer(doubleTapRec)
+
+        print("townhall in map", convertPoint(townHall1.position, toNode:map))
+        constrainCameraPosition(convertPoint(townHall1.position, toNode:map))
+        
         self.setTimer()
     }
 
@@ -71,23 +77,26 @@ class GameScene: SKScene {
         let newTouchPosition = touches.first!.locationInNode(self)
         let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
         let mapCameraPositionInScene = convertPoint(map.camera.position, toNode: self)
-        let cameraPos = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
-        let rightBound = convertPoint(CGPointMake(CGFloat(width * 32), CGFloat(0)), toNode: self)
-        let leftBound = convertPoint(CGPointZero, toNode: self)
-        //let topBound = convertPoint(CGPointMake(CGFloat(height * 32), CGFloat(0)), toNode: self)
-//        let topBound = convertPoint(CGPointZero, toNode: self)
-//        if cameraPos.x < rightBound.x && cameraPos.x > leftBound.x{
-            map.camera.position = cameraPos
-//        }
-        
-        
-       // map.camera.position = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
+        let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
+        constrainCameraPosition(newCameraPosition)
+        print(map.camera.position)
         lastTouchPosition = newTouchPosition
-//        anchorPoint = CGPointZero
-//        map.camera.position = CGPointMake(min(max(mapCameraPositionInScene.x - touchOffsetVector.x, 0), CGFloat(width) * TILE_WIDTH - frame.size.width),
-//            min(max(mapCameraPositionInScene.y - touchOffsetVector.y, 0), CGFloat(height) * TILE_HEIGHT - frame.size.height))
+    }
+    
+    func constrainCameraPosition(var newCameraPosition: CGPoint) {
+        if newCameraPosition.x < 0 {
+            newCameraPosition.x = 0
+        } else if newCameraPosition.x > ((CGFloat(width)) * TILE_WIDTH - frame.size.width) {
+            newCameraPosition.x = ((CGFloat(width)) * TILE_WIDTH - frame.size.width)
+        }
         
+        if newCameraPosition.y < -((CGFloat(height)) * TILE_HEIGHT - frame.size.height) {
+            newCameraPosition.y = -((CGFloat(height)) * TILE_HEIGHT - frame.size.height)
+        } else if newCameraPosition.y > 0 {
+            newCameraPosition.y = 0
+        }
         
+        map.camera.position = newCameraPosition
     }
     
     override func update(currentTime: CFTimeInterval) {
