@@ -16,24 +16,8 @@ class Peasant: Unit {
     
     init(location: CGPoint) {
         let peasantTexture = Peasant.texture()
-        super.init(texture: peasantTexture, color: SKColor.clearColor(), size: peasantTexture.size())
+        super.init(texture: peasantTexture, color: SKColor.clearColor(), size: peasantTexture.size(), properties: "Peasant.dat")
         self.position = location
-        self.name = "peasant"
-        self.isCuttingTree = false
-        self.isMining = false
-        self.visualRange = 4
-        self.HP = 30
-        self.MP = 0
-        self.buildTime = 45
-        self.goldCost = 400
-        self.lumberCost = 0
-        self.armor = 0
-        self.basicDamage = 3
-        self.piercingDamage = 2
-        self.baseEffectiveDamage = 1
-        self.maxEffectiveDamage = 5
-        self.attackRange = 1
-        self.moveSpeed = 10
     }
     
     required init?(coder aDecoder: NSCoder) {

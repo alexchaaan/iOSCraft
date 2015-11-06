@@ -76,18 +76,18 @@ class TileController: UIView{
         self.addSubview(menuPanel)
         
         //strings for description panel, these are defaults
-        var armor: Int = 0
-        var dmgLow: Int = 1
-        var dmgHigh: Int = 5
-        var range: Int = 1
-        var sight: Int = 4
-        var speed: Int = 10
-        var peasantLabel: String = "Peasant"
-        var armorLabel: String = "Armor: \(armor)"
-        var dmgLabel: String = "Damage: \(dmgLow)-\(dmgHigh)"
-        var rangeLabel: String = "Range: \(range)"
-        var sightLabel: String = "Sight: \(sight)"
-        var speedLabel: String = "Speed: \(speed)"
+        let armor: Int = 0
+        let dmgLow: Int = 1
+        let dmgHigh: Int = 5
+        let range: Int = 1
+        let sight: Int = 4
+        let speed: Int = 10
+        let peasantLabel: String = "Peasant"
+        let armorLabel: String = "Armor: \(armor)"
+        let dmgLabel: String = "Damage: \(dmgLow)-\(dmgHigh)"
+        let rangeLabel: String = "Range: \(range)"
+        let sightLabel: String = "Sight: \(sight)"
+        let speedLabel: String = "Speed: \(speed)"
         
         //DESCRIPTIONPANEL by Javi
         let descPanel = IconsRender()

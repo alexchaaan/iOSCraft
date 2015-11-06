@@ -15,12 +15,8 @@ class TownHall: Building{
     
     init(location: CGPoint) {
         let townHallTexture = TownHall.texture()
-        super.init(texture: townHallTexture, color: SKColor.clearColor(), size: townHallTexture.size())
+        super.init(texture: townHallTexture, color: SKColor.clearColor(), size: townHallTexture.size(), properties: "TownHall.dat")
         self.position = location
-        self.name = "townhall"
-        self.peasantsCreated = 0
-        self.peasantLimit = 0
-        self.HP = 100
     }
     
     required init?(coder aDecoder: NSCoder) {

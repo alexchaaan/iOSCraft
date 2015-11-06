@@ -60,7 +60,7 @@ class GameScene: SKScene {
         doubleTapRec.addTarget(self, action: "doubleTap:")
         self.view!.addGestureRecognizer(doubleTapRec)
 
-        print("townhall in map", convertPoint(townHall1.position, toNode:map))
+//        print("townhall in map", convertPoint(townHall1.position, toNode:map))
         constrainCameraPosition(convertPoint(townHall1.position, toNode:map))
         
         self.setTimer()
@@ -79,7 +79,7 @@ class GameScene: SKScene {
         let mapCameraPositionInScene = convertPoint(map.camera.position, toNode: self)
         let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
         constrainCameraPosition(newCameraPosition)
-        print(map.camera.position)
+//        print(map.camera.position)
         lastTouchPosition = newTouchPosition
     }
     
@@ -195,12 +195,12 @@ class GameScene: SKScene {
             selected = touchedNode
             createPeasant()
         }
-        print(touchedNode.name)
+//        print(touchedNode.name)
     }
     
     
     func gatherGold(goldMine: SKSpriteNode){
-        print("gathering gold")
+//        print("gathering gold")
         let selectedRef = self.selected
         let moveToGoldMine = SKAction.runBlock {
             //self.lightOn = true
@@ -224,7 +224,7 @@ class GameScene: SKScene {
     }
     
     func gatherLumber(lumber: SKSpriteNode){
-        print("gathering lumber")
+//        print("gathering lumber")
         let selectedRef = self.selected
         let moveToTree = SKAction.runBlock { () -> Void in
             //self.lightOn = true
@@ -245,7 +245,7 @@ class GameScene: SKScene {
     
     func moveSprite(selectedSprite: SKNode, touchedSprite: SKSpriteNode) {
         let location = touchedSprite.position
-        print(touchedSprite.name, location)
+//        print(touchedSprite.name, location)
         
         let distance                = sqrt(pow((location.x - selectedSprite.position.x), 2.0) + pow((location.y - selectedSprite.position.y), 2.0))    // Formula to keep the speed consistent.
         let moveDuration            = 0.005*distance
@@ -308,13 +308,13 @@ class GameScene: SKScene {
                 self.setDirection(selectedSprite, index: 82)
             }
         }
-        print (mining)
+//        print (mining)
         let moveAction = SKAction.moveTo(location, duration: floatDuration)
         let walkingAnimation = SKAction.animateWithTextures(peasantImages, timePerFrame: 0.05, resize: false, restore: true)
         let repeatedWalk = SKAction.repeatActionForever(walkingAnimation)
         selectedSprite.runAction(repeatedWalk, withKey: "animation")
         selectedSprite.runAction(moveAction, completion: { selectedSprite.removeActionForKey("animation")})
-        print(selectedSprite.name)
+//        print(selectedSprite.name)
 //        if .name == "goldmine"{
 //            print("gathering golddfsafa")
 //        }
@@ -356,7 +356,7 @@ class GameScene: SKScene {
             mine.name = "goldmine"
             index = 2
         }
-        print(index)
+//        print(index)
         
         image = UIImage(named: "data/png/Goldmine.png")!
         
@@ -366,7 +366,7 @@ class GameScene: SKScene {
         let numberOfTiles = Int(contentArray[1]);
         
         let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
-        print(tile)
+//        print(tile)
         //let activeGoldmine = SKSpriteNode(texture: SKTexture(CGImage: tile!))
         
         mine.texture = SKTexture(CGImage: tile!)
@@ -422,7 +422,4 @@ class GameScene: SKScene {
         self.timer = NSTimer(timeInterval: 5, target: self.view!, selector: "loading", userInfo: nil, repeats: false)
     }
     
-    func loading(){
-        print("loading peasant")
-    }
 }
