@@ -19,8 +19,17 @@
 		49B279661BE6D0AA003898D1 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B279651BE6D0AA003898D1 /* Map.swift */; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
 		49E028BC1BE9895D0058B4B9 /* IconRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BB1BE9895D0058B4B9 /* IconRender.swift */; };
-		49E028BE1BE994520058B4B9 /* Buildings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BD1BE994520058B4B9 /* Buildings.swift */; };
-		4C1C87BB1BEC350A001CAF4C /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87BA1BEC350A001CAF4C /* Units.swift */; settings = {ASSET_TAGS = (); }; };
+		49E028BE1BE994520058B4B9 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BD1BE994520058B4B9 /* Building.swift */; };
+		4C1C87BB1BEC350A001CAF4C /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87BA1BEC350A001CAF4C /* Unit.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87BD1BEC65A9001CAF4C /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87BC1BEC65A9001CAF4C /* Tile.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87C11BEC6621001CAF4C /* Peasant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C01BEC6621001CAF4C /* Peasant.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87C51BEC66B6001CAF4C /* TownHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C41BEC66B6001CAF4C /* TownHall.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87C81BEC6B8F001CAF4C /* TileGrass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C71BEC6B8F001CAF4C /* TileGrass.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87CA1BEC6B95001CAF4C /* TileTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C91BEC6B95001CAF4C /* TileTree.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87CC1BEC6B9C001CAF4C /* TileRock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CB1BEC6B9C001CAF4C /* TileRock.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87CE1BEC6BB3001CAF4C /* TileWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CD1BEC6BB3001CAF4C /* TileWall.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87D01BEC6BBE001CAF4C /* TileWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CF1BEC6BBE001CAF4C /* TileWater.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87D21BEC6F4C001CAF4C /* TileDirt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87D11BEC6F4C001CAF4C /* TileDirt.swift */; settings = {ASSET_TAGS = (); }; };
 		4C3F91B11BE172520075ECB3 /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B01BE172520075ECB3 /* MapRender.swift */; };
 		4C3F91B31BE172570075ECB3 /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B21BE172570075ECB3 /* MapRenderer.swift */; };
 		4C3F91B51BE1727C0075ECB3 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 4C3F91B41BE1727C0075ECB3 /* data */; };
@@ -57,8 +66,17 @@
 		49B279651BE6D0AA003898D1 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
 		49E028BB1BE9895D0058B4B9 /* IconRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconRender.swift; sourceTree = "<group>"; };
-		49E028BD1BE994520058B4B9 /* Buildings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buildings.swift; path = ../Buildings.swift; sourceTree = "<group>"; };
-		4C1C87BA1BEC350A001CAF4C /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		49E028BD1BE994520058B4B9 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Building.swift; path = ../Building.swift; sourceTree = "<group>"; };
+		4C1C87BA1BEC350A001CAF4C /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		4C1C87BC1BEC65A9001CAF4C /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		4C1C87C01BEC6621001CAF4C /* Peasant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peasant.swift; sourceTree = "<group>"; };
+		4C1C87C41BEC66B6001CAF4C /* TownHall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TownHall.swift; sourceTree = "<group>"; };
+		4C1C87C71BEC6B8F001CAF4C /* TileGrass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileGrass.swift; sourceTree = "<group>"; };
+		4C1C87C91BEC6B95001CAF4C /* TileTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileTree.swift; sourceTree = "<group>"; };
+		4C1C87CB1BEC6B9C001CAF4C /* TileRock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileRock.swift; sourceTree = "<group>"; };
+		4C1C87CD1BEC6BB3001CAF4C /* TileWall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileWall.swift; sourceTree = "<group>"; };
+		4C1C87CF1BEC6BBE001CAF4C /* TileWater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileWater.swift; sourceTree = "<group>"; };
+		4C1C87D11BEC6F4C001CAF4C /* TileDirt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileDirt.swift; sourceTree = "<group>"; };
 		4C3F91B01BE172520075ECB3 /* MapRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRender.swift; sourceTree = "<group>"; };
 		4C3F91B21BE172570075ECB3 /* MapRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRenderer.swift; sourceTree = "<group>"; };
 		4C3F91B41BE1727C0075ECB3 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
@@ -96,6 +114,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1C87BF1BEC65FC001CAF4C /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				4C1C87C01BEC6621001CAF4C /* Peasant.swift */,
+			);
+			name = Unit;
+			sourceTree = "<group>";
+		};
+		4C1C87C21BEC6643001CAF4C /* Building */ = {
+			isa = PBXGroup;
+			children = (
+				4C1C87C41BEC66B6001CAF4C /* TownHall.swift */,
+			);
+			name = Building;
+			sourceTree = "<group>";
+		};
+		4C1C87C31BEC668F001CAF4C /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				4C1C87C21BEC6643001CAF4C /* Building */,
+				49E028BD1BE994520058B4B9 /* Building.swift */,
+				4C1C87BC1BEC65A9001CAF4C /* Tile.swift */,
+				4C1C87C61BEC6A84001CAF4C /* Tile */,
+				4C1C87BF1BEC65FC001CAF4C /* Unit */,
+				4C1C87BA1BEC350A001CAF4C /* Unit.swift */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
+		4C1C87C61BEC6A84001CAF4C /* Tile */ = {
+			isa = PBXGroup;
+			children = (
+				4C1C87C71BEC6B8F001CAF4C /* TileGrass.swift */,
+				4C1C87C91BEC6B95001CAF4C /* TileTree.swift */,
+				4C1C87CB1BEC6B9C001CAF4C /* TileRock.swift */,
+				4C1C87CD1BEC6BB3001CAF4C /* TileWall.swift */,
+				4C1C87CF1BEC6BBE001CAF4C /* TileWater.swift */,
+				4C1C87D11BEC6F4C001CAF4C /* TileDirt.swift */,
+			);
+			name = Tile;
+			sourceTree = "<group>";
+		};
 		CB534A1A1BD4585900823469 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,8 +204,7 @@
 		CBEF61B31BBF98C10043B54D /* DavisCraft */ = {
 			isa = PBXGroup;
 			children = (
-				49E028BD1BE994520058B4B9 /* Buildings.swift */,
-				4C1C87BA1BEC350A001CAF4C /* Units.swift */,
+				4C1C87C31BEC668F001CAF4C /* Nodes */,
 				3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */,
 				4C3F91B01BE172520075ECB3 /* MapRender.swift */,
 				4C3F91B21BE172570075ECB3 /* MapRenderer.swift */,
@@ -302,22 +361,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C3F91B71BE172BE0075ECB3 /* FileManager.swift in Sources */,
+				4C1C87D01BEC6BBE001CAF4C /* TileWater.swift in Sources */,
 				4C3F91B11BE172520075ECB3 /* MapRender.swift in Sources */,
+				4C1C87CC1BEC6B9C001CAF4C /* TileRock.swift in Sources */,
 				3F6FFCF41BC5F22A00DD4285 /* GameViewController.swift in Sources */,
 				BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */,
 				49B279661BE6D0AA003898D1 /* Map.swift in Sources */,
+				4C1C87CA1BEC6B95001CAF4C /* TileTree.swift in Sources */,
 				CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */,
 				4C3F91B31BE172570075ECB3 /* MapRenderer.swift in Sources */,
 				4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */,
+				4C1C87CE1BEC6BB3001CAF4C /* TileWall.swift in Sources */,
+				4C1C87D21BEC6F4C001CAF4C /* TileDirt.swift in Sources */,
 				49E028BC1BE9895D0058B4B9 /* IconRender.swift in Sources */,
 				49B279641BE6C9B5003898D1 /* MainViewController.swift in Sources */,
+				4C1C87C11BEC6621001CAF4C /* Peasant.swift in Sources */,
 				3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */,
 				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
 				4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */,
-				4C1C87BB1BEC350A001CAF4C /* Units.swift in Sources */,
-				49E028BE1BE994520058B4B9 /* Buildings.swift in Sources */,
+				4C1C87C81BEC6B8F001CAF4C /* TileGrass.swift in Sources */,
+				4C1C87BB1BEC350A001CAF4C /* Unit.swift in Sources */,
+				4C1C87BD1BEC65A9001CAF4C /* Tile.swift in Sources */,
+				49E028BE1BE994520058B4B9 /* Building.swift in Sources */,
 				CB534A181BD44B9600823469 /* Sound.swift in Sources */,
 				3F6FFCEC1BC5F1F400DD4285 /* SinglePlayerGame.swift in Sources */,
+				4C1C87C51BEC66B6001CAF4C /* TownHall.swift in Sources */,
 				3F6FFCF11BC5F20F00DD4285 /* SoundOptions.swift in Sources */,
 				CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */,
 				3F6FFCF21BC5F20F00DD4285 /* Options.swift in Sources */,

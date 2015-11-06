@@ -12,7 +12,7 @@ import SpriteKit
 var goldValue: Int = 10000
 var lumberValue: Int = 10000
 
-class Tile: UIView{
+class TileController: UIView{
     
     var selected: Bool?
     let actionPanel = IconsRender()

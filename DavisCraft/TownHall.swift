@@ -1,36 +1,20 @@
 //
-//  Buildings.swift
+//  TownHall.swift
 //  DavisCraft
 //
-//  Created by Andrew Tran on 11/3/15.
+//  Created by Michael Figueroa on 11/5/15.
 //  Copyright © 2015 UCDClassNitta. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class Building: SKSpriteNode {
-    var HP: Int?
-    
-    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-        print("building init")
-        super.init(texture: texture, color: color, size: size)
-        self.zPosition = 1
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-}
-
-class townHall: Building{
+class TownHall: Building{
     var peasantsCreated: Int?
     var peasantLimit: Int?
     
     init(location: CGPoint) {
-        print("townHall init")
-        let townHallTexture = townHall.texture()
+        let townHallTexture = TownHall.texture()
         super.init(texture: townHallTexture, color: SKColor.clearColor(), size: townHallTexture.size())
         self.position = location
         self.name = "townhall"
@@ -38,13 +22,12 @@ class townHall: Building{
         self.peasantLimit = 0
         self.HP = 100
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private static func texture() -> SKTexture {
-        print("texture")
         let content = FileManager.returnDatFileContents("TownHall.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
         let image = UIImage(named: "data/png/TownHall.png")!

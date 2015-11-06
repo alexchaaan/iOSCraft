@@ -59,52 +59,47 @@ class MapRender/*: UIView*/ {
                     let location = CGPointMake(CGFloat(x), CGFloat(y))
                     var typeIndex = -1
                     var typeName = String()
+                    let tile: Tile
                     switch mapLine[j] {
                         case "G":
                             typeIndex = a.getTileType(j, y: i, curTile: "G", pass: pass)
                             typeName = "grass"
+                            tile = TileGrass(location: location)
                         case "F":
                             typeIndex = a.getTileType(j, y: i, curTile: "F", pass: pass)
                             typeName = "tree"
+                            tile = TileTree(location: location)
                         case "R":
                             typeIndex = a.getTileType(j, y: i, curTile: "R", pass: pass)
                             typeName = "rock"
+                            tile = TileRock(location: location)
                         case "D":
                             typeIndex = a.getTileType(j, y: i, curTile: "D", pass: pass)
                             typeName = "dirt"
+                            tile = TileDirt(location: location)
                         case "W":
                             typeIndex = a.getTileType(j, y: i, curTile: "W", pass: pass)
                             typeName = "wall"
+                            tile = TileWall(location: location)
                         case "w":
                             typeIndex = a.getTileType(j, y: i, curTile: "w", pass: pass)
                             typeName = "wall-damaged"
+                            tile = TileWall(location: location)
                         case " ":
                             typeIndex = a.getTileType(j, y: i, curTile: " ", pass: pass)
                             typeName = "water"
+                            tile = TileWater(location: location)
                         default:
                             typeName = "error"
+                            tile = TileGrass(location: location)
                             break
                     }
                     if(typeIndex != -1){
                         let type = tileNames[typeIndex]
-                        let tile = SKSpriteNode(texture: SKTexture(CGImage: tileDictionary![type]!))
+                        tile.texture = SKTexture(CGImage: tileDictionary![type]!)
+                        tile.size = (tile.texture?.size())!
                         if 1 == pass {
                             tile.zPosition = 1
-                        }
-                        //tile.anchorPoint = CGPointMake(0.5, 0.5);
-                        tile.position = location
-                        //tile.yScale = -1
-                        tile.name = typeName
-                            if tile.name == "rock" || tile.name == "tree" || tile.name == "wall" || tile.name == "wall-damaged" {
-                            tile.physicsBody = SKPhysicsBody(rectangleOfSize: tile.size)
-                            tile.physicsBody?.dynamic = false
-                            tile.physicsBody?.resting = false
-                            tile.physicsBody?.restitution = 0
-                            tile.physicsBody?.density = 100
-                            tile.physicsBody?.mass = 100
-                            tile.physicsBody?.collisionBitMask = 10
-                            tile.physicsBody?.contactTestBitMask = 5
-                            tile.physicsBody?.usesPreciseCollisionDetection = true
                         }
                         view.addChild(tile)
                         

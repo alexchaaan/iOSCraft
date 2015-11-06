@@ -19,8 +19,8 @@ class GameScene: SKScene {
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
-    let tile = Tile()
-    var townHall1 = townHall(location: CGPointMake(2800, -1800))
+    let tile = TileController()
+    var townHall1 = TownHall(location: CGPointMake(2800, -1800))
     var timer: NSTimer?
     var goldValue: Int = 10000
     var lumberValue: Int = 10000
@@ -403,31 +403,9 @@ class GameScene: SKScene {
         
     }
     func createPeasant() {
-        let content = FileManager.returnDatFileContents("Peasant.dat")
-        let contentArray = content!.componentsSeparatedByString("\n")
-        
-        var image = UIImage()
-        var index = 152
-        
-        image = UIImage(named: "data/png/Peasant.png")!
-        
-        let h = image.size.height
-        let w = image.size.width
-        
-        let numberOfTiles = Int(contentArray[1]);
-        
-        let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
-        
-        let peasant = SKSpriteNode(texture: SKTexture(CGImage: tile!))
-//        peasant.position = convertPoint(CGPointMake(64, 64), fromNode: map)
-        peasant.position = townHall1.position
-        peasant.name = "peasant"
-        //peasant.yScale = -1
-        peasant.zPosition = 3
-//        timer!.fire()
+        let loc = CGPointMake(townHall1.position.x - townHall1.size.width/2, townHall1.position.y + townHall1.size.height/2)
+        let peasant = Peasant(location: loc)
         map.addChild(peasant)
-        print("created a new peasant")
-//        self.view?.bringSubviewToFront((self.view)!)
     }
 
     
