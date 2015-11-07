@@ -101,6 +101,9 @@ class MapRender/*: UIView*/ {
                         if 1 == pass {
                             tile.zPosition = 5
                         }
+                        if(tile is TileTree || tile is TileRock){
+                            tile.setPhysics()
+                        }
                         view.addChild(tile)
                         
                     }
@@ -110,6 +113,8 @@ class MapRender/*: UIView*/ {
                 x = 0
             }
         }
+        let ps = Peasant(location: CGPointMake(CGFloat(100),CGFloat(-100)))
+        view.addChild(ps)
         for index in 73..<map.endIndex - 2 {
             let item = map[index].componentsSeparatedByString(" ")
             let placement = CGPointMake(CGFloat(32 * Int(item[2])!), CGFloat(-32 * Int(item[3])!))

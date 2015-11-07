@@ -21,9 +21,10 @@ class TileWall: Tile{
         self.physicsBody?.restitution = 0
         self.physicsBody?.density = 0
         self.physicsBody?.mass = 0
-        self.physicsBody?.collisionBitMask = 10
-        self.physicsBody?.contactTestBitMask = 5
+        self.physicsBody?.categoryBitMask = 0b10
+        self.physicsBody?.contactTestBitMask = 0b1
         self.physicsBody?.usesPreciseCollisionDetection = true
+        self.physicsBody?.collisionBitMask = 0
     }
     
     required init?(coder aDecoder: NSCoder) {

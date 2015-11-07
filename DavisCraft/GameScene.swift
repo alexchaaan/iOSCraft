@@ -12,7 +12,7 @@ import SpriteKit
 let TILE_WIDTH = CGFloat(32)
 let TILE_HEIGHT = CGFloat(32)
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var didSelect: Bool?
     let map = Map() //SKNode
     var lastTouchPosition = CGPointZero
@@ -30,22 +30,21 @@ class GameScene: SKScene {
     var cutting = false
     var lightOn = false
     
+
 //use contact to do the trees and stuff
-    struct PhysicsCategory {
-        static let None : UInt32 = 0
-        static let Peasant : UInt32 = 1
-        static let Terrain : UInt32 = 2
-    }
-    
+
     override func didMoveToView(view: SKView) {
+        self.physicsWorld.contactDelegate = self
         anchorPoint = CGPointMake(0,1)
         addChild(map)
-
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
         tile.viewDidLoad()
         map.addChild(townHall1)
+        self.physicsWorld.gravity = CGVectorMake(0,0)
+        self.physicsWorld.contactDelegate = self
+        
 //        map.scene?.physicsWorld.gravity = CGVectorMake(0, 0)
 //        let sceneBody = SKPhysicsBody(edgeLoopFromRect: map.frame)
 //        sceneBody.friction = 0
@@ -73,6 +72,9 @@ class GameScene: SKScene {
         constrainCameraPosition(convertPoint(townHall1.position, toNode:map))
         
         self.setTimer()
+    }
+    func didBeginContact(contact: SKPhysicsContact) {
+        print("CONTACT")
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -279,6 +281,7 @@ class GameScene: SKScene {
     }
     
     func gatherLumber(lumber: SKSpriteNode){
+        print(lumber.physicsBody?.mass)
 //        print("gathering lumber")
         let selectedRef = self.selected
         let moveToTree = SKAction.runBlock { () -> Void in

@@ -15,20 +15,16 @@ class TileTree: Tile{
         super.init(texture: nil, color: SKColor.clearColor(), size: CGSize.zero)
         self.position = location
         self.name = "tree"
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
-        self.physicsBody?.dynamic = false
-        self.physicsBody?.resting = false
-        self.physicsBody?.restitution = 0
-        self.physicsBody?.density = 0
-        self.physicsBody?.mass = 0
-        self.physicsBody?.collisionBitMask = 10
-        self.physicsBody?.contactTestBitMask = 5
-        self.physicsBody?.usesPreciseCollisionDetection = true
+
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+
+    
     
     //    private static func texture() -> SKTexture {
     //        let content = FileManager.returnDatFileContents("TownHall.dat")
