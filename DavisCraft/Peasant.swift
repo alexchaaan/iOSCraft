@@ -36,4 +36,9 @@ class Peasant: Unit {
         return SKTexture(CGImage: tile!)
     }
     
+    public func build(typeOfBuilding: Building)
+    {
+        
+    }
+    
 }

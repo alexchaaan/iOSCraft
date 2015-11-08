@@ -1,19 +1,19 @@
 //
-//  GoldMine.swift
+//  Keep.swift
 //  DavisCraft
 //
-//  Created by Michael Figueroa on 11/5/15.
+//  Created by Michael Figueroa on 11/7/15.
 //  Copyright © 2015 UCDClassNitta. All rights reserved.
 //
 
 import Foundation
 import SpriteKit
 
-class GoldMine: Building{
+class Keep: Building{
     
     init(location: CGPoint) {
-        let goldMineTexture = GoldMine.texture()
-        super.init(texture: goldMineTexture, color: SKColor.clearColor(), size: goldMineTexture.size(), properties: "GoldMine.dat", location: location)
+        let keepTexture = Keep.texture()
+        super.init(texture: keepTexture, color: SKColor.clearColor(), size: keepTexture.size(), properties: "Keep.dat", location: location)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,9 +21,9 @@ class GoldMine: Building{
     }
     
     private static func texture() -> SKTexture {
-        let content = FileManager.returnDatFileContents("GoldMine.dat")
+        let content = FileManager.returnDatFileContents("Keep.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
-        let image = UIImage(named: "data/png/GoldMine.png")!
+        let image = UIImage(named: "data/png/Keep.png")!
         let index = 2
         let h = image.size.height
         let w = image.size.width

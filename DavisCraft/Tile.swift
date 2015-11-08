@@ -22,10 +22,10 @@ class Tile: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setPhysics() {
+    func setPhysics() {
         
         self.physicsBody = SKPhysicsBody(rectangleOfSize: (self.texture!.size()))
-        print(self.texture!.size())
+//        print(self.texture!.size())
         self.physicsBody?.affectedByGravity = true
         self.physicsBody?.dynamic = true
         self.physicsBody?.affectedByGravity = true

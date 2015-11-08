@@ -15,24 +15,10 @@ class TileRock: Tile{
         super.init(texture: nil, color: SKColor.clearColor(), size: CGSize.zero)
         self.position = location
         self.name = "rock"
-
-
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //    private static func texture() -> SKTexture {
-    //        let content = FileManager.returnDatFileContents("TownHall.dat")
-    //        let contentArray = content!.componentsSeparatedByString("\n")
-    //        let image = UIImage(named: "data/png/TownHall.png")!
-    //        let index = 2
-    //        let h = image.size.height
-    //        let w = image.size.width
-    //        let numberOfTiles = Int(contentArray[1]);
-    //        let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
-    //        return SKTexture(CGImage: tile!)
-    //    }
     
 }
