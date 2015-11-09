@@ -128,8 +128,14 @@ class MapRender/*: UIView*/ {
             let goldmine = GoldMine(location: placement)
             view.addChild(goldmine)
         case "Peasant":
+//<<<<<<< HEAD
+//            image = UIImage(named: "data/png/Peasant.png")!
+//            index = 172
+//            placement = CGPointMake(placement.x + 100, placement.y + 30)
+//=======
             let peasant = Peasant(location: placement)
             view.addChild(peasant)
+//>>>>>>> origin/TreesAndGold
         case "TownHall":
             let townhall = TownHall(location: placement)
             view.addChild(townhall)

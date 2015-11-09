@@ -23,16 +23,17 @@ class TileController: UIView{
         
         //MAP
         let a = MapRenderer()
-        //
+        
         let fullWidth = self.bounds.size.width
         let fullHeight = self.bounds.size.height
         
         a.RetrieveFromDat()
+        
         self.backgroundColor = UIColor.clearColor()
         //let (_, width, height ) = MapRender().readMap()
         //let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))
         //let theMap = GameScene().map
-        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 7, fullHeight / 3 - 25))
+//        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 7, fullHeight / 3 - 25))
         //        var battleField: UIScrollView!
         //        // the size of viewport is the 3/4 of the screen - 1/4 for the side bar panel.
         //        battleField = UIScrollView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
@@ -42,15 +43,15 @@ class TileController: UIView{
         //        battleField.addSubview(theMap)
         //        view.addSubview(battleField)
         
-        let miniHeight = miniMap.bounds.size.height
-        let miniWidth = miniMap.bounds.size.width
+//        let miniHeight = miniMap.bounds.size.height
+//        let miniWidth = miniMap.bounds.size.width
         
         //SIDEPANEL
         
         var sidePanel: UIView!
         sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
         sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
-        sidePanel.addSubview(miniMap)
+//        sidePanel.addSubview(miniMap)
         self.addSubview(sidePanel)
         
         //        var goldValue: Int = 10000
@@ -91,7 +92,7 @@ class TileController: UIView{
         
         //DESCRIPTIONPANEL by Javi
         let descPanel = IconsRender()
-        descPanel.frame = CGRectMake(1, miniHeight * 1.5, miniWidth, miniHeight/1.1)
+//        descPanel.frame = CGRectMake(1, miniHeight * 1.5, miniWidth, miniHeight/1.1)
         descPanel.drawIcon(2, xDir: 5, yDir: 5)
         let hpBar: UIImageView = UIImageView(frame: CGRectMake(5, 45, 45, 7))
         hpBar.backgroundColor = UIColor.greenColor()
@@ -111,7 +112,7 @@ class TileController: UIView{
         
         
         actionPanel.drawPeasant()
-        actionPanel.frame = CGRectMake(1, (miniHeight * 2.5), miniWidth/0.95, miniHeight / 0.8)
+//        actionPanel.frame = CGRectMake(1, (miniHeight * 2.5), miniWidth/0.95, miniHeight / 0.8)
         border1.frame = CGRectMake(0, 0, actionPanel.bounds.size.width, actionPanel.bounds.size.height)
         actionPanel.addSubview(border1)
         actionPanel.sendSubviewToBack(border1)
@@ -144,12 +145,11 @@ class TileController: UIView{
     //            actionPanel.removeFromSuperview()
     //            self.selected = false
     //        }
-    //        
+    //
     //    }
     
     
 }
-
 
 
 
