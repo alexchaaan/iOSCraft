@@ -13,9 +13,16 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let fullWidth = self.view.bounds.size.width
+        let fullHeight = self.view.bounds.size.height
+        
+        self.view.backgroundColor = UIColor.blackColor()
+        /* Create and Add the skView as a subview of the UI (Charles) */
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
-            let skView = self.view as! SKView
+            let skView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
+            
             skView.showsFPS = true
             skView.showsNodeCount = true
             
@@ -25,9 +32,15 @@ class MainViewController: UIViewController {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .Fill
             
-            
             skView.presentScene(scene)
+            self.view.addSubview(skView)
         }
+        else {
+            print("GameScene initialization failed.")
+        }
+        
+        
+        
     }
     
     override func shouldAutorotate() -> Bool {

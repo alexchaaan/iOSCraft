@@ -23,7 +23,7 @@ class TileController: UIView{
         
         //MAP
         let a = MapRenderer()
-        //
+        
         let fullWidth = self.bounds.size.width
         let fullHeight = self.bounds.size.height
         

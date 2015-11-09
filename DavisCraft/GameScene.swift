@@ -44,7 +44,7 @@ class GameScene: SKScene {
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
-        tile.viewDidLoad()
+        //tile.viewDidLoad()
         map.addChild(townHall1)
 //        map.scene?.physicsWorld.gravity = CGVectorMake(0, 0)
 //        let sceneBody = SKPhysicsBody(edgeLoopFromRect: map.frame)
