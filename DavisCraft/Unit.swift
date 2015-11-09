@@ -49,13 +49,14 @@ class Unit: SKSpriteNode{
         self.attackRange        = Int(propertiesContent[15])
         self.capabilityCount    = Int(propertiesContent[16])
         self.zPosition          = 1
+
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.dynamic = true
-        self.physicsBody?.resting = false
-        self.physicsBody?.categoryBitMask = 0b1
-        self.physicsBody?.contactTestBitMask = 0b11
-        self.physicsBody?.collisionBitMask = 0b11
+        self.physicsBody?.resting = true
+        self.physicsBody?.categoryBitMask = 0b100
+        self.physicsBody?.contactTestBitMask = 0b111
+        self.physicsBody?.collisionBitMask = 0b111
         self.physicsBody?.restitution = 0
         self.physicsBody?.density = 0
         self.physicsBody?.mass = 0

@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var created : SKNode!
     var buildMode = false
     var isMoving = false
+    var doesCollide = false
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
@@ -81,7 +82,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.setTimer()
     }
     func didBeginContact(contact: SKPhysicsContact) {
-        //print("CONTACT")
+        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        if((collision == 0b11 || collision ==  0b110 || collision == 0b010) && buildMode == true){
+            doesCollide = true
+            print("COLLISON")
+        }
+    }
+    func didEndContact(contact: SKPhysicsContact) {
+        doesCollide = false
+        print("END COLLISION")
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -147,7 +156,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let movementScalar = CGFloat(15)
         let direction = CGPointMake(offset.x * movementScalar / length, offset.y * movementScalar / length)
         created.position = sceneTouched
-        print(movementScalar)
         if(abs(offset.x) > self.frame.width * 0.25 || abs(offset.y) > self.frame.height * 0.25) {
             constrainCameraPosition(CGPointMake(map.camera.position.x + direction.x, map.camera.position.y + direction.y))
         }
