@@ -24,10 +24,9 @@ class Tile: SKSpriteNode {
     
     func setPhysics() {
         
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: (texture?.textureRect())!)
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: (self.texture!.size()))
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.dynamic = false
-        self.physicsBody?.affectedByGravity = true
         self.physicsBody?.resting = true
         self.physicsBody?.categoryBitMask = 0b1
         self.physicsBody?.contactTestBitMask = 0b110

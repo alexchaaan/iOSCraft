@@ -97,6 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Called when a touch begins */
         lastTouchPosition = touches.first!.locationInNode(self)
         if (buildMode == true) {
+            //created.physicsBody?.dynamic = true
             created.position = convertPoint(lastTouchPosition, toNode: map)
         }
     }
@@ -114,7 +115,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else {
             isMoving = true
             let newTouchPosition = touches.first!.locationInNode(self)
-            let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
+//            let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
 //            created.position = CGPointMake(created.position.x + touchOffsetVector.x, created.position.y + touchOffsetVector.y)
             lastTouchPosition = newTouchPosition
 
@@ -125,6 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         buildMode = false
         isMoving = false
+        //created.physicsBody?.dynamic = false
         created = nil
     }
     

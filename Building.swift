@@ -53,7 +53,7 @@ class Building: SKSpriteNode {
         
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.dynamic = false
+        self.physicsBody?.dynamic = true
         self.physicsBody?.resting = true
         self.physicsBody?.categoryBitMask = 0b10
         self.physicsBody?.contactTestBitMask = 0b111
