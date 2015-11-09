@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SpriteKit
 class MiniMapRender: UIView {
     //each map tile is 32x32
     let bundle = NSBundle.mainBundle()

@@ -23,11 +23,12 @@ class TileController: UIView{
         
         //MAP
         let a = MapRenderer()
-        //
+        
         let fullWidth = self.bounds.size.width
         let fullHeight = self.bounds.size.height
         
         a.RetrieveFromDat()
+        
         self.backgroundColor = UIColor.clearColor()
         //let (_, width, height ) = MapRender().readMap()
         //let theMap = MapRender(frame: CGRectMake(0, 0, CGFloat((width-2) * 32), CGFloat(height * 32)))

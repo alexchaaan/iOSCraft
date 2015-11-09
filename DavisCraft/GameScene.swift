@@ -40,7 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
-        tile.viewDidLoad()
+        //tile.viewDidLoad()
         map.addChild(townHall1)
         self.physicsWorld.gravity = CGVectorMake(0,0)
         self.physicsWorld.contactDelegate = self
