@@ -23,14 +23,13 @@ class Tile: SKSpriteNode {
     }
     
     func setPhysics() {
-        
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: (self.texture!.size()))
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size, center: CGPointMake((self.texture?.size().width)!/2, -(self.texture?.size().height)!/2))
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.dynamic = false
         self.physicsBody?.resting = true
         self.physicsBody?.categoryBitMask = 0b1
         self.physicsBody?.contactTestBitMask = 0b110
-        self.physicsBody?.usesPreciseCollisionDetection = true
+        //self.physicsBody?.usesPreciseCollisionDetection = true
         self.physicsBody?.collisionBitMask = 0b110
         self.physicsBody?.restitution = 0
         self.physicsBody?.density = 0

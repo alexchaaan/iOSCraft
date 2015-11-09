@@ -18,10 +18,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastTouchPosition = CGPointZero
     var selected : SKNode!
     var previouslySelected: SKNode!
-    var created : SKNode!
+    var created : SKSpriteNode!
     var buildMode = false
     var isMoving = false
-    var doesCollide = false
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
@@ -82,15 +81,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.setTimer()
     }
     func didBeginContact(contact: SKPhysicsContact) {
-        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        if((collision == 0b11 || collision ==  0b110 || collision == 0b010) && buildMode == true){
-            doesCollide = true
-            print("COLLISON")
-        }
+//        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+//        if((collision == 0b11 || collision ==  0b110 || collision == 0b010) && buildMode == true && (contact.bodyA.node === created || contact.bodyB.node === created)){
+//            buildCollisions++
+//            //print("COLLISON")
+//        }
     }
     func didEndContact(contact: SKPhysicsContact) {
-        doesCollide = false
-        print("END COLLISION")
+//        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+//        if((collision == 0b11 || collision ==  0b110 || collision == 0b010) && buildMode == true && (contact.bodyA.node === created || contact.bodyB.node === created)){
+//            buildCollisions--
+//            //print("END COLLISION")
+//        }
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -99,7 +101,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (buildMode == true) {
             //created.physicsBody?.dynamic = true
             created.position = convertPoint(lastTouchPosition, toNode: map)
+            if(created != nil && created.physicsBody?.allContactedBodies().count == 0){
+                created.colorBlendFactor = CGFloat(0.5)
+                created.color = SKColor.greenColor()
+            }
+            else{
+                created.colorBlendFactor = CGFloat(0.5)
+                created.color = SKColor.redColor()
+            }
         }
+        
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -118,16 +129,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
 //            created.position = CGPointMake(created.position.x + touchOffsetVector.x, created.position.y + touchOffsetVector.y)
             lastTouchPosition = newTouchPosition
-
+            if(created != nil && created.physicsBody?.allContactedBodies().count == 0){
+                created.colorBlendFactor = CGFloat(0.5)
+                created.color = SKColor.greenColor()
+            }
+            else{
+                created.colorBlendFactor = CGFloat(0.5)
+                created.color = SKColor.redColor()
+            }
         }
 
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        buildMode = false
-        isMoving = false
-        //created.physicsBody?.dynamic = false
-        created = nil
+        if(created != nil && created.physicsBody?.allContactedBodies().count == 0){
+            buildMode = false
+            isMoving = false
+            created.colorBlendFactor = CGFloat(0)
+            created.color = SKColor.clearColor()
+            created = nil
+        }
+        else{
+            
+        }
     }
     
     func constrainCameraPosition(var newCameraPosition: CGPoint) {
@@ -229,7 +253,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let viewTouchLocation = recognizer.locationInView((self.view))
         let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
         var touchedNode = self.nodeAtPoint(sceneTouchLocation)
-        
+        if(touchedNode is SKShapeNode){
+            touchedNode = touchedNode.parent!
+        }
         print("DOUBLE")
         
         if(!(touchedNode is Unit)) {

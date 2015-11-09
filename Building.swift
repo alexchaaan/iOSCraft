@@ -61,7 +61,7 @@ class Building: SKSpriteNode {
         self.physicsBody?.restitution = 0
         self.physicsBody?.density = 0
         self.physicsBody?.mass = 0
-        self.physicsBody?.usesPreciseCollisionDetection = true
+        //self.physicsBody?.usesPreciseCollisionDetection = true
     }
     
     required init?(coder aDecoder: NSCoder) {
