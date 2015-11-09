@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var created : SKSpriteNode!
     var buildMode = false
     var isMoving = false
+    var didMove = false
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
@@ -32,6 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var mining = false
     var cutting = false
     var lightOn = false
+    
     
 
 //use contact to do the trees and stuff
@@ -101,19 +103,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (buildMode == true) {
             //created.physicsBody?.dynamic = true
             created.position = convertPoint(lastTouchPosition, toNode: map)
-            if(created != nil && created.physicsBody?.allContactedBodies().count == 0){
-                created.colorBlendFactor = CGFloat(0.5)
-                created.color = SKColor.greenColor()
-            }
-            else{
-                created.colorBlendFactor = CGFloat(0.5)
-                created.color = SKColor.redColor()
-            }
+            positionOnTile(created)
+            setNewBuildingTint()
         }
         
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+
         if (buildMode == false) {
             let newTouchPosition = touches.first!.locationInNode(self)
             let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
@@ -125,33 +122,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else {
             isMoving = true
+            didMove = true
             let newTouchPosition = touches.first!.locationInNode(self)
 //            let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
 //            created.position = CGPointMake(created.position.x + touchOffsetVector.x, created.position.y + touchOffsetVector.y)
             lastTouchPosition = newTouchPosition
-            if(created != nil && created.physicsBody?.allContactedBodies().count == 0){
-                created.colorBlendFactor = CGFloat(0.5)
-                created.color = SKColor.greenColor()
-            }
-            else{
-                created.colorBlendFactor = CGFloat(0.5)
-                created.color = SKColor.redColor()
-            }
+            setNewBuildingTint()
+            
         }
 
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("TOUCHES ENDED")
         if(created != nil && created.physicsBody?.allContactedBodies().count == 0){
-            buildMode = false
-            isMoving = false
-            created.colorBlendFactor = CGFloat(0)
-            created.color = SKColor.clearColor()
-            created = nil
+            placeNewBuilding()
         }
-        else{
-            
-        }
+        setNewBuildingTint()
+        isMoving = false
     }
     
     func constrainCameraPosition(var newCameraPosition: CGPoint) {
@@ -182,6 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let movementScalar = CGFloat(15)
         let direction = CGPointMake(offset.x * movementScalar / length, offset.y * movementScalar / length)
         created.position = sceneTouched
+        positionOnTile(created)
         if(abs(offset.x) > self.frame.width * 0.25 || abs(offset.y) > self.frame.height * 0.25) {
             constrainCameraPosition(CGPointMake(map.camera.position.x + direction.x, map.camera.position.y + direction.y))
         }
@@ -192,6 +181,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if (buildMode == true && isMoving) {
             infiniteScroll(lastTouchPosition)
+        }
+        if (buildMode == true && !isMoving && didMove && created.physicsBody?.allContactedBodies().count == 0) {
+            placeNewBuilding()
+        }
+        if (didMove == false && buildMode == true) {
+            setNewBuildingTint()
+        }
+    }
+    
+    func placeNewBuilding() {
+        buildMode = false
+        didMove = false
+        created.colorBlendFactor = CGFloat(0)
+        created.color = SKColor.clearColor()
+        created.zPosition = 2
+        created = nil
+    }
+    
+    func setNewBuildingTint() {
+        if(created != nil) {
+            if(created.physicsBody?.allContactedBodies().count == 0) {
+                created.colorBlendFactor = CGFloat(0.5)
+                created.color = SKColor.greenColor()
+            }
+            else {
+                created.colorBlendFactor = CGFloat(0.5)
+                created.color = SKColor.redColor()
+            }
+        }
+    }
+    
+    func positionOnTile(nodeToBePositioned: SKNode) {
+        let nodes = map.nodesAtPoint(created.position)
+        for node in nodes {
+            if (node is Tile) {
+                nodeToBePositioned.position = node.position
+            }
         }
     }
     
@@ -250,6 +276,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func doubleTap(recognizer:UITapGestureRecognizer) {
+        if (buildMode) {
+            return
+        }
         let viewTouchLocation = recognizer.locationInView((self.view))
         let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
         var touchedNode = self.nodeAtPoint(sceneTouchLocation)
@@ -279,6 +308,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func tripleTap(recognizer:UITapGestureRecognizer) {
+        if (buildMode) {
+            return
+        }
         let viewTouchLocation = recognizer.locationInView((self.view))
         let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
         var touchedNode = self.nodeAtPoint(sceneTouchLocation)
@@ -287,8 +319,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (selected is Peasant) {
             print("Triple")
             created = (selected as! Peasant).build("ScoutTower", location: middleScene)
+            created.zPosition = 6
             map.addChild(created)
             buildMode = true
+            positionOnTile(created)
+            //setNewBuildingTint()
             
         }
     }
@@ -301,6 +336,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //    }
     
     func tappedView(recognizer:UITapGestureRecognizer) {
+        if (buildMode) {
+            didMove = true
+            return
+        }
+        
         let viewTouchLocation = recognizer.locationInView((self.view))
         let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
         var touchedNode = self.nodeAtPoint(sceneTouchLocation)
@@ -313,8 +353,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         previouslySelected = selected
         selected = touchedNode
         
+        if(selected is Peasant){
+            print( (selected as! Peasant).HP)
+        }
+        
         if(selected != previouslySelected && selected is Unit){
-            print("1")
             if(previouslySelected != nil){
                 previouslySelected.removeAllChildren()
             }
@@ -323,21 +366,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         else if(selected != previouslySelected && selected is Tile){
-            print("2")
             if(previouslySelected != nil){
                 previouslySelected.removeAllChildren()
             }
             selected = nil
         }
         else if(selected != previouslySelected && selected is Building){
-            print("4")
             if(previouslySelected != nil){
                 previouslySelected.removeAllChildren()
             }
         }
         
         else if(selected is TownHall){
-            print("3")
             if(previouslySelected != nil){
                 previouslySelected.removeAllChildren()
             }
