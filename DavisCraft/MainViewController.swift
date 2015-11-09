@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var skView: SKView!
+        
         let fullWidth = self.view.bounds.size.width
         let fullHeight = self.view.bounds.size.height
         
@@ -21,7 +23,7 @@ class MainViewController: UIViewController {
         /* Create and Add the skView as a subview of the UI (Charles) */
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
-            let skView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
+            skView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
             
             skView.showsFPS = true
             skView.showsNodeCount = true
@@ -41,7 +43,7 @@ class MainViewController: UIViewController {
         
         // SIDEPANEL
         // Add Minimap:
-        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 7, fullHeight / 3 - 25))
+        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 6, fullHeight / 3 - 22), x_min: 2500, y_min: 1600, width: skView.frame.width, height: skView.frame.height)
         var sidePanel: UIView!
         sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
         sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
