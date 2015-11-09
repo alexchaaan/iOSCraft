@@ -39,7 +39,37 @@ class MainViewController: UIViewController {
             print("GameScene initialization failed.")
         }
         
+        // SIDEPANEL
+        // Add Minimap:
+        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 7, fullHeight / 3 - 25))
+        var sidePanel: UIView!
+        sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
+        sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
+        sidePanel.addSubview(miniMap)
+        self.view.addSubview(sidePanel)
         
+        //        var goldValue: Int = 10000
+        //        var lumberValue: Int = 10000
+        
+        //MENUPANEL by Javi
+        let menuPanel = IconsRender()
+        menuPanel.frame = CGRectMake(fullWidth / 4, 0, fullWidth, fullHeight / 20)
+        menuPanel.drawMIcon(2, xDir: 50 , yDir: 2)
+        menuPanel.drawMIcon(3, xDir: 200, yDir: 2)
+        menuPanel.drawMIcon(4, xDir: 350, yDir: 2)
+        menuPanel.drawGoldLabel(55, yDir: 5, width: 50, height: 10, text: "\(goldValue)", size: 8)
+        menuPanel.drawWoodLabel(205, yDir: 5, width: 50, height: 10, text: "\(lumberValue)", size: 8)
+        let menuB = UIImageView(image: UIImage(named: "MenuButton.png"))
+        // let  buttonImg = UIImageView(image: UIImage(named: "MenuButton.png"))
+        // let menuB = UIButton(frame: CGRect(x: sidePanel.bounds.size.width / 4 - 2, y: 1, width: buttonImg.bounds.size.width, height: buttonImg.bounds.size.height))
+        // menuB.imageView!.image = buttonImg.image
+        //           let humanMove = UIImageView(image: UIImage(CGImage: iDictionary![iNames[85]]!))
+        //        self.addSubview(button)
+        menuB.frame = CGRectMake(sidePanel.bounds.size.width / 4 - 2, 1, menuB.bounds.size.width, menuB.bounds.size.height)
+        menuPanel.addSubview(menuB)
+        //menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
+        menuPanel.backgroundColor = UIColor(red: 69/255, green: 47/255, blue: 21/255, alpha: 1.0)
+        self.view.addSubview(menuPanel)
         
     }
     
