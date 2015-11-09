@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class Castle: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let castleTexture = Castle.texture()
@@ -24,7 +25,7 @@ class Castle: Building{
         let content = FileManager.returnDatFileContents("Castle.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
         let image = UIImage(named: "data/png/Castle.png")!
-        let index = 2
+        let index = 1
         let h = image.size.height
         let w = image.size.width
         let numberOfTiles = Int(contentArray[1]);

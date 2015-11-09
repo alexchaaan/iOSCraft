@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class Farm: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let farmTexture = Farm.texture()

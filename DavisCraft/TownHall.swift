@@ -10,10 +10,10 @@ import Foundation
 import SpriteKit
 
 class TownHall: Building{
-    var peasantsCreated: Int?
-    var peasantLimit: Int?
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
+        print("Make TownHall")
         let townHallTexture = TownHall.texture()
         super.init(texture: townHallTexture, color: SKColor.clearColor(), size: townHallTexture.size(), properties: "TownHall.dat", location: location)
     }

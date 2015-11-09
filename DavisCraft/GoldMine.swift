@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class GoldMine: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let goldMineTexture = GoldMine.texture()

@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class GuardTower: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let guardTowerTexture = GuardTower.texture()
@@ -24,7 +25,7 @@ class GuardTower: Building{
         let content = FileManager.returnDatFileContents("GuardTower.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
         let image = UIImage(named: "data/png/GuardTower.png")!
-        let index = 2
+        let index = 1
         let h = image.size.height
         let w = image.size.width
         let numberOfTiles = Int(contentArray[1]);

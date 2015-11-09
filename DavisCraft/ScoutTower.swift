@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class ScoutTower: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let scoutTowerTexture = ScoutTower.texture()
