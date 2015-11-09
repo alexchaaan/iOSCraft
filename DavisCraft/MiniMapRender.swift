@@ -39,17 +39,17 @@ class MiniMapRender: UIView {
         let mapContent = FileManager.returnDatFileContents(fileName, subdirectory: "map")
         let mapInfo = mapContent!.componentsSeparatedByString("\n")
         let mapName = mapInfo[0]
-        print(mapName)
+//        print(mapName)
         //        let line2 = mapInfo[2]
         //        print(line2)
         let mapDimension = mapInfo[1].componentsSeparatedByString(" ")
-        print(mapDimension)
+//        print(mapDimension)
         //2 was added because tiles need to look around themselves
         //without extra then edge tiles will go out of bounds when looking around
         let mapWidth = Int(mapDimension[0])!
-        print(mapWidth)
+//        print(mapWidth)
         let mapHeight = Int(mapDimension[1])!
-        print(mapHeight)
+//        print(mapHeight)
         //setTiles(mapInfo, width: mapWidth, height: mapHeight)
         return (mapInfo, mapWidth, mapHeight)
         

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SpriteKit
 
-class MapRender: UIView {
+class MapRender/*: UIView*/ {
     //each map tile is 32x32
     func readTerrain() -> (Dictionary <String, CGImage>?, Array<String>) {
         //read in the tiles for the map
@@ -45,7 +46,7 @@ class MapRender: UIView {
         
     }
     
-    override func drawRect(rect: CGRect) {
+    /*override*/ func drawRect(view: SKNode) {
         let a = MapRenderer()
         var (tileDictionary,tileNames ) = readTerrain()
         let (map,width,height) = readMap()
@@ -57,71 +58,91 @@ class MapRender: UIView {
                 for j in 1..<width + 1{
                     let location = CGPointMake(CGFloat(x), CGFloat(y))
                     var typeIndex = -1
+                    var typeName = String()
+                    let tile: Tile
                     switch mapLine[j] {
                         case "G":
                             typeIndex = a.getTileType(j, y: i, curTile: "G", pass: pass)
+                            typeName = "grass"
+                            tile = TileGrass(location: location)
                         case "F":
                             typeIndex = a.getTileType(j, y: i, curTile: "F", pass: pass)
+                            typeName = "tree"
+                            tile = TileTree(location: location)
                         case "R":
                             typeIndex = a.getTileType(j, y: i, curTile: "R", pass: pass)
+                            typeName = "rock"
+                            tile = TileRock(location: location)
                         case "D":
                             typeIndex = a.getTileType(j, y: i, curTile: "D", pass: pass)
+                            typeName = "dirt"
+                            tile = TileDirt(location: location)
                         case "W":
                             typeIndex = a.getTileType(j, y: i, curTile: "W", pass: pass)
+                            typeName = "wall"
+                            tile = TileWall(location: location)
                         case "w":
                             typeIndex = a.getTileType(j, y: i, curTile: "w", pass: pass)
+                            typeName = "wall-damaged"
+                            tile = TileWall(location: location)
                         case " ":
                             typeIndex = a.getTileType(j, y: i, curTile: " ", pass: pass)
+                            typeName = "water"
+                            tile = TileWater(location: location)
                         default:
+                            typeName = "error"
+                            tile = TileGrass(location: location)
                             break
                     }
                     if(typeIndex != -1){
                         let type = tileNames[typeIndex]
-                        UIImage(CGImage: tileDictionary![type]!).drawAtPoint(location)
+                        tile.texture = SKTexture(CGImage: tileDictionary![type]!)
+                        tile.size = (tile.texture?.size())!
+                        if 1 == pass {
+                            tile.zPosition = 5
+                        }
+                        if(tile is TileTree || tile is TileRock){
+                            tile.setPhysics()
+                        }
+                        view.addChild(tile)
+                        
                     }
                     x += 32
                 }
-                y += 32
+                y -= 32
                 x = 0
             }
         }
-        for index in 73...76{
+        let ps = Peasant(location: CGPointMake(CGFloat(100),CGFloat(-100)))
+        view.addChild(ps)
+        for index in 73..<map.endIndex - 2 {
             let item = map[index].componentsSeparatedByString(" ")
-            let placement = CGPointMake(CGFloat(2750 - Int(item[2])!), CGFloat(1800 - Int(item[3])!))
-            self.drawTower(placement,sprite: item[0])
+            let placement = CGPointMake(CGFloat(32 * Int(item[2])!), CGFloat(-32 * Int(item[3])!))
+            self.drawAsset(placement,sprite: item[0],view: view)
         }    }
    
-    func drawTower(var placement: CGPoint, sprite: String){
-        let fileName = sprite + ".dat"
-        let content = FileManager.returnDatFileContents(fileName)
-        let contentArray = content!.componentsSeparatedByString("\n")
-        
-        var image = UIImage()
-        var index = 0
+    func drawAsset(placement: CGPoint, sprite: String, view: SKNode){
+
         switch(sprite){
         case "GoldMine":
-            image = UIImage(named: "data/png/GoldMine.png")!
-            index = 2
+            let goldmine = GoldMine(location: placement)
+            view.addChild(goldmine)
         case "Peasant":
-            image = UIImage(named: "data/png/Peasant.png")!
-            index = 172
-            placement = CGPointMake(placement.x + 100, placement.y + 30)
+//<<<<<<< HEAD
+//            image = UIImage(named: "data/png/Peasant.png")!
+//            index = 172
+//            placement = CGPointMake(placement.x + 100, placement.y + 30)
+//=======
+            let peasant = Peasant(location: placement)
+            view.addChild(peasant)
+//>>>>>>> origin/TreesAndGold
         case "TownHall":
-            image = UIImage(named: "data/png/TownHall.png")!
-            index = 4
+            let townhall = TownHall(location: placement)
+            view.addChild(townhall)
         default:
-            image = UIImage(named: "data/png/Texture.png")!
-            index = 1
+            break
         }
-        let h = image.size.height
-        let w = image.size.width
-        
-        let numberOfTiles = Int(contentArray[1]);
-        
-        let tile = CGImageCreateWithImageInRect(image.CGImage, CGRectMake(0, h-(CGFloat(index)*(h/CGFloat(numberOfTiles!))), w, h/CGFloat(numberOfTiles!)))
-        
-        image = UIImage(CGImage: tile!)
-        image.drawAtPoint(placement)
+
     }
     
 }
