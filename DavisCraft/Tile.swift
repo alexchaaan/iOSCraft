@@ -25,8 +25,7 @@ class Tile: SKSpriteNode {
     func setPhysics() {
         
         self.physicsBody = SKPhysicsBody(rectangleOfSize: (self.texture!.size()))
-//        print(self.texture!.size())
-        self.physicsBody?.affectedByGravity = true
+        self.physicsBody?.affectedByGravity = false
         self.physicsBody?.dynamic = true
         self.physicsBody?.affectedByGravity = true
         self.physicsBody?.resting = false

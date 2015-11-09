@@ -32,7 +32,6 @@ class Building: SKSpriteNode {
         let properties          = FileManager.returnDatFileContents(properties, subdirectory: "res")
         let propertiesContent   = properties!.componentsSeparatedByString("\n")
         self.position           = CGPointMake(location.x + (texture?.size().width)!/2, location.y + (texture?.size().height)!/2)
-        //self.anchorPoint        = CGPointMake(0,1)
         self.name               = propertiesContent[0].lowercaseString
         self.HP                 = Int(propertiesContent[1])
         self.armor              = Int(propertiesContent[2])

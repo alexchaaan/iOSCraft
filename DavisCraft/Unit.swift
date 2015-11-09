@@ -58,8 +58,7 @@ class Unit: SKSpriteNode{
         self.physicsBody?.collisionBitMask = 0b11
         self.physicsBody?.restitution = 0
         self.physicsBody?.density = 0
-        self.physicsBody?.mass = 01
-
+        self.physicsBody?.mass = 0
         self.physicsBody?.usesPreciseCollisionDetection = true
     }
 

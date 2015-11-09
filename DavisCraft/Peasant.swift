@@ -36,9 +36,44 @@ class Peasant: Unit {
         return SKTexture(CGImage: tile!)
     }
     
-    public func build(typeOfBuilding: Building)
+    func build(buildingString: String, location: CGPoint) -> Building
     {
+        var newBuilding : Building?
         
+        switch(buildingString){
+        case "TownHall":
+            let loc = CGPointMake(location.x - TownHall.textureSize.width/2, location.y - TownHall.textureSize.height/2)
+            newBuilding = TownHall(location: loc)
+        case "Barracks":
+            let loc = CGPointMake(location.x - Barracks.textureSize.width/2, location.y - Barracks.textureSize.height/2)
+            newBuilding = Barracks(location: loc)
+        case "BlackSmith":
+            let loc = CGPointMake(location.x - BlackSmith.textureSize.width/2, location.y - BlackSmith.textureSize.height/2)
+            newBuilding = BlackSmith(location: loc)
+        case "Castle":
+            let loc = CGPointMake(location.x - Castle.textureSize.width/2, location.y - Castle.textureSize.height/2)
+            newBuilding = Castle(location: loc)
+        case "Farm":
+            let loc = CGPointMake(location.x - Farm.textureSize.width/2, location.y - Farm.textureSize.height/2)
+            newBuilding = Farm(location: loc)
+        case "GuardTower":
+            let loc = CGPointMake(location.x - GuardTower.textureSize.width/2, location.y - GuardTower.textureSize.height/2)
+            newBuilding = GuardTower(location: loc)
+        case "Keep":
+            let loc = CGPointMake(location.x - Keep.textureSize.width/2, location.y - Keep.textureSize.height/2)
+            newBuilding = Keep(location: loc)
+        case "LumberMill":
+            let loc = CGPointMake(location.x - LumberMill.textureSize.width/2, location.y - LumberMill.textureSize.height/2)
+            newBuilding = LumberMill(location: loc)
+        case "ScoutTower":
+            let loc = CGPointMake(location.x - ScoutTower.textureSize.width/2, location.y - ScoutTower.textureSize.height/2)
+            newBuilding = ScoutTower(location: loc)
+        default:
+            newBuilding = nil
+            print("CANNOT BUILD")
+        }
+        return newBuilding!
+
     }
     
 }

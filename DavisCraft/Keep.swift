@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class Keep: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let keepTexture = Keep.texture()
@@ -24,7 +25,7 @@ class Keep: Building{
         let content = FileManager.returnDatFileContents("Keep.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
         let image = UIImage(named: "data/png/Keep.png")!
-        let index = 2
+        let index = 1
         let h = image.size.height
         let w = image.size.width
         let numberOfTiles = Int(contentArray[1]);

@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class LumberMill: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let lumberMillTexture = LumberMill.texture()

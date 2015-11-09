@@ -25,7 +25,7 @@ class Footman: Unit {
         let content = FileManager.returnDatFileContents("Footman.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
         let image = UIImage(named: "data/png/Footman.png")!
-        let index = 152
+        let index = 92
         let h = image.size.height
         let w = image.size.width
         let numberOfTiles = Int(contentArray[1]);

@@ -25,7 +25,7 @@ class Ranger: Unit {
         let content = FileManager.returnDatFileContents("Ranger.dat")
         let contentArray = content!.componentsSeparatedByString("\n")
         let image = UIImage(named: "data/png/Ranger.png")!
-        let index = 152
+        let index = 68
         let h = image.size.height
         let w = image.size.width
         let numberOfTiles = Int(contentArray[1]);

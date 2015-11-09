@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class BlackSmith: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let blackSmithTexture = BlackSmith.texture()

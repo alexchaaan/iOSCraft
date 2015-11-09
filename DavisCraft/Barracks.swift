@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class Barracks: Building{
+    static let textureSize = texture().size()
     
     init(location: CGPoint) {
         let barracksTexture = Barracks.texture()
