@@ -20,6 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var previouslySelected: SKNode!
     var created : SKNode!
     var buildMode = false
+    var isMoving = false
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
@@ -80,7 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.setTimer()
     }
     func didBeginContact(contact: SKPhysicsContact) {
-        print("CONTACT")
+        //print("CONTACT")
     }
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -102,9 +103,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //        print(map.camera.position)
         }
         else {
+            isMoving = true
             let newTouchPosition = touches.first!.locationInNode(self)
             let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
-            created.position = CGPointMake(created.position.x + touchOffsetVector.x, created.position.y + touchOffsetVector.y)
+//            created.position = CGPointMake(created.position.x + touchOffsetVector.x, created.position.y + touchOffsetVector.y)
             lastTouchPosition = newTouchPosition
 
         }
@@ -113,11 +115,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         buildMode = false
+        isMoving = false
         created = nil
     }
     
     func constrainCameraPosition(var newCameraPosition: CGPoint) {
-        print(newCameraPosition)
+        //print(newCameraPosition)
         if newCameraPosition.x < 0 {
             newCameraPosition.x = 0
         } else if newCameraPosition.x > ((CGFloat(width)) * TILE_WIDTH - frame.size.width) {
@@ -134,35 +137,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func infiniteScroll(var locationTouched: CGPoint) {
+    func infiniteScroll(let locationTouched: CGPoint) {
         let cameraCenter = CGPointMake(map.camera.position.x + self.frame.width/2, map.camera.position.y - self.frame.height/2)
         let sceneTouched = convertPoint(locationTouched, toNode: map)
-        print(getAngle(cameraCenter, endingPoint: sceneTouched), "angle")
-        let radians = (M_PI * getAngle(cameraCenter, endingPoint: locationTouched)) / 180.0
-        let xDir = sin(radians) * 10
-        let yDir = cos(radians) * 10
-        print(xDir, yDir)
-        constrainCameraPosition(CGPointMake(map.camera.position.x + CGFloat(xDir), map.camera.position.y + CGFloat(yDir)))
-        
-        
-        
-        
+        //print(getAngle(cameraCenter, endingPoint: sceneTouched), "angle")
+        let offset = CGPointMake(sceneTouched.x - cameraCenter.x, sceneTouched.y - cameraCenter.y)
+        let length = sqrt(offset.x * offset.x + offset.y * offset.y)
+        //let movementScalar = CGFloat(length * 0.25)
+        let movementScalar = CGFloat(15)
+        let direction = CGPointMake(offset.x * movementScalar / length, offset.y * movementScalar / length)
+        created.position = sceneTouched
+        print(movementScalar)
+        if(abs(offset.x) > self.frame.width * 0.25 || abs(offset.y) > self.frame.height * 0.25) {
+            constrainCameraPosition(CGPointMake(map.camera.position.x + direction.x, map.camera.position.y + direction.y))
+        }
+
     }
     
     override func update(currentTime: CFTimeInterval) {
 
-//        if (buildMode == true) {
+        if (buildMode == true && isMoving) {
             infiniteScroll(lastTouchPosition)
-//            let point = CGPointMake(created.position.x - self.frame.size.width/2, created.position.y + self.frame.size.height/2)
-//            constrainCameraPosition(point)
-////            print(map.camera.position, "camera", created.position)
-//
-//        }
+        }
     }
     
     override func didFinishUpdate() {
         map.centerOnCamera()
-        print("hello")
     }
     
     
@@ -349,8 +349,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         selectedRef.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, mineLit, delay, mineUnlit, moveToTownHall, delay])))
     }
     
-    func gatherLumber(lumber: SKSpriteNode){
-        print(lumber.physicsBody?.mass)
+    func gatherLumber(lumber: SKSpriteNode) {
 //        print("gathering lumber")
         let selectedRef = self.selected
         let moveToTree = SKAction.runBlock { () -> Void in
