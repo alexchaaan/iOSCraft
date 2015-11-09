@@ -50,7 +50,7 @@ class Unit: SKSpriteNode{
         self.capabilityCount    = Int(propertiesContent[16])!
         self.zPosition          = 1
 
-        self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
+        self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 1, self.size.height - 1))
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.dynamic = true
         self.physicsBody?.resting = true

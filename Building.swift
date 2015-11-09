@@ -53,11 +53,11 @@ class Building: SKSpriteNode {
         
         self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 1, self.size.height - 1))
         self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.dynamic = false
+        self.physicsBody?.dynamic = true
         self.physicsBody?.resting = true
         self.physicsBody?.categoryBitMask = 0b10
         self.physicsBody?.contactTestBitMask = 0b111
-        self.physicsBody?.collisionBitMask = 0b111
+        self.physicsBody?.collisionBitMask = 0
         self.physicsBody?.restitution = 0
         self.physicsBody?.density = 0
         self.physicsBody?.mass = 0
@@ -66,6 +66,27 @@ class Building: SKSpriteNode {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    static func setNewBuildingTint(newBuilding: Building) {
+        if(newBuilding.physicsBody?.allContactedBodies().count == 0) {
+            newBuilding.colorBlendFactor = CGFloat(0.5)
+            newBuilding.color = SKColor.greenColor()
+        }
+        else {
+            newBuilding.colorBlendFactor = CGFloat(0.5)
+            newBuilding.color = SKColor.redColor()
+        }
+    }
+    
+    static func positionOnTile(nodeToBePositioned: Building) {
+        let nodes = nodeToBePositioned.parent!.nodesAtPoint(nodeToBePositioned.position)
+        for node in nodes {
+            if (node is Tile) {
+                nodeToBePositioned.position = node.position
+                break
+            }
+        }
     }
     
 }

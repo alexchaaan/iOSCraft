@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastTouchPosition = CGPointZero
     var selected : SKNode!
     var previouslySelected: SKNode!
-    var created : SKSpriteNode!
+    var newBuilding : Building!
     var buildMode = false
     var isMoving = false
     var didMove = false
@@ -34,9 +34,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var cutting = false
     var lightOn = false
     
-    
-
-//use contact to do the trees and stuff
 
     override func didMoveToView(view: SKView) {
         self.physicsWorld.contactDelegate = self
@@ -49,14 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         map.addChild(townHall1)
         self.physicsWorld.gravity = CGVectorMake(0,0)
         self.physicsWorld.contactDelegate = self
-//        map.scene?.physicsWorld.gravity = CGVectorMake(0, 0)
-//        let sceneBody = SKPhysicsBody(edgeLoopFromRect: map.frame)
-//        sceneBody.friction = 0
-//        map.scene?.physicsBody = sceneBody
         
-//        view.bounds.size.width = CGFloat(width * 32)
-//        view.bounds.size.height = CGFloat(height * 32)
-//        print(view.bounds.size)
         let tapRec = UITapGestureRecognizer()
         tapRec.numberOfTapsRequired = 1
         tapRec.addTarget(self, action: "tappedView:")
@@ -77,21 +67,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapRec.requireGestureRecognizerToFail(doubleTapRec)
         tapRec.requireGestureRecognizerToFail(tripleTapRec)
         doubleTapRec.requireGestureRecognizerToFail(tripleTapRec)
-//        print("townhall in map", convertPoint(townHall1.position, toNode:map))
         constrainCameraPosition(convertPoint(townHall1.position, toNode:map))
         
         self.setTimer()
     }
     func didBeginContact(contact: SKPhysicsContact) {
 //        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-//        if((collision == 0b11 || collision ==  0b110 || collision == 0b010) && buildMode == true && (contact.bodyA.node === created || contact.bodyB.node === created)){
+//        if((collision == 0b11 || collision ==  0b110 || collision == 0b010) && buildMode == true && (contact.bodyA.node === newBuilding || contact.bodyB.node === newBuilding)){
 //            buildCollisions++
 //            //print("COLLISON")
 //        }
     }
     func didEndContact(contact: SKPhysicsContact) {
 //        let collision = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-//        if((collision == 0b11 || collision ==  0b110 || collision == 0b010) && buildMode == true && (contact.bodyA.node === created || contact.bodyB.node === created)){
+//        if((collision == 0b11 || collision ==  0b110 || collision == 0b010) && buildMode == true && (contact.bodyA.node === newBuilding || contact.bodyB.node === newBuilding)){
 //            buildCollisions--
 //            //print("END COLLISION")
 //        }
@@ -99,12 +88,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
+        print("BEGIN")
         lastTouchPosition = touches.first!.locationInNode(self)
         if (buildMode == true) {
-            //created.physicsBody?.dynamic = true
-            created.position = convertPoint(lastTouchPosition, toNode: map)
-            positionOnTile(created)
-            setNewBuildingTint()
+            isMoving = true
+            newBuilding.position = convertPoint(lastTouchPosition, toNode: map)
+            Building.positionOnTile(newBuilding)
+            Building.setNewBuildingTint(newBuilding)
         }
         
     }
@@ -118,32 +108,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
             constrainCameraPosition(newCameraPosition)
             lastTouchPosition = newTouchPosition
-    //        print(map.camera.position)
         }
         else {
-            isMoving = true
+
             didMove = true
             let newTouchPosition = touches.first!.locationInNode(self)
-//            let touchOffsetVector = CGPointMake(newTouchPosition.x - lastTouchPosition.x, (newTouchPosition.y - lastTouchPosition.y) )
-//            created.position = CGPointMake(created.position.x + touchOffsetVector.x, created.position.y + touchOffsetVector.y)
             lastTouchPosition = newTouchPosition
-            setNewBuildingTint()
+            Building.setNewBuildingTint(newBuilding)
             
         }
 
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("TOUCHES ENDED")
-        if(created != nil && created.physicsBody?.allContactedBodies().count == 0){
+        print("ENDED")
+        if (newBuilding != nil && newBuilding.physicsBody?.allContactedBodies().count == 0) {
+            Building.setNewBuildingTint(newBuilding)
             placeNewBuilding()
         }
-        setNewBuildingTint()
         isMoving = false
     }
     
     func constrainCameraPosition(var newCameraPosition: CGPoint) {
-        //print(newCameraPosition)
         if newCameraPosition.x < 0 {
             newCameraPosition.x = 0
         } else if newCameraPosition.x > ((CGFloat(width)) * TILE_WIDTH - frame.size.width) {
@@ -163,62 +149,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func infiniteScroll(let locationTouched: CGPoint) {
         let cameraCenter = CGPointMake(map.camera.position.x + self.frame.width/2, map.camera.position.y - self.frame.height/2)
         let sceneTouched = convertPoint(locationTouched, toNode: map)
-        //print(getAngle(cameraCenter, endingPoint: sceneTouched), "angle")
         let offset = CGPointMake(sceneTouched.x - cameraCenter.x, sceneTouched.y - cameraCenter.y)
         let length = sqrt(offset.x * offset.x + offset.y * offset.y)
-        //let movementScalar = CGFloat(length * 0.25)
-        let movementScalar = CGFloat(15)
+        let movementScalar = CGFloat(25)
         let direction = CGPointMake(offset.x * movementScalar / length, offset.y * movementScalar / length)
-        created.position = sceneTouched
-        positionOnTile(created)
-        if(abs(offset.x) > self.frame.width * 0.25 || abs(offset.y) > self.frame.height * 0.25) {
+        newBuilding.position = sceneTouched
+        Building.setNewBuildingTint(newBuilding)
+        Building.positionOnTile(newBuilding)
+        if (abs(offset.x) > self.frame.width * 0.40 || abs(offset.y) > self.frame.height * 0.40) {
             constrainCameraPosition(CGPointMake(map.camera.position.x + direction.x, map.camera.position.y + direction.y))
         }
 
     }
     
     override func update(currentTime: CFTimeInterval) {
-
-        if (buildMode == true && isMoving) {
-            infiniteScroll(lastTouchPosition)
-        }
-        if (buildMode == true && !isMoving && didMove && created.physicsBody?.allContactedBodies().count == 0) {
-            placeNewBuilding()
-        }
-        if (didMove == false && buildMode == true) {
-            setNewBuildingTint()
+        if (buildMode) {
+            if (isMoving) {
+                infiniteScroll(lastTouchPosition)
+            }
+            if (!isMoving && didMove && newBuilding.physicsBody?.allContactedBodies().count == 0) {
+                placeNewBuilding()
+            }
+            if (didMove == false) {
+                Building.setNewBuildingTint(newBuilding)
+            }
+            
+            if (!intersectsNode(newBuilding)) {
+                newBuilding.position.x = (map.camera.position.x + (newBuilding.texture?.size().width)!/2)
+            }
         }
     }
     
     func placeNewBuilding() {
+        //if (intersectsNode(newBuilding)) {
         buildMode = false
         didMove = false
-        created.colorBlendFactor = CGFloat(0)
-        created.color = SKColor.clearColor()
-        created.zPosition = 2
-        created = nil
-    }
-    
-    func setNewBuildingTint() {
-        if(created != nil) {
-            if(created.physicsBody?.allContactedBodies().count == 0) {
-                created.colorBlendFactor = CGFloat(0.5)
-                created.color = SKColor.greenColor()
-            }
-            else {
-                created.colorBlendFactor = CGFloat(0.5)
-                created.color = SKColor.redColor()
-            }
-        }
-    }
-    
-    func positionOnTile(nodeToBePositioned: SKNode) {
-        let nodes = map.nodesAtPoint(created.position)
-        for node in nodes {
-            if (node is Tile) {
-                nodeToBePositioned.position = node.position
-            }
-        }
+        newBuilding.colorBlendFactor = CGFloat(0)
+        newBuilding.color = SKColor.clearColor()
+        newBuilding.zPosition = 2
+        newBuilding = nil
+        //}
     }
     
     override func didFinishUpdate() {
@@ -313,31 +283,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         let viewTouchLocation = recognizer.locationInView((self.view))
         let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
-        var touchedNode = self.nodeAtPoint(sceneTouchLocation)
         let middleScene = CGPointMake(map.camera.position.x + self.frame.width/2, map.camera.position.y - self.frame.height/2)
-        //let middlePoint = convertPoint(middleScene, toNode: map)
         if (selected is Peasant) {
             print("Triple")
-            created = (selected as! Peasant).build("ScoutTower", location: middleScene)
-            created.zPosition = 6
-            map.addChild(created)
+            newBuilding = (selected as! Peasant).build("ScoutTower", location: middleScene)
+            newBuilding.zPosition = 6
+            map.addChild(newBuilding)
             buildMode = true
-            positionOnTile(created)
-            //setNewBuildingTint()
+            Building.positionOnTile(newBuilding)
             
         }
     }
     
-//    func setBuildingLocation(recognizer: UIPanGestureRecognizer) {
-//        let translation = recognizer.translationInView(self.view)
-//        let sceneTouchLocation = self.convertPointFromView(translation)
-//        let convertedPoint = convertPoint(sceneTouchLocation, toNode: map)
-//        created.position = convertedPoint
-//    }
     
     func tappedView(recognizer:UITapGestureRecognizer) {
         if (buildMode) {
             didMove = true
+            print("TAPPED")
             return
         }
         
