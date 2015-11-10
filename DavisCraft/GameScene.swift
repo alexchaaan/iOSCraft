@@ -621,5 +621,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setTimer(){
         self.timer = NSTimer(timeInterval: 5, target: self.view!, selector: "loading", userInfo: nil, repeats: false)
     }
+    func setDescPanelRender(panel: DescLabelRender) {
+        self.dpanel = panel
+    }
     
+    func setActionPanelRender(panel: ActionPanelRender) {
+        self.apanel = panel
+    }
 }
