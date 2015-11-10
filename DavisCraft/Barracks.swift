@@ -33,4 +33,23 @@ class Barracks: Building{
         return SKTexture(CGImage: tile!)
     }
     
+    func build(unitString: String) -> Unit
+    {
+        var newUnit : Unit?
+        
+        switch(unitString){
+        case "Footman":
+            let loc = CGPointMake(self.position.x - self.size.width/2, self.position.y + self.size.height/2)
+            newUnit = Footman(location: loc)
+        case "Archer":
+            let loc = CGPointMake(self.position.x - self.size.width/2, self.position.y + self.size.height/2)
+            newUnit = Footman(location: loc)
+        default:
+            newUnit = nil
+            print("CANNOT BUILD")
+        }
+        return newUnit!
+        
+    }
+    
 }
