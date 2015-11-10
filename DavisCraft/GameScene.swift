@@ -346,13 +346,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("assigned selected")
         previouslySelected = selected
         selected = touchedNode
-        
-        if(selected is Peasant){
-            print("selected is Peasant")
-            print( (selected as! Peasant).HP)
-            self.dpanel?.labelPrint(selected)
-            self.apanel?.labelPrint(selected)
-        }
+        self.dpanel?.labelPrint(selected)
+        self.apanel?.labelPrint(selected)
+//        if(selected is Peasant){
+//            print("selected is Peasant")
+//            print( (selected as! Peasant).HP)
+//            self.dpanel?.labelPrint(selected)
+//            self.apanel?.labelPrint(selected)
+//        }
        
         if(selected != previouslySelected && selected is Unit){
             if(previouslySelected != nil){
@@ -360,6 +361,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             if(selected != previouslySelected && selected is Peasant){
                 Sound.playEffect("selected1.wav", subdirectory: "peasant")
+                
+                
             }
         }
         else if(selected != previouslySelected && selected is Tile){
