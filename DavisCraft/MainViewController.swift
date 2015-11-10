@@ -8,7 +8,7 @@
 
 import Foundation
 import SpriteKit
-
+let menuPanel = IconsRender()
 class MainViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class MainViewController: UIViewController {
         
         
         //MENUPANEL by Javi
-        let menuPanel = IconsRender()
+//        let menuPanel = IconsRender()
         menuPanel.frame = CGRectMake(0, 0, fullWidth, fullHeight / 20)
         menuPanel.drawMIcon(2, xDir: 180 , yDir: 2)
         menuPanel.drawMIcon(3, xDir: 330, yDir: 2)

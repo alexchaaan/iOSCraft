@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var mining = false
     var cutting = false
     var lightOn = false
-    var menuPanel: IconsRender!
+//    var menuPanel: IconsRender!
     var dpanel: DescLabelRender?
     var apanel: ActionPanelRender?
     
@@ -420,9 +420,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.mining = true
             self.moveSprite(selectedRef, touchedSprite: self.townHall1)
             self.goldValue  += 100
-            print("before", self.menuPanel.goldLabel.text)
-            self.menuPanel.goldLabel.text = "\(self.goldValue)"
-            print("after", self.menuPanel.goldLabel.text)
+            print("before", menuPanel.goldLabel.text)
+            menuPanel.goldLabel.text = "\(self.goldValue)"
+            print("after", menuPanel.goldLabel.text)
             self.mining = false
         }
         selectedRef.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, mineLit, delay, mineUnlit, moveToTownHall, delay])))
@@ -441,7 +441,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.cutTree(lumber)
             self.moveSprite(selectedRef, touchedSprite: self.townHall1)
             self.lumberValue  += 100
-            self.menuPanel.woodLabel.text = "\(self.lumberValue)"
+            menuPanel.woodLabel.text = "\(self.lumberValue)"
             self.cutting = false
         }
         selected.runAction((SKAction.sequence([moveToTree, delay, moveToTownHall])))
