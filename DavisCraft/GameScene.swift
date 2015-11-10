@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var selected : SKNode!
     var previouslySelected: SKNode!
     var newBuilding : Building!
+    var newUnit : Unit!
     var buildMode = false
     var isMoving = false
     var didMove = false
@@ -319,7 +320,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let middleScene = CGPointMake(map.camera.position.x + self.frame.width/2, map.camera.position.y - self.frame.height/2)
         if (selected is Peasant) {
             print("Triple")
-            newBuilding = (selected as! Peasant).build("ScoutTower", location: middleScene)
+            newBuilding = (selected as! Peasant).build("Barracks", location: middleScene)
             newBuilding.zPosition = 6
             map.addChild(newBuilding)
             buildMode = true
@@ -383,6 +384,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 previouslySelected.removeAllChildren()
             }
             createPeasant()
+        }
+        
+        else if(selected is Barracks){
+            if(previouslySelected != nil){
+                previouslySelected.removeAllChildren()
+            }
+            newUnit = (selected as! Barracks).build("Footman")
+            map.addChild(newUnit)
+            
+            
         }
     
         
