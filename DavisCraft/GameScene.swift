@@ -34,6 +34,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lightOn = false
     
     var menuPanel: IconsRender!
+    var dpanel: DescLabelRender?
+    var apanel: ActionPanelRender?
     
 
     override func didMoveToView(view: SKView) {
@@ -343,9 +345,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         selected = touchedNode
         
         if(selected is Peasant){
+            print("selected is Peasant")
             print( (selected as! Peasant).HP)
+            self.dpanel?.labelPrint(selected)
+            self.apanel?.labelPrint(selected)
         }
-        
+       
         if(selected != previouslySelected && selected is Unit){
             if(previouslySelected != nil){
                 previouslySelected.removeAllChildren()

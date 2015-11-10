@@ -14,38 +14,40 @@
 		3F6FFCF41BC5F22A00DD4285 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */; };
 		3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */; };
 		3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */; };
+		49AD4FC71BF1F08600828961 /* ActionPanelRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */; };
+		49AD4FC91BF1F3BB00828961 /* DescPanelRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AD4FC81BF1F3BB00828961 /* DescPanelRender.swift */; };
 		49B279621BE6C75E003898D1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CB534A231BD7B11000823469 /* GameScene.sks */; };
 		49B279641BE6C9B5003898D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B279631BE6C9B5003898D1 /* MainViewController.swift */; };
 		49B279661BE6D0AA003898D1 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B279651BE6D0AA003898D1 /* Map.swift */; };
 		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
 		49E028BC1BE9895D0058B4B9 /* IconRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BB1BE9895D0058B4B9 /* IconRender.swift */; };
 		49E028BE1BE994520058B4B9 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BD1BE994520058B4B9 /* Building.swift */; };
-		4C1C87BB1BEC350A001CAF4C /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87BA1BEC350A001CAF4C /* Unit.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87BD1BEC65A9001CAF4C /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87BC1BEC65A9001CAF4C /* Tile.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87C11BEC6621001CAF4C /* Peasant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C01BEC6621001CAF4C /* Peasant.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87C51BEC66B6001CAF4C /* TownHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C41BEC66B6001CAF4C /* TownHall.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87C81BEC6B8F001CAF4C /* TileGrass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C71BEC6B8F001CAF4C /* TileGrass.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87CA1BEC6B95001CAF4C /* TileTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C91BEC6B95001CAF4C /* TileTree.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87CC1BEC6B9C001CAF4C /* TileRock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CB1BEC6B9C001CAF4C /* TileRock.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87CE1BEC6BB3001CAF4C /* TileWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CD1BEC6BB3001CAF4C /* TileWall.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87D01BEC6BBE001CAF4C /* TileWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CF1BEC6BBE001CAF4C /* TileWater.swift */; settings = {ASSET_TAGS = (); }; };
-		4C1C87D21BEC6F4C001CAF4C /* TileDirt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87D11BEC6F4C001CAF4C /* TileDirt.swift */; settings = {ASSET_TAGS = (); }; };
+		4C1C87BB1BEC350A001CAF4C /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87BA1BEC350A001CAF4C /* Unit.swift */; };
+		4C1C87BD1BEC65A9001CAF4C /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87BC1BEC65A9001CAF4C /* Tile.swift */; };
+		4C1C87C11BEC6621001CAF4C /* Peasant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C01BEC6621001CAF4C /* Peasant.swift */; };
+		4C1C87C51BEC66B6001CAF4C /* TownHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C41BEC66B6001CAF4C /* TownHall.swift */; };
+		4C1C87C81BEC6B8F001CAF4C /* TileGrass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C71BEC6B8F001CAF4C /* TileGrass.swift */; };
+		4C1C87CA1BEC6B95001CAF4C /* TileTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87C91BEC6B95001CAF4C /* TileTree.swift */; };
+		4C1C87CC1BEC6B9C001CAF4C /* TileRock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CB1BEC6B9C001CAF4C /* TileRock.swift */; };
+		4C1C87CE1BEC6BB3001CAF4C /* TileWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CD1BEC6BB3001CAF4C /* TileWall.swift */; };
+		4C1C87D01BEC6BBE001CAF4C /* TileWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87CF1BEC6BBE001CAF4C /* TileWater.swift */; };
+		4C1C87D21BEC6F4C001CAF4C /* TileDirt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87D11BEC6F4C001CAF4C /* TileDirt.swift */; };
 		4C3F91B11BE172520075ECB3 /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B01BE172520075ECB3 /* MapRender.swift */; };
 		4C3F91B31BE172570075ECB3 /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B21BE172570075ECB3 /* MapRenderer.swift */; };
 		4C3F91B51BE1727C0075ECB3 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 4C3F91B41BE1727C0075ECB3 /* data */; };
 		4C3F91B71BE172BE0075ECB3 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B61BE172BE0075ECB3 /* FileManager.swift */; };
-		4C985FAB1BEEB819005885ED /* Barracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FAA1BEEB819005885ED /* Barracks.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FAD1BEEB825005885ED /* BlackSmith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FAC1BEEB825005885ED /* BlackSmith.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FAF1BEEB837005885ED /* Castle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FAE1BEEB837005885ED /* Castle.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FB11BEEB83E005885ED /* Farm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB01BEEB83E005885ED /* Farm.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FB31BEEB857005885ED /* GuardTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB21BEEB857005885ED /* GuardTower.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FB51BEEB861005885ED /* Keep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB41BEEB861005885ED /* Keep.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FB71BEEB868005885ED /* LumberMill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB61BEEB868005885ED /* LumberMill.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FB91BEEB877005885ED /* ScoutTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB81BEEB877005885ED /* ScoutTower.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FBB1BEEB882005885ED /* Footman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FBA1BEEB882005885ED /* Footman.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FBD1BEEB8A4005885ED /* Ranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FBC1BEEB8A4005885ED /* Ranger.swift */; settings = {ASSET_TAGS = (); }; };
-		4C985FBF1BEEB8A9005885ED /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FBE1BEEB8A9005885ED /* Archer.swift */; settings = {ASSET_TAGS = (); }; };
-		4CA767501BED4717009C6AD9 /* GoldMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7674F1BED4717009C6AD9 /* GoldMine.swift */; settings = {ASSET_TAGS = (); }; };
+		4C985FAB1BEEB819005885ED /* Barracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FAA1BEEB819005885ED /* Barracks.swift */; };
+		4C985FAD1BEEB825005885ED /* BlackSmith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FAC1BEEB825005885ED /* BlackSmith.swift */; };
+		4C985FAF1BEEB837005885ED /* Castle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FAE1BEEB837005885ED /* Castle.swift */; };
+		4C985FB11BEEB83E005885ED /* Farm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB01BEEB83E005885ED /* Farm.swift */; };
+		4C985FB31BEEB857005885ED /* GuardTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB21BEEB857005885ED /* GuardTower.swift */; };
+		4C985FB51BEEB861005885ED /* Keep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB41BEEB861005885ED /* Keep.swift */; };
+		4C985FB71BEEB868005885ED /* LumberMill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB61BEEB868005885ED /* LumberMill.swift */; };
+		4C985FB91BEEB877005885ED /* ScoutTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FB81BEEB877005885ED /* ScoutTower.swift */; };
+		4C985FBB1BEEB882005885ED /* Footman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FBA1BEEB882005885ED /* Footman.swift */; };
+		4C985FBD1BEEB8A4005885ED /* Ranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FBC1BEEB8A4005885ED /* Ranger.swift */; };
+		4C985FBF1BEEB8A9005885ED /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FBE1BEEB8A9005885ED /* Archer.swift */; };
+		4CA767501BED4717009C6AD9 /* GoldMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7674F1BED4717009C6AD9 /* GoldMine.swift */; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
 		4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; };
@@ -74,6 +76,8 @@
 		3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPanelRenderer.swift; sourceTree = "<group>"; };
+		49AD4FC81BF1F3BB00828961 /* DescPanelRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescPanelRender.swift; sourceTree = "<group>"; };
 		49B279631BE6C9B5003898D1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		49B279651BE6D0AA003898D1 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 		CBEF61A81BBF98C10043B54D = {
 			isa = PBXGroup;
 			children = (
+				49AD4FC81BF1F3BB00828961 /* DescPanelRender.swift */,
 				CBEF61B31BBF98C10043B54D /* DavisCraft */,
 				CBEF61CD1BBF98C20043B54D /* DavisCraftTests */,
 				CBEF61B21BBF98C10043B54D /* Products */,
@@ -246,6 +251,7 @@
 				4C3F91B01BE172520075ECB3 /* MapRender.swift */,
 				4C3F91B21BE172570075ECB3 /* MapRenderer.swift */,
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
+				49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */,
 				49E010801BCBB601008CB09E /* TileController.swift */,
 				49E028BB1BE9895D0058B4B9 /* IconRender.swift */,
 				49B279651BE6D0AA003898D1 /* Map.swift */,
@@ -379,7 +385,6 @@
 				49B279621BE6C75E003898D1 /* GameScene.sks in Resources */,
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
 				4C3F91B51BE1727C0075ECB3 /* data in Resources */,
-				97E3E0531BE57F7900BF4DB2 /* ButtonCool.png in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
 			);
@@ -404,6 +409,7 @@
 				4C3F91B11BE172520075ECB3 /* MapRender.swift in Sources */,
 				4C1C87CC1BEC6B9C001CAF4C /* TileRock.swift in Sources */,
 				3F6FFCF41BC5F22A00DD4285 /* GameViewController.swift in Sources */,
+				49AD4FC71BF1F08600828961 /* ActionPanelRenderer.swift in Sources */,
 				BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */,
 				49B279661BE6D0AA003898D1 /* Map.swift in Sources */,
 				4C1C87CA1BEC6B95001CAF4C /* TileTree.swift in Sources */,
@@ -425,6 +431,7 @@
 				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
 				4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */,
 				4C1C87C81BEC6B8F001CAF4C /* TileGrass.swift in Sources */,
+				49AD4FC91BF1F3BB00828961 /* DescPanelRender.swift in Sources */,
 				4C1C87BB1BEC350A001CAF4C /* Unit.swift in Sources */,
 				4C1C87BD1BEC65A9001CAF4C /* Tile.swift in Sources */,
 				49E028BE1BE994520058B4B9 /* Building.swift in Sources */,
