@@ -12,6 +12,8 @@ import SpriteKit
 let TILE_WIDTH = CGFloat(32)
 let TILE_HEIGHT = CGFloat(32)
 
+
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var didSelect: Bool?
     let map = Map() //SKNode
@@ -32,7 +34,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var mining = false
     var cutting = false
     var lightOn = false
-    
     var menuPanel: IconsRender!
     
 
@@ -171,8 +172,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func constrainCameraPosition(var newCameraPosition: CGPoint) {
-        if newCameraPosition.x < 0 {
-            newCameraPosition.x = 0
+        print("New cam pos:", newCameraPosition)
+
+        if newCameraPosition.x < -scene!.view!.bounds.size.width/4 {
+            newCameraPosition.x = -scene!.view!.bounds.size.width/4
         } else if newCameraPosition.x > ((CGFloat(width)) * TILE_WIDTH - frame.size.width) {
             newCameraPosition.x = ((CGFloat(width)) * TILE_WIDTH - frame.size.width)
         }
