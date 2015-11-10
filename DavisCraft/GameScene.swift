@@ -12,6 +12,8 @@ import SpriteKit
 let TILE_WIDTH = CGFloat(32)
 let TILE_HEIGHT = CGFloat(32)
 
+
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var didSelect: Bool?
     let map = Map() //SKNode
@@ -26,7 +28,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
-    let tile = TileController()
     var townHall1 = TownHall(location: CGPointMake(2800, -1800))
     var timer: NSTimer?
     var goldValue: Int = 10000
@@ -34,15 +35,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var mining = false
     var cutting = false
     var lightOn = false
+//    var menuPanel: IconsRender!
+    var dpanel: DescLabelRender?
+    var apanel: ActionPanelRender?
     
 
     override func didMoveToView(view: SKView) {
+        
+        //let fullWidth = scene!.view!.bounds.size.width
+        //let fullHeight = scene!.view!.bounds.size.height
+
+        // SIDEPANEL
+        // Add Minimap:
+//        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 6, fullHeight / 3 - 22), x_min: 2500, y_min: 1600, width: scene!.view!.frame.width, height: scene!.view!.frame.height)
+//        var sidePanel: UIView!
+//        sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
+//        sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
+//        sidePanel.addSubview(miniMap)
+//        scene!.view!.addSubview(sidePanel)
+        
+        //        var goldValue: Int = 10000
+        //        var lumberValue: Int = 10000
+        
+        //MENUPANEL by Javi
+//        menuPanel = IconsRender()
+//        menuPanel.frame = CGRectMake(fullWidth / 4, 0, fullWidth, fullHeight / 20)
+//        menuPanel.drawMIcon(2, xDir: 50 , yDir: 2)
+//        menuPanel.drawMIcon(3, xDir: 200, yDir: 2)
+//        menuPanel.drawMIcon(4, xDir: 350, yDir: 2)
+//        menuPanel.drawGoldLabel(55, yDir: 5, width: 50, height: 10, text: "\(goldValue)", size: 8)
+//        menuPanel.drawWoodLabel(205, yDir: 5, width: 50, height: 10, text: "\(lumberValue)", size: 8)
+//        let menuB = UIImageView(image: UIImage(named: "MenuButton.png"))
+//        // let  buttonImg = UIImageView(image: UIImage(named: "MenuButton.png"))
+//        // let menuB = UIButton(frame: CGRect(x: sidePanel.bounds.size.width / 4 - 2, y: 1, width: buttonImg.bounds.size.width, height: buttonImg.bounds.size.height))
+//        // menuB.imageView!.image = buttonImg.image
+//        //           let humanMove = UIImageView(image: UIImage(CGImage: iDictionary![iNames[85]]!))
+//        //        self.addSubview(button)
+////        menuB.frame = CGRectMake(sidePanel.bounds.size.width / 4 - 2, 1, menuB.bounds.size.width, menuB.bounds.size.height)
+//        menuPanel.addSubview(menuB)
+//        //menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
+//        menuPanel.backgroundColor = UIColor(red: 69/255, green: 47/255, blue: 21/255, alpha: 1.0)
+//        scene!.view!.addSubview(menuPanel)
+
         self.physicsWorld.contactDelegate = self
         anchorPoint = CGPointMake(0,1)
         addChild(map)
+        
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
+        
         //tile.viewDidLoad()
         map.addChild(townHall1)
         self.physicsWorld.gravity = CGVectorMake(0,0)
@@ -69,6 +111,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapRec.requireGestureRecognizerToFail(tripleTapRec)
         doubleTapRec.requireGestureRecognizerToFail(tripleTapRec)
         constrainCameraPosition(convertPoint(townHall1.position, toNode:map))
+        
+        
+        
         
         self.setTimer()
     }
@@ -131,8 +176,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func constrainCameraPosition(var newCameraPosition: CGPoint) {
-        if newCameraPosition.x < 0 {
-            newCameraPosition.x = 0
+        print("New cam pos:", newCameraPosition)
+
+        if newCameraPosition.x < -scene!.view!.bounds.size.width/4 {
+            newCameraPosition.x = -scene!.view!.bounds.size.width/4
         } else if newCameraPosition.x > ((CGFloat(width)) * TILE_WIDTH - frame.size.width) {
             newCameraPosition.x = ((CGFloat(width)) * TILE_WIDTH - frame.size.width)
         }
@@ -232,19 +279,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         return texture
     }
-    func doubleTouch(recognizer:UITapGestureRecognizer) {
-//        self.createPeasant()
-
-            if didSelect == false{
-                self.view!.addSubview(tile)
-                self.didSelect = true
-            }
-            else{
-                tile.removeFromSuperview()
-                self.didSelect = false
-            }
-
-    }
     
     func doubleTap(recognizer:UITapGestureRecognizer) {
         if (buildMode) {
@@ -283,7 +317,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         let viewTouchLocation = recognizer.locationInView((self.view))
-        let sceneTouchLocation = self.convertPointFromView(viewTouchLocation)
         let middleScene = CGPointMake(map.camera.position.x + self.frame.width/2, map.camera.position.y - self.frame.height/2)
         if (selected is Peasant) {
             print("Triple")
@@ -315,17 +348,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("assigned selected")
         previouslySelected = selected
         selected = touchedNode
-        
-        if(selected is Peasant){
-            print( (selected as! Peasant).HP)
-        }
-        
+        self.dpanel?.labelPrint(selected)
+        self.apanel?.labelPrint(selected)
+//        if(selected is Peasant){
+//            print("selected is Peasant")
+//            print( (selected as! Peasant).HP)
+//            self.dpanel?.labelPrint(selected)
+//            self.apanel?.labelPrint(selected)
+//        }
+       
         if(selected != previouslySelected && selected is Unit){
             if(previouslySelected != nil){
                 previouslySelected.removeAllChildren()
             }
             if(selected != previouslySelected && selected is Peasant){
                 Sound.playEffect("selected1.wav", subdirectory: "peasant")
+                
+                
             }
         }
         else if(selected != previouslySelected && selected is Tile){
@@ -392,7 +431,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.mining = true
             self.moveSprite(selectedRef, touchedSprite: self.townHall1)
             self.goldValue  += 100
-            self.tile.menuPanel.goldLabel.text = "\(self.goldValue)"
+            print("before", menuPanel.goldLabel.text)
+            menuPanel.goldLabel.text = "\(self.goldValue)"
+            print("after", menuPanel.goldLabel.text)
             self.mining = false
         }
         selectedRef.runAction(SKAction.repeatActionForever(SKAction.sequence([moveToGoldMine, mineLit, delay, mineUnlit, moveToTownHall, delay])))
@@ -411,7 +452,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.cutTree(lumber)
             self.moveSprite(selectedRef, touchedSprite: self.townHall1)
             self.lumberValue  += 100
-            self.tile.menuPanel.woodLabel.text = "\(self.lumberValue)"
+            menuPanel.woodLabel.text = "\(self.lumberValue)"
             self.cutting = false
         }
         selected.runAction((SKAction.sequence([moveToTree, delay, moveToTownHall])))
@@ -595,5 +636,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func setTimer(){
         self.timer = NSTimer(timeInterval: 5, target: self.view!, selector: "loading", userInfo: nil, repeats: false)
     }
+    func setDescPanelRender(panel: DescLabelRender) {
+        self.dpanel = panel
+    }
     
+    func setActionPanelRender(panel: ActionPanelRender) {
+        self.apanel = panel
+    }
 }

@@ -141,6 +141,17 @@ class IconsRender: UIView {
         self.addSubview(humanArmor1)
     }
     
+    func drawHPBar (xDir: CGFloat, yDir: CGFloat, width: CGFloat, height: CGFloat){
+        let hpBar: UIImageView = UIImageView(frame: CGRectMake(xDir, yDir, width, height))
+        hpBar.backgroundColor = UIColor.greenColor()
+        self.addSubview(hpBar)
+    }
+    
+    func removeCurPanel(){
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+    }
     
 }
 
