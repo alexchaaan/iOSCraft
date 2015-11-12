@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         var skView: SKView!
-        
+        var miniMapView: SKView!
         
         var selected: Bool?
         
@@ -47,14 +47,19 @@ class MainViewController: UIViewController {
         
         // SIDEPANEL
         // Add Minimap:
-        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 6, fullHeight / 3 - 22), x_min: 2500, y_min: 1600, width: skView.frame.width, height: skView.frame.height)
         var sidePanel: UIView!
         sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
         sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
-        //sidePanel.addSubview(miniMap)
+        // Create miniMapScene
+        let miniMapScene = MiniMapScene(size: CGSizeMake(fullWidth / 4 - 7, fullHeight / 3 - 22))
+        miniMapView = SKView(frame:CGRectMake(5, fullHeight / 20 + 25, miniMapScene.size.width, miniMapScene.size.height))
+        miniMapView.showsFPS = false
+        miniMapView.showsNodeCount = false
+        miniMapScene.scaleMode = .Fill
+        miniMapView.presentScene(miniMapScene)
+        sidePanel.addSubview(miniMapView)
+        
         self.view.addSubview(sidePanel)
-        
-        
         
         //MENUPANEL by Javi
 //        let menuPanel = IconsRender()
@@ -76,8 +81,9 @@ class MainViewController: UIViewController {
         menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         self.view.addSubview(menuPanel)
         
-        let miniHeight = miniMap.bounds.size.height
-        let miniWidth = miniMap.bounds.size.width
+        /*
+        let miniHeight = miniMapView.bounds.size.height
+        let miniWidth = miniMapView.bounds.size.width
         
         let descPanel = DescLabelRender()
         descPanel.frame = CGRectMake(1, miniHeight * 1.5, miniWidth, miniHeight/1.1)
@@ -93,6 +99,7 @@ class MainViewController: UIViewController {
         scene?.setActionPanelRender(actionPanel)
         
         view.addSubview(actionPanel)
+        */
         
     }
     
