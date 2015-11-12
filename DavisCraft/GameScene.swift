@@ -79,6 +79,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         self.physicsWorld.contactDelegate = self
         anchorPoint = CGPointMake(0,1)
+        
+        let default_width = self.size.width
+        let default_height = self.size.height
+        self.size = CGSizeMake(default_width * 3 / 4, default_height * 19 / 20)
         addChild(map)
         
         let mapRender = MapRender()
