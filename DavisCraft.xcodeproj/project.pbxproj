@@ -50,7 +50,7 @@
 		4CA767501BED4717009C6AD9 /* GoldMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7674F1BED4717009C6AD9 /* GoldMine.swift */; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; };
-		CA949F081BF42D320065FAD3 /* MiniMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA949F071BF42D320065FAD3 /* MiniMap.swift */; };
+		CA7C1F951BF444F500B8EFD5 /* MiniMapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */; };
 		CB534A181BD44B9600823469 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB534A171BD44B9600823469 /* Sound.swift */; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
 		CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61BA1BBF98C10043B54D /* GameScene.swift */; };
@@ -112,7 +112,7 @@
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
 		97E3E0521BE57F7900BF4DB2 /* ButtonCool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonCool.png; sourceTree = "<group>"; };
 		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
-		CA949F071BF42D320065FAD3 /* MiniMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMap.swift; sourceTree = "<group>"; };
+		CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapScene.swift; sourceTree = "<group>"; };
 		CB534A171BD44B9600823469 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		CB534A231BD7B11000823469 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CBEF61B11BBF98C10043B54D /* DavisCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavisCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,9 +253,9 @@
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
 				49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */,
 				49E010801BCBB601008CB09E /* TileController.swift */,
+				CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */,
 				49E028BB1BE9895D0058B4B9 /* IconRender.swift */,
 				49B279651BE6D0AA003898D1 /* Map.swift */,
-				CA949F071BF42D320065FAD3 /* MiniMap.swift */,
 				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
 				4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */,
 				3F6FFCEB1BC5F1F400DD4285 /* SinglePlayerGame.swift */,
@@ -415,13 +415,13 @@
 				4C1C87CA1BEC6B95001CAF4C /* TileTree.swift in Sources */,
 				CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */,
 				4C985FB31BEEB857005885ED /* GuardTower.swift in Sources */,
-				CA949F081BF42D320065FAD3 /* MiniMap.swift in Sources */,
 				4C3F91B31BE172570075ECB3 /* MapRenderer.swift in Sources */,
 				4C985FBB1BEEB882005885ED /* Footman.swift in Sources */,
 				4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */,
 				4C1C87CE1BEC6BB3001CAF4C /* TileWall.swift in Sources */,
 				4C1C87D21BEC6F4C001CAF4C /* TileDirt.swift in Sources */,
 				4C985FB51BEEB861005885ED /* Keep.swift in Sources */,
+				CA7C1F951BF444F500B8EFD5 /* MiniMapScene.swift in Sources */,
 				4C985FAD1BEEB825005885ED /* BlackSmith.swift in Sources */,
 				49E028BC1BE9895D0058B4B9 /* IconRender.swift in Sources */,
 				49B279641BE6C9B5003898D1 /* MainViewController.swift in Sources */,

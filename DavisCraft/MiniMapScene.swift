@@ -13,21 +13,17 @@ class MiniMapScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         anchorPoint = CGPointMake(0, 1)
-        
-        let default_width = self.size.width
-        let default_height = self.size.height
-        self.size = CGSizeMake(default_width / 4, default_height * 19 / 20)
         // Read the map data from file
         let (map,width,height) = readMap()
         
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
-        let step: CGFloat = 1.8
+        let step: CGFloat = 1.85
         // Draw mini-map
         for i in 3 ..< (height + 3){
             var mapLine = Array(map[i].characters)
             for j in 1..<width + 1{
-                let location = CGPointMake(x / 2.1, -y * step)
+                let location = CGPointMake(x, -y)
                 var elementColor: SKColor!
                 switch mapLine[j] {
                 case "G":
@@ -55,16 +51,16 @@ class MiniMapScene: SKScene {
                     elementColor = SKColor(red: 0.3, green: 0.8, blue: 0.3, alpha: 0.8)
                     break
                 }
-
-                    let node = SKSpriteNode(texture: nil, color: elementColor, size: CGSizeMake(1, step))
-                    node.position = location
-                    self.addChild(node)
-                x += 1
+                
+                let node = SKSpriteNode(texture: nil, color: elementColor, size: CGSizeMake(step, step))
+                node.position = location
+                self.addChild(node)
+                x += step
             }
-            y += 1
-            x = 0
+            y += step
+            x = 0.0
         }
-    
+        
     }
     
     func readMap() -> (Array<String>, Int, Int){
