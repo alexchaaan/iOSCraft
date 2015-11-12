@@ -51,8 +51,9 @@ class MainViewController: UIViewController {
         var sidePanel: UIView!
         sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
         sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
-        sidePanel.addSubview(miniMap)
+        //sidePanel.addSubview(miniMap)
         self.view.addSubview(sidePanel)
+        
         
         
         //MENUPANEL by Javi

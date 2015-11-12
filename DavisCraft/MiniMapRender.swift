@@ -8,7 +8,7 @@
 
 import UIKit
 import SpriteKit
-class MiniMapRender: UIView {
+class MiniMapRender: SKView {
     //each map tile is 32x32
     let bundle = NSBundle.mainBundle()
     var x: CGFloat = 0
