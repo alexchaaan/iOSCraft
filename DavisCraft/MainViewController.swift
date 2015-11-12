@@ -52,7 +52,10 @@ class MainViewController: UIViewController {
         sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         // Create miniMapScene
         let miniMapScene = MiniMapScene(size: CGSizeMake(fullWidth / 4 - 7, fullHeight / 3 - 22))
-        miniMapView = SKView(frame:CGRectMake(5, fullHeight / 20 + 25, miniMapScene.size.width, miniMapScene.size.height))
+        let miniWidth = miniMapScene.size.width
+        let miniHeight = miniMapScene.size.height
+        
+        miniMapView = SKView(frame:CGRectMake(5, fullHeight / 20 + 25, miniWidth, miniHeight))
         miniMapView.showsFPS = false
         miniMapView.showsNodeCount = false
         miniMapScene.scaleMode = .Fill
@@ -81,10 +84,6 @@ class MainViewController: UIViewController {
         menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         self.view.addSubview(menuPanel)
         
-        /*
-        let miniHeight = miniMapView.bounds.size.height
-        let miniWidth = miniMapView.bounds.size.width
-        
         let descPanel = DescLabelRender()
         descPanel.frame = CGRectMake(1, miniHeight * 1.5, miniWidth, miniHeight/1.1)
         
@@ -99,7 +98,7 @@ class MainViewController: UIViewController {
         scene?.setActionPanelRender(actionPanel)
         
         view.addSubview(actionPanel)
-        */
+        
         
     }
     
