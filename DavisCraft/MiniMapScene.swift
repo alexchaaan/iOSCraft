@@ -11,6 +11,12 @@ import SpriteKit
 
 class MiniMapScene: SKScene {
     
+    var leftLine: SKSpriteNode!
+    var topLine: SKSpriteNode!
+    var rightLine: SKSpriteNode!
+    var bottomLine: SKSpriteNode!
+    var hasViewport: Bool = false
+    
     override func didMoveToView(view: SKView) {
         anchorPoint = CGPointMake(0, 1)
         // Read the map data from file
@@ -56,11 +62,13 @@ class MiniMapScene: SKScene {
                 node.position = location
                 self.addChild(node)
                 x += step
-            }
+            }   // for j
             y += step
             x = 0.0
-        }
+        }   // for i
         
+        drawViewPort(100, y_pos: -100)
+        hasViewport = true
     }
     
     func readMap() -> (Array<String>, Int, Int){
@@ -73,6 +81,40 @@ class MiniMapScene: SKScene {
         let mapWidth = Int(mapDimension[0])!
         let mapHeight = Int(mapDimension[1])!
         return (mapInfo, mapWidth, mapHeight)
+    }
+    
+    func drawViewPort(x_pos: CGFloat, y_pos: CGFloat) {
+        let ratio_x = MainViewController.miniMapWidth / 3000
+        let ratio_y = MainViewController.miniMapHeight / 2000
+        let x_min = x_pos - (MainViewController.gameWidth * ratio_x / 2)
+        let x_max = x_pos + (MainViewController.gameWidth * ratio_x / 2)
+        let y_min = y_pos - (MainViewController.gameHeight * ratio_y / 2)
+        let y_max = y_pos + (MainViewController.gameHeight * ratio_y / 2)
+        if hasViewport {
+            leftLine.removeFromParent()
+            topLine.removeFromParent()
+            rightLine.removeFromParent()
+            bottomLine.removeFromParent()
+        }
+        leftLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(1, y_max - y_min))
+        topLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(x_max - x_min, 1))
+        rightLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(1, y_max - y_min))
+        bottomLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(x_max - x_min, 1))
+        leftLine.position = CGPointMake(x_min, y_max - (MainViewController.gameHeight * ratio_y / 2))
+        topLine.position = CGPointMake(x_min + (MainViewController.gameWidth * ratio_x / 2), y_max)
+        rightLine.position = CGPointMake(x_max, y_max - (MainViewController.gameHeight * ratio_y / 2))
+        bottomLine.position = CGPointMake(x_min + (MainViewController.gameWidth * ratio_x / 2), y_min)
+        self.addChild(leftLine)
+        self.addChild(topLine)
+        self.addChild(rightLine)
+        self.addChild(bottomLine)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let location = touches.first!.locationInNode(self)
+        
+        drawViewPort(location.x, y_pos: location.y)
+        
     }
     
 }
