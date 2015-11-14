@@ -11,6 +11,11 @@ import SpriteKit
 let menuPanel = IconsRender()
 class MainViewController: UIViewController {
     
+    static var miniMapWidth: CGFloat! = 0
+    static var miniMapHeight: CGFloat! = 0
+    static var gameWidth: CGFloat! = 0
+    static var gameHeight: CGFloat! = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,11 +28,20 @@ class MainViewController: UIViewController {
         
         let fullWidth = self.view.bounds.size.width
         let fullHeight = self.view.bounds.size.height
+        
+        // SIDEPANEL
+        // Add Minimap:
+        var sidePanel: UIView!
+        sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
+        sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
+        // Add GameScene:
         let scene = GameScene(fileNamed: "GameScene")
         self.view.backgroundColor = UIColor.blackColor()
         /* Create and Add the skView as a subview of the UI (Charles) */
         if scene != nil {// Configure the view.
-            skView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
+            MainViewController.gameWidth = fullWidth * 3 / 4
+            MainViewController.gameHeight = fullHeight * 19 / 20
+            skView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight * 19 / 20))
             
             skView.showsFPS = true
             skView.showsNodeCount = true
@@ -45,17 +59,13 @@ class MainViewController: UIViewController {
             print("GameScene initialization failed.")
         }
         
-        // SIDEPANEL
-        // Add Minimap:
-        var sidePanel: UIView!
-        sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
-        sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
+        
         // Create miniMapScene
         let miniMapScene = MiniMapScene(size: CGSizeMake(fullWidth / 4 - 7, fullHeight / 3 - 22))
-        let miniWidth = miniMapScene.size.width
-        let miniHeight = miniMapScene.size.height
+        MainViewController.miniMapWidth = miniMapScene.size.width
+        MainViewController.miniMapHeight = miniMapScene.size.height
         
-        miniMapView = SKView(frame:CGRectMake(5, fullHeight / 20 + 25, miniWidth, miniHeight))
+        miniMapView = SKView(frame:CGRectMake(5, fullHeight / 20 + 25, MainViewController.miniMapWidth, MainViewController.miniMapHeight))
         miniMapView.showsFPS = false
         miniMapView.showsNodeCount = false
         miniMapScene.scaleMode = .Fill
@@ -85,14 +95,14 @@ class MainViewController: UIViewController {
         self.view.addSubview(menuPanel)
         
         let descPanel = DescLabelRender()
-        descPanel.frame = CGRectMake(1, miniHeight * 1.5, miniWidth, miniHeight/1.1)
+        descPanel.frame = CGRectMake(1, MainViewController.miniMapHeight * 1.5, MainViewController.miniMapWidth, MainViewController.miniMapHeight/1.1)
         
         self.view.addSubview(descPanel)
         scene?.setDescPanelRender(descPanel)
         
         
         let actionPanel = ActionPanelRender()
-        actionPanel.frame = CGRectMake(1, (miniHeight * 2.5), miniWidth/0.95, miniHeight / 0.8)
+        actionPanel.frame = CGRectMake(1, (MainViewController.miniMapHeight * 2.5), MainViewController.miniMapWidth/0.95, MainViewController.miniMapHeight / 0.8)
         
         self.view.addSubview(actionPanel)
         scene?.setActionPanelRender(actionPanel)
@@ -111,4 +121,6 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+    
+    
 }
