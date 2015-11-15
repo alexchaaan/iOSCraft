@@ -49,6 +49,9 @@
 		4C985FBF1BEEB8A9005885ED /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FBE1BEEB8A9005885ED /* Archer.swift */; };
 		4CA767501BED4717009C6AD9 /* GoldMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7674F1BED4717009C6AD9 /* GoldMine.swift */; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
+		4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */; };
+		97B8BD031BF7EDED00F3A02C /* Border.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B8BD021BF7EDED00F3A02C /* Border.png */; settings = {ASSET_TAGS = (); }; };
+		97B8BD051BF7EDFC00F3A02C /* MenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B8BD041BF7EDFC00F3A02C /* MenuButton.png */; settings = {ASSET_TAGS = (); }; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; };
 		CA7C1F951BF444F500B8EFD5 /* MiniMapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */; };
 		CB534A181BD44B9600823469 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB534A171BD44B9600823469 /* Sound.swift */; };
@@ -110,6 +113,9 @@
 		4C985FBE1BEEB8A9005885ED /* Archer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archer.swift; sourceTree = "<group>"; };
 		4CA7674F1BED4717009C6AD9 /* GoldMine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldMine.swift; sourceTree = "<group>"; };
 		4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPlayerPool.swift; sourceTree = "<group>"; };
+		4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapRender.swift; sourceTree = "<group>"; };
+		97B8BD021BF7EDED00F3A02C /* Border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Border.png; sourceTree = "<group>"; };
+		97B8BD041BF7EDFC00F3A02C /* MenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuButton.png; sourceTree = "<group>"; };
 		97E3E0521BE57F7900BF4DB2 /* ButtonCool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonCool.png; sourceTree = "<group>"; };
 		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
 		CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapScene.swift; sourceTree = "<group>"; };
@@ -251,10 +257,12 @@
 				4C3F91B01BE172520075ECB3 /* MapRender.swift */,
 				4C3F91B21BE172570075ECB3 /* MapRenderer.swift */,
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
+				97B8BD021BF7EDED00F3A02C /* Border.png */,
 				49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */,
 				49E010801BCBB601008CB09E /* TileController.swift */,
 				CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */,
 				49E028BB1BE9895D0058B4B9 /* IconRender.swift */,
+				97B8BD041BF7EDFC00F3A02C /* MenuButton.png */,
 				49B279651BE6D0AA003898D1 /* Map.swift */,
 				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
 				4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */,
@@ -385,8 +393,10 @@
 				49B279621BE6C75E003898D1 /* GameScene.sks in Resources */,
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
 				4C3F91B51BE1727C0075ECB3 /* data in Resources */,
+				97B8BD051BF7EDFC00F3A02C /* MenuButton.png in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
+				97B8BD031BF7EDED00F3A02C /* Border.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
