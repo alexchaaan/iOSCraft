@@ -50,7 +50,7 @@ class MapRender/*: UIView*/ {
         
     }
     
-    /*override*/ func drawRect(view: SKNode) {
+    func drawRect(view: SKNode) {
         let a = MapRenderer()
         var (tileDictionary,tileNames ) = readTerrain()
         let (map,width,height) = readMap()
@@ -62,39 +62,30 @@ class MapRender/*: UIView*/ {
                 for j in 1..<width + 1{
                     let location = CGPointMake(CGFloat(x), CGFloat(y))
                     var typeIndex = -1
-                    var typeName = String()
                     let tile: Tile
                     switch mapLine[j] {
                         case "G":
                             typeIndex = a.getTileType(j, y: i, curTile: "G", pass: pass)
-                            typeName = "grass"
                             tile = TileGrass(location: location)
                         case "F":
                             typeIndex = a.getTileType(j, y: i, curTile: "F", pass: pass)
-                            typeName = "tree"
                             tile = TileTree(location: location)
                         case "R":
                             typeIndex = a.getTileType(j, y: i, curTile: "R", pass: pass)
-                            typeName = "rock"
                             tile = TileRock(location: location)
                         case "D":
                             typeIndex = a.getTileType(j, y: i, curTile: "D", pass: pass)
-                            typeName = "dirt"
                             tile = TileDirt(location: location)
                         case "W":
                             typeIndex = a.getTileType(j, y: i, curTile: "W", pass: pass)
-                            typeName = "wall"
                             tile = TileWall(location: location)
                         case "w":
                             typeIndex = a.getTileType(j, y: i, curTile: "w", pass: pass)
-                            typeName = "wall-damaged"
                             tile = TileWall(location: location)
                         case " ":
                             typeIndex = a.getTileType(j, y: i, curTile: " ", pass: pass)
-                            typeName = "water"
                             tile = TileWater(location: location)
                         default:
-                            typeName = "error"
                             tile = TileGrass(location: location)
                             break
                     }
@@ -137,14 +128,8 @@ class MapRender/*: UIView*/ {
             let goldmine = GoldMine(location: placement)
             view.addChild(goldmine)
         case "Peasant":
-//<<<<<<< HEAD
-//            image = UIImage(named: "data/png/Peasant.png")!
-//            index = 172
-//            placement = CGPointMake(placement.x + 100, placement.y + 30)
-//=======
             let peasant = Peasant(location: placement)
             view.addChild(peasant)
-//>>>>>>> origin/TreesAndGold
         case "TownHall":
             let townhall = TownHall(location: placement)
             view.addChild(townhall)
