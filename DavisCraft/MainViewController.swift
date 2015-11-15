@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
         miniMapScene = MiniMapScene(size: CGSizeMake(fullWidth / 4 - 7, fullHeight / 3 - 22))
         MainViewController.miniMapWidth = miniMapScene.size.width
         MainViewController.miniMapHeight = miniMapScene.size.height
-        
+        print("minimapView Width = \(MainViewController.miniMapWidth), Height = \(MainViewController.miniMapHeight)")
         miniMapView = SKView(frame:CGRectMake(5, fullHeight / 20 + 25, MainViewController.miniMapWidth, MainViewController.miniMapHeight))
         miniMapView.showsFPS = false
         miniMapView.showsNodeCount = false
@@ -138,7 +138,9 @@ class MainViewController: UIViewController {
                 let mapCameraPositionInScene = gameScene.convertPoint(GameScene.map.camera.position, toNode: gameScene)
                 let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
                 gameScene.constrainCameraPosition(newCameraPosition)
-                miniMapScene.updateViewPort((newCameraPosition.x + MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, y_pos: (newCameraPosition.y - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
+                var miniMapPosition = CGPointMake((newCameraPosition.x + MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, (newCameraPosition.y - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
+                miniMapScene.confineViewPort(&miniMapPosition)
+                miniMapScene.updateViewPort(miniMapPosition.x, y_pos: miniMapPosition.y)
                 GameScene.lastTouchPosition = newTouchPosition
             }
             else {
@@ -154,22 +156,7 @@ class MainViewController: UIViewController {
         let newEndPosition = touches.first!.locationInNode(gameScene)
         if isInside(locMinimap, x_max: MainViewController.miniMapWidth, y_max: MainViewController.miniMapHeight, refl: true) {
             // Constrain the position of viewport:
-            let leftB = MainViewController.gameWidth / 2 * MiniMapScene.ratio_x
-            let topB = -MainViewController.gameHeight / 2 * MiniMapScene.ratio_y
-            let rightB = MainViewController.miniMapWidth - leftB
-            let bottomB = -MainViewController.miniMapHeight - topB
-            if (locMinimap.x < leftB) {
-                locMinimap.x = leftB
-            }
-            else if (locMinimap.x > rightB) {
-                locMinimap.x = rightB
-            }
-            if (locMinimap.y < bottomB) {
-                locMinimap.y = bottomB
-            }
-            else if (locMinimap.y > topB) {
-                locMinimap.y = topB
-            }
+            miniMapScene.confineViewPort(&locMinimap)
             miniMapScene.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
             let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
             gameScene.constrainCameraPosition(gamePosition)

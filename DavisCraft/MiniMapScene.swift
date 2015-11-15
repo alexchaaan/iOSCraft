@@ -20,6 +20,9 @@ class MiniMapScene: SKScene {
     static var ratio_x: CGFloat = 1
     static var ratio_y: CGFloat = 1
     
+    let realMapWidth: CGFloat = 2852    // Comes from runtime measuring - need to be improved
+    let realMapHeight: CGFloat = 1693
+    
     override func didMoveToView(view: SKView) {
         anchorPoint = CGPointMake(0, 1)
         // Read the map data from file
@@ -67,13 +70,15 @@ class MiniMapScene: SKScene {
                 x += step
             }   // for j
             y += step
-            x = 0.0
+            if i < height + 2 {
+                x = 0.0
+            }
         }   // for i
         
         // Initialize viewport
-        MiniMapScene.ratio_x = MainViewController.miniMapWidth / 3072
-        MiniMapScene.ratio_y = MainViewController.miniMapHeight / 2048
-        updateViewPort( (3072 - MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, y_pos: -(2048 - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
+        MiniMapScene.ratio_x = MainViewController.miniMapWidth / realMapWidth
+        MiniMapScene.ratio_y = MainViewController.miniMapHeight / realMapHeight
+        updateViewPort( (realMapWidth - MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, y_pos: -(realMapHeight - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
         hasViewport = true
     }
     
@@ -112,6 +117,25 @@ class MiniMapScene: SKScene {
         self.addChild(topLine)
         self.addChild(rightLine)
         self.addChild(bottomLine)
+    }
+    
+    func confineViewPort(inout point: CGPoint) {
+        let leftB = MainViewController.gameWidth / 2 * MiniMapScene.ratio_x
+        let topB = -MainViewController.gameHeight / 2 * MiniMapScene.ratio_y
+        let rightB = MainViewController.miniMapWidth - leftB
+        let bottomB = -MainViewController.miniMapHeight - topB
+        if (point.x < leftB) {
+            point.x = leftB
+        }
+        else if (point.x > rightB) {
+            point.x = rightB
+        }
+        if (point.y < bottomB) {
+            point.y = bottomB
+        }
+        else if (point.y > topB) {
+            point.y = topB
+        }
     }
     
     
