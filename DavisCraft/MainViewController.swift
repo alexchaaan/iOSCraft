@@ -150,10 +150,26 @@ class MainViewController: UIViewController {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let locMinimap = touches.first!.locationInNode(miniMapScene)
+        var locMinimap = touches.first!.locationInNode(miniMapScene)
         let newEndPosition = touches.first!.locationInNode(gameScene)
         if isInside(locMinimap, x_max: MainViewController.miniMapWidth, y_max: MainViewController.miniMapHeight, refl: true) {
-            print("get MainView: x = \(locMinimap.x), y = \(locMinimap.y)")
+            // Constrain the position of viewport:
+            let leftB = MainViewController.gameWidth / 2 * MiniMapScene.ratio_x
+            let topB = -MainViewController.gameHeight / 2 * MiniMapScene.ratio_y
+            let rightB = MainViewController.miniMapWidth - leftB
+            let bottomB = -MainViewController.miniMapHeight - topB
+            if (locMinimap.x < leftB) {
+                locMinimap.x = leftB
+            }
+            else if (locMinimap.x > rightB) {
+                locMinimap.x = rightB
+            }
+            if (locMinimap.y < bottomB) {
+                locMinimap.y = bottomB
+            }
+            else if (locMinimap.y > topB) {
+                locMinimap.y = topB
+            }
             miniMapScene.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
             let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
             gameScene.constrainCameraPosition(gamePosition)
@@ -162,7 +178,7 @@ class MainViewController: UIViewController {
             print("ENDED")
             if (GameScene.newBuilding != nil && GameScene.newBuilding.physicsBody?.allContactedBodies().count == 0) {
                 Building.setNewBuildingTint(GameScene.newBuilding)
-                gameScene.placeNewBuilding()
+                //gameScene.placeNewBuilding()
             }
             GameScene.isMoving = false
         }
