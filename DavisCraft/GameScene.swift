@@ -38,8 +38,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //    var menuPanel: IconsRender!
     var dpanel: DescLabelRender?
     var apanel: ActionPanelRender?
-    
 
+    func printTimeElapsedWhenRunningCode(title:String, operation:()->()) {
+        let startTime = CFAbsoluteTimeGetCurrent()
+        operation()
+        let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+        print("Time elapsed for \(title): \(timeElapsed) s")
+    }
+    
     override func didMoveToView(view: SKView) {
 
         self.physicsWorld.contactDelegate = self
@@ -52,11 +58,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(GameScene.map)
 
-        
-        
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
-        mapRender.drawRect(GameScene.map)
+        printTimeElapsedWhenRunningCode("Adding Game Scene Map") { () -> () in
+            mapRender.drawRect(GameScene.map)
+        }
+
         
         GameScene.map.addChild(townHall1)
         self.physicsWorld.gravity = CGVectorMake(0,0)

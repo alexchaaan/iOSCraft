@@ -98,6 +98,7 @@ class MapRender/*: UIView*/ {
                             tile = TileGrass(location: location)
                             break
                     }
+                    
                     if(typeIndex != -1){
                         let type = tileNames[typeIndex]
                         tile.texture = SKTexture(CGImage: tileDictionary![type]!)

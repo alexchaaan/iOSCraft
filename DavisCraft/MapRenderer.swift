@@ -26,7 +26,7 @@ class MapRenderer {
     var DRockUnkown = [Int: Int]()
     
     var DMappingTiff = [String: Int]()
-    var Map = [String]()
+    var Map = [[String]]()
     
     
     init(){
@@ -327,8 +327,10 @@ class MapRenderer {
     func GrabMapContent(){
         let fileName = "2player.map"
         let mapContent = FileManager.returnDatFileContents(fileName, subdirectory: "map")
-        let mapInfo = mapContent!.componentsSeparatedByString("\n")
-        Map = mapInfo
+        for line: String in mapContent!.componentsSeparatedByString("\n") {
+            Map.append(line.characters.map { String($0) })
+        }
+
     }
     
     func getTileType(x: Int, y: Int, curTile: String, pass: Int) ->Int{
@@ -337,8 +339,7 @@ class MapRenderer {
                 var TreeIndex = 0, TreeMask = 0x1, UnknownMask = 0, DisplayIndex = -1
                 for YOff in 0 ..< 2{
                     for XOff in -1 ..< 2{
-                        var mapLine = Array(Map[y + YOff].characters)
-                        let nextTile = mapLine[x + XOff]
+                        let nextTile = Map[y + YOff][x + XOff]
                         if String(nextTile) == "F"{
                             TreeIndex |= TreeMask
                         }
@@ -365,8 +366,7 @@ class MapRenderer {
                         if(XOff == 0 && YOff == 0){
                             continue
                         }
-                        var mapLine = Array(Map[y + YOff].characters)
-                        let nextTile = mapLine[x + XOff]
+                        let nextTile = Map[y + YOff][x + XOff]
                         if String(nextTile) == " "{
                             WaterIndex |= WaterMask
                         }
@@ -393,8 +393,7 @@ class MapRenderer {
                         if(XOff == 0 && YOff == 0){
                             continue
                         }
-                        var mapLine = Array(Map[y + YOff].characters)
-                        let nextTile = mapLine[x + XOff]
+                        let nextTile = Map[y + YOff][x + XOff]
                         if String(nextTile) == " " || String(nextTile) == "D" || String(nextTile) == "R"  {
                             OtherIndex |= OtherMask
                         }
@@ -425,8 +424,7 @@ class MapRenderer {
                         {
                             continue
                         }
-                        var mapLine = Array(Map[y + YOff].characters)
-                        let nextTile = mapLine[x + XOff]
+                        let nextTile = Map[y + YOff][x + XOff]
                         if String(nextTile) == "R"{
                             RockIndex |= RockMask
                         }
@@ -454,8 +452,7 @@ class MapRenderer {
                 var nextTile: Character
                 nextTile =  "f"
                 for Index in 0 ..< XOffsets.capacity {
-                    var mapLine = Array(Map[y + YOffsets[Index]].characters)
-                    nextTile = mapLine[x + XOffsets[Index]]
+                    let nextTile = Map[y + YOffsets[Index]][x + XOffsets[Index]]
                     if String(nextTile) == "W" || String(nextTile) == "w" || String(nextTile) == "r" {
                         WallIndex |= WallMask
                     }
@@ -472,8 +469,7 @@ class MapRenderer {
                 }
             }
             else{
-                var mapLine = Array(Map[y].characters)
-                let nextTile = mapLine[x]
+                let nextTile = Map[y][x]
                 switch String(nextTile) {
                     case "G":
                         return DGrassIndices[0x00]
@@ -500,14 +496,12 @@ class MapRenderer {
         }
         else
         {
-            var nextLine = Array(Map[y + 1].characters)
-            if(curTile != "F" && String(nextLine[x]) == "F")
+            if(curTile != "F" && Map[y + 1][x] == "F")
             {
                 var TreeIndex = 0, TreeMask = 0x1
                 for YOff in 0 ..< 2{
                     for XOff in -1 ..< 2{
-                        var mapLine = Array(Map[y + YOff].characters)
-                        let nextTile = mapLine[x + XOff]
+                        let nextTile = Map[y + YOff][x + XOff]
                         if String(nextTile) == "F"{
                             TreeIndex |= TreeMask
                         }
@@ -522,61 +516,6 @@ class MapRenderer {
             return -1
         }
     }
-
-
-
-
-
-    func getIndex(xPos : Int, yPos : Int) -> Int {
-        
-        let tempTile:String = getChar(xPos, yPos: yPos)
-        
-        let tile = tempTile.startIndex.advancedBy(xPos)
-        var bitIndex : Int = 0
-        var bitMask : Int = 1
-        
-        let startY : Int = String(tile) == "F" ? 0 : -1
-        
-        for yOff in startY ... 1 {
-            for xOff in -1 ... 1 {
-                if yOff != 0 && xOff != 0 {
-                    let temp:String = getChar(xPos + xOff, yPos: yPos + 1 + yOff)
-                    let currentTile = temp.startIndex.advancedBy(xPos + xOff)
-                    if tile == currentTile{
-                        bitIndex |= bitMask
-                    }
-                    bitMask <<= 1
-                }
-            }
-        }
-        
-        switch String(tile) {
-        case "G":
-            return DGrassIndices[bitIndex]
-        case "F":
-            return DTreeIndices[bitIndex]
-        case "D":
-            return DDirtIndices[bitIndex]
-        case "W":
-            return DWallIndices[bitIndex]
-        case "w":
-            return DWallDamagedIndices[bitIndex]
-        case "R":
-            return DRockIndices[bitIndex]
-        case " ":
-            return DWaterIndices[bitIndex]
-        default:
-            break
-        }
-        
-        return -1
-    }
- 
-    
-    func getChar(xPos: Int, yPos: Int) -> String {
-        return Map[yPos]
-    }
-
 }
 
 
