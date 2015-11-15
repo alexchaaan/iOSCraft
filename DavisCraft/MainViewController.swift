@@ -138,6 +138,7 @@ class MainViewController: UIViewController {
                 let mapCameraPositionInScene = gameScene.convertPoint(GameScene.map.camera.position, toNode: gameScene)
                 let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
                 gameScene.constrainCameraPosition(newCameraPosition)
+                miniMapScene.updateViewPort((newCameraPosition.x + MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, y_pos: (newCameraPosition.y - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
                 GameScene.lastTouchPosition = newTouchPosition
             }
             else {
