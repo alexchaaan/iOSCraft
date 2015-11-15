@@ -53,6 +53,7 @@
 		97B8BD031BF7EDED00F3A02C /* Border.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B8BD021BF7EDED00F3A02C /* Border.png */; settings = {ASSET_TAGS = (); }; };
 		97B8BD051BF7EDFC00F3A02C /* MenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B8BD041BF7EDFC00F3A02C /* MenuButton.png */; settings = {ASSET_TAGS = (); }; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; };
+		CA7C1F951BF444F500B8EFD5 /* MiniMapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */; };
 		CB534A181BD44B9600823469 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB534A171BD44B9600823469 /* Sound.swift */; };
 		CBEF61B71BBF98C10043B54D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61B61BBF98C10043B54D /* AppDelegate.swift */; };
 		CBEF61BB1BBF98C10043B54D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF61BA1BBF98C10043B54D /* GameScene.swift */; };
@@ -117,6 +118,7 @@
 		97B8BD041BF7EDFC00F3A02C /* MenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuButton.png; sourceTree = "<group>"; };
 		97E3E0521BE57F7900BF4DB2 /* ButtonCool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonCool.png; sourceTree = "<group>"; };
 		BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiTouch.swift; sourceTree = "<group>"; };
+		CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniMapScene.swift; sourceTree = "<group>"; };
 		CB534A171BD44B9600823469 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		CB534A231BD7B11000823469 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CBEF61B11BBF98C10043B54D /* DavisCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DavisCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,10 +260,10 @@
 				97B8BD021BF7EDED00F3A02C /* Border.png */,
 				49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */,
 				49E010801BCBB601008CB09E /* TileController.swift */,
+				CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */,
 				49E028BB1BE9895D0058B4B9 /* IconRender.swift */,
 				97B8BD041BF7EDFC00F3A02C /* MenuButton.png */,
 				49B279651BE6D0AA003898D1 /* Map.swift */,
-				4CE053E11BE1760F00F0B9E5 /* MiniMapRender.swift */,
 				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
 				4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */,
 				3F6FFCEB1BC5F1F400DD4285 /* SinglePlayerGame.swift */,
@@ -429,6 +431,7 @@
 				4C1C87CE1BEC6BB3001CAF4C /* TileWall.swift in Sources */,
 				4C1C87D21BEC6F4C001CAF4C /* TileDirt.swift in Sources */,
 				4C985FB51BEEB861005885ED /* Keep.swift in Sources */,
+				CA7C1F951BF444F500B8EFD5 /* MiniMapScene.swift in Sources */,
 				4C985FAD1BEEB825005885ED /* BlackSmith.swift in Sources */,
 				49E028BC1BE9895D0058B4B9 /* IconRender.swift in Sources */,
 				49B279641BE6C9B5003898D1 /* MainViewController.swift in Sources */,
@@ -437,7 +440,6 @@
 				4C985FAB1BEEB819005885ED /* Barracks.swift in Sources */,
 				4C985FBD1BEEB8A4005885ED /* Ranger.swift in Sources */,
 				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
-				4CE053E21BE1760F00F0B9E5 /* MiniMapRender.swift in Sources */,
 				4C1C87C81BEC6B8F001CAF4C /* TileGrass.swift in Sources */,
 				49AD4FC91BF1F3BB00828961 /* DescPanelRender.swift in Sources */,
 				4C1C87BB1BEC350A001CAF4C /* Unit.swift in Sources */,

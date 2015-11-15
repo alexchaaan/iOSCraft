@@ -10,6 +10,10 @@ import UIKit
 import SpriteKit
 
 class MapRender/*: UIView*/ {
+    
+    static var MapWidth: CGFloat = 0
+    static var MapHeight: CGFloat = 0
+    
     //each map tile is 32x32
     func readTerrain() -> (Dictionary <String, CGImage>?, Array<String>) {
         //read in the tiles for the map
@@ -110,8 +114,12 @@ class MapRender/*: UIView*/ {
                     x += 32
                 }
                 y -= 32
-                x = 0
+                if i < (height + 2) {
+                    x = 0
+                }
             }
+            MapRender.MapWidth = CGFloat(x)
+            MapRender.MapHeight = CGFloat(y)
         }
         let ps = Peasant(location: CGPointMake(CGFloat(100),CGFloat(-100)))
         view.addChild(ps)

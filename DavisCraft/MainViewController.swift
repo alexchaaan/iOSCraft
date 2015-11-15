@@ -11,11 +11,18 @@ import SpriteKit
 let menuPanel = IconsRender()
 class MainViewController: UIViewController {
     
+    static var miniMapWidth: CGFloat! = 0
+    static var miniMapHeight: CGFloat! = 0
+    static var gameWidth: CGFloat! = 0
+    static var gameHeight: CGFloat! = 0
+    
+    var gameView: SKView!
+    var miniMapView: SKView!
+    var gameScene: GameScene!
+    var miniMapScene: MiniMapScene!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var skView: SKView!
-        
         
         var selected: Bool?
         
@@ -23,37 +30,52 @@ class MainViewController: UIViewController {
         
         let fullWidth = self.view.bounds.size.width
         let fullHeight = self.view.bounds.size.height
-        let scene = GameScene(fileNamed: "GameScene")
+        
+        // SIDEPANEL
+        // Add Minimap:
+        var sidePanel: UIView!
+        sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
+        sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
+        // Add GameScene:
+        gameScene = GameScene(fileNamed: "GameScene")
         self.view.backgroundColor = UIColor.blackColor()
         /* Create and Add the skView as a subview of the UI (Charles) */
-        if scene != nil {// Configure the view.
-            skView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight))
+        if gameScene != nil {// Configure the view.
+            MainViewController.gameWidth = fullWidth * 3 / 4
+            MainViewController.gameHeight = fullHeight * 19 / 20
+            gameView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight * 19 / 20))
+            print("battle field width = \(MainViewController.gameWidth), height = \(MainViewController.gameHeight)")
             
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+            gameView.showsFPS = true
+            gameView.showsNodeCount = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
+            gameView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene!.scaleMode = .Fill
+            gameScene!.scaleMode = .Fill
             
-            skView.presentScene(scene)
-            self.view.addSubview(skView)
+            gameView.presentScene(gameScene)
+            self.view.addSubview(gameView)
         }
         else {
             print("GameScene initialization failed.")
         }
         
-        // SIDEPANEL
-        // Add Minimap:
-        let miniMap = MiniMapRender(frame:CGRectMake(5, fullHeight / 20 + 25, fullWidth / 4 - 6, fullHeight / 3 - 22), x_min: 2500, y_min: 1600, width: skView.frame.width, height: skView.frame.height)
-        var sidePanel: UIView!
-        sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
-        sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
-        sidePanel.addSubview(miniMap)
-        self.view.addSubview(sidePanel)
         
+        // Create miniMapScene - Charles
+        miniMapScene = MiniMapScene(size: CGSizeMake(fullWidth / 4 - 7, fullHeight / 3 - 22))
+        MainViewController.miniMapWidth = miniMapScene.size.width
+        MainViewController.miniMapHeight = miniMapScene.size.height
+        print("minimapView Width = \(MainViewController.miniMapWidth), Height = \(MainViewController.miniMapHeight)")
+        miniMapView = SKView(frame:CGRectMake(5, fullHeight / 20 + 25, MainViewController.miniMapWidth, MainViewController.miniMapHeight))
+        miniMapView.showsFPS = false
+        miniMapView.showsNodeCount = false
+        miniMapScene.scaleMode = .Fill
+        miniMapView.presentScene(miniMapScene)
+        sidePanel.addSubview(miniMapView)
+        
+        self.view.addSubview(sidePanel)
         
         //MENUPANEL by Javi
 //        let menuPanel = IconsRender()
@@ -75,25 +97,89 @@ class MainViewController: UIViewController {
         menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         self.view.addSubview(menuPanel)
         
-        let miniHeight = miniMap.bounds.size.height
-        let miniWidth = miniMap.bounds.size.width
-        
         let descPanel = DescLabelRender()
-        descPanel.frame = CGRectMake(1, miniHeight * 1.5, miniWidth, miniHeight/1.1)
+        descPanel.frame = CGRectMake(1, MainViewController.miniMapHeight * 1.5, MainViewController.miniMapWidth, MainViewController.miniMapHeight/1.1)
         
         self.view.addSubview(descPanel)
-        scene?.setDescPanelRender(descPanel)
+        gameScene?.setDescPanelRender(descPanel)
         
         
         let actionPanel = ActionPanelRender()
-        actionPanel.frame = CGRectMake(1, (miniHeight * 2.5), miniWidth/0.95, miniHeight / 0.8)
+        actionPanel.frame = CGRectMake(1, (MainViewController.miniMapHeight * 2.5), MainViewController.miniMapWidth/0.95, MainViewController.miniMapHeight / 0.8)
         
         self.view.addSubview(actionPanel)
-        scene?.setActionPanelRender(actionPanel)
+        gameScene?.setActionPanelRender(actionPanel)
         
         view.addSubview(actionPanel)
         
     }
+    
+    // Charles - Move the handlers out here:
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        /* Called when a touch begins */
+        print("BEGIN")
+        GameScene.lastTouchPosition = touches.first!.locationInNode(gameScene)
+        if isInside(GameScene.lastTouchPosition, x_max: MainViewController.gameWidth, y_max: MainViewController.gameHeight, refl: true) {
+            if (GameScene.buildMode == true) {
+                GameScene.isMoving = true
+                GameScene.newBuilding.position = gameScene.convertPoint(GameScene.lastTouchPosition, toNode: GameScene.map)
+                Building.positionOnTile(GameScene.newBuilding)
+                Building.setNewBuildingTint(GameScene.newBuilding)
+            }
+        }
+        
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let newTouchPosition = touches.first!.locationInNode(gameScene)
+        //if isInside(newTouchPosition, x_max: MainViewController.gameWidth, y_max: MainViewController.gameHeight, refl: true) {
+            if (GameScene.buildMode == false) {
+                let touchOffsetVector = CGPointMake(newTouchPosition.x - GameScene.lastTouchPosition.x, (newTouchPosition.y - GameScene.lastTouchPosition.y) )
+                let mapCameraPositionInScene = gameScene.convertPoint(GameScene.map.camera.position, toNode: gameScene)
+                let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
+                gameScene.constrainCameraPosition(newCameraPosition)
+                var miniMapPosition = CGPointMake((newCameraPosition.x + MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, (newCameraPosition.y - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
+                miniMapScene.confineViewPort(&miniMapPosition)
+                miniMapScene.updateViewPort(miniMapPosition.x, y_pos: miniMapPosition.y)
+                GameScene.lastTouchPosition = newTouchPosition
+            }
+            else {
+                GameScene.didMove = true
+                GameScene.lastTouchPosition = newTouchPosition
+                Building.setNewBuildingTint(GameScene.newBuilding)
+            }
+        //}
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        var locMinimap = touches.first!.locationInNode(miniMapScene)
+        let newEndPosition = touches.first!.locationInNode(gameScene)
+        if isInside(locMinimap, x_max: MainViewController.miniMapWidth, y_max: MainViewController.miniMapHeight, refl: true) {
+            // Constrain the position of viewport:
+            miniMapScene.confineViewPort(&locMinimap)
+            miniMapScene.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
+            let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
+            gameScene.constrainCameraPosition(gamePosition)
+        }
+        else if isInside(newEndPosition, x_max: MainViewController.gameWidth, y_max: MainViewController.gameHeight, refl: true) {
+            print("ENDED")
+            if (GameScene.newBuilding != nil && GameScene.newBuilding.physicsBody?.allContactedBodies().count == 0) {
+                Building.setNewBuildingTint(GameScene.newBuilding)
+                //gameScene.placeNewBuilding()
+            }
+            GameScene.isMoving = false
+        }
+    }
+    
+    func isInside(point: CGPoint, x_max: CGFloat, y_max: CGFloat, refl: Bool) -> Bool {
+        if refl {
+            return (point.x >= 0 && point.x <= x_max && -point.y >= 0 && -point.y <= y_max)
+        }
+        else {
+            return (point.x >= 0 && point.x <= x_max && point.y >= 0 && point.y <= y_max)
+        }
+    }
+    
     
     override func shouldAutorotate() -> Bool {
         return true
@@ -104,4 +190,6 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
+    
+    
 }
