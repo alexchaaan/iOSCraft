@@ -16,11 +16,13 @@ class MainViewController: UIViewController {
     static var gameWidth: CGFloat! = 0
     static var gameHeight: CGFloat! = 0
     
+    var gameView: SKView!
+    var miniMapView: SKView!
+    var gameScene: GameScene!
+    var miniMapScene: MiniMapScene!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var skView: SKView!
-        var miniMapView: SKView!
         
         var selected: Bool?
         
@@ -35,33 +37,34 @@ class MainViewController: UIViewController {
         sidePanel = UIView(frame: CGRectMake(0, 0, (fullWidth / 4) + 2, fullHeight))
         sidePanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         // Add GameScene:
-        let scene = GameScene(fileNamed: "GameScene")
+        gameScene = GameScene(fileNamed: "GameScene")
         self.view.backgroundColor = UIColor.blackColor()
         /* Create and Add the skView as a subview of the UI (Charles) */
-        if scene != nil {// Configure the view.
+        if gameScene != nil {// Configure the view.
             MainViewController.gameWidth = fullWidth * 3 / 4
             MainViewController.gameHeight = fullHeight * 19 / 20
-            skView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight * 19 / 20))
+            gameView = SKView(frame: CGRectMake(fullWidth / 4, fullHeight / 20, fullWidth * 3 / 4, fullHeight * 19 / 20))
+            print("battle field width = \(MainViewController.gameWidth), height = \(MainViewController.gameHeight)")
             
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+            gameView.showsFPS = true
+            gameView.showsNodeCount = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
+            gameView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene!.scaleMode = .Fill
+            gameScene!.scaleMode = .Fill
             
-            skView.presentScene(scene)
-            self.view.addSubview(skView)
+            gameView.presentScene(gameScene)
+            self.view.addSubview(gameView)
         }
         else {
             print("GameScene initialization failed.")
         }
         
         
-        // Create miniMapScene
-        let miniMapScene = MiniMapScene(size: CGSizeMake(fullWidth / 4 - 7, fullHeight / 3 - 22))
+        // Create miniMapScene - Charles
+        miniMapScene = MiniMapScene(size: CGSizeMake(fullWidth / 4 - 7, fullHeight / 3 - 22))
         MainViewController.miniMapWidth = miniMapScene.size.width
         MainViewController.miniMapHeight = miniMapScene.size.height
         
@@ -98,19 +101,31 @@ class MainViewController: UIViewController {
         descPanel.frame = CGRectMake(1, MainViewController.miniMapHeight * 1.5, MainViewController.miniMapWidth, MainViewController.miniMapHeight/1.1)
         
         self.view.addSubview(descPanel)
-        scene?.setDescPanelRender(descPanel)
+        gameScene?.setDescPanelRender(descPanel)
         
         
         let actionPanel = ActionPanelRender()
         actionPanel.frame = CGRectMake(1, (MainViewController.miniMapHeight * 2.5), MainViewController.miniMapWidth/0.95, MainViewController.miniMapHeight / 0.8)
         
         self.view.addSubview(actionPanel)
-        scene?.setActionPanelRender(actionPanel)
+        gameScene?.setActionPanelRender(actionPanel)
         
         view.addSubview(actionPanel)
         
-        
     }
+    
+    
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let locMinimap = touches.first!.locationInNode(miniMapScene)
+        if (locMinimap.x >= 0 && locMinimap.x <= MainViewController.miniMapWidth && -locMinimap.y >= 0 && -locMinimap.y <= MainViewController.miniMapHeight) {
+            print("get MainView: x = \(locMinimap.x), y = \(locMinimap.y)")
+            miniMapScene.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
+            let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
+            gameScene.constrainCameraPosition(gamePosition)
+        }
+    }
+    
     
     override func shouldAutorotate() -> Bool {
         return true

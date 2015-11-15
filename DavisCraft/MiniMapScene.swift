@@ -17,6 +17,9 @@ class MiniMapScene: SKScene {
     var bottomLine: SKSpriteNode!
     var hasViewport: Bool = false
     
+    static var ratio_x: CGFloat = 1
+    static var ratio_y: CGFloat = 1
+    
     override func didMoveToView(view: SKView) {
         anchorPoint = CGPointMake(0, 1)
         // Read the map data from file
@@ -67,7 +70,10 @@ class MiniMapScene: SKScene {
             x = 0.0
         }   // for i
         
-        drawViewPort(100, y_pos: -100)
+        // Initialize viewport
+        MiniMapScene.ratio_x = MainViewController.miniMapWidth / 3072
+        MiniMapScene.ratio_y = MainViewController.miniMapHeight / 2048
+        updateViewPort( (3072 - MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, y_pos: -(2048 - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
         hasViewport = true
     }
     
@@ -83,13 +89,11 @@ class MiniMapScene: SKScene {
         return (mapInfo, mapWidth, mapHeight)
     }
     
-    func drawViewPort(x_pos: CGFloat, y_pos: CGFloat) {
-        let ratio_x = MainViewController.miniMapWidth / 3000
-        let ratio_y = MainViewController.miniMapHeight / 2000
-        let x_min = x_pos - (MainViewController.gameWidth * ratio_x / 2)
-        let x_max = x_pos + (MainViewController.gameWidth * ratio_x / 2)
-        let y_min = y_pos - (MainViewController.gameHeight * ratio_y / 2)
-        let y_max = y_pos + (MainViewController.gameHeight * ratio_y / 2)
+    func updateViewPort(x_pos: CGFloat, y_pos: CGFloat) {
+        let x_min = x_pos - (MainViewController.gameWidth * MiniMapScene.ratio_x / 2)
+        let x_max = x_pos + (MainViewController.gameWidth * MiniMapScene.ratio_x / 2)
+        let y_min = y_pos - (MainViewController.gameHeight * MiniMapScene.ratio_y / 2)
+        let y_max = y_pos + (MainViewController.gameHeight * MiniMapScene.ratio_y / 2)
         if hasViewport {
             leftLine.removeFromParent()
             topLine.removeFromParent()
@@ -100,21 +104,15 @@ class MiniMapScene: SKScene {
         topLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(x_max - x_min, 1))
         rightLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(1, y_max - y_min))
         bottomLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(x_max - x_min, 1))
-        leftLine.position = CGPointMake(x_min, y_max - (MainViewController.gameHeight * ratio_y / 2))
-        topLine.position = CGPointMake(x_min + (MainViewController.gameWidth * ratio_x / 2), y_max)
-        rightLine.position = CGPointMake(x_max, y_max - (MainViewController.gameHeight * ratio_y / 2))
-        bottomLine.position = CGPointMake(x_min + (MainViewController.gameWidth * ratio_x / 2), y_min)
+        leftLine.position = CGPointMake(x_min, y_max - (MainViewController.gameHeight * MiniMapScene.ratio_y / 2))
+        topLine.position = CGPointMake(x_min + (MainViewController.gameWidth * MiniMapScene.ratio_x / 2), y_max)
+        rightLine.position = CGPointMake(x_max, y_max - (MainViewController.gameHeight * MiniMapScene.ratio_y / 2))
+        bottomLine.position = CGPointMake(x_min + (MainViewController.gameWidth * MiniMapScene.ratio_x / 2), y_min)
         self.addChild(leftLine)
         self.addChild(topLine)
         self.addChild(rightLine)
         self.addChild(bottomLine)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let location = touches.first!.locationInNode(self)
-        
-        drawViewPort(location.x, y_pos: location.y)
-        
-    }
     
 }
