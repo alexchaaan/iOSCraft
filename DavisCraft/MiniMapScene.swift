@@ -20,10 +20,6 @@ class MiniMapScene: SKScene {
     static var ratio_x: CGFloat = 1
     static var ratio_y: CGFloat = 1
     
-    var realminiMapWidth: CGFloat = 0
-    var realminiMapHeight: CGFloat = 0
-    var realRatio_x: CGFloat = 1
-    var realRatio_y: CGFloat = 1
     let realMapWidth: CGFloat = 2852    // Comes from runtime measuring - need to be improved
     let realMapHeight: CGFloat = 1693
     
@@ -79,15 +75,8 @@ class MiniMapScene: SKScene {
                 x = 0.0
             }
         }   // for i
-        //MainViewController.miniMapWidth = x
-        //MainViewController.miniMapHeight = y
-        realminiMapWidth = x
-        realminiMapHeight = y
-        realRatio_x = realminiMapWidth / realMapWidth
-        realRatio_y = realminiMapHeight / realMapHeight
         let errorRatio_x = realMapWidth / 3072
         let errorRatio_y = realMapHeight / 2048
-        print("realminimap: x = \(realminiMapWidth), y = \(realminiMapHeight)")
         // Initialize viewport
         MiniMapScene.ratio_x = MainViewController.miniMapWidth / realMapWidth
         MiniMapScene.ratio_y = MainViewController.miniMapHeight / realMapHeight
@@ -191,9 +180,9 @@ class MiniMapScene: SKScene {
         let content = FileManager.returnDatFileContents(fileName)
         let contentArray = content!.componentsSeparatedByString("\n")
         let numberOfTiles = Int(contentArray[1]);
-        placement.y -= (height - (CGFloat(index)*(height/CGFloat(numberOfTiles!)))) * realRatio_y
-        let assetWidth = width * realRatio_x
-        let assetHeight = height / CGFloat(numberOfTiles!) * realRatio_y
+        placement.y -= (height - (CGFloat(index)*(height/CGFloat(numberOfTiles!)))) * MiniMapScene.ratio_y
+        let assetWidth = width * MiniMapScene.ratio_x
+        let assetHeight = height / CGFloat(numberOfTiles!) * MiniMapScene.ratio_y
         
         let spriteNode = SKSpriteNode(texture: nil, color: assetColor, size: CGSizeMake(assetWidth, assetHeight))
         spriteNode.position = CGPointMake(placement.x + assetWidth / 2, placement.y - assetHeight / 2)
