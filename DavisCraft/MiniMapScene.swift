@@ -161,7 +161,6 @@ class MiniMapScene: SKScene {
     
     func drawAsset(var placement: CGPoint, sprite: String){
         var assetColor: SKColor!
-        var assetSize: CGSize!
         var assetImage: UIImage!
         var index: Int = 0
         switch(sprite){
@@ -197,7 +196,7 @@ class MiniMapScene: SKScene {
         let assetHeight = height / CGFloat(numberOfTiles!) * realRatio_y
         
         let spriteNode = SKSpriteNode(texture: nil, color: assetColor, size: CGSizeMake(assetWidth, assetHeight))
-        spriteNode.position = placement
+        spriteNode.position = CGPointMake(placement.x + assetWidth / 2, placement.y - assetHeight / 2)
         print("sprite = \(sprite), placement = x = \(spriteNode.position.x), y = \(spriteNode.position.y)")
         self.addChild(spriteNode)
     }
