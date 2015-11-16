@@ -39,7 +39,7 @@ class MiniMapScene: SKScene {
                 var elementColor: SKColor!
                 switch mapLine[j] {
                 case "G":
-                    elementColor = SKColor(red: 0.3, green: 0.7, blue: 0.3, alpha: 0.7)
+                    elementColor = SKColor(red: 0.2, green: 0.5, blue: 0.2, alpha: 0.7)
                     break
                 case "F":
                     elementColor = SKColor(red: 0.3, green: 0.3, blue: 0.1, alpha: 1.0)
@@ -48,7 +48,7 @@ class MiniMapScene: SKScene {
                     elementColor = SKColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
                     break
                 case "D":
-                    elementColor = SKColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.8)
+                    elementColor = SKColor(red: 0.5, green: 0.5, blue: 0.3, alpha: 0.8)
                     break
                 case "W":
                     elementColor = SKColor(red: 0.6, green: 0.6, blue: 0.1, alpha: 1.0)
@@ -105,10 +105,11 @@ class MiniMapScene: SKScene {
             rightLine.removeFromParent()
             bottomLine.removeFromParent()
         }
-        leftLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(1, y_max - y_min))
-        topLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(x_max - x_min, 1))
-        rightLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(1, y_max - y_min))
-        bottomLine = SKSpriteNode(texture: nil, color: SKColor.whiteColor(), size: CGSizeMake(x_max - x_min, 1))
+        let vpColor = SKColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8)
+        leftLine = SKSpriteNode(texture: nil, color: vpColor, size: CGSizeMake(1, y_max - y_min))
+        topLine = SKSpriteNode(texture: nil, color: vpColor, size: CGSizeMake(x_max - x_min, 1))
+        rightLine = SKSpriteNode(texture: nil, color: vpColor, size: CGSizeMake(1, y_max - y_min))
+        bottomLine = SKSpriteNode(texture: nil, color: vpColor, size: CGSizeMake(x_max - x_min, 1))
         leftLine.position = CGPointMake(x_min, y_max - (MainViewController.gameHeight * MiniMapScene.ratio_y / 2))
         topLine.position = CGPointMake(x_min + (MainViewController.gameWidth * MiniMapScene.ratio_x / 2), y_max)
         rightLine.position = CGPointMake(x_max, y_max - (MainViewController.gameHeight * MiniMapScene.ratio_y / 2))
