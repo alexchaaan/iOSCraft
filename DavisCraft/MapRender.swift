@@ -118,8 +118,11 @@ class MapRender/*: UIView*/ {
         for index in 73..<map.endIndex - 2 {
             let item = map[index].componentsSeparatedByString(" ")
             let placement = CGPointMake(CGFloat(32 * Int(item[2])!), CGFloat(-32 * Int(item[3])!))
+            print("placement = x = \(placement.x), y = \(placement.y)")
             self.drawAsset(placement,sprite: item[0],view: view)
-        }    }
+        }
+        
+    }
    
     func drawAsset(placement: CGPoint, sprite: String, view: SKNode){
 

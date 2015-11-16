@@ -356,7 +356,7 @@
 				TargetAttributes = {
 					CBEF61B01BBF98C10043B54D = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = E22WGDSDGL;
+						DevelopmentTeam = F8FA3CPAAB;
 					};
 					CBEF61C91BBF98C20043B54D = {
 						CreatedOnToolsVersion = 6.3;
@@ -573,7 +573,7 @@
 				INFOPLIST_FILE = DavisCraft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -588,7 +588,7 @@
 				INFOPLIST_FILE = DavisCraft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

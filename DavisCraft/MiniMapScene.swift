@@ -20,6 +20,10 @@ class MiniMapScene: SKScene {
     static var ratio_x: CGFloat = 1
     static var ratio_y: CGFloat = 1
     
+    var realminiMapWidth: CGFloat = 0
+    var realminiMapHeight: CGFloat = 0
+    var realRatio_x: CGFloat = 1
+    var realRatio_y: CGFloat = 1
     let realMapWidth: CGFloat = 2852    // Comes from runtime measuring - need to be improved
     let realMapHeight: CGFloat = 1693
     
@@ -30,7 +34,8 @@ class MiniMapScene: SKScene {
         
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
-        let step: CGFloat = 1.85
+        let step_x: CGFloat = 1.7
+        let step_y: CGFloat = 1.6
         // Draw mini-map
         for i in 3 ..< (height + 3){
             var mapLine = Array(map[i].characters)
@@ -64,22 +69,37 @@ class MiniMapScene: SKScene {
                     break
                 }
                 
-                let node = SKSpriteNode(texture: nil, color: elementColor, size: CGSizeMake(step, step))
+                let node = SKSpriteNode(texture: nil, color: elementColor, size: CGSizeMake(step_x, step_y))
                 node.position = location
                 self.addChild(node)
-                x += step
+                x += step_x
             }   // for j
-            y += step
+            y += step_y
             if i < height + 2 {
                 x = 0.0
             }
         }   // for i
-        
+        //MainViewController.miniMapWidth = x
+        //MainViewController.miniMapHeight = y
+        realminiMapWidth = x
+        realminiMapHeight = y
+        realRatio_x = realminiMapWidth / realMapWidth
+        realRatio_y = realminiMapHeight / realMapHeight
+        let errorRatio_x = realMapWidth / 3072
+        let errorRatio_y = realMapHeight / 2048
+        print("realminimap: x = \(realminiMapWidth), y = \(realminiMapHeight)")
         // Initialize viewport
         MiniMapScene.ratio_x = MainViewController.miniMapWidth / realMapWidth
         MiniMapScene.ratio_y = MainViewController.miniMapHeight / realMapHeight
         updateViewPort( (realMapWidth - MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, y_pos: -(realMapHeight - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
         hasViewport = true
+        
+        for index in 73..<map.endIndex - 2 {
+            let item = map[index].componentsSeparatedByString(" ")
+            let placement = CGPointMake(32 * CGFloat(Int(item[2])!) * errorRatio_x * MiniMapScene.ratio_x, -32 * CGFloat(Int(item[3])!) * errorRatio_y * MiniMapScene.ratio_y)
+            drawAsset(placement, sprite: item[0])
+        }
+        
     }
     
     func readMap() -> (Array<String>, Int, Int){
@@ -139,5 +159,46 @@ class MiniMapScene: SKScene {
         }
     }
     
-    
+    func drawAsset(var placement: CGPoint, sprite: String){
+        var assetColor: SKColor!
+        var assetSize: CGSize!
+        var assetImage: UIImage!
+        var index: Int = 0
+        switch(sprite){
+            case "GoldMine":
+                assetColor = SKColor.greenColor()
+                assetImage = UIImage(named: "data/png/GoldMine.png")!
+                index = 2
+                break
+            case "Peasant":
+                assetColor = SKColor.blueColor()
+                assetImage = UIImage(named: "data/png/Peasant.png")!
+                index = 172
+                break
+            case "TownHall":
+                assetColor = SKColor.greenColor()
+                assetImage = UIImage(named: "data/png/TownHall.png")!
+                index = 4
+                break
+            default:
+                assetColor = SKColor.clearColor()
+                assetImage = UIImage(named: "data/png/Texture.png")!
+                index = 1
+                break
+        }
+        let width = assetImage.size.width
+        let height = assetImage.size.height
+        let fileName = sprite + ".dat"
+        let content = FileManager.returnDatFileContents(fileName)
+        let contentArray = content!.componentsSeparatedByString("\n")
+        let numberOfTiles = Int(contentArray[1]);
+        placement.y -= (height - (CGFloat(index)*(height/CGFloat(numberOfTiles!)))) * realRatio_y
+        let assetWidth = width * realRatio_x
+        let assetHeight = height / CGFloat(numberOfTiles!) * realRatio_y
+        
+        let spriteNode = SKSpriteNode(texture: nil, color: assetColor, size: CGSizeMake(assetWidth, assetHeight))
+        spriteNode.position = placement
+        print("sprite = \(sprite), placement = x = \(spriteNode.position.x), y = \(spriteNode.position.y)")
+        self.addChild(spriteNode)
+    }
 }

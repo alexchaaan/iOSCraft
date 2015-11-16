@@ -160,6 +160,7 @@ class MainViewController: UIViewController {
             miniMapScene.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
             let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
             gameScene.constrainCameraPosition(gamePosition)
+            print("touched: x = \(locMinimap.x), y = \(locMinimap.y)")
         }
         else if isInside(newEndPosition, x_max: MainViewController.gameWidth, y_max: MainViewController.gameHeight, refl: true) {
             print("ENDED")
