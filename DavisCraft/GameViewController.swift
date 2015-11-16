@@ -9,6 +9,8 @@
 import UIKit
 import SpriteKit
 
+var Mute = false
+
 class GameViewController: UIViewController {
     
     override func viewDidLoad() {

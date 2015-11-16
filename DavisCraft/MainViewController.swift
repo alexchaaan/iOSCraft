@@ -11,6 +11,22 @@ import SpriteKit
 let menuPanel = IconsRender()
 class MainViewController: UIViewController {
     
+    
+    func muterFunction(sender: UIButton!)
+    {
+        if (Mute){ //if button was bressed while it was muted
+            print("bye")
+            Mute = false
+            Sound.playBackgroundMusic("menu.mid")
+        }
+        else //if sound on mute it
+        {
+            print("hi")
+            Mute = true
+            Sound.playBackgroundMusic("menu.mid")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,10 +83,18 @@ class MainViewController: UIViewController {
         let menuImg = UIImage(named: "MenuButton.png")
         let menuB = UIImageView(image: menuImg)
         let menuBut = UIButton()
+        menuBut.userInteractionEnabled = true
         menuBut.setImage(menuImg, forState: UIControlState.Normal)
         
         menuBut.frame = CGRectMake(sidePanel.bounds.size.width / 4 - 2, 1, menuB.bounds.size.width, menuB.bounds.size.height)
+        
+        menuBut.addTarget(self, action: "muterFunction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+
         menuPanel.addSubview(menuBut)
+        
+        
+
         //menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         self.view.addSubview(menuPanel)
