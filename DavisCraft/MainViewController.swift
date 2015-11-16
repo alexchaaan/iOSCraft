@@ -9,23 +9,40 @@
 import Foundation
 import SpriteKit
 let menuPanel = IconsRender()
+let actionPanel = ActionPanelRender()
+let descPanel = DescLabelRender()
+
 class MainViewController: UIViewController {
     
     
     func muterFunction(sender: UIButton!)
     {
         if (Mute){ //if button was bressed while it was muted
-            print("bye")
+            print("switched to menu music")
             Mute = false
             Sound.playBackgroundMusic("menu.mid")
         }
         else //if sound on mute it
         {
-            print("hi")
+            print("switched to game1 music")
             Mute = true
-            Sound.playBackgroundMusic("menu.mid")
+            Sound.playBackgroundMusic("game1.mid")
         }
     }
+//    
+//    func cancelMenu(){
+//        //curObject: SKNode
+//        let size = actionPanel.size
+//        let (iDictionary, iNames) = actionPanel.readIcons()
+//        actionPanel.removeCurPanel()
+//        actionPanel.createBorder()
+//        let cancelButton = UIButton()
+//        cancelButton.setImage(UIImage(CGImage: iDictionary!["cancel"]!), forState: UIControlState.Normal)
+//        cancelButton.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
+//        
+//        actionPanel.Button6 = cancelButton
+//        actionPanel.addSubview(actionPanel.Button6)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,14 +119,12 @@ class MainViewController: UIViewController {
         let miniHeight = miniMap.bounds.size.height
         let miniWidth = miniMap.bounds.size.width
         
-        let descPanel = DescLabelRender()
         descPanel.frame = CGRectMake(1, miniHeight * 1.5, miniWidth, miniHeight/1.1)
         
         self.view.addSubview(descPanel)
         scene?.setDescPanelRender(descPanel)
         
         
-        let actionPanel = ActionPanelRender()
         actionPanel.frame = CGRectMake(1, (miniHeight * 2.5), miniWidth/0.95, miniHeight / 0.8)
         
         self.view.addSubview(actionPanel)

@@ -10,15 +10,19 @@ import SpriteKit
 import UIKit
 import Foundation
 
+
 class ActionPanelRender: IconsRender {
     
     let  size = 41.5
+    var selectedAsset : SKNode!
     var Button1 = UIButton()
     var Button2 = UIButton()
     var Button3 = UIButton()
     var Button4 = UIButton()
     var Button5 = UIButton()
     var Button6 = UIButton()
+    var Button7 = UIButton() //for walls when we implement them as something peasants can make
+    var Button8 = UIButton()
     
     func createBorder(){
         let border = UIImageView(image: UIImage(named: "Border.png")) // Whatever image you want
@@ -27,8 +31,10 @@ class ActionPanelRender: IconsRender {
         self.sendSubviewToBack(border)
         
     }
-    
+
     func labelPrint(curObject: SKNode){
+        selectedAsset = curObject
+        
         switch curObject{
         case is Peasant:
             removeCurPanel()
@@ -55,6 +61,13 @@ class ActionPanelRender: IconsRender {
                 buildSimple.frame = CGRect(x: 13, y: 25 + size, width: size, height: size)
                 humanWeapon1.frame = CGRect(x: 18 + size, y: 25 + size, width: size, height: size)
                 humanArmor1.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
+                
+                humanMove.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanWeapon1.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                repair.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                mine.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                buildSimple.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                buildSimple.addTarget(self, action: "createBuildings:", forControlEvents: UIControlEvents.TouchUpInside)
                 
                 Button1 = humanMove
                 Button2 = repair
@@ -307,8 +320,85 @@ class ActionPanelRender: IconsRender {
             removeCurPanel()
             createBorder()
             drawHPBar(0, yDir: 0, width: 0, height: 0)
-        }
+        }//end of switch
+    }//end of functio
+    
+    
+    func cancelMenu(sender: UIButton!){ //presents the cancelMenu screen
+        //curObject: SKNode
+        let (iDictionary, iNames) = readIcons()
+        removeCurPanel()
+        createBorder()
+        let cancelButton = UIButton()
+        cancelButton.setImage(UIImage(CGImage: iDictionary!["cancel"]!), forState: UIControlState.Normal)
+        cancelButton.frame = CGRect(x: 30 + size * 2, y: 25 + size, width: size / 2, height: size / 2)
+        cancelButton.setBackgroundImage(UIImage(named: "Border.png"), forState: .Normal)
+        cancelButton.addTarget(self, action: "returnBack:", forControlEvents: .TouchUpInside)
+        Button8 = cancelButton
+        self.addSubview(Button8)
     }
+    
+    func returnBack(sender:UIButton!){ //gets called from cancelMenu press
+        labelPrint(selectedAsset)
+    }
+    
+    func createBuildings(sender:UIButton!){ //walls will need to be here as well, so there should be eight buttons
+        let (iDictionary, iNames) = readIcons()
+////        removeCurPanel()
+////        createBorder()
+//        BuildSimple
+//        BuildTownHall
+//        BuildFarm
+//        BuildBarracks
+//        BuildLumberMill
+//        BuildScoutTower
+//        BuildBlacksmith
+//        BuildWall
+        
+        let BuildTownHall = UIButton()
+        BuildTownHall.setImage(UIImage(CGImage: iDictionary!["town-hall"]!), forState: UIControlState.Normal)
+        let BuildFarm = UIButton()
+        BuildFarm.setImage(UIImage(CGImage: iDictionary!["chicken-farm"]!), forState: UIControlState.Normal)
+        let BuildBarracks = UIButton()
+        BuildBarracks.setImage(UIImage(CGImage: iDictionary!["human-barracks"]!), forState: UIControlState.Normal)
+        let BuildLumberMill = UIButton()
+        BuildLumberMill.setImage(UIImage(CGImage: iDictionary!["human-lumber-mill"]!), forState: UIControlState.Normal)
+        let BuildScoutTower = UIButton()
+        BuildScoutTower.setImage(UIImage(CGImage: iDictionary!["scout-tower"]!), forState: UIControlState.Normal)
+        let BuildBlacksmith = UIButton()
+        BuildBlacksmith.setImage(UIImage(CGImage: iDictionary!["human-blacksmith"]!), forState: UIControlState.Normal)
+        
+        BuildTownHall.frame = CGRect(x: 13, y: 15, width: size, height: size)
+        BuildFarm.frame = CGRect(x: 18 + size, y: 15, width: size, height: size)
+        BuildBarracks.frame = CGRect(x: 24 + size * 2, y: 15, width: size, height: size)
+        BuildLumberMill.frame = CGRect(x: 13, y: 25 + size, width: size, height: size)
+        BuildScoutTower.frame = CGRect(x: 18 + size, y: 25 + size, width: size, height: size)
+        BuildBlacksmith.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
+        
+        BuildTownHall.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildFarm.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildBarracks.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildLumberMill.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildScoutTower.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildBlacksmith.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        Button1 = BuildTownHall
+        Button2 = BuildFarm
+        Button3 = BuildBarracks
+        Button4 = BuildLumberMill
+        Button5 = BuildScoutTower
+        Button6 = BuildBlacksmith
+        
+        self.addSubview(Button1)
+        self.addSubview(Button2)
+        self.addSubview(Button3)
+        self.addSubview(Button4)
+        self.addSubview(Button5)
+        self.addSubview(Button6)
+
+    }
+    
+    
 }
 
 
