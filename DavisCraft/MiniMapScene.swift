@@ -26,6 +26,11 @@ class MiniMapScene: SKScene {
     var realRatio_y: CGFloat = 1
     let realMapWidth: CGFloat = 2852    // Comes from runtime measuring - need to be improved
     let realMapHeight: CGFloat = 1693
+    var errorRatio_x: CGFloat = 1
+    var errorRatio_y: CGFloat = 1
+    
+    var unitCount: Int = 0
+    var unitSet: [SKSpriteNode] = []
     
     override func didMoveToView(view: SKView) {
         anchorPoint = CGPointMake(0, 1)
@@ -85,8 +90,8 @@ class MiniMapScene: SKScene {
         realminiMapHeight = y
         realRatio_x = realminiMapWidth / realMapWidth
         realRatio_y = realminiMapHeight / realMapHeight
-        let errorRatio_x = realMapWidth / 3072
-        let errorRatio_y = realMapHeight / 2048
+        errorRatio_x = realMapWidth / 3072
+        errorRatio_y = realMapHeight / 2048
         print("realminimap: x = \(realminiMapWidth), y = \(realminiMapHeight)")
         // Initialize viewport
         MiniMapScene.ratio_x = MainViewController.miniMapWidth / realMapWidth
@@ -163,6 +168,7 @@ class MiniMapScene: SKScene {
         var assetColor: SKColor!
         var assetImage: UIImage!
         var index: Int = 0
+        var isUnit: Bool = false
         switch(sprite){
             case "GoldMine":
                 assetColor = SKColor.greenColor()
@@ -173,9 +179,10 @@ class MiniMapScene: SKScene {
                 assetColor = SKColor.blueColor()
                 assetImage = UIImage(named: "data/png/Peasant.png")!
                 index = 172
+                isUnit = true
                 break
             case "TownHall":
-                assetColor = SKColor.greenColor()
+                assetColor = SKColor.blueColor()
                 assetImage = UIImage(named: "data/png/TownHall.png")!
                 index = 4
                 break
@@ -197,7 +204,31 @@ class MiniMapScene: SKScene {
         
         let spriteNode = SKSpriteNode(texture: nil, color: assetColor, size: CGSizeMake(assetWidth, assetHeight))
         spriteNode.position = CGPointMake(placement.x + assetWidth / 2, placement.y - assetHeight / 2)
-        print("sprite = \(sprite), placement = x = \(spriteNode.position.x), y = \(spriteNode.position.y)")
+        if isUnit {
+            unitSet.append(spriteNode)
+            unitCount++
+        }
         self.addChild(spriteNode)
+    }
+    
+    func reflectBuildingToMini(node: SKNode) {
+        let placement = CGPointMake(node.position.x * MiniMapScene.ratio_x * errorRatio_x, node.position.y * MiniMapScene.ratio_y * errorRatio_y)
+        var currSprite: String!
+        switch (node) {
+        case is TownHall:
+            currSprite = "TownHall"
+        default:
+            break
+        
+        }
+        self.drawAsset(placement, sprite: currSprite)
+    }
+    
+    func reflectMovingSPToMini(selectedSprite: SKNode, touchedSprite: SKSpriteNode, floatDuration: NSTimeInterval) {
+        let location = CGPointMake(touchedSprite.position.x * MiniMapScene.ratio_x * errorRatio_x, touchedSprite.position.y * MiniMapScene.ratio_y * errorRatio_y)
+        let moveAction = SKAction.moveTo(location, duration: floatDuration)
+        let movableSprite = selectedSprite as! Unit
+        let spriteInMiniMap = unitSet[movableSprite.appearingOrder]
+        spriteInMiniMap.runAction(moveAction)
     }
 }
