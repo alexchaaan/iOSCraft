@@ -65,7 +65,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         
-        GameScene.map.addChild(townHall1)
+        GameScene.map.addBuildingInBoth(townHall1)
         self.physicsWorld.gravity = CGVectorMake(0,0)
         self.physicsWorld.contactDelegate = self
         
@@ -502,6 +502,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.setDirection(selectedSprite, index: 82)
             }
         }
+        
 //        print (mining)
         let moveAction = SKAction.moveTo(location, duration: floatDuration)
         let walkingAnimation = SKAction.animateWithTextures(peasantImages, timePerFrame: 0.05, resize: false, restore: true)
@@ -512,7 +513,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        if .name == "goldmine"{
 //            print("gathering golddfsafa")
 //        }
-        
+        MainViewController.miniMapScene.reflectMovingSPToMini(selectedSprite, touchedSprite: touchedSprite, floatDuration: floatDuration)
     }
     
     

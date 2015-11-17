@@ -13,6 +13,7 @@ class MapRender/*: UIView*/ {
     
     static var MapWidth: CGFloat = 0
     static var MapHeight: CGFloat = 0
+    var unitCount: Int = 0
     
     //each map tile is 32x32
     func readTerrain() -> (Dictionary <String, CGImage>?, Array<String>) {
@@ -110,8 +111,8 @@ class MapRender/*: UIView*/ {
                     x = 0
                 }
             }
-            MapRender.MapWidth = CGFloat(x)
-            MapRender.MapHeight = CGFloat(y)
+            MapRender.MapWidth = CGFloat(x) // 3072
+            MapRender.MapHeight = CGFloat(y) // 2048
         }
         let ps = Peasant(location: CGPointMake(CGFloat(100),CGFloat(-100)))
         view.addChild(ps)
@@ -132,6 +133,7 @@ class MapRender/*: UIView*/ {
             view.addChild(goldmine)
         case "Peasant":
             let peasant = Peasant(location: placement)
+            peasant.appearingOrder = unitCount++
             view.addChild(peasant)
         case "TownHall":
             let townhall = TownHall(location: placement)

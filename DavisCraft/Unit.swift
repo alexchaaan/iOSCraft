@@ -26,6 +26,7 @@ class Unit: SKSpriteNode{
     var piercingDamage = -1
     var attackRange = -1
     var capabilityCount = -1
+    var appearingOrder = -1
     
     init(texture: SKTexture?, color: UIColor, size: CGSize, properties: String) {
         super.init(texture: texture, color: color, size: size)
@@ -48,6 +49,7 @@ class Unit: SKSpriteNode{
         self.piercingDamage     = Int(propertiesContent[14])!
         self.attackRange        = Int(propertiesContent[15])!
         self.capabilityCount    = Int(propertiesContent[16])!
+        self.appearingOrder     = 0
         self.zPosition          = 1
 
         self.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(self.size.width - 1, self.size.height - 1))

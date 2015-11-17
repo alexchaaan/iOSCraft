@@ -37,4 +37,9 @@ class Map: SKNode {
 //            position.x = 96 * TILE_WIDTH / 2
 //        }
     }
+    
+    func addBuildingInBoth(node: SKNode) {
+        self.addChild(node)
+        MainViewController.miniMapScene.reflectBuildingToMini(node)
+    }
 }
