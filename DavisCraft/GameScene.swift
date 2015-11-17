@@ -132,6 +132,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let mapCameraPositionInScene = convertPoint(map.camera.position, toNode: self)
             let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
             constrainCameraPosition(newCameraPosition)
+            var miniMapPosition = CGPointMake((newCameraPosition.x + MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, (newCameraPosition.y - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
+            MainViewController.miniMapScene.confineViewPort(&miniMapPosition)
+            MainViewController.miniMapScene.updateViewPort(miniMapPosition.x, y_pos: miniMapPosition.y)
             lastTouchPosition = newTouchPosition
         }
         else {

@@ -221,4 +221,27 @@ class MiniMapScene: SKScene {
         let spriteInMiniMap = unitSet[movableSprite.appearingOrder]
         spriteInMiniMap.runAction(moveAction)
     }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        var locMinimap = touches.first!.locationInNode(self)
+        if locMinimap.x >= 0 && locMinimap.x <= self.view!.frame.width && -locMinimap.y >= 0 && -locMinimap.y <= self.view!.frame.height {
+            // Constrain the position of viewport:
+            self.confineViewPort(&locMinimap)
+            self.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
+            let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
+            MainViewController.gameScene.constrainCameraPosition(gamePosition)
+        }
+    }
+    /*
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        var locMinimap = touches.first!.locationInNode(self)
+        // Constrain the position of viewport:
+        self.confineViewPort(&locMinimap)
+        self.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
+        let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
+        MainViewController.gameScene.constrainCameraPosition(gamePosition)
+        print("touched: x = \(locMinimap.x), y = \(locMinimap.y)")
+    }
+    */
+    
 }

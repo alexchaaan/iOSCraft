@@ -114,75 +114,7 @@ class MainViewController: UIViewController {
         view.addSubview(actionPanel)
         
     }
-    /*
-    // Charles - Move the handlers out here:
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        /* Called when a touch begins */
-        print("BEGIN")
-        GameScene.lastTouchPosition = touches.first!.locationInNode(MainViewController.gameScene)
-        if isInside(GameScene.lastTouchPosition, x_max: MainViewController.gameWidth, y_max: MainViewController.gameHeight, refl: true) {
-            if (GameScene.buildMode == true) {
-                GameScene.isMoving = true
-                GameScene.newBuilding.position = MainViewController.gameScene.convertPoint(GameScene.lastTouchPosition, toNode: GameScene.map)
-                Building.positionOnTile(GameScene.newBuilding)
-                Building.setNewBuildingTint(GameScene.newBuilding)
-            }
-        }
-        
-    }
-    
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let newTouchPosition = touches.first!.locationInNode(MainViewController.gameScene)
-        //if isInside(newTouchPosition, x_max: MainViewController.gameWidth, y_max: MainViewController.gameHeight, refl: true) {
-            if (GameScene.buildMode == false) {
-                let touchOffsetVector = CGPointMake(newTouchPosition.x - GameScene.lastTouchPosition.x, (newTouchPosition.y - GameScene.lastTouchPosition.y) )
-                let mapCameraPositionInScene = MainViewController.gameScene.convertPoint(GameScene.map.camera.position, toNode: MainViewController.gameScene)
-                let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
-                MainViewController.gameScene.constrainCameraPosition(newCameraPosition)
-                var miniMapPosition = CGPointMake((newCameraPosition.x + MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, (newCameraPosition.y - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
-                MainViewController.miniMapScene.confineViewPort(&miniMapPosition)
-                MainViewController.miniMapScene.updateViewPort(miniMapPosition.x, y_pos: miniMapPosition.y)
-                GameScene.lastTouchPosition = newTouchPosition
-            }
-            else {
-                GameScene.didMove = true
-                GameScene.lastTouchPosition = newTouchPosition
-                Building.setNewBuildingTint(GameScene.newBuilding)
-            }
-        //}
-    }
-    
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        var locMinimap = touches.first!.locationInNode(MainViewController.miniMapScene)
-        let newEndPosition = touches.first!.locationInNode(MainViewController.gameScene)
-        if isInside(locMinimap, x_max: MainViewController.miniMapWidth, y_max: MainViewController.miniMapHeight, refl: true) {
-            // Constrain the position of viewport:
-            MainViewController.miniMapScene.confineViewPort(&locMinimap)
-            MainViewController.miniMapScene.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
-            let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
-            MainViewController.gameScene.constrainCameraPosition(gamePosition)
-            print("touched: x = \(locMinimap.x), y = \(locMinimap.y)")
-        }
-        else if isInside(newEndPosition, x_max: MainViewController.gameWidth, y_max: MainViewController.gameHeight, refl: true) {
-            print("ENDED")
-            if (GameScene.newBuilding != nil && GameScene.newBuilding.physicsBody?.allContactedBodies().count == 0) {
-                Building.setNewBuildingTint(GameScene.newBuilding)
-                //gameScene.placeNewBuilding()
-            }
-            GameScene.isMoving = false
-        }
-    }
-    */
-    func isInside(point: CGPoint, x_max: CGFloat, y_max: CGFloat, refl: Bool) -> Bool {
-        if refl {
-            return (point.x >= 0 && point.x <= x_max && -point.y >= 0 && -point.y <= y_max)
-        }
-        else {
-            return (point.x >= 0 && point.x <= x_max && point.y >= 0 && point.y <= y_max)
-        }
-    }
-    
-    
+
     override func shouldAutorotate() -> Bool {
         return true
     }
