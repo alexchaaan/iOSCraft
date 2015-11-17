@@ -114,7 +114,7 @@ class MainViewController: UIViewController {
         view.addSubview(actionPanel)
         
     }
-    
+    /*
     // Charles - Move the handlers out here:
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
@@ -172,7 +172,7 @@ class MainViewController: UIViewController {
             GameScene.isMoving = false
         }
     }
-    
+    */
     func isInside(point: CGPoint, x_max: CGFloat, y_max: CGFloat, refl: Bool) -> Bool {
         if refl {
             return (point.x >= 0 && point.x <= x_max && -point.y >= 0 && -point.y <= y_max)
