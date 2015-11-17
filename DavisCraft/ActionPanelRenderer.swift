@@ -10,10 +10,12 @@ import SpriteKit
 import UIKit
 import Foundation
 
+//option + command + <- 
+//that Hides blocks of code!!
 
 class ActionPanelRender: IconsRender {
-    
-    let  size = 41.5
+    var mapRender = MapRender() //added this to place on map but not sure if needed
+    let  size = 41.5 //sets the size of all the icons
     var selectedAsset : SKNode!
     var Button1 = UIButton()
     var Button2 = UIButton()
@@ -22,17 +24,16 @@ class ActionPanelRender: IconsRender {
     var Button5 = UIButton()
     var Button6 = UIButton()
     var Button7 = UIButton() //for walls when we implement them as something peasants can make
-    var Button8 = UIButton()
+    var Button8 = UIButton() //the cancel button is set to this
     
     func createBorder(){
         let border = UIImageView(image: UIImage(named: "Border.png")) // Whatever image you want
         self.addSubview(border)
         border.frame = CGRectMake(0, 5, self.bounds.size.width, self.bounds.size.height - 20)
         self.sendSubviewToBack(border)
-        
     }
 
-    func labelPrint(curObject: SKNode){
+    func labelPrint(curObject: SKNode){ //containsa switch statement dependent on the type, set buttons to correct icons
         selectedAsset = curObject
         
         switch curObject{
@@ -63,9 +64,14 @@ class ActionPanelRender: IconsRender {
                 humanArmor1.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
                 
                 humanMove.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanMove.addTarget(self, action: "moveHere:", forControlEvents: UIControlEvents.TouchUpInside)
                 humanWeapon1.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanWeapon1.addTarget(self, action: "attackThis:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanArmor1.addTarget(self, action: "stayHere:", forControlEvents: UIControlEvents.TouchUpInside)
                 repair.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                repair.addTarget(self, action: "repairThis:", forControlEvents: UIControlEvents.TouchUpInside)
                 mine.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                mine.addTarget(self, action: "mineThis:", forControlEvents: UIControlEvents.TouchUpInside)
                 buildSimple.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
                 buildSimple.addTarget(self, action: "createBuildings:", forControlEvents: UIControlEvents.TouchUpInside)
                 
@@ -104,6 +110,14 @@ class ActionPanelRender: IconsRender {
                 humanWeapon1.frame = CGRect(x: 18 + size, y: 25 + size, width: size, height: size)
                 humanArmor1.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
                 
+                humanMove.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanMove.addTarget(self, action: "moveHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanWeapon1.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanWeapon1.addTarget(self, action: "attackThis:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanPatrol.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanPatrol.addTarget(self, action: "patrolHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanArmor1.addTarget(self, action: "stayHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 Button1 = humanMove
                 Button2 = humanPatrol
                 Button3 = humanWeapon1
@@ -133,6 +147,14 @@ class ActionPanelRender: IconsRender {
                 humanWeapon1.frame = CGRect(x: 18 + size, y: 25 + size, width: size, height: size)
                 humanArmor1.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
                 
+                humanMove.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanMove.addTarget(self, action: "moveHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanWeapon1.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanWeapon1.addTarget(self, action: "attackThis:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanPatrol.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanPatrol.addTarget(self, action: "patrolHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanArmor1.addTarget(self, action: "stayHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 Button1 = humanMove
                 Button2 = humanPatrol
                 Button3 = humanWeapon1
@@ -161,6 +183,14 @@ class ActionPanelRender: IconsRender {
                 humanWeapon1.frame = CGRect(x: 18 + size, y: 25 + size, width: size, height: size)
                 humanArmor1.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
                 
+                humanMove.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanMove.addTarget(self, action: "moveHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanWeapon1.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanWeapon1.addTarget(self, action: "attackThis:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanPatrol.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanPatrol.addTarget(self, action: "patrolHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                humanArmor1.addTarget(self, action: "stayHere:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 Button1 = humanMove
                 Button2 = humanPatrol
                 Button3 = humanWeapon1
@@ -185,12 +215,18 @@ class ActionPanelRender: IconsRender {
                 BuildPeasant.frame = CGRect(x: 13, y: 15, width: size, height: size)
                 BuildKeep.frame = CGRect(x: 18 + size, y: 15, width: size, height: size)
                 
+                BuildPeasant.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildPeasant.addTarget(self, action: "buildPeasant:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildKeep.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildKeep.addTarget(self, action: "buildKeep:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 Button1 = BuildPeasant
                 Button2 = BuildKeep
                 
                 self.addSubview(Button1)
-                self.addSubview(Button2)}
-        case is GoldMine:
+                self.addSubview(Button2)
+            }
+        case is GoldMine: //doesnt have any buttons that I am aware of
             removeCurPanel()
             createBorder()
             if let goldMine = curObject as? GoldMine {
@@ -209,13 +245,20 @@ class ActionPanelRender: IconsRender {
                 BuildFootman.frame = CGRect(x: 13, y: 15, width: size, height: size)
                 BuildArcher.frame = CGRect(x: 18 + size, y: 15, width: size, height: size)
                 
+                BuildFootman.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildFootman.addTarget(self, action: "buildFootman:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildArcher.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildArcher.addTarget(self, action: "buildArcher:", forControlEvents: UIControlEvents.TouchUpInside)
+                
+
+                
                 Button1 = BuildFootman
                 Button2 = BuildArcher
                 
                 self.addSubview(Button1)
                 self.addSubview(Button2)
             }
-        case is BlackSmith:
+        case is BlackSmith: //will need to call Upgrade for archer and Upgrade for footman
             removeCurPanel()
             createBorder()
             if let blackSmith = curObject as? BlackSmith {
@@ -229,6 +272,11 @@ class ActionPanelRender: IconsRender {
                 WeaponUpgrade2.frame = CGRect(x: 13, y: 15, width: size, height: size)
                 ArmorUpgrade2.frame = CGRect(x: 18 + size, y: 15, width: size, height: size)
                 
+                WeaponUpgrade2.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                WeaponUpgrade2.addTarget(self, action: "upgradeWeapon2:", forControlEvents: UIControlEvents.TouchUpInside)
+                ArmorUpgrade2.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                ArmorUpgrade2.addTarget(self, action: "upgradeArmor2:", forControlEvents: UIControlEvents.TouchUpInside)
+
                 Button1 = WeaponUpgrade2
                 Button2 = ArmorUpgrade2
                 
@@ -245,15 +293,18 @@ class ActionPanelRender: IconsRender {
                 
                 BuildPeasant.frame = CGRect(x: 13, y: 15, width: size, height: size)
                 
+                BuildPeasant.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildPeasant.addTarget(self, action: "buildPeasant:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 Button1 = BuildPeasant
                 
                 self.addSubview(Button1)}
-        case is Farm:
+        case is Farm: //no buttons that I know of
             removeCurPanel()
             createBorder()
             if let farm = curObject as? Farm {
             }
-        case is GuardTower:
+        case is GuardTower: //no buttons that I know of
             removeCurPanel()
             createBorder()
             if let guardTower = curObject as? GuardTower {
@@ -272,11 +323,17 @@ class ActionPanelRender: IconsRender {
                 BuildPeasant.frame = CGRect(x: 13, y: 15, width: size, height: size)
                 BuildCastle.frame = CGRect(x: 18 + size, y: 15, width: size, height: size)
                 
+                BuildPeasant.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildPeasant.addTarget(self, action: "buildPeasant:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildCastle.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildCastle.addTarget(self, action: "buildCastle:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 Button1 = BuildPeasant
                 Button2 = BuildCastle
                 
                 self.addSubview(Button1)
-                self.addSubview(Button2)}
+                self.addSubview(Button2)
+            }
         case is LumberMill: //check images see if they are correct
             removeCurPanel()
             createBorder()
@@ -290,6 +347,11 @@ class ActionPanelRender: IconsRender {
                 
                 ArrowUpgrade2.frame = CGRect(x: 13, y: 15, width: size, height: size)
                 BuildRanger.frame = CGRect(x: 18 + size, y: 15, width: size, height: size)
+                
+                ArrowUpgrade2.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                ArrowUpgrade2.addTarget(self, action: "upgradeArrow2:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildRanger.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                BuildRanger.addTarget(self, action: "buildRanger:", forControlEvents: UIControlEvents.TouchUpInside)
                 
                 Button1 = ArrowUpgrade2
                 Button2 = BuildRanger
@@ -311,6 +373,11 @@ class ActionPanelRender: IconsRender {
                 guardTower.frame = CGRect(x: 13, y: 15, width: size, height: size)
                 cannonTower.frame = CGRect(x: 18 + size, y: 15, width: size, height: size)
                 
+                guardTower.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                guardTower.addTarget(self, action: "buildGuardTower:", forControlEvents: UIControlEvents.TouchUpInside)
+                cannonTower.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+                cannonTower.addTarget(self, action: "buildCannonTower:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 Button1 = guardTower
                 Button2 = cannonTower
                 
@@ -324,6 +391,10 @@ class ActionPanelRender: IconsRender {
     }//end of functio
     
     
+    
+    // These following functions get called when a button gets pressed. On the right shows the case where they are effected.
+    
+    
     func cancelMenu(sender: UIButton!){ //presents the cancelMenu screen
         //curObject: SKNode
         let (iDictionary, iNames) = readIcons()
@@ -331,30 +402,18 @@ class ActionPanelRender: IconsRender {
         createBorder()
         let cancelButton = UIButton()
         cancelButton.setImage(UIImage(CGImage: iDictionary!["cancel"]!), forState: UIControlState.Normal)
-        cancelButton.frame = CGRect(x: 30 + size * 2, y: 25 + size, width: size / 2, height: size / 2)
+        cancelButton.frame = CGRect(x: size * 3.5, y: size * 2.3, width: size / 2, height: size / 2)
         cancelButton.setBackgroundImage(UIImage(named: "Border.png"), forState: .Normal)
         cancelButton.addTarget(self, action: "returnBack:", forControlEvents: .TouchUpInside)
         Button8 = cancelButton
         self.addSubview(Button8)
-    }
+    } //called by all Buttons besides Cancel
     
-    func returnBack(sender:UIButton!){ //gets called from cancelMenu press
-        labelPrint(selectedAsset)
-    }
+    func returnBack(sender:UIButton!){labelPrint(selectedAsset)} //called by Cancel button to return Back to previous menu
     
     func createBuildings(sender:UIButton!){ //walls will need to be here as well, so there should be eight buttons
         let (iDictionary, iNames) = readIcons()
-////        removeCurPanel()
-////        createBorder()
-//        BuildSimple
-//        BuildTownHall
-//        BuildFarm
-//        BuildBarracks
-//        BuildLumberMill
-//        BuildScoutTower
-//        BuildBlacksmith
-//        BuildWall
-        
+
         let BuildTownHall = UIButton()
         BuildTownHall.setImage(UIImage(CGImage: iDictionary!["town-hall"]!), forState: UIControlState.Normal)
         let BuildFarm = UIButton()
@@ -374,6 +433,13 @@ class ActionPanelRender: IconsRender {
         BuildLumberMill.frame = CGRect(x: 13, y: 25 + size, width: size, height: size)
         BuildScoutTower.frame = CGRect(x: 18 + size, y: 25 + size, width: size, height: size)
         BuildBlacksmith.frame = CGRect(x: 24 + size * 2, y: 25 + size, width: size, height: size)
+        
+        BuildTownHall.addTarget(self, action: "buildTownHall:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildFarm.addTarget(self, action: "buildFarm:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildBarracks.addTarget(self, action: "buildBarracks:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildLumberMill.addTarget(self, action: "buildLumberMill:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildScoutTower.addTarget(self, action: "buildScoutTower:", forControlEvents: UIControlEvents.TouchUpInside)
+        BuildBlacksmith.addTarget(self, action: "buildBlacksmith:", forControlEvents: UIControlEvents.TouchUpInside)
         
         BuildTownHall.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
         BuildFarm.addTarget(self, action: "cancelMenu:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -396,8 +462,83 @@ class ActionPanelRender: IconsRender {
         self.addSubview(Button5)
         self.addSubview(Button6)
 
-    }
+    } //called by Peasant
     
+    func buildTownHall(sender:UIButton!){
+        
+        if let peasant = selectedAsset as? Peasant {
+            //peasant.build(buildingString: "town-hall", location: CGPoint)
+            print("BuildTownHall")
+
+        }
+    } //called by Peasant's build button
+    
+    func buildFarm(sender:UIButton!){
+        if let peasant = selectedAsset as? Peasant {
+        //build(buildingString: String, location: CGPoint) -> Building
+            print("BuildFarm")
+        }
+    } //called by Peasant's build button
+    
+    func buildBarracks(sender:UIButton!){
+        if let peasant = selectedAsset as? Peasant {
+            print("BuildBarracks")        }
+    }//called by Peasant's build button
+    
+    func buildLumberMill(sender:UIButton!){
+        if let peasant = selectedAsset as? Peasant {
+        //build(buildingString: String, location: CGPoint) -> Building
+             print("BuildLumberMill")
+        }
+    }//called by Peasant's build button
+    
+    func buildScoutTower(sender:UIButton!){
+        if let peasant = selectedAsset as? Peasant {
+        //build(buildingString: String, location: CGPoint) -> Building
+             print("ScoutTower")
+        }
+    }//called by Peasant's build button
+    
+    func buildBlacksmith(sender:UIButton!){
+        if let peasant = selectedAsset as? Peasant {
+        //build(buildingString: String, location: CGPoint) -> Building
+             print("BSmith")
+        }
+    }//called by Peasant's build button
+    
+    func moveHere(sender:UIButton!){print("I was pressed")}//called by all Units (Peasant, Footman, Ranger, Archer)
+    
+    func attackThis(sender:UIButton!){print("I was pressed")}//called by all Units
+    
+    func mineThis(sender:UIButton!){print("I was pressed")}//called by Peasant
+    
+    func repairThis(sender:UIButton!){print("I was pressed")}//called by Peasants
+    
+    func stayHere(sender:UIButton!){print("I was pressed")}//called by all Units
+    
+    func patrolHere(sender:UIButton!){print("I was pressed")}//called by all Units but Peasant
+    
+    func buildPeasant(sender:UIButton!){print("I was pressed")}//called by TownHall, Keep, and Castle
+    
+    func buildKeep(sender:UIButton!){print("I was pressed")}//called by TownHall
+    
+    func buildFootman(sender:UIButton!){print("I was pressed")}//called by Barracks
+
+    func buildArcher(sender:UIButton!){print("I was pressed")}//called by Barracks
+    
+    func upgradeWeapon2(sender:UIButton!){print("I was pressed")}//called by Blacksmith
+    
+    func upgradeArmor2(sender:UIButton!){print("I was pressed")}//called by Blacksmith
+    
+    func buildCastle(sender:UIButton!){print("I was pressed")}//called by Keep
+    
+    func buildRanger(sender:UIButton!){print("I was pressed")}//called by LumberMill
+    
+    func upgradeArrow2(sender:UIButton!){print("I was pressed")}//called by LumberMill
+    
+    func buildGuardTower(sender:UIButton!){print("I was pressed")}//called by ScoutTower
+    
+    func buildCannonTower(sender:UIButton!){print("I was pressed")}//called by ScoutTower
     
 }
 

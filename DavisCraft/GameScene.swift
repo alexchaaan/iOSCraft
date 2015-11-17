@@ -84,6 +84,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
         mapRender.drawRect(map)
+       // MapRender.mapRender.
+        //actionPanel.mapRender = mapRender
         
         //tile.viewDidLoad()
         map.addChild(townHall1)
@@ -137,6 +139,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("BEGIN")
         lastTouchPosition = touches.first!.locationInNode(self)
         if (buildMode == true) {
+            newBuilding = TownHall(location: lastTouchPosition)
             isMoving = true
             newBuilding.position = convertPoint(lastTouchPosition, toNode: map)
             Building.positionOnTile(newBuilding)
