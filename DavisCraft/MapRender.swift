@@ -13,6 +13,7 @@ class MapRender/*: UIView*/ {
     
     static var MapWidth: CGFloat = 0
     static var MapHeight: CGFloat = 0
+    var buildingCount: Int = 0
     var unitCount: Int = 0
     
     //each map tile is 32x32
@@ -114,8 +115,6 @@ class MapRender/*: UIView*/ {
             MapRender.MapWidth = CGFloat(x) // 3072
             MapRender.MapHeight = CGFloat(y) // 2048
         }
-        let ps = Peasant(location: CGPointMake(CGFloat(100),CGFloat(-100)))
-        view.addChild(ps)
         for index in 73..<map.endIndex - 2 {
             let item = map[index].componentsSeparatedByString(" ")
             let placement = CGPointMake(CGFloat(32 * Int(item[2])!), CGFloat(-32 * Int(item[3])!))
@@ -131,13 +130,17 @@ class MapRender/*: UIView*/ {
         case "GoldMine":
             let goldmine = GoldMine(location: placement)
             view.addChild(goldmine)
+            MainViewController.miniMapScene.reflectSpriteToMini(goldmine)
         case "Peasant":
             let peasant = Peasant(location: placement)
             peasant.appearingOrder = unitCount++
             view.addChild(peasant)
+            MainViewController.miniMapScene.reflectSpriteToMini(peasant)
         case "TownHall":
             let townhall = TownHall(location: placement)
+            townhall.appearingOrder = buildingCount++
             view.addChild(townhall)
+            MainViewController.miniMapScene.reflectSpriteToMini(townhall)
         default:
             break
         }

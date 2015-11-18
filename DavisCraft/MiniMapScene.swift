@@ -89,11 +89,13 @@ class MiniMapScene: SKScene {
         updateViewPort( (realMapWidth - MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, y_pos: -(realMapHeight - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
         hasViewport = true
         
+        /*
         for index in 73..<map.endIndex - 2 {
             let item = map[index].componentsSeparatedByString(" ")
             let placement = CGPointMake(32 * CGFloat(Int(item[2])!) * errorRatio_x * MiniMapScene.ratio_x, -32 * CGFloat(Int(item[3])!) * errorRatio_y * MiniMapScene.ratio_y)
             drawAsset(placement, sprite: item[0])
         }
+        */
         
     }
     
@@ -201,12 +203,16 @@ class MiniMapScene: SKScene {
         self.addChild(spriteNode)
     }
     
-    func reflectBuildingToMini(node: SKNode) {
+    func reflectSpriteToMini(node: SKNode) {
         let placement = CGPointMake(node.position.x * MiniMapScene.ratio_x * errorRatio_x, node.position.y * MiniMapScene.ratio_y * errorRatio_y)
         var currSprite: String!
         switch (node) {
+        case is GoldMine:
+            currSprite = "GoldMine"
         case is TownHall:
             currSprite = "TownHall"
+        case is Peasant:
+            currSprite = "Peasant"
         default:
             break
         
@@ -232,16 +238,5 @@ class MiniMapScene: SKScene {
             MainViewController.gameScene.constrainCameraPosition(gamePosition)
         }
     }
-    /*
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        var locMinimap = touches.first!.locationInNode(self)
-        // Constrain the position of viewport:
-        self.confineViewPort(&locMinimap)
-        self.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
-        let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
-        MainViewController.gameScene.constrainCameraPosition(gamePosition)
-        print("touched: x = \(locMinimap.x), y = \(locMinimap.y)")
-    }
-    */
     
 }

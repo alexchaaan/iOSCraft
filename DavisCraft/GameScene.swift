@@ -65,7 +65,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 
         
-        map.addBuildingInBoth(townHall1)
+        //map.addBuildingInBoth(townHall1)
+        map.addChild(townHall1)
+        MainViewController.miniMapScene.reflectSpriteToMini(townHall1)
         self.physicsWorld.gravity = CGVectorMake(0,0)
         self.physicsWorld.contactDelegate = self
         
