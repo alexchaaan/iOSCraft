@@ -22,6 +22,11 @@ class MiniMapScene: SKScene {
     
     let realMapWidth: CGFloat = 2852    // Comes from runtime measuring - need to be improved
     let realMapHeight: CGFloat = 1693
+    var errorRatio_x: CGFloat = 1
+    var errorRatio_y: CGFloat = 1
+    
+    var unitCount: Int = 0
+    var unitSet: [SKSpriteNode] = []
     
     override func didMoveToView(view: SKView) {
         anchorPoint = CGPointMake(0, 1)
@@ -30,7 +35,8 @@ class MiniMapScene: SKScene {
         
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
-        let step: CGFloat = 1.85
+        let step_x: CGFloat = 1.7
+        let step_y: CGFloat = 1.6
         // Draw mini-map
         for i in 3 ..< (height + 3){
             var mapLine = Array(map[i].characters)
@@ -64,22 +70,33 @@ class MiniMapScene: SKScene {
                     break
                 }
                 
-                let node = SKSpriteNode(texture: nil, color: elementColor, size: CGSizeMake(step, step))
+                let node = SKSpriteNode(texture: nil, color: elementColor, size: CGSizeMake(step_x, step_y))
                 node.position = location
                 self.addChild(node)
-                x += step
+                x += step_x
             }   // for j
-            y += step
+            y += step_y
             if i < height + 2 {
                 x = 0.0
             }
         }   // for i
         
+        errorRatio_x = realMapWidth / 3072
+        errorRatio_y = realMapHeight / 2048
         // Initialize viewport
         MiniMapScene.ratio_x = MainViewController.miniMapWidth / realMapWidth
         MiniMapScene.ratio_y = MainViewController.miniMapHeight / realMapHeight
         updateViewPort( (realMapWidth - MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, y_pos: -(realMapHeight - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
         hasViewport = true
+        
+        /*
+        for index in 73..<map.endIndex - 2 {
+            let item = map[index].componentsSeparatedByString(" ")
+            let placement = CGPointMake(32 * CGFloat(Int(item[2])!) * errorRatio_x * MiniMapScene.ratio_x, -32 * CGFloat(Int(item[3])!) * errorRatio_y * MiniMapScene.ratio_y)
+            drawAsset(placement, sprite: item[0])
+        }
+        */
+        
     }
     
     func readMap() -> (Array<String>, Int, Int){
@@ -139,5 +156,87 @@ class MiniMapScene: SKScene {
         }
     }
     
+    func drawAsset(var placement: CGPoint, sprite: String){
+        var assetColor: SKColor!
+        var assetImage: UIImage!
+        var index: Int = 0
+        var isUnit: Bool = false
+        switch(sprite){
+            case "GoldMine":
+                assetColor = SKColor.greenColor()
+                assetImage = UIImage(named: "data/png/GoldMine.png")!
+                index = 2
+                break
+            case "Peasant":
+                assetColor = SKColor.blueColor()
+                assetImage = UIImage(named: "data/png/Peasant.png")!
+                index = 172
+                isUnit = true
+                break
+            case "TownHall":
+                assetColor = SKColor.blueColor()
+                assetImage = UIImage(named: "data/png/TownHall.png")!
+                index = 4
+                break
+            default:
+                assetColor = SKColor.clearColor()
+                assetImage = UIImage(named: "data/png/Texture.png")!
+                index = 1
+                break
+        }
+        let width = assetImage.size.width
+        let height = assetImage.size.height
+        let fileName = sprite + ".dat"
+        let content = FileManager.returnDatFileContents(fileName)
+        let contentArray = content!.componentsSeparatedByString("\n")
+        let numberOfTiles = Int(contentArray[1]);
+        placement.y -= (height - (CGFloat(index)*(height/CGFloat(numberOfTiles!)))) * MiniMapScene.ratio_y
+        let assetWidth = width * MiniMapScene.ratio_x
+        let assetHeight = height / CGFloat(numberOfTiles!) * MiniMapScene.ratio_y
+        
+        let spriteNode = SKSpriteNode(texture: nil, color: assetColor, size: CGSizeMake(assetWidth, assetHeight))
+        spriteNode.position = CGPointMake(placement.x + assetWidth / 2, placement.y - assetHeight / 2)
+        if isUnit {
+            unitSet.append(spriteNode)
+            unitCount++
+        }
+        self.addChild(spriteNode)
+    }
+    
+    func reflectSpriteToMini(node: SKNode) {
+        let placement = CGPointMake(node.position.x * MiniMapScene.ratio_x * errorRatio_x, node.position.y * MiniMapScene.ratio_y * errorRatio_y)
+        var currSprite: String!
+        switch (node) {
+        case is GoldMine:
+            currSprite = "GoldMine"
+        case is TownHall:
+            currSprite = "TownHall"
+        case is Peasant:
+            currSprite = "Peasant"
+        default:
+            break
+        
+        }
+        self.drawAsset(placement, sprite: currSprite)
+    }
+    
+    func reflectMovingSPToMini(selectedSprite: SKNode, touchedSprite: SKSpriteNode, floatDuration: NSTimeInterval) {
+        let location = CGPointMake(touchedSprite.position.x * MiniMapScene.ratio_x * errorRatio_x, touchedSprite.position.y * MiniMapScene.ratio_y * errorRatio_y)
+        let moveAction = SKAction.moveTo(location, duration: floatDuration)
+        let movableSprite = selectedSprite as! Unit
+        let spriteInMiniMap = unitSet[movableSprite.appearingOrder]
+        spriteInMiniMap.runAction(moveAction)
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        var locMinimap = touches.first!.locationInNode(self)
+        if locMinimap.x >= 0 && locMinimap.x <= self.view!.frame.width && -locMinimap.y >= 0 && -locMinimap.y <= self.view!.frame.height {
+            // Constrain the position of viewport:
+            self.confineViewPort(&locMinimap)
+            self.updateViewPort(locMinimap.x, y_pos: locMinimap.y)
+            let gamePosition = CGPointMake(locMinimap.x / MiniMapScene.ratio_x - (MainViewController.gameWidth / 2), locMinimap.y / MiniMapScene.ratio_y + (MainViewController.gameHeight / 2))
+            MainViewController.gameScene.constrainCameraPosition(gamePosition)
+        }
+    }
     
 }

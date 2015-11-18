@@ -19,7 +19,6 @@
 		49B279621BE6C75E003898D1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CB534A231BD7B11000823469 /* GameScene.sks */; };
 		49B279641BE6C9B5003898D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B279631BE6C9B5003898D1 /* MainViewController.swift */; };
 		49B279661BE6D0AA003898D1 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B279651BE6D0AA003898D1 /* Map.swift */; };
-		49E010811BCBB601008CB09E /* TileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E010801BCBB601008CB09E /* TileController.swift */; };
 		49E028BC1BE9895D0058B4B9 /* IconRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BB1BE9895D0058B4B9 /* IconRender.swift */; };
 		49E028BE1BE994520058B4B9 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E028BD1BE994520058B4B9 /* Building.swift */; };
 		4C1C87BB1BEC350A001CAF4C /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87BA1BEC350A001CAF4C /* Unit.swift */; };
@@ -82,7 +81,6 @@
 		49AD4FC81BF1F3BB00828961 /* DescPanelRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescPanelRender.swift; sourceTree = "<group>"; };
 		49B279631BE6C9B5003898D1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		49B279651BE6D0AA003898D1 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		49E010801BCBB601008CB09E /* TileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TileController.swift; path = ../TileController.swift; sourceTree = "<group>"; };
 		49E028BB1BE9895D0058B4B9 /* IconRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconRender.swift; sourceTree = "<group>"; };
 		49E028BD1BE994520058B4B9 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Building.swift; path = ../Building.swift; sourceTree = "<group>"; };
 		4C1C87BA1BEC350A001CAF4C /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
 				97B8BD021BF7EDED00F3A02C /* Border.png */,
 				49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */,
-				49E010801BCBB601008CB09E /* TileController.swift */,
 				CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */,
 				49E028BB1BE9895D0058B4B9 /* IconRender.swift */,
 				97B8BD041BF7EDFC00F3A02C /* MenuButton.png */,
@@ -356,7 +353,7 @@
 				TargetAttributes = {
 					CBEF61B01BBF98C10043B54D = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = E22WGDSDGL;
+						DevelopmentTeam = F8FA3CPAAB;
 					};
 					CBEF61C91BBF98C20043B54D = {
 						CreatedOnToolsVersion = 6.3;
@@ -437,7 +434,6 @@
 				3F6FFCF01BC5F20F00DD4285 /* NetworkOptions.swift in Sources */,
 				4C985FAB1BEEB819005885ED /* Barracks.swift in Sources */,
 				4C985FBD1BEEB8A4005885ED /* Ranger.swift in Sources */,
-				49E010811BCBB601008CB09E /* TileController.swift in Sources */,
 				4C1C87C81BEC6B8F001CAF4C /* TileGrass.swift in Sources */,
 				49AD4FC91BF1F3BB00828961 /* DescPanelRender.swift in Sources */,
 				4C1C87BB1BEC350A001CAF4C /* Unit.swift in Sources */,
@@ -573,7 +569,7 @@
 				INFOPLIST_FILE = DavisCraft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -588,7 +584,7 @@
 				INFOPLIST_FILE = DavisCraft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

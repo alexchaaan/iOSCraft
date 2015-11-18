@@ -16,15 +16,15 @@ let TILE_HEIGHT = CGFloat(32)
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var didSelect: Bool?
-    static var map = Map() //SKNode
-    static var lastTouchPosition = CGPointZero
+    var map = Map() //SKNode
+    var lastTouchPosition = CGPointZero
     var selected : SKNode!
     var previouslySelected: SKNode!
-    static var newBuilding : Building!
+    var newBuilding : Building!
     var newUnit : Unit!
-    static var buildMode = false
-    static var isMoving = false
-    static var didMove = false
+    var buildMode = false
+    var isMoving = false
+    var didMove = false
     var peasantImages : [SKTexture] = []
     var width = Int()
     var height = Int()
@@ -56,16 +56,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let default_height = self.size.height
         self.size = CGSizeMake(default_width * 3 / 4, default_height * 19 / 20)
         
-        addChild(GameScene.map)
+        addChild(map)
 
         let mapRender = MapRender()
         (_, width, height ) = mapRender.readMap()
         printTimeElapsedWhenRunningCode("Adding Game Scene Map") { () -> () in
-            mapRender.drawRect(GameScene.map)
+            mapRender.drawRect(self.map)
         }
 
         
-        GameScene.map.addChild(townHall1)
+        //map.addBuildingInBoth(townHall1)
+        map.addChild(townHall1)
+        MainViewController.miniMapScene.reflectSpriteToMini(townHall1)
         self.physicsWorld.gravity = CGVectorMake(0,0)
         self.physicsWorld.contactDelegate = self
         
@@ -89,7 +91,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapRec.requireGestureRecognizerToFail(doubleTapRec)
         tapRec.requireGestureRecognizerToFail(tripleTapRec)
         doubleTapRec.requireGestureRecognizerToFail(tripleTapRec)
-        constrainCameraPosition(convertPoint(townHall1.position, toNode:GameScene.map))
+        constrainCameraPosition(convertPoint(townHall1.position, toNode:map))
         
         
         
@@ -110,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            //print("END COLLISION")
 //        }
     }
-    /*
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         print("BEGIN")
@@ -132,6 +134,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let mapCameraPositionInScene = convertPoint(map.camera.position, toNode: self)
             let newCameraPosition = CGPointMake(mapCameraPositionInScene.x - touchOffsetVector.x, mapCameraPositionInScene.y - touchOffsetVector.y)
             constrainCameraPosition(newCameraPosition)
+            var miniMapPosition = CGPointMake((newCameraPosition.x + MainViewController.gameWidth / 2) * MiniMapScene.ratio_x, (newCameraPosition.y - MainViewController.gameHeight / 2) * MiniMapScene.ratio_y)
+            MainViewController.miniMapScene.confineViewPort(&miniMapPosition)
+            MainViewController.miniMapScene.updateViewPort(miniMapPosition.x, y_pos: miniMapPosition.y)
             lastTouchPosition = newTouchPosition
         }
         else {
@@ -153,7 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         isMoving = false
     }
-    */
+    
     func constrainCameraPosition(var newCameraPosition: CGPoint) {
 
         if newCameraPosition.x < -scene!.view!.bounds.size.width/4 {
@@ -168,57 +173,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newCameraPosition.y = 0
         }
         //print("New cam pos:", newCameraPosition)
-        GameScene.map.camera.position = newCameraPosition
+        map.camera.position = newCameraPosition
         
     }
     
     func infiniteScroll(let locationTouched: CGPoint) {
-        let cameraCenter = CGPointMake(GameScene.map.camera.position.x + self.frame.width/2, GameScene.map.camera.position.y - self.frame.height/2)
-        let sceneTouched = convertPoint(locationTouched, toNode: GameScene.map)
+        let cameraCenter = CGPointMake(map.camera.position.x + self.frame.width/2, map.camera.position.y - self.frame.height/2)
+        let sceneTouched = convertPoint(locationTouched, toNode: map)
         let offset = CGPointMake(sceneTouched.x - cameraCenter.x, sceneTouched.y - cameraCenter.y)
         let length = sqrt(offset.x * offset.x + offset.y * offset.y)
         let movementScalar = CGFloat(25)
         let direction = CGPointMake(offset.x * movementScalar / length, offset.y * movementScalar / length)
-        GameScene.newBuilding.position = sceneTouched
-        Building.setNewBuildingTint(GameScene.newBuilding)
-        Building.positionOnTile(GameScene.newBuilding)
+        newBuilding.position = sceneTouched
+        Building.setNewBuildingTint(newBuilding)
+        Building.positionOnTile(newBuilding)
         if (abs(offset.x) > self.frame.width * 0.40 || abs(offset.y) > self.frame.height * 0.40) {
-            constrainCameraPosition(CGPointMake(GameScene.map.camera.position.x + direction.x, GameScene.map.camera.position.y + direction.y))
+            constrainCameraPosition(CGPointMake(map.camera.position.x + direction.x, map.camera.position.y + direction.y))
         }
 
     }
     
     override func update(currentTime: CFTimeInterval) {
-        if (GameScene.buildMode) {
-            if (GameScene.isMoving) {
-                infiniteScroll(GameScene.lastTouchPosition)
+        if (buildMode) {
+            if (isMoving) {
+                infiniteScroll(lastTouchPosition)
             }
-            if (!GameScene.isMoving && GameScene.didMove && GameScene.newBuilding.physicsBody?.allContactedBodies().count == 0) {
+            if (!isMoving && didMove && newBuilding.physicsBody?.allContactedBodies().count == 0) {
                 placeNewBuilding()
             }
-            if (GameScene.didMove == false) {
-                Building.setNewBuildingTint(GameScene.newBuilding)
+            if (didMove == false) {
+                Building.setNewBuildingTint(newBuilding)
             }
             
-            if (!intersectsNode(GameScene.newBuilding)) {
-                GameScene.newBuilding.position.x = (GameScene.map.camera.position.x + (GameScene.newBuilding.texture?.size().width)!/2)
+            if (!intersectsNode(newBuilding)) {
+                newBuilding.position.x = (map.camera.position.x + (newBuilding.texture?.size().width)!/2)
             }
         }
     }
     
     func placeNewBuilding() {
         //if (intersectsNode(newBuilding)) {
-        GameScene.buildMode = false
-        GameScene.didMove = false
-        GameScene.newBuilding.colorBlendFactor = CGFloat(0)
-        GameScene.newBuilding.color = SKColor.clearColor()
-        GameScene.newBuilding.zPosition = 2
-        GameScene.newBuilding = nil
+        buildMode = false
+        didMove = false
+        newBuilding.colorBlendFactor = CGFloat(0)
+        newBuilding.color = SKColor.clearColor()
+        newBuilding.zPosition = 2
+        newBuilding = nil
         //}
     }
     
     override func didFinishUpdate() {
-        GameScene.map.centerOnCamera()
+        map.centerOnCamera()
     }
     
     
@@ -259,7 +264,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func doubleTap(recognizer:UITapGestureRecognizer) {
-        if (GameScene.buildMode) {
+        if (buildMode) {
             return
         }
         let viewTouchLocation = recognizer.locationInView((self.view))
@@ -291,26 +296,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func tripleTap(recognizer:UITapGestureRecognizer) {
-        if (GameScene.buildMode) {
+        if (buildMode) {
             return
         }
         let viewTouchLocation = recognizer.locationInView((self.view))
-        let middleScene = CGPointMake(GameScene.map.camera.position.x + self.frame.width/2, GameScene.map.camera.position.y - self.frame.height/2)
+        let middleScene = CGPointMake(map.camera.position.x + self.frame.width/2, map.camera.position.y - self.frame.height/2)
         if (selected is Peasant) {
             print("Triple")
-            GameScene.newBuilding = (selected as! Peasant).build("Barracks", location: middleScene)
-            GameScene.newBuilding.zPosition = 6
-            GameScene.map.addChild(GameScene.newBuilding)
-            GameScene.buildMode = true
-            Building.positionOnTile(GameScene.newBuilding)
+            newBuilding = (selected as! Peasant).build("Barracks", location: middleScene)
+            newBuilding.zPosition = 6
+            map.addChild(newBuilding)
+            buildMode = true
+            Building.positionOnTile(newBuilding)
             
         }
     }
     
     
     func tappedView(recognizer:UITapGestureRecognizer) {
-        if (GameScene.buildMode) {
-            GameScene.didMove = true
+        if (buildMode) {
+            didMove = true
             print("TAPPED")
             return
         }
@@ -369,7 +374,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 previouslySelected.removeAllChildren()
             }
             newUnit = (selected as! Barracks).build("Footman")
-            GameScene.map.addChild(newUnit)
+            map.addChild(newUnit)
             
             
         }
@@ -502,6 +507,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.setDirection(selectedSprite, index: 82)
             }
         }
+        
 //        print (mining)
         let moveAction = SKAction.moveTo(location, duration: floatDuration)
         let walkingAnimation = SKAction.animateWithTextures(peasantImages, timePerFrame: 0.05, resize: false, restore: true)
@@ -512,7 +518,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        if .name == "goldmine"{
 //            print("gathering golddfsafa")
 //        }
-        
+        MainViewController.miniMapScene.reflectMovingSPToMini(selectedSprite, touchedSprite: touchedSprite, floatDuration: floatDuration)
     }
     
     
@@ -607,7 +613,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createPeasant() {
         let loc = CGPointMake(townHall1.position.x - townHall1.size.width/2, townHall1.position.y + townHall1.size.height/2)
         let peasant = Peasant(location: loc)
-        GameScene.map.addChild(peasant)
+        map.addChild(peasant)
     }
 
     
