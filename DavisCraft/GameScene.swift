@@ -242,6 +242,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //}
     }
     
+    func printMe() {print("I was pressed from Action Panel Renderer")}
+    
     override func didFinishUpdate() {
         map.centerOnCamera()
     }

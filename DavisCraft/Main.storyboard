@@ -282,14 +282,6 @@
                                     <color key="titleColor" red="1" green="0.94265429789999999" blue="0.1226540804" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YS-Et-hss">
-                                <rect key="frame" x="614" y="28" width="111" height="21"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.021096907349999999" green="0.3397441008" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.22275524059999999" green="0.60247927300000004" blue="0.031937445369999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PV6-8k-KSO">
                                 <rect key="frame" x="616" y="201" width="100" height="55"/>
                                 <animations/>
@@ -316,6 +308,18 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="PyQ-5M-0sM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YS-Et-hss">
+                                <rect key="frame" x="611" y="28" width="111" height="111"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.021096907349999999" green="0.3397441008" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="3ao-d8-22d"/>
+                                    <constraint firstAttribute="height" constant="111" id="q0V-Xq-bYh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.22275524059999999" green="0.60247927300000004" blue="0.031937445369999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,8 +361,8 @@
                             <constraint firstItem="5tY-eq-L1R" firstAttribute="leading" secondItem="JFB-Ph-P0A" secondAttribute="leading" id="myi-9M-6Im"/>
                             <constraint firstItem="SHG-Zs-EYe" firstAttribute="trailing" secondItem="XLg-Yh-Pf1" secondAttribute="trailing" id="o7k-5N-PGe"/>
                             <constraint firstItem="S0k-xu-2iq" firstAttribute="trailing" secondItem="XLg-Yh-Pf1" secondAttribute="trailing" id="syR-2k-RVS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4YS-Et-hss" secondAttribute="trailing" constant="-9" id="uAu-62-M6l"/>
-                            <constraint firstItem="4YS-Et-hss" firstAttribute="leading" secondItem="ukU-mV-UoU" secondAttribute="trailing" constant="15" id="ubF-Eb-gyZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4YS-Et-hss" secondAttribute="trailing" constant="-6" id="uAu-62-M6l"/>
+                            <constraint firstItem="4YS-Et-hss" firstAttribute="leading" secondItem="ukU-mV-UoU" secondAttribute="trailing" constant="12" id="ubF-Eb-gyZ"/>
                             <constraint firstItem="5tY-eq-L1R" firstAttribute="top" secondItem="JFB-Ph-P0A" secondAttribute="top" id="uob-ft-bVT"/>
                             <constraint firstItem="SHG-Zs-EYe" firstAttribute="leading" secondItem="kpH-v6-r6a" secondAttribute="leading" id="voD-fB-Obr"/>
                             <constraint firstItem="XLg-Yh-Pf1" firstAttribute="leading" secondItem="S0k-xu-2iq" secondAttribute="leading" id="x3O-sp-Gdq"/>
@@ -1058,7 +1062,7 @@
         <image name="tempButton" width="518" height="350"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kdp-Il-N8D"/>
+        <segue reference="PyQ-5M-0sM"/>
         <segue reference="Rnt-Rm-cdA"/>
         <segue reference="Y5e-5O-Zwr"/>
     </inferredMetricsTieBreakers>

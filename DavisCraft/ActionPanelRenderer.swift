@@ -17,6 +17,7 @@ class ActionPanelRender: IconsRender {
     var mapRender = MapRender() //added this to place on map but not sure if needed
     let  size = 41.5 //sets the size of all the icons
     var selectedAsset : SKNode!
+    let scene1 = scene
     var Button1 = UIButton()
     var Button2 = UIButton()
     var Button3 = UIButton()
@@ -506,7 +507,7 @@ class ActionPanelRender: IconsRender {
         }
     }//called by Peasant's build button
     
-    func moveHere(sender:UIButton!){print("I was pressed")}//called by all Units (Peasant, Footman, Ranger, Archer)
+    func moveHere(sender:UIButton!){scene1!.printMe()}//called by all Units (Peasant, Footman, Ranger, Archer)
     
     func attackThis(sender:UIButton!){print("I was pressed")}//called by all Units
     

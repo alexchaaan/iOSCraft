@@ -11,6 +11,7 @@ import SpriteKit
 let menuPanel = IconsRender()
 let actionPanel = ActionPanelRender()
 let descPanel = DescLabelRender()
+let scene = GameScene(fileNamed: "GameScene")
 
 class MainViewController: UIViewController {
     
@@ -56,7 +57,6 @@ class MainViewController: UIViewController {
         
         let fullWidth = self.view.bounds.size.width
         let fullHeight = self.view.bounds.size.height
-        let scene = GameScene(fileNamed: "GameScene")
         self.view.backgroundColor = UIColor.blackColor()
         /* Create and Add the skView as a subview of the UI (Charles) */
         if scene != nil {// Configure the view.
