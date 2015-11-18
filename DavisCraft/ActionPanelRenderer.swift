@@ -465,81 +465,51 @@ class ActionPanelRender: IconsRender {
 
     } //called by Peasant
     
-    func buildTownHall(sender:UIButton!){
-        
-        if let peasant = selectedAsset as? Peasant {
-            //peasant.build(buildingString: "town-hall", location: CGPoint)
-            print("BuildTownHall")
+    func buildTownHall(sender:UIButton!){ scene1!.printMe("buildTownHall")} //called by Peasant's build button
+    
+    func buildFarm(sender:UIButton!){scene1!.printMe("buildFarm")} //called by Peasant's build button
+    
+    func buildBarracks(sender:UIButton!){scene1!.printMe("buildBarracks")}//called by Peasant's build button
+    
+    func buildLumberMill(sender:UIButton!){scene1!.printMe("buildLumberMill")}//called by Peasant's build button
+    
+    func buildScoutTower(sender:UIButton!){scene1!.printMe("buildScoutTower")}//called by Peasant's build button
+    
+    func buildBlacksmith(sender:UIButton!){scene1!.printMe("buildBlacksmith")}//called by Peasant's build button
 
-        }
-    } //called by Peasant's build button
+    func moveHere(sender:UIButton!){scene1!.printMe("moveHere")}//called by all Units (Peasant, Footman, Ranger, Archer)
     
-    func buildFarm(sender:UIButton!){
-        if let peasant = selectedAsset as? Peasant {
-        //build(buildingString: String, location: CGPoint) -> Building
-            print("BuildFarm")
-        }
-    } //called by Peasant's build button
+    func attackThis(sender:UIButton!){scene1!.printMe("attackThis")}//called by all Units
     
-    func buildBarracks(sender:UIButton!){
-        if let peasant = selectedAsset as? Peasant {
-            print("BuildBarracks")        }
-    }//called by Peasant's build button
+    func mineThis(sender:UIButton!){scene1!.printMe("mineThis")}//called by Peasant
     
-    func buildLumberMill(sender:UIButton!){
-        if let peasant = selectedAsset as? Peasant {
-        //build(buildingString: String, location: CGPoint) -> Building
-             print("BuildLumberMill")
-        }
-    }//called by Peasant's build button
+    func repairThis(sender:UIButton!){scene1!.printMe("repairThis")}//called by Peasants
     
-    func buildScoutTower(sender:UIButton!){
-        if let peasant = selectedAsset as? Peasant {
-        //build(buildingString: String, location: CGPoint) -> Building
-             print("ScoutTower")
-        }
-    }//called by Peasant's build button
+    func stayHere(sender:UIButton!){scene1!.printMe("stayHere")}//called by all Units
     
-    func buildBlacksmith(sender:UIButton!){
-        if let peasant = selectedAsset as? Peasant {
-        //build(buildingString: String, location: CGPoint) -> Building
-             print("BSmith")
-        }
-    }//called by Peasant's build button
+    func patrolHere(sender:UIButton!){scene1!.printMe("patrolHere")}//called by all Units but Peasant
     
-    func moveHere(sender:UIButton!){scene1!.printMe()}//called by all Units (Peasant, Footman, Ranger, Archer)
+    func buildPeasant(sender:UIButton!){scene1!.printMe("buildPeasant")}//called by TownHall, Keep, and Castle
     
-    func attackThis(sender:UIButton!){print("I was pressed")}//called by all Units
+    func buildKeep(sender:UIButton!){scene1!.printMe("buildKeep")}//called by TownHall
     
-    func mineThis(sender:UIButton!){print("I was pressed")}//called by Peasant
-    
-    func repairThis(sender:UIButton!){print("I was pressed")}//called by Peasants
-    
-    func stayHere(sender:UIButton!){print("I was pressed")}//called by all Units
-    
-    func patrolHere(sender:UIButton!){print("I was pressed")}//called by all Units but Peasant
-    
-    func buildPeasant(sender:UIButton!){print("I was pressed")}//called by TownHall, Keep, and Castle
-    
-    func buildKeep(sender:UIButton!){print("I was pressed")}//called by TownHall
-    
-    func buildFootman(sender:UIButton!){print("I was pressed")}//called by Barracks
+    func buildFootman(sender:UIButton!){scene1!.printMe("buildFootman")}//called by Barracks
 
-    func buildArcher(sender:UIButton!){print("I was pressed")}//called by Barracks
+    func buildArcher(sender:UIButton!){scene1!.printMe("buildArcher")}//called by Barracks
     
-    func upgradeWeapon2(sender:UIButton!){print("I was pressed")}//called by Blacksmith
+    func upgradeWeapon2(sender:UIButton!){scene1!.printMe("upgradeWeapon2")}//called by Blacksmith
     
-    func upgradeArmor2(sender:UIButton!){print("I was pressed")}//called by Blacksmith
+    func upgradeArmor2(sender:UIButton!){scene1!.printMe("upgradeArmor2")}//called by Blacksmith
     
-    func buildCastle(sender:UIButton!){print("I was pressed")}//called by Keep
+    func buildCastle(sender:UIButton!){scene1!.printMe("buildCastle")}//called by Keep
     
-    func buildRanger(sender:UIButton!){print("I was pressed")}//called by LumberMill
+    func buildRanger(sender:UIButton!){scene1!.printMe("buildRanger")}//called by LumberMill
     
-    func upgradeArrow2(sender:UIButton!){print("I was pressed")}//called by LumberMill
+    func upgradeArrow2(sender:UIButton!){scene1!.printMe("upgradeArrow2")}//called by LumberMill
     
-    func buildGuardTower(sender:UIButton!){print("I was pressed")}//called by ScoutTower
+    func buildGuardTower(sender:UIButton!){scene1!.printMe("buildGuardTower")}//called by ScoutTower
     
-    func buildCannonTower(sender:UIButton!){print("I was pressed")}//called by ScoutTower
+    func buildCannonTower(sender:UIButton!){scene1!.printMe("buildCannonTower")}//called by ScoutTower
     
 }
 
