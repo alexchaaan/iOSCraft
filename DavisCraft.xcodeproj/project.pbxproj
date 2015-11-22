@@ -33,7 +33,6 @@
 		4C1C87D21BEC6F4C001CAF4C /* TileDirt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C87D11BEC6F4C001CAF4C /* TileDirt.swift */; };
 		4C3F91B11BE172520075ECB3 /* MapRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B01BE172520075ECB3 /* MapRender.swift */; };
 		4C3F91B31BE172570075ECB3 /* MapRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B21BE172570075ECB3 /* MapRenderer.swift */; };
-		4C3F91B51BE1727C0075ECB3 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 4C3F91B41BE1727C0075ECB3 /* data */; };
 		4C3F91B71BE172BE0075ECB3 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3F91B61BE172BE0075ECB3 /* FileManager.swift */; };
 		4C985FAB1BEEB819005885ED /* Barracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FAA1BEEB819005885ED /* Barracks.swift */; };
 		4C985FAD1BEEB825005885ED /* BlackSmith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FAC1BEEB825005885ED /* BlackSmith.swift */; };
@@ -48,6 +47,7 @@
 		4C985FBF1BEEB8A9005885ED /* Archer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C985FBE1BEEB8A9005885ED /* Archer.swift */; };
 		4CA767501BED4717009C6AD9 /* GoldMine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA7674F1BED4717009C6AD9 /* GoldMine.swift */; };
 		4CB586001BC8C080009CAC58 /* AVAudioPlayerPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */; };
+		972BE5A41C019E10003C0FF9 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 4C3F91B41BE1727C0075ECB3 /* data */; };
 		97B8BD031BF7EDED00F3A02C /* Border.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B8BD021BF7EDED00F3A02C /* Border.png */; };
 		97B8BD051BF7EDFC00F3A02C /* MenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97B8BD041BF7EDFC00F3A02C /* MenuButton.png */; };
 		BC0E08871BCB5B8F0067D19B /* MultiTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0E08861BCB5B8F0067D19B /* MultiTouch.swift */; };
@@ -353,7 +353,7 @@
 				TargetAttributes = {
 					CBEF61B01BBF98C10043B54D = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = F8FA3CPAAB;
+						DevelopmentTeam = E22WGDSDGL;
 					};
 					CBEF61C91BBF98C20043B54D = {
 						CreatedOnToolsVersion = 6.3;
@@ -385,9 +385,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				972BE5A41C019E10003C0FF9 /* data in Resources */,
 				49B279621BE6C75E003898D1 /* GameScene.sks in Resources */,
 				3F6FFD001BC5F29500DD4285 /* LaunchScreen.storyboard in Resources */,
-				4C3F91B51BE1727C0075ECB3 /* data in Resources */,
 				97B8BD051BF7EDFC00F3A02C /* MenuButton.png in Resources */,
 				CBEF61C21BBF98C10043B54D /* Images.xcassets in Resources */,
 				3F6FFCF61BC5F25F00DD4285 /* Main.storyboard in Resources */,
@@ -569,7 +569,7 @@
 				INFOPLIST_FILE = DavisCraft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -584,7 +584,7 @@
 				INFOPLIST_FILE = DavisCraft/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UCDClassNitta.DavisCraft2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -557,7 +557,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 //        print(index)
         
-        image = UIImage(named: "data/png/Goldmine.png")!
+        image = UIImage(named: "data/png/GoldMine.png")!
         
         let h = image.size.height
         let w = image.size.width
