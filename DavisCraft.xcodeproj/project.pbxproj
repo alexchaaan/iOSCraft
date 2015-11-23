@@ -78,7 +78,7 @@
 		3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPanelRenderer.swift; sourceTree = "<group>"; };
-		49AD4FC81BF1F3BB00828961 /* DescPanelRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescPanelRender.swift; sourceTree = "<group>"; };
+		49AD4FC81BF1F3BB00828961 /* DescPanelRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescPanelRender.swift; path = ../DescPanelRender.swift; sourceTree = "<group>"; };
 		49B279631BE6C9B5003898D1 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		49B279651BE6D0AA003898D1 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		49E028BB1BE9895D0058B4B9 /* IconRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconRender.swift; sourceTree = "<group>"; };
@@ -229,7 +229,6 @@
 		CBEF61A81BBF98C10043B54D = {
 			isa = PBXGroup;
 			children = (
-				49AD4FC81BF1F3BB00828961 /* DescPanelRender.swift */,
 				CBEF61B31BBF98C10043B54D /* DavisCraft */,
 				CBEF61CD1BBF98C20043B54D /* DavisCraftTests */,
 				CBEF61B21BBF98C10043B54D /* Products */,
@@ -251,13 +250,12 @@
 				4C1C87C31BEC668F001CAF4C /* Nodes */,
 				3F6FFCFF1BC5F29500DD4285 /* LaunchScreen.storyboard */,
 				4C3F91B01BE172520075ECB3 /* MapRender.swift */,
+				49AD4FC81BF1F3BB00828961 /* DescPanelRender.swift */,
 				4C3F91B21BE172570075ECB3 /* MapRenderer.swift */,
 				CBEF61BA1BBF98C10043B54D /* GameScene.swift */,
-				97B8BD021BF7EDED00F3A02C /* Border.png */,
 				49AD4FC61BF1F08600828961 /* ActionPanelRenderer.swift */,
 				CA7C1F941BF444F500B8EFD5 /* MiniMapScene.swift */,
 				49E028BB1BE9895D0058B4B9 /* IconRender.swift */,
-				97B8BD041BF7EDFC00F3A02C /* MenuButton.png */,
 				49B279651BE6D0AA003898D1 /* Map.swift */,
 				3F6FFCF31BC5F22A00DD4285 /* GameViewController.swift */,
 				4CB585FF1BC8C080009CAC58 /* AVAudioPlayerPool.swift */,
@@ -267,6 +265,8 @@
 				3F6FFCF51BC5F25F00DD4285 /* Main.storyboard */,
 				CBEF61B61BBF98C10043B54D /* AppDelegate.swift */,
 				CBEF61C11BBF98C10043B54D /* Images.xcassets */,
+				97B8BD041BF7EDFC00F3A02C /* MenuButton.png */,
+				97B8BD021BF7EDED00F3A02C /* Border.png */,
 				97E3E0521BE57F7900BF4DB2 /* ButtonCool.png */,
 				CB534A1A1BD4585900823469 /* Controllers */,
 				CB534A1B1BD4586200823469 /* Models */,

@@ -35,6 +35,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var mining = false
     var cutting = false
     var lightOn = false
+    //var actionPanelRender: ActionPanelRender!
 //    var menuPanel: IconsRender!
     var dpanel: DescLabelRender?
     var apanel: ActionPanelRender?
@@ -118,6 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("BEGIN")
         lastTouchPosition = touches.first!.locationInNode(self)
         if (buildMode == true) {
+            newBuilding = TownHall(location: lastTouchPosition)
             isMoving = true
             newBuilding.position = convertPoint(lastTouchPosition, toNode: map)
             Building.positionOnTile(newBuilding)
@@ -220,6 +222,68 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         newBuilding.zPosition = 2
         newBuilding = nil
         //}
+    }
+    
+    func printMe(buttonFunctionName: String) {
+        switch(buttonFunctionName) {
+        case "buildTownHall":
+            print("hi")
+            break
+        case "buildFarm":
+            break
+        case "buildBarracks":
+            break
+        case "buildLumberMill":
+            break
+        case "buildScoutTower":
+            break
+        case "buildBlacksmith":
+            break
+        case "moveHere":
+            break
+        case "attackThis":
+            break
+        case "mineThis":
+            break
+        case "repairThis":
+            break
+        case "stayHere":
+            break
+        case "patrolHere":
+            break
+        case "buildPeasant":
+            break
+        case "buildKeep":
+            break
+        case "buildFootman":
+            break
+        case "buildArcher":
+            break
+        case "upgradeWeapon2":
+            break
+        case "upgradeArmor2":
+            break
+        case "buildCastle":
+            break
+        case "buildRanger":
+            break
+        case "upgradeArrow2":
+            break
+        case "buildGuardTower":
+            break
+        case "buildCannonTower":
+            break
+        default:
+            break
+            
+        }
+        
+        
+        
+        
+        
+
+        //23 switch statements
     }
     
     override func didFinishUpdate() {

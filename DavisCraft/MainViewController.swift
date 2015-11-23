@@ -9,6 +9,10 @@
 import Foundation
 import SpriteKit
 let menuPanel = IconsRender()
+let actionPanel = ActionPanelRender()
+let descPanel = DescLabelRender()
+let scene = GameScene(fileNamed: "GameScene")
+
 class MainViewController: UIViewController {
     
     static var miniMapWidth: CGFloat! = 0
@@ -90,10 +94,18 @@ class MainViewController: UIViewController {
         let menuImg = UIImage(named: "MenuButton.png")
         let menuB = UIImageView(image: menuImg)
         let menuBut = UIButton()
+        menuBut.userInteractionEnabled = true
         menuBut.setImage(menuImg, forState: UIControlState.Normal)
         
         menuBut.frame = CGRectMake(sidePanel.bounds.size.width / 4 - 2, 1, menuB.bounds.size.width, menuB.bounds.size.height)
+        
+        menuBut.addTarget(self, action: "muterFunction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+
         menuPanel.addSubview(menuBut)
+        
+        
+
         //menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         self.view.addSubview(menuPanel)

@@ -17,6 +17,9 @@ class MapRender/*: UIView*/ {
     var unitCount: Int = 0
     
     //each map tile is 32x32
+    
+   // static var mapRender = MapRender()
+    
     func readTerrain() -> (Dictionary <String, CGImage>?, Array<String>) {
         //read in the tiles for the map
         let fileName = "Terrain.dat"
