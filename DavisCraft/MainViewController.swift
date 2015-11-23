@@ -25,6 +25,21 @@ class MainViewController: UIViewController {
     static var gameScene: GameScene!
     static var miniMapScene: MiniMapScene!
     
+    func muterFunction(sender: UIButton!)
+    {
+        if (Mute){ //if button was bressed while it was muted
+            print("switched to menu music")
+            Mute = false
+            Sound.playBackgroundMusic("menu.mid")
+        }
+        else //if sound on mute it
+        {
+            print("switched to game1 music")
+            Mute = true
+            Sound.playBackgroundMusic("game1.mid")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -110,14 +125,13 @@ class MainViewController: UIViewController {
         menuPanel.backgroundColor = UIColor(patternImage: UIImage(named: "Texture.png")!)
         self.view.addSubview(menuPanel)
         
-        let descPanel = DescLabelRender()
+
         descPanel.frame = CGRectMake(1, MainViewController.miniMapHeight * 1.5, MainViewController.miniMapWidth, MainViewController.miniMapHeight/1.1)
         
         self.view.addSubview(descPanel)
         MainViewController.gameScene?.setDescPanelRender(descPanel)
         
-        
-        let actionPanel = ActionPanelRender()
+
         actionPanel.frame = CGRectMake(1, (MainViewController.miniMapHeight * 2.5), MainViewController.miniMapWidth/0.95, MainViewController.miniMapHeight / 0.8)
         
         self.view.addSubview(actionPanel)

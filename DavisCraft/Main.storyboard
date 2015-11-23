@@ -509,7 +509,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Texture" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-lq-qe8" userLabel="Bottom">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                                 <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="90E7AEEB-A004-44E0-8901-7828A2251146" translatesAutoresizingMaskIntoConstraints="NO" id="oO7-8R-JU4">
@@ -696,8 +696,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="90E7AEEB-A004-44E0-8901-7828A2251146" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-iG-9yy">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcZ-K9-8lp">
+                                <rect key="frame" x="616" y="344" width="100" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4bc-kQ-KpY"/>
@@ -914,8 +914,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="90E7AEEB-A004-44E0-8901-7828A2251146" translatesAutoresizingMaskIntoConstraints="NO" id="POi-fb-2FZ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezw-XW-TJO">
+                                <rect key="frame" x="618" y="286" width="100" height="50"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="IxF-8m-SFI"/>

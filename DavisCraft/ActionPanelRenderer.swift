@@ -41,7 +41,7 @@ class ActionPanelRender: IconsRender {
         case is Peasant:
             removeCurPanel()
             createBorder()
-            if let peasant = curObject as? Peasant {
+            if let _ = curObject as? Peasant {
                 let (iDictionary, iNames) = readIcons()
                 
                 let humanMove = UIButton()
@@ -94,7 +94,7 @@ class ActionPanelRender: IconsRender {
         case is Footman:
             removeCurPanel()
             createBorder()
-            if let footman = curObject as? Footman {
+            if let _ = curObject as? Footman {
                 let (iDictionary, iNames) = readIcons()
                 
                 let humanMove = UIButton()
@@ -132,7 +132,7 @@ class ActionPanelRender: IconsRender {
         case is Ranger:
             removeCurPanel()
             createBorder()
-            if let ranger = curObject as? Ranger {
+            if let _ = curObject as? Ranger {
                 let (iDictionary, iNames) = readIcons()
                 let humanMove = UIButton()
                 humanMove.setImage(UIImage(CGImage: iDictionary![iNames[85]]!), forState: UIControlState.Normal)
@@ -168,7 +168,7 @@ class ActionPanelRender: IconsRender {
         case is Archer:
             removeCurPanel()
             createBorder()
-            if let archer = curObject as? Archer {
+            if let _ = curObject as? Archer {
                 let (iDictionary, iNames) = readIcons()
                 let humanMove = UIButton()
                 humanMove.setImage(UIImage(CGImage: iDictionary![iNames[85]]!), forState: UIControlState.Normal)
@@ -205,7 +205,7 @@ class ActionPanelRender: IconsRender {
         case is TownHall:
             removeCurPanel()
             createBorder()
-            if let townHall = curObject as? TownHall {
+            if let _ = curObject as? TownHall {
                 let (iDictionary, iNames) = readIcons()
                 
                 let BuildPeasant = UIButton()
@@ -230,13 +230,13 @@ class ActionPanelRender: IconsRender {
         case is GoldMine: //doesnt have any buttons that I am aware of
             removeCurPanel()
             createBorder()
-            if let goldMine = curObject as? GoldMine {
+            if let _ = curObject as? GoldMine {
             }
         case is Barracks:
             removeCurPanel()
             createBorder()
-            if let barracks = curObject as? Barracks {
-                let (iDictionary, iNames) = readIcons()
+            if let _ = curObject as? Barracks {
+                let (iDictionary, _) = readIcons()
                 
                 let BuildFootman = UIButton()
                 BuildFootman.setImage(UIImage(CGImage: iDictionary!["footman"]!), forState: UIControlState.Normal)
@@ -262,8 +262,8 @@ class ActionPanelRender: IconsRender {
         case is BlackSmith: //will need to call Upgrade for archer and Upgrade for footman
             removeCurPanel()
             createBorder()
-            if let blackSmith = curObject as? BlackSmith {
-                let (iDictionary, iNames) = readIcons()
+            if let _ = curObject as? BlackSmith {
+                let (iDictionary, _) = readIcons()
                 
                 let WeaponUpgrade2 = UIButton()
                 WeaponUpgrade2.setImage(UIImage(CGImage: iDictionary!["human-weapon-2"]!), forState: UIControlState.Normal)
@@ -286,7 +286,7 @@ class ActionPanelRender: IconsRender {
         case is Castle:
             removeCurPanel()
             createBorder()
-            if let castle = curObject as? Castle {
+            if let _ = curObject as? Castle {
                 let (iDictionary, iNames) = readIcons()
                 
                 let BuildPeasant = UIButton()
@@ -303,17 +303,17 @@ class ActionPanelRender: IconsRender {
         case is Farm: //no buttons that I know of
             removeCurPanel()
             createBorder()
-            if let farm = curObject as? Farm {
+            if let _ = curObject as? Farm {
             }
         case is GuardTower: //no buttons that I know of
             removeCurPanel()
             createBorder()
-            if let guardTower = curObject as? GuardTower {
+            if let _ = curObject as? GuardTower {
             }
         case is Keep:
             removeCurPanel()
             createBorder()
-            if let keep = curObject as? Keep {
+            if let _ = curObject as? Keep {
                 let (iDictionary, iNames) = readIcons()
                 
                 let BuildPeasant = UIButton()
@@ -338,8 +338,8 @@ class ActionPanelRender: IconsRender {
         case is LumberMill: //check images see if they are correct
             removeCurPanel()
             createBorder()
-            if let lumberMill = curObject as? LumberMill {
-                let (iDictionary, iNames) = readIcons()
+            if let _ = curObject as? LumberMill {
+                let (iDictionary, _) = readIcons()
                 
                 let ArrowUpgrade2 = UIButton()
                 ArrowUpgrade2.setImage(UIImage(CGImage: iDictionary!["human-arrow-2"]!), forState: UIControlState.Normal)
@@ -363,8 +363,8 @@ class ActionPanelRender: IconsRender {
         case is ScoutTower:
             removeCurPanel()
             createBorder()
-            if let scoutTower = curObject as? ScoutTower {
-                let (iDictionary, iNames) = readIcons()
+            if let _ = curObject as? ScoutTower {
+                let (iDictionary, _) = readIcons()
                 
                 let guardTower = UIButton()
                 guardTower.setImage(UIImage(CGImage: iDictionary!["human-guard-tower"]!), forState: UIControlState.Normal)
@@ -398,7 +398,7 @@ class ActionPanelRender: IconsRender {
     
     func cancelMenu(sender: UIButton!){ //presents the cancelMenu screen
         //curObject: SKNode
-        let (iDictionary, iNames) = readIcons()
+        let (iDictionary, _) = readIcons()
         removeCurPanel()
         createBorder()
         let cancelButton = UIButton()
@@ -413,7 +413,7 @@ class ActionPanelRender: IconsRender {
     func returnBack(sender:UIButton!){labelPrint(selectedAsset)} //called by Cancel button to return Back to previous menu
     
     func createBuildings(sender:UIButton!){ //walls will need to be here as well, so there should be eight buttons
-        let (iDictionary, iNames) = readIcons()
+        let (iDictionary, _) = readIcons()
 
         let BuildTownHall = UIButton()
         BuildTownHall.setImage(UIImage(CGImage: iDictionary!["town-hall"]!), forState: UIControlState.Normal)
